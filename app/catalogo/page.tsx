@@ -1,720 +1,785 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
+import {
+  Info,
+  ShoppingCart,
+  MessageCircle,
+  X,
+  Plus,
+  Minus,
+  Trash2,
+  CheckCircle2,
+  Search,
+  LayoutGrid,
+} from "lucide-react";
 
-// ─── TIPOS ───────────────────────────────────────────────
-type Categoria = {
-  id: string;
-  nombre: string;
-  emoji: string;
-  imagen: string;
-  color: string;
-};
+// --- TIPOS DE DATOS ---
+type TipoVenta = "minorista" | "mayorista";
 
 type Producto = {
   id: string;
   categoria_id: string;
+  tipo_venta: TipoVenta;
   nombre: string;
+  descripcion: string;
+  formato_venta: string;
+  peso: string;
+  sabor: string;
   precio: number;
+  colorBadge: string;
 };
 
-// ─── DATOS DE CATEGORÍAS (Fijos) ─────────────────────────
-const CATEGORIAS_INFO: Categoria[] = [
+type CarritoItem = {
+  producto: Producto;
+  cantidad: number;
+};
+
+// --- INFO DE LAS CATEGORÍAS ---
+const CATEGORIAS_INFO = [
   {
     id: "frutos",
-    nombre: "Frutos Secos & Snacks",
-    emoji: "🥜",
+    nombre: "Frutos Secos",
     imagen:
-      "https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=800&q=80",
-    color: "#c0392b",
+      "https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=1200&q=80",
   },
   {
     id: "condimentos",
-    nombre: "Condimentos & Especias",
-    emoji: "🧂",
+    nombre: "Condimentos",
     imagen:
-      "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=800&q=80",
-    color: "#e67e22",
+      "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80",
   },
   {
     id: "cereales",
-    nombre: "Cereales & Semillas",
-    emoji: "🌾",
+    nombre: "Cereales",
     imagen:
-      "https://images.unsplash.com/photo-1511909525232-61113c912358?w=800&q=80",
-    color: "#27ae60",
+      "https://images.unsplash.com/photo-1511909525232-61113c912358?w=1200&q=80",
   },
   {
-    id: "panificados",
-    nombre: "Panificados & Repostería",
-    emoji: "🍞",
+    id: "snacks",
+    nombre: "Snacks",
     imagen:
-      "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=800&q=80",
-    color: "#8e44ad",
+      "https://images.unsplash.com/photo-1631379578550-7038263db699?w=1200&q=80",
   },
   {
-    id: "hierbas",
-    nombre: "Hierbas & Remedios Materos",
-    emoji: "🌿",
+    id: "semillas",
+    nombre: "Semillas",
     imagen:
-      "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=800&q=80",
-    color: "#16a085",
+      "https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=1200&q=80",
   },
   {
     id: "frutas",
     nombre: "Frutas Deshidratadas",
-    emoji: "🍇",
     imagen:
-      "https://images.unsplash.com/photo-1596591606975-97ee5cef3a1e?w=800&q=80",
-    color: "#d35400",
+      "https://images.unsplash.com/photo-1596591606975-97ee5cef3a1e?w=1200&q=80",
+  },
+  {
+    id: "remedios",
+    nombre: "Remedios Materos",
+    imagen:
+      "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=1200&q=80",
+  },
+  {
+    id: "panaderia",
+    nombre: "Panadería",
+    imagen:
+      "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1200&q=80",
   },
   {
     id: "almacen",
-    nombre: "Almacén & Encurtidos",
-    emoji: "🫙",
+    nombre: "Almacén",
     imagen:
-      "https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?w=800&q=80",
-    color: "#2980b9",
-  }, // Imagen actualizada: Frascos/Aceitunas
+      "https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?w=1200&q=80",
+  },
+  {
+    id: "galletitas",
+    nombre: "Galletitas",
+    imagen:
+      "https://images.unsplash.com/photo-1575224300306-1b8da36134ec?w=1200&q=80",
+  },
   {
     id: "golosinas",
-    nombre: "Galletitas & Golosinas",
-    emoji: "🍬",
+    nombre: "Golosinas",
     imagen:
-      "https://images.unsplash.com/photo-1575224300306-1b8da36134ec?w=800&q=80",
-    color: "#e91e8c",
-  }, // Imagen actualizada: Gomitas/Dulces
+      "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=1200&q=80",
+  },
+  {
+    id: "varios",
+    nombre: "Varios",
+    imagen:
+      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80",
+  },
 ];
 
-const WA_NUMBER = "5493704569418";
-const WA_MSG = encodeURIComponent(
-  "Hola! Quiero consultar el precio de un producto del catálogo 👋",
-);
-
-// Función para formatear precio como moneda ARS
-const formatoMoneda = (monto: number) => {
-  return new Intl.NumberFormat("es-AR", {
-    style: "currency",
-    currency: "ARS",
-    maximumFractionDigits: 0,
-  }).format(monto);
+const parsearPrecio = (precioStr: string): number => {
+  if (!precioStr) return 0;
+  let limpio = precioStr.replace(/[$\s"]/g, "").trim();
+  limpio = limpio.replace(/\./g, "").replace(",", ".");
+  const precio = parseFloat(limpio);
+  return isNaN(precio) ? 0 : precio;
 };
 
-// ─── COMPONENTE PRINCIPAL ────────────────────────────────
-export default function Catalogo() {
-  const [activa, setActiva] = useState<string>("frutos");
-  const [busqueda, setBusqueda] = useState("");
+const determinarCategoria = (nombre: string): string => {
+  const n = nombre.toLowerCase();
+  if (
+    n.includes("maní") ||
+    n.includes("almendra") ||
+    n.includes("nuez") ||
+    n.includes("castaña") ||
+    n.includes("garrapiñada") ||
+    n.includes("crocante")
+  )
+    return "frutos";
+  if (
+    n.includes("ají") ||
+    n.includes("ajo") ||
+    n.includes("orégano") ||
+    n.includes("pimentón") ||
+    n.includes("comino") ||
+    n.includes("curry") ||
+    n.includes("condimento") ||
+    n.includes("pimienta") ||
+    n.includes("sal")
+  )
+    return "condimentos";
+  if (
+    n.includes("copos") ||
+    n.includes("avena") ||
+    n.includes("granola") ||
+    n.includes("cereales") ||
+    n.includes("aritos") ||
+    n.includes("almohadita")
+  )
+    return "cereales";
+  if (
+    n.includes("papa") ||
+    n.includes("chisito") ||
+    n.includes("puflito") ||
+    n.includes("tutuca") ||
+    n.includes("palito")
+  )
+    return "snacks";
+  if (
+    n.includes("chia") ||
+    n.includes("lino") ||
+    n.includes("sesamo") ||
+    n.includes("girasol") ||
+    n.includes("semilla")
+  )
+    return "semillas";
+  if (
+    n.includes("pasas") ||
+    n.includes("ciruela") ||
+    n.includes("arandanos") ||
+    n.includes("banana chip") ||
+    n.includes("papaya") ||
+    n.includes("mix") ||
+    n.includes("frutilla")
+  )
+    return "frutas";
+  if (
+    n.includes("manzanilla") ||
+    n.includes("tilo") ||
+    n.includes("boldo") ||
+    n.includes("cedrón") ||
+    n.includes("menta") ||
+    n.includes("remedio")
+  )
+    return "remedios";
+  if (
+    n.includes("pan") ||
+    n.includes("bocadito") ||
+    n.includes("grisin") ||
+    n.includes("leche")
+  )
+    return "panaderia";
+  if (
+    n.includes("aceituna") ||
+    n.includes("vinagre") ||
+    n.includes("aceite") ||
+    n.includes("tomate") ||
+    n.includes("pepino")
+  )
+    return "almacen";
+  if (n.includes("galletita") || n.includes("integral")) return "galletitas";
+  if (n.includes("gomita") || n.includes("caramelo") || n.includes("lenteja"))
+    return "golosinas";
+  return "varios";
+};
+
+export default function CatalogoPro() {
   const [productos, setProductos] = useState<Producto[]>([]);
   const [loading, setLoading] = useState(true);
 
-  // Cargar y parsear el CSV
+  // --- ESTADOS DE FILTROS ---
+  const [tipoVentaActiva, setTipoVentaActiva] =
+    useState<TipoVenta>("minorista");
+  const [categoriaActiva, setCategoriaActiva] = useState<string>("todas");
+  const [busqueda, setBusqueda] = useState<string>("");
+
+  // --- ESTADOS DE UI (Scroll y Modales) ---
+  const [mostrarHeader, setMostrarHeader] = useState(true);
+  const [lastScrollY, setLastScrollY] = useState(0);
+
+  const [modalCategoriasAbierto, setModalCategoriasAbierto] = useState(false);
+  const [modalCarritoAbierto, setModalCarritoAbierto] = useState(false);
+  const [modalProductoAbierto, setModalProductoAbierto] = useState(false);
+  const [productoSeleccionado, setProductoSeleccionado] =
+    useState<Producto | null>(null);
+
+  // --- ESTADOS DE CARRITO Y CHECKOUT ---
+  const [carrito, setCarrito] = useState<CarritoItem[]>([]);
+  const [nombreCli, setNombreCli] = useState("");
+  const [apellidoCli, setApellidoCli] = useState("");
+  const [metodoPago, setMetodoPago] = useState("Efectivo");
+
+  // --- EFECTO DE OCULTAR HEADER AL SCROLLEAR ---
   useEffect(() => {
-    const fetchProductos = async () => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      // Si scrollea hacia abajo y pasa los 100px, oculta el header
+      if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        setMostrarHeader(false);
+      } else {
+        // Si scrollea hacia arriba, lo muestra
+        setMostrarHeader(true);
+      }
+      setLastScrollY(currentScrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [lastScrollY]);
+
+  // --- CARGA DE CSV ---
+  useEffect(() => {
+    const cargarDatos = async () => {
       try {
-        const response = await fetch("/db/productos.csv");
-        const csvText = await response.text();
+        const [resMin, resMay] = await Promise.all([
+          fetch("/db/precios.csv"),
+          fetch("/db/bolsones.csv"),
+        ]);
+        const csvMin = await resMin.text();
+        const csvMay = await resMay.text();
 
-        const lines = csvText.split("\n").filter((line) => line.trim() !== "");
+        const minoristas = csvMin
+          .split("\n")
+          .filter((l) => l.trim())
+          .slice(1)
+          .map((linea, i) => {
+            const partes = linea.split(",");
+            if (partes.length < 2) return null;
+            const nombre = partes[0].trim();
+            const precioStr = partes.slice(6).join(",");
+            return {
+              id: `min-${i}`,
+              categoria_id: determinarCategoria(nombre),
+              tipo_venta: "minorista" as TipoVenta,
+              nombre,
+              descripcion: "",
+              formato_venta: partes[3] ? partes[3].trim() : "Unidad",
+              sabor: partes[4] ? partes[4].trim() : "",
+              peso: partes[5] ? partes[5].trim() : "",
+              precio: parsearPrecio(precioStr),
+              colorBadge:
+                "bg-yellow-500/20 text-yellow-400 border-yellow-500/30",
+            };
+          })
+          .filter(Boolean) as Producto[];
 
-        const dataParsed: Producto[] = lines.slice(1).map((line) => {
-          const regex = /,(?=(?:(?:[^"]*"){2})*[^"]*$)/;
-          const values = line
-            .split(regex)
-            .map((val) => val.replace(/^"|"$/g, "").trim());
+        const mayoristas = csvMay
+          .split("\n")
+          .filter((l) => l.trim())
+          .slice(1)
+          .map((linea, i) => {
+            const partes = linea.split(",");
+            if (partes.length < 2) return null;
+            const nombre = partes[0].trim();
+            const precioStr = partes.slice(1).join(",");
+            return {
+              id: `may-${i}`,
+              categoria_id: determinarCategoria(nombre),
+              tipo_venta: "mayorista" as TipoVenta,
+              nombre,
+              descripcion: "Venta por bulto cerrado.",
+              formato_venta: "Bolsón / Bulto",
+              peso: nombre.match(/X\s?(\d+.*)/i)?.[1] || "Mayorista",
+              sabor: "",
+              precio: parsearPrecio(precioStr),
+              colorBadge: "bg-red-500/20 text-red-400 border-red-500/30",
+            };
+          })
+          .filter(Boolean) as Producto[];
 
-          return {
-            id: values[0] || "",
-            categoria_id: values[1] || "",
-            nombre: values[2] || "",
-            precio: parseFloat(values[3] || "0"),
-          };
-        });
-
-        dataParsed.sort((a, b) => a.nombre.localeCompare(b.nombre));
-        setProductos(dataParsed);
-      } catch (error) {
-        console.error("Error al cargar los productos:", error);
+        setProductos([...minoristas, ...mayoristas]);
+      } catch (e) {
+        console.error("Error CSV:", e);
       } finally {
         setLoading(false);
       }
     };
-
-    fetchProductos();
+    cargarDatos();
   }, []);
 
-  const categoriaActual = CATEGORIAS_INFO.find((c) => c.id === activa)!;
+  // --- FILTRADO (Búsqueda + Categoría + Tipo) ---
+  const productosFiltradosYAgrupados = useMemo(() => {
+    const busquedaLimpia = busqueda.toLowerCase().trim();
 
-  const productosDeCategoria = productos.filter(
-    (p) => p.categoria_id === activa,
+    const filtrados = productos.filter((p) => {
+      const pasaTipo = p.tipo_venta === tipoVentaActiva;
+      const pasaCat =
+        categoriaActiva === "todas" || p.categoria_id === categoriaActiva;
+      const pasaBusqueda =
+        busquedaLimpia === "" ||
+        p.nombre.toLowerCase().includes(busquedaLimpia);
+      return pasaTipo && pasaCat && pasaBusqueda;
+    });
+
+    const grupos: Record<string, Producto[]> = {};
+    filtrados.forEach((p) => {
+      if (!grupos[p.categoria_id]) grupos[p.categoria_id] = [];
+      grupos[p.categoria_id].push(p);
+    });
+
+    Object.keys(grupos).forEach((catId) => {
+      grupos[catId] = grupos[catId]
+        .sort((a, b) => a.nombre.localeCompare(b.nombre))
+        .slice(0, 15);
+    });
+
+    return grupos;
+  }, [productos, tipoVentaActiva, categoriaActiva, busqueda]);
+
+  // --- FUNCIONES DEL CARRITO ---
+  const agregarAlCarrito = (producto: Producto) => {
+    setCarrito((prev) => {
+      const existe = prev.find((item) => item.producto.id === producto.id);
+      if (existe)
+        return prev.map((item) =>
+          item.producto.id === producto.id
+            ? { ...item, cantidad: item.cantidad + 1 }
+            : item,
+        );
+      return [...prev, { producto, cantidad: 1 }];
+    });
+    setModalProductoAbierto(false);
+  };
+  const modificarCantidad = (id: string, delta: number) =>
+    setCarrito((prev) =>
+      prev.map((item) =>
+        item.producto.id === id
+          ? { ...item, cantidad: Math.max(1, item.cantidad + delta) }
+          : item,
+      ),
+    );
+  const eliminarDelCarrito = (id: string) =>
+    setCarrito((prev) => prev.filter((item) => item.producto.id !== id));
+  const totalCarrito = carrito.reduce(
+    (acc, item) => acc + item.producto.precio * item.cantidad,
+    0,
   );
-  const productosFiltrados = productosDeCategoria.filter((p) =>
-    p.nombre.toLowerCase().includes(busqueda.toLowerCase()),
-  );
+
+  const consultarDuda = (producto: Producto) =>
+    window.open(
+      `https://wa.me/5493704569418?text=${encodeURIComponent(`Hola! Tengo una consulta sobre: *${producto.nombre}*.`)}`,
+      "_blank",
+    );
+
+  const enviarPedido = () => {
+    if (!nombreCli || !apellidoCli)
+      return alert("Falta ingresar nombre y apellido.");
+    let texto = `*NUEVO PEDIDO*\n\n*Cliente:* ${nombreCli} ${apellidoCli}\n*Pago:* ${metodoPago}\n*Tipo:* ${tipoVentaActiva.toUpperCase()}\n\n*Detalle:*\n`;
+    carrito.forEach((item) => {
+      texto += `- ${item.cantidad}x ${item.producto.nombre} ($${item.producto.precio * item.cantidad})\n`;
+    });
+    texto += `\n*TOTAL: $${totalCarrito}*`;
+    window.open(
+      `https://wa.me/5493704569418?text=${encodeURIComponent(texto)}`,
+      "_blank",
+    );
+  };
+
+  const formatoMoneda = (monto: number) =>
+    new Intl.NumberFormat("es-AR", {
+      style: "currency",
+      currency: "ARS",
+      maximumFractionDigits: 0,
+    }).format(monto);
 
   return (
-    <main
-      style={{
-        fontFamily: "'Cormorant Garamond', Georgia, serif",
-        background: "#050505",
-        minHeight: "100vh",
-        color: "#fff",
-        overflowX: "hidden",
-      }}
-    >
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Syne:wght@400;600;700;800&display=swap');
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        .font-ui { font-family: 'Syne', sans-serif; }
-
-        @keyframes drift-a { to { transform: translate(40px, 30px) scale(1.05); } }
-        @keyframes drift-b { to { transform: translate(-30px, -40px) scale(1.03); } }
-        .blob-a { animation: drift-a 20s ease-in-out infinite alternate; }
-        .blob-b { animation: drift-b 25s ease-in-out infinite alternate; }
-
-        .glass {
-          background: rgba(15, 15, 15, 0.6);
-          border: 1px solid rgba(255,255,255,0.03);
-          border-radius: 12px;
-          backdrop-filter: blur(10px);
-          -webkit-backdrop-filter: blur(10px);
-        }
-
-        .tab-pill {
-          font-family: 'Syne', sans-serif;
-          font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase;
-          padding: 0.6rem 1.2rem;
-          border-radius: 100px;
-          border: 1px solid rgba(255,255,255,0.05);
-          background: rgba(255,255,255,0.02);
-          color: rgba(255,255,255,0.4);
-          cursor: pointer; white-space: nowrap;
-          transition: all 0.3s ease;
-        }
-        .tab-pill:hover {
-          border-color: rgba(255,255,255,0.15);
-          color: rgba(255,255,255,0.8);
-        }
-        .tab-pill.active {
-          background: rgba(255,255,255,0.1);
-          border-color: rgba(255,255,255,0.2);
-          color: #fff;
-        }
-
-        .product-item {
-          display: flex; align-items: center; justify-content: space-between;
-          padding: 1rem 1.25rem;
-          border-bottom: 1px solid rgba(255,255,255,0.03);
-          transition: background 0.2s, transform 0.2s;
-          gap: 1rem;
-          cursor: pointer;
-        }
-        .product-item:last-child { border-bottom: none; }
-        .product-item:hover { 
-          background: rgba(255,255,255,0.02); 
-          transform: translateX(4px);
-        }
-
-        .search-input {
-          width: 100%;
-          background: rgba(10,10,10,0.8);
-          border: 1px solid rgba(255,255,255,0.05);
-          border-radius: 8px;
-          padding: 0.85rem 1rem 0.85rem 2.75rem;
-          color: #fff;
-          font-family: 'Syne', sans-serif;
-          font-size: 0.85rem;
-          outline: none;
-          transition: border-color 0.3s;
-        }
-        .search-input::placeholder { color: rgba(255,255,255,0.2); }
-        .search-input:focus { border-color: rgba(255,255,255,0.2); }
-
-        .wa-btn {
-          position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 99;
-          display: flex; align-items: center; gap: 0.6rem;
-          padding: 0.85rem 1.5rem;
-          background: #25D366;
-          border-radius: 100px;
-          font-family: 'Syne', sans-serif;
-          font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase;
-          color: #fff; font-weight: 700;
-          text-decoration: none;
-          box-shadow: 0 4px 20px rgba(37,211,102,0.3);
-          transition: transform 0.3s, box-shadow 0.3s;
-        }
-        .wa-btn:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 8px 25px rgba(37,211,102,0.4);
-        }
-
-        .tabs-scroll {
-          display: flex; gap: 0.5rem; overflow-x: auto; padding-bottom: 1rem;
-          scrollbar-width: thin;
-          scrollbar-color: rgba(255,255,255,0.1) transparent;
-        }
-        .tabs-scroll::-webkit-scrollbar { height: 4px; }
-        .tabs-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 10px; }
-
-        /* GRID Y SCROLL RESPONSIVE */
-        .catalog-grid {
-          display: grid;
-          grid-template-columns: 1fr; 
-          gap: 2rem;
-        }
-        
-        /* En celular la lista fluye normal */
-        .lista-scroll {
-          overflow: hidden;
-        }
-
-        @media (min-width: 900px) {
-          .catalog-grid {
-            grid-template-columns: 350px 1fr;
-            align-items: start; /* CRUCIAL: Evita que la columna izq se estire */
-          }
-          
-          /* En PC, limitamos la altura y le damos su propio scroll a la lista */
-          .lista-scroll {
-            max-height: calc(100vh - 350px);
-            overflow-y: auto;
-            padding-right: 8px; /* Espacio para que la barra no pise el contenido */
-          }
-
-          /* Barra de scroll personalizada para la lista */
-          .lista-scroll::-webkit-scrollbar { width: 6px; }
-          .lista-scroll::-webkit-scrollbar-track { background: rgba(0,0,0,0.2); border-radius: 10px; }
-          .lista-scroll::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 10px; }
-          .lista-scroll::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.3); }
-        }
-
-        .count-badge {
-          font-family: 'Syne', sans-serif;
-          font-size: 0.65rem; padding: 0.2rem 0.6rem;
-          border-radius: 4px; background: rgba(255,255,255,0.05);
-          color: rgba(255,255,255,0.5); letter-spacing: 0.1em;
-        }
-
-        mark { background: rgba(255,255,255,0.15); color: #fff; border-radius: 2px; }
-        .deco-line { width: 36px; height: 1px; background: #fff; opacity: 0.3; }
-        
-        @keyframes fadeUp {
-          from { opacity: 0; transform: translateY(12px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        .fade-up { animation: fadeUp 0.5s ease both; }
-      `}</style>
-
-      {/* Aurora blobs sutiles */}
+    <div className="min-h-screen bg-[#0a0a0a] font-sans pb-32 text-white relative">
+      {/* 🔴 HEADER FLOTANTE CON AUTO-HIDE 🔴 */}
       <div
-        className="blob-a"
-        style={{
-          position: "fixed",
-          top: "-10%",
-          left: "-10%",
-          width: "50vw",
-          height: "50vw",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(150,0,0,0.15) 0%, transparent 70%)",
-          filter: "blur(100px)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-      <div
-        className="blob-b"
-        style={{
-          position: "fixed",
-          bottom: "-15%",
-          right: "-10%",
-          width: "60vw",
-          height: "60vw",
-          borderRadius: "50%",
-          background:
-            "radial-gradient(circle, rgba(200,100,0,0.08) 0%, transparent 70%)",
-          filter: "blur(120px)",
-          pointerEvents: "none",
-          zIndex: 0,
-        }}
-      />
-
-      {/* ── HEADER ── */}
-      <header
-        style={{
-          position: "relative",
-          zIndex: 10,
-          padding: "4rem 1.5rem 2rem",
-          maxWidth: "1200px",
-          margin: "0 auto",
-        }}
+        className={`fixed top-0 left-0 w-full z-30 bg-[#0a0a0a]/90 backdrop-blur-xl border-b border-white/10 pt-4 pb-4 px-4 shadow-2xl transition-transform duration-300 ${mostrarHeader ? "translate-y-0" : "-translate-y-full"}`}
       >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-            flexWrap: "wrap",
-            gap: "2rem",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "0.8rem",
-                marginBottom: "1rem",
-              }}
-            >
-              <div className="deco-line" />
-              <span
-                className="font-ui"
-                style={{
-                  fontSize: "0.65rem",
-                  letterSpacing: "0.3em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,0.6)",
-                }}
-              >
-                Catálogo Mayorista y Minorista
-              </span>
-            </div>
+        <div className="max-w-6xl mx-auto space-y-4">
+          <h1 className="text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 tracking-tight text-center md:text-left">
+            El Rey del Maní
+          </h1>
 
-            <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
-              <svg
-                className="w-8 md:w-12 h-auto text-yellow-500"
-                viewBox="0 0 100 60"
-                fill="currentColor"
-              >
-                <path d="M10,50 L90,50 L100,20 L75,35 L50,10 L25,35 L0,20 Z" />
-              </svg>
-              <h1
-                style={{
-                  fontSize: "clamp(2rem, 5vw, 3.5rem)",
-                  fontWeight: 700,
-                  lineHeight: 1,
-                  color: "#fff",
-                  letterSpacing: "-0.02em",
-                }}
-              >
-                El Rey del{" "}
-                <em style={{ fontStyle: "normal", color: "#f0c040" }}>Maní</em>
-              </h1>
-            </div>
+          {/* BARRA DE BÚSQUEDA */}
+          <div className="relative">
+            <Search className="absolute left-4 top-3.5 text-gray-500 w-5 h-5" />
+            <input
+              type="text"
+              placeholder="Buscar por nombre..."
+              value={busqueda}
+              onChange={(e) => setBusqueda(e.target.value)}
+              className="w-full bg-white/5 border border-white/10 rounded-2xl py-3 pl-12 pr-4 text-sm text-white focus:outline-none focus:border-red-500 transition-colors"
+            />
           </div>
-        </div>
-      </header>
 
-      {/* ── TABS DE CATEGORÍAS ── */}
-      <div
-        style={{
-          position: "relative",
-          zIndex: 10,
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 1.5rem 2rem",
-        }}
-      >
-        <div className="tabs-scroll">
-          {CATEGORIAS_INFO.map((cat) => (
+          {/* TOGGLE MINORISTA/MAYORISTA */}
+          <div className="flex gap-2 bg-white/5 p-1 rounded-2xl border border-white/10">
             <button
-              key={cat.id}
-              className={`tab-pill ${activa === cat.id ? "active" : ""}`}
               onClick={() => {
-                setActiva(cat.id);
+                setTipoVentaActiva("minorista");
                 setBusqueda("");
               }}
+              className={`flex-1 py-3 rounded-xl font-bold text-sm transition-all ${tipoVentaActiva === "minorista" ? "bg-yellow-500 text-black shadow-lg shadow-yellow-500/20" : "text-gray-400 hover:text-white"}`}
             >
-              <span style={{ marginRight: "6px" }}>{cat.emoji}</span>{" "}
-              {cat.nombre}
+              🛍️ Minorista
             </button>
-          ))}
+            <button
+              onClick={() => {
+                setTipoVentaActiva("mayorista");
+                setBusqueda("");
+              }}
+              className={`flex-1 py-3 rounded-xl font-bold text-sm transition-all ${tipoVentaActiva === "mayorista" ? "bg-red-600 text-white shadow-lg shadow-red-600/20" : "text-gray-400 hover:text-white"}`}
+            >
+              📦 Mayorista
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* ── CONTENIDO PRINCIPAL (GRID RESPONSIVE) ── */}
-      <div
-        style={{
-          position: "relative",
-          zIndex: 10,
-          maxWidth: "1200px",
-          margin: "0 auto",
-          padding: "0 1.5rem 6rem",
-        }}
-      >
-        <div className="catalog-grid fade-up">
-          {/* COLUMNA IZQUIERDA: Tarjeta de la categoría */}
-          <div
-            className="glass"
-            style={{
-              height: "fit-content",
-              position: "sticky",
-              top: "1.5rem",
-              overflow: "hidden",
-            }}
+      {/* 🔴 BOTONES FLOTANTES INFERIORES (Categorías y Carrito) 🔴 */}
+      <div className="fixed bottom-6 left-0 w-full z-40 px-4 pointer-events-none">
+        <div className="max-w-6xl mx-auto flex justify-between items-end">
+          {/* BOTÓN CATEGORÍAS (Izquierda o Centro) */}
+          <button
+            onClick={() => setModalCategoriasAbierto(true)}
+            className="pointer-events-auto bg-[#1a1a1a] hover:bg-[#2a2a2a] border border-white/20 rounded-full px-6 py-4 text-white flex items-center gap-3 shadow-2xl shadow-black/80 backdrop-blur-md transition-all active:scale-95"
           >
-            <img
-              src={categoriaActual.imagen}
-              alt={categoriaActual.nombre}
-              style={{
-                width: "100%",
-                height: "180px",
-                objectFit: "cover",
-                filter: "brightness(0.6) grayscale(20%)",
-              }}
-            />
-            <div style={{ padding: "2rem" }}>
-              <span
-                className="font-ui"
-                style={{
-                  fontSize: "0.6rem",
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: categoriaActual.color,
-                  display: "block",
-                  marginBottom: "0.5rem",
-                }}
-              >
-                Categoría seleccionada
-              </span>
-              <h2
-                style={{
-                  fontSize: "2rem",
-                  fontWeight: 700,
-                  color: "#fff",
-                  lineHeight: 1.1,
-                  marginBottom: "1rem",
-                }}
-              >
-                {categoriaActual.nombre}
-              </h2>
-              <p
-                className="font-ui"
-                style={{
-                  fontSize: "0.8rem",
-                  color: "rgba(255,255,255,.5)",
-                  lineHeight: 1.6,
-                  marginBottom: "1.5rem",
-                }}
-              >
-                Explora nuestra selección de{" "}
-                {categoriaActual.nombre.toLowerCase()}. Recordá que trabajamos
-                ventas por mayor y menor.
-              </p>
+            <LayoutGrid className="w-5 h-5 text-red-500" />
+            <span className="font-bold">Categorías</span>
+          </button>
 
-              <a
-                href={`https://wa.me/${WA_NUMBER}?text=${WA_MSG}`}
-                target="_blank"
-                rel="noreferrer"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  gap: "0.5rem",
-                  padding: "0.8rem",
-                  borderRadius: "8px",
-                  border: "1px solid rgba(255,255,255,0.1)",
-                  background: "rgba(255,255,255,0.03)",
-                  color: "rgba(255,255,255,0.8)",
-                  fontFamily: "'Syne', sans-serif",
-                  fontSize: "0.75rem",
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                  transition: "all .3s",
-                  width: "100%",
-                }}
-                onMouseOver={(e) =>
-                  (e.currentTarget.style.background = "rgba(255,255,255,0.08)")
-                }
-                onMouseOut={(e) =>
-                  (e.currentTarget.style.background = "rgba(255,255,255,0.03)")
-                }
+          {/* BOTÓN CARRITO (Derecha) */}
+          <button
+            onClick={() => setModalCarritoAbierto(true)}
+            className="pointer-events-auto bg-red-600 hover:bg-red-700 border border-red-500/50 rounded-full p-4 text-white flex items-center gap-2 shadow-2xl shadow-red-900/50 transition-all active:scale-95 relative"
+          >
+            <ShoppingCart className="w-6 h-6" />
+            {carrito.length > 0 && (
+              <span className="absolute -top-2 -right-2 bg-white text-red-600 text-xs font-black w-6 h-6 flex items-center justify-center rounded-full shadow-lg border-2 border-red-600">
+                {carrito.length}
+              </span>
+            )}
+          </button>
+        </div>
+      </div>
+
+      {/* 🔴 MODAL DE CATEGORÍAS (Diseño Pirámide) 🔴 */}
+      {modalCategoriasAbierto && (
+        <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-0 md:p-4 bg-black/80 backdrop-blur-md animate-in fade-in duration-200">
+          <div className="bg-[#121212] border border-white/10 rounded-t-[2rem] md:rounded-[2rem] w-full max-w-lg p-6 relative shadow-2xl animate-in slide-in-from-bottom-10 md:slide-in-from-bottom-0">
+            <div className="flex justify-between items-center mb-8 pb-4 border-b border-white/10">
+              <h2 className="text-xl font-black text-white flex items-center gap-2">
+                <LayoutGrid className="w-6 h-6 text-red-500" />
+                Filtrar por Categoría
+              </h2>
+              <button
+                onClick={() => setModalCategoriasAbierto(false)}
+                className="text-gray-400 hover:text-white p-2 bg-white/5 rounded-full"
               >
-                Atención personalizada
-              </a>
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* CONTENEDOR FLEX ENVOLVENTE (PIRÁMIDE CENTRADA) */}
+            <div className="flex flex-wrap justify-center gap-3 mb-4">
+              <button
+                onClick={() => {
+                  setCategoriaActiva("todas");
+                  setModalCategoriasAbierto(false);
+                }}
+                className={`px-6 py-3 rounded-full text-sm font-bold border transition-all shadow-lg ${categoriaActiva === "todas" ? "bg-white text-black border-white scale-105" : "bg-[#1a1a1a] text-gray-300 border-white/10 hover:border-white/30"}`}
+              >
+                Todas las categorías
+              </button>
+
+              {CATEGORIAS_INFO.map((cat) => (
+                <button
+                  key={cat.id}
+                  onClick={() => {
+                    setCategoriaActiva(cat.id);
+                    setModalCategoriasAbierto(false);
+                  }}
+                  className={`px-5 py-2.5 rounded-full text-sm font-semibold border transition-all ${categoriaActiva === cat.id ? "bg-red-600 text-white border-red-500 shadow-lg shadow-red-900/50 scale-105" : "bg-[#1a1a1a] text-gray-400 border-white/10 hover:border-white/30"}`}
+                >
+                  {cat.nombre}
+                </button>
+              ))}
             </div>
           </div>
+        </div>
+      )}
 
-          {/* COLUMNA DERECHA: Buscador y Lista */}
-          <div
-            style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-          >
-            {/* Buscador */}
-            <div style={{ position: "relative" }}>
-              <svg
-                style={{
-                  position: "absolute",
-                  left: "1rem",
-                  top: "50%",
-                  transform: "translateY(-50%)",
-                  opacity: 0.3,
-                }}
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="white"
-                strokeWidth="2"
-              >
-                <circle cx="11" cy="11" r="8" />
-                <path d="m21 21-4.35-4.35" />
-              </svg>
-              <input
-                className="search-input"
-                placeholder={`Buscar en ${categoriaActual.nombre}...`}
-                value={busqueda}
-                onChange={(e) => setBusqueda(e.target.value)}
-              />
-            </div>
+      {/* 🔴 CONTENEDOR PRINCIPAL DE PRODUCTOS 🔴 */}
+      {/* pt-52 es para darle espacio al header fijo cuando estamos arriba de todo */}
+      <main className="max-w-6xl mx-auto w-full pt-52 md:pt-48 px-4 space-y-16">
+        {loading ? (
+          <div className="flex justify-center py-20">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-600"></div>
+          </div>
+        ) : Object.keys(productosFiltradosYAgrupados).length === 0 ? (
+          <div className="text-center py-20 text-gray-500">
+            <Search className="w-12 h-12 mx-auto mb-4 opacity-20" />
+            <p className="text-xl">No se encontraron productos.</p>
+          </div>
+        ) : (
+          CATEGORIAS_INFO.map((categoria) => {
+            const productosDeEstaCategoria =
+              productosFiltradosYAgrupados[categoria.id] || [];
+            if (productosDeEstaCategoria.length === 0) return null;
 
-            {/* Cabecera de resultados */}
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "space-between",
-                padding: "0.5rem 0.25rem",
-              }}
-            >
-              <span
-                className="font-ui"
-                style={{
-                  fontSize: "0.65rem",
-                  letterSpacing: "0.2em",
-                  textTransform: "uppercase",
-                  color: "rgba(255,255,255,.4)",
-                }}
-              >
-                Lista de precios
-              </span>
-              <span className="count-badge">
-                {loading
-                  ? "Cargando..."
-                  : `${productosFiltrados.length} resultados`}
-              </span>
-            </div>
-
-            {/* Lista de Productos CON SCROLL PROPIO (Clase lista-scroll) */}
-            <div className="glass lista-scroll">
-              {loading ? (
-                <div
-                  style={{
-                    padding: "4rem",
-                    textAlign: "center",
-                    color: "rgba(255,255,255,.3)",
-                    fontFamily: "'Syne',sans-serif",
-                    fontSize: "0.85rem",
-                  }}
-                >
-                  Cargando base de datos...
+            return (
+              <section key={categoria.id} className="scroll-mt-40">
+                {/* BANNER DE LA CATEGORÍA */}
+                <div className="relative h-28 md:h-40 rounded-[2rem] overflow-hidden mb-6 border border-white/10 shadow-2xl">
+                  <div className="absolute inset-0 bg-black/60 z-10" />
+                  <img
+                    src={categoria.imagen}
+                    alt={categoria.nombre}
+                    className="absolute inset-0 w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 z-20 flex items-center justify-center p-6 bg-gradient-to-t from-[#0a0a0a]/80 via-transparent to-transparent">
+                    <h2 className="text-2xl md:text-4xl font-black text-white tracking-widest uppercase drop-shadow-lg text-center">
+                      {categoria.nombre}
+                    </h2>
+                  </div>
                 </div>
-              ) : productosFiltrados.length === 0 ? (
-                <div
-                  style={{
-                    padding: "4rem",
-                    textAlign: "center",
-                    color: "rgba(255,255,255,.3)",
-                    fontFamily: "'Syne',sans-serif",
-                    fontSize: "0.85rem",
-                  }}
-                >
-                  Sin resultados para {busqueda}
-                </div>
-              ) : (
-                productosFiltrados.map((prod, i) => {
-                  const q = busqueda.trim();
-                  const highlighted = q
-                    ? prod.nombre.replace(
-                        new RegExp(
-                          `(${q.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`,
-                          "gi",
-                        ),
-                        "<mark>$1</mark>",
-                      )
-                    : prod.nombre;
 
-                  return (
-                    <a
-                      key={prod.id || i}
-                      href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(`¡Hola! Quiero consultar por: ${prod.nombre}`)}`}
-                      target="_blank"
-                      rel="noreferrer"
-                      style={{
-                        textDecoration: "none",
-                        color: "inherit",
-                        display: "block",
-                      }}
+                {/* GRILLA DE PRODUCTOS */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+                  {productosDeEstaCategoria.map((prod) => (
+                    <div
+                      key={prod.id}
+                      className="bg-[#121212] border border-white/5 rounded-[2rem] p-5 hover:border-red-500/50 transition-all duration-300 flex flex-col justify-between"
                     >
-                      <div className="product-item">
-                        <div
-                          style={{ flex: 1, minWidth: 0, paddingRight: "1rem" }}
-                        >
+                      <div className="relative z-10">
+                        <div className="flex justify-between items-start mb-4">
                           <span
-                            style={{
-                              fontFamily: "'Cormorant Garamond', serif",
-                              fontSize: "1.1rem",
-                              color: "rgba(255,255,255,0.9)",
-                              lineHeight: 1.3,
-                            }}
-                            dangerouslySetInnerHTML={{ __html: highlighted }}
-                          />
+                            className={`px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider border ${prod.colorBadge}`}
+                          >
+                            {prod.tipo_venta}
+                          </span>
                         </div>
-
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "column",
-                            alignItems: "flex-end",
-                            flexShrink: 0,
-                          }}
-                        >
-                          <span
-                            className="font-ui"
-                            style={{
-                              fontSize: "0.95rem",
-                              fontWeight: 700,
-                              color: "#fff",
-                              letterSpacing: "0.05em",
-                            }}
-                          >
-                            {formatoMoneda(prod.precio)}
-                          </span>
-                          <span
-                            className="font-ui"
-                            style={{
-                              fontSize: "0.55rem",
-                              letterSpacing: "0.15em",
-                              textTransform: "uppercase",
-                              color: "rgba(255,255,255,0.3)",
-                              marginTop: "2px",
-                            }}
-                          >
-                            Comprar
-                          </span>
+                        <h3 className="font-bold text-lg md:text-xl mb-3 text-white leading-tight h-14 line-clamp-2">
+                          {prod.nombre}
+                        </h3>
+                        <div className="flex flex-wrap gap-2 mb-6">
+                          {prod.formato_venta && (
+                            <span className="border border-white/10 bg-white/5 text-gray-300 text-xs px-2.5 py-1 rounded-lg">
+                              {prod.formato_venta}
+                            </span>
+                          )}
+                          {prod.peso && (
+                            <span className="border border-white/10 bg-white/5 text-gray-300 text-xs px-2.5 py-1 rounded-lg">
+                              {prod.peso}
+                            </span>
+                          )}
+                          {prod.sabor && (
+                            <span className="border border-white/10 bg-white/5 text-gray-300 text-xs px-2.5 py-1 rounded-lg">
+                              {prod.sabor}
+                            </span>
+                          )}
                         </div>
                       </div>
-                    </a>
-                  );
-                })
+                      <div className="mt-auto border-t border-white/5 pt-4 flex items-center justify-between">
+                        <button
+                          onClick={() => {
+                            setProductoSeleccionado(prod);
+                            setModalProductoAbierto(true);
+                          }}
+                          className="bg-white/5 hover:bg-red-600 text-white border border-white/10 h-10 px-4 rounded-xl text-sm font-semibold transition-all flex items-center gap-2"
+                        >
+                          <Info className="w-4 h-4" /> Info
+                        </button>
+                        <span className="text-xl font-black text-white">
+                          {formatoMoneda(prod.precio)}
+                        </span>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            );
+          })
+        )}
+      </main>
+
+      {/* 🔴 MODAL DEL PRODUCTO 🔴 */}
+      {modalProductoAbierto && productoSeleccionado && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+          <div className="bg-[#121212] border border-white/10 rounded-[2rem] w-full max-w-md p-6 relative shadow-2xl">
+            <button
+              onClick={() => setModalProductoAbierto(false)}
+              className="absolute top-4 right-4 bg-white/5 hover:bg-white/10 p-2 rounded-full text-gray-400 hover:text-white"
+            >
+              <X className="w-5 h-5" />
+            </button>
+            <span
+              className={`inline-block mb-4 px-3 py-1.5 rounded-lg text-[10px] font-bold uppercase tracking-wider border ${productoSeleccionado.colorBadge}`}
+            >
+              {productoSeleccionado.tipo_venta}
+            </span>
+            <h2 className="text-2xl font-black text-white leading-tight mb-2">
+              {productoSeleccionado.nombre}
+            </h2>
+            <p className="text-3xl font-black text-white mb-6">
+              {formatoMoneda(productoSeleccionado.precio)}
+            </p>
+            <div className="flex flex-wrap gap-2 mb-6">
+              {productoSeleccionado.formato_venta && (
+                <span className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">
+                  Formato: <b>{productoSeleccionado.formato_venta}</b>
+                </span>
               )}
+              {productoSeleccionado.peso && (
+                <span className="bg-white/5 border border-white/10 px-3 py-1.5 rounded-lg text-sm text-gray-300">
+                  Medida: <b>{productoSeleccionado.peso}</b>
+                </span>
+              )}
+            </div>
+            {productoSeleccionado.descripcion && (
+              <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                {productoSeleccionado.descripcion}
+              </p>
+            )}
+            <div className="space-y-3">
+              <button
+                onClick={() => agregarAlCarrito(productoSeleccionado)}
+                className="w-full bg-red-600 hover:bg-red-700 text-white h-14 rounded-2xl font-bold text-lg flex items-center justify-center gap-2 transition-all"
+              >
+                <ShoppingCart className="w-5 h-5" /> Agregar al carrito
+              </button>
             </div>
           </div>
         </div>
-      </div>
+      )}
 
-      {/* ── FLOATING WA BUTTON ── */}
-      <a
-        href={`https://wa.me/${WA_NUMBER}?text=${WA_MSG}`}
-        target="_blank"
-        rel="noreferrer"
-        className="wa-btn"
-      >
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
-          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347" />
-        </svg>
-        WhatsApp
-      </a>
-    </main>
+      {/* 🔴 MODAL DEL CARRITO Y CHECKOUT 🔴 */}
+      {modalCarritoAbierto && (
+        <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-0 md:p-4 bg-black/80 backdrop-blur-sm">
+          <div className="bg-[#121212] border border-white/10 rounded-t-[2rem] md:rounded-[2rem] w-full max-w-lg p-5 md:p-6 relative shadow-2xl flex flex-col max-h-[90vh]">
+            <div className="flex justify-between items-center mb-6 pb-4 border-b border-white/10 shrink-0 mt-2 md:mt-0">
+              <h2 className="text-xl md:text-2xl font-black text-white flex items-center gap-2">
+                <ShoppingCart className="w-6 h-6 text-red-500" /> Carrito
+              </h2>
+              <button
+                onClick={() => setModalCarritoAbierto(false)}
+                className="text-gray-400 hover:text-white p-2 bg-white/5 rounded-full"
+              >
+                <X className="w-5 h-5" />
+              </button>
+            </div>
+            <div className="flex-1 overflow-y-auto space-y-3 mb-6 pr-2 custom-scrollbar">
+              {carrito.length === 0 ? (
+                <div className="text-center py-8 text-gray-500">
+                  El carrito está vacío
+                </div>
+              ) : (
+                carrito.map((item) => (
+                  <div
+                    key={item.producto.id}
+                    className="bg-white/5 border border-white/10 rounded-2xl p-3 md:p-4 flex gap-3 items-center"
+                  >
+                    <div className="flex-1 min-w-0">
+                      <h4 className="font-bold text-white text-sm md:text-base truncate">
+                        {item.producto.nombre}
+                      </h4>
+                      <p className="text-red-400 font-bold text-sm">
+                        {formatoMoneda(item.producto.precio)}
+                      </p>
+                    </div>
+                    <div className="flex items-center gap-2 bg-black/50 rounded-xl p-1 border border-white/5 shrink-0">
+                      <button
+                        onClick={() => modificarCantidad(item.producto.id, -1)}
+                        className="p-1 hover:text-red-500"
+                      >
+                        <Minus className="w-4 h-4" />
+                      </button>
+                      <span className="font-bold w-4 text-center text-sm">
+                        {item.cantidad}
+                      </span>
+                      <button
+                        onClick={() => modificarCantidad(item.producto.id, 1)}
+                        className="p-1 hover:text-green-500"
+                      >
+                        <Plus className="w-4 h-4" />
+                      </button>
+                    </div>
+                    <button
+                      onClick={() => eliminarDelCarrito(item.producto.id)}
+                      className="p-2 text-gray-500 hover:text-red-500 shrink-0"
+                    >
+                      <Trash2 className="w-5 h-5" />
+                    </button>
+                  </div>
+                ))
+              )}
+            </div>
+            {carrito.length > 0 && (
+              <div className="border-t border-white/10 pt-4 space-y-4 shrink-0 pb-4 md:pb-0">
+                <div className="flex justify-between items-end mb-2">
+                  <span className="text-gray-400 font-medium">Total:</span>
+                  <span className="text-2xl md:text-3xl font-black text-white">
+                    {formatoMoneda(totalCarrito)}
+                  </span>
+                </div>
+                <div className="grid grid-cols-2 gap-3">
+                  <input
+                    type="text"
+                    placeholder="Nombre"
+                    value={nombreCli}
+                    onChange={(e) => setNombreCli(e.target.value)}
+                    className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white outline-none focus:border-red-500 w-full"
+                  />
+                  <input
+                    type="text"
+                    placeholder="Apellido"
+                    value={apellidoCli}
+                    onChange={(e) => setApellidoCli(e.target.value)}
+                    className="bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm text-white outline-none focus:border-red-500 w-full"
+                  />
+                </div>
+                <div className="flex gap-2">
+                  <button
+                    onClick={() => setMetodoPago("Efectivo")}
+                    className={`flex-1 py-3 rounded-xl font-bold text-sm border transition-all ${metodoPago === "Efectivo" ? "bg-white text-black border-white" : "bg-transparent text-gray-400 border-white/10"}`}
+                  >
+                    Efectivo
+                  </button>
+                  <button
+                    onClick={() => setMetodoPago("Transferencia")}
+                    className={`flex-1 py-3 rounded-xl font-bold text-sm border transition-all ${metodoPago === "Transferencia" ? "bg-white text-black border-white" : "bg-transparent text-gray-400 border-white/10"}`}
+                  >
+                    Transferencia
+                  </button>
+                </div>
+                <button
+                  onClick={enviarPedido}
+                  className="w-full bg-[#25D366] hover:bg-[#20bd5a] text-black h-12 md:h-14 rounded-2xl font-black text-base md:text-lg flex items-center justify-center gap-2 mt-2"
+                >
+                  <CheckCircle2 className="w-5 h-5 md:w-6 md:h-6" /> Enviar
+                  Pedido
+                </button>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
