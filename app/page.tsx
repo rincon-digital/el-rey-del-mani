@@ -35,7 +35,7 @@ export default function Home() {
     };
   }, [menuOpen, modalOpen]);
 
-  const handleWhatsAppSubmit = (e) => {
+  const handleWhatsAppSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const text = encodeURIComponent(
       `¡Hola! Soy ${formData.name}. ${formData.message}`,
