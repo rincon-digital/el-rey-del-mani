@@ -1,0 +1,337 @@
+id,categoria_id,nombre,precio
+almendra_5kg,frutos,ALMENDRA X 5KG,166720
+almendras_150,frutos,ALMENDRAS 150GR,6560
+almendras_kg,frutos,ALMENDRAS X KG,36645
+castana_150,frutos,CASTAÑA DE CAJU X 150GR,5735
+castana_5kg,frutos,CASTAÑA DE CAJU X 5KG,146185
+castana_kg,frutos,CASTAÑA DE CAJU X KG,32215
+chisito_120,frutos,CHISITO 120GR,1555
+chisito_50,frutos,CHISITO 50GR,1270
+chisito_5kg,frutos,CHISITO X 5KG,27285
+chisito_7kg,frutos,CHISITO X 7KG,38400
+chisito_kg,frutos,CHISITO X KG,7250
+crocante_150,frutos,CROCANTE CON MANI 150GR,1445
+crocante_kg,frutos,CROCANTE CON MANI X KG,5080
+garrapinada_170,frutos,GARRAPIÑADA 170GR,1775
+garrapinada_250,frutos,GARRAPIÑADA 250GR,2110
+garrapinada_kg,frutos,GARRAPIÑADA X KG,5640
+lenteja_170,frutos,LENTEJA DE CHOCOLATE 170GR,7300
+lenteja_250,frutos,LENTEJA DE CHOCOLATE 250GR,10230
+lenteja_kg,frutos,LENTEJA DE CHOCOLATE X KG,37390
+mani_170_varios,frutos,"MANI 170GR SALADO, SIN SAL Y SABORIZADOS",1840
+mani_250_varios,frutos,"MANI 250GR SALADO, SIN SAL Y SABORIZADOS",2275
+mani_choco_170,frutos,MANI CON CHOCOLATE 170GR,6440
+mani_choco_250,frutos,MANI CON CHOCOLATE 250GR,8820
+mani_choco_kg,frutos,MANI CON CHOCOLATE X KG,31775
+mani_varios_kg,frutos,"MANI SALADO, SIN SAL, CRUDO Y JAPONES X KG",5360
+mani_vaina_150,frutos,MANI VAINA TOSTADO X 150GR,1865
+mani_vaina_kg,frutos,MANI VAINA TOSTADO X KG,6125
+nuez_150,frutos,NUECES SIN CASCARA 150GR,6765
+nuez_5kg,frutos,NUEZ SIN CASCARA X 5KG,176890
+nuez_kg,frutos,NUECES SIN CASCARA X KG,38830
+palito_170,frutos,"PALITO 170GR SALADO Y SABORIZADO",1725
+palito_kg,frutos,PALITO SALADO X KG,5450
+papa_baston_150,frutos,PAPAS BASTON 150GR,2815
+papa_baston_5kg,frutos,PAPA BASTON X 5 KG,56195
+papa_baston_kg,frutos,PAPAS BASTON X KG,13025
+papa_espanola_60,frutos,PAPAS ESPAÑOLAS Y ACANALADA 60GR,1755
+papa_espanola_120,frutos,PAPAS ESPAÑOLAS Y ACANALADA 120GR,2420
+papa_espanola_5kg,frutos,PAPA ESPAÑOLA/ACANALADA X 5KG,56275
+papa_espanola_kg,frutos,PAPAS ESPAÑOLAS Y ACANALADA X KG,14235
+puflito_40,frutos,PUFLITO 40GR,1270
+puflito_100,frutos,PUFLITO 100GR,1800
+puflito_7kg,frutos,PUFLITO X 7 KG,46780
+puflito_kg,frutos,PUFLITO X KG,8580
+tutuca_50,frutos,TUTUCA BLANCA 50GR,1285
+tutuca_100,frutos,TUTUCA BLANCA 100GR,1460
+tutuca_10kg,frutos,TUTUCA X 10KG,57280
+tutuca_kg,frutos,TUTUCA BLANCA X KG,7440
+aji_150,condimentos,AJI 150GR,2335
+aji_kg,condimentos,AJI X KG,8550
+ajo_polvo_150,condimentos,AJO EN POLVO X 150GR,2765
+ajo_polvo_kg,condimentos,AJO EN POLVO X KG,11340
+ajo_triturado_150,condimentos,AJO TRITURADO X150GR,3325
+ajo_triturado_kg,condimentos,AJO TRITURADO X KG,15070
+albahaca_70,condimentos,ALBAHACA X 70GR,2165
+albahaca_kg,condimentos,ALBAHACA X KG,14695
+anis_100,condimentos,ANIS X 100GR,2735
+anis_kg,condimentos,ANIS X KG,16620
+azafran,condimentos,AZAFRAN EN CAPSULA,1130
+caldo_sintacc_6,condimentos,CALDO DE VERDURA CON SAL SINTACC X 6UND,14040
+caldo_sintacc_1,condimentos,CALDO DE VERDURA CON SAL SINTACC X UNIDAD,2435
+chimi_150,condimentos,CHIMI 150GR,2450
+chimi_25kg,condimentos,CHIMICHURRI X 25KG,191760
+chimi_kg,condimentos,CHIMI X KG,9230
+colorante_kg,condimentos,COLORANTE ROJO X KG,8525
+comino_150,condimentos,COMINO 150GR,2385
+comino_25kg,condimentos,COMINO X 25KG,179520
+comino_kg,condimentos,COMINO X KG,8740
+cond_arroz_150,condimentos,"COND P/ARROZ, CARNE, EMPANADA, RAVIOLES 150GR",2495
+cond_arroz_10kg,condimentos,"COND. P/ARROZ, P/CARNE, P/EMP. X 10KG",80990
+cond_arroz_kg,condimentos,"COND P/ARROZ, CARNE, EMPANADA, RAVIOLES X KG",9545
+cond_pizza_150,condimentos,COND P/PIZZA X 150GR,2210
+cond_pizza_25kg,condimentos,CONDIMENTO PARA PIZZA X 25KG,156975
+cond_pizza_kg,condimentos,COND P/PIZZA X KG,7675
+coreantro_150,condimentos,COREANTRO MOLIDO / CILANTRO EN POLVO X 150GR,1965
+coreantro_kg,condimentos,COREANTRO MOLIDO / CILANTRO EN POLVO X KG,17500
+curcuma_150,condimentos,CURCUMA 150GR,2335
+curcuma_10kg,condimentos,CURCUMA X 10 KG,70995
+curcuma_kg,condimentos,CURCUMA X KG,8470
+curry_150,condimentos,CURRY 150GR,3150
+curry_5kg,condimentos,CURRY X 5KG,60430
+curry_kg,condimentos,CURRY X KG,13845
+especias_150,condimentos,ESPECIAS SURTIDAS X 150GR,1520
+especias_kg,condimentos,ESPECIAS SURTIDAS X KG,3960
+laurel_25,condimentos,HOJA DE LAUREL X 25GR,1590
+laurel_10kg,condimentos,LAUREL X 10KG,135400
+laurel_kg,condimentos,HOJA DE LAUREL X KG,22905
+integral_chorizo_5kg,condimentos,INTEGRAL DE CHORIZO X 5KG,35575
+integral_chorizo_kg,condimentos,INTEGRAL PARA CHORIZO X KG,8395
+mix_guisero,condimentos,MIX GUISERO,3985
+nuez_moscada_150,condimentos,NUEZ MOSCADA 150GR,2710
+nuez_moscada_10kg,condimentos,NUEZ MOSCADA X 10KG,94330
+nuez_moscada_kg,condimentos,NUEZ MOSCADA X KG,10980
+oregano_100,condimentos,OREGANO X 100GR,1730
+oregano_25kg,condimentos,OREGANO X 25KG,124345
+oregano_kg,condimentos,OREGANO X KG,6270
+perejil_50,condimentos,PEREJIL X 50GR,1815
+perejil_5kg,condimentos,PEREJIL X 5KG,57830
+perejil_kg,condimentos,PEREJIL X KG,13215
+pimenton_150,condimentos,PIMENTON 150GR,2290
+pimenton_25kg,condimentos,PIMENTON X 25KG,169695
+pimenton_kg,condimentos,PIMENTON X KG,8195
+pimienta_blanca_150,condimentos,PIMIENTA BLANCA 150GR,2980
+pimienta_blanca_10kg,condimentos,PIMIENTA BLANCA X 10KG,111000
+pimienta_blanca_kg,condimentos,PIMIENTA BLANCA X KG,12875
+pimienta_negra_150,condimentos,PIMIENTA NEGRA 150GR,2300
+pimienta_negra_10kg,condimentos,PIMIENTA NEGRA X 10KG,69150
+pimienta_negra_kg,condimentos,PIMIENTA NEGRA X KG,8275
+provenzal_150,condimentos,PROVENZAL 150GR,2200
+provenzal_25kg,condimentos,PROVENZAL X 25KG,155860
+provenzal_kg,condimentos,PROVENZAL X KG,7605
+tira_aji,condimentos,EN TIRA AJI,2575
+tira_ajo,condimentos,EN TIRA AJO TRITURADO,3845
+tira_ajo_polvo,condimentos,TIRA AJO EN POLVO X 13 UND,3760
+tira_chimi,condimentos,EN TIRA CHIMI,2705
+tira_especias,condimentos,TIRA DE ESPECIAS SURTIDAS X 13UND,1480
+almohadita_salvado_125,cereales,ALMOHADITA SALVADO X 125GR,2125
+almohadita_salvado_250,cereales,ALMOHADITA SALVADO X 250GR,3365
+almohadita_salvado_1_5kg,cereales,"ALMOHADITA SALVADO X 1,5KG",13395
+almohadita_salvado_kg,cereales,ALMOHADITA SALVADO X KG,10425
+almohadita_sabor_125,cereales,"ALMOHADITA S/MANI, S/LIMON, S/FRUTILLA, S/CHOCOLATE 125GR",1960
+almohadita_sabor_250,cereales,"ALMOHADITA S/MANI, S/LIMON, S/FRUTILLA, S/CHOCOLATE 250GR",3045
+almohadita_sabor_2kg,cereales,ALMOHADITAS X 2KG,14295
+almohadita_sabor_kg,cereales,"ALMOHADITA S/MANI, S/LIMON, S/FRUTILLA, S/CHOCOLATE X KG",9175
+aritos_frutales_125,cereales,ARITOS FRUTALES 125GR,1825
+aritos_frutales_250,cereales,ARITOS FRUTALES 250GR,2760
+aritos_frutales_2kg,cereales,ARITOS FRUTALES X 2KG,12445
+aritos_frutales_kg,cereales,ARITOS FRUTALES X KG,8015
+aritos_miel_2kg,cereales,ARITOS DE MIEL X 2KG,17000
+avena_300,cereales,AVENA INSTANTANEA 300GR,1870
+avena_25kg,cereales,AVENA X 25KG,81425
+avena_kg,cereales,AVENA INSTANTANEA X KG,4425
+bolita_choco_125,cereales,BOLITA DE CHOCOLATE 125GR,2040
+bolita_choco_250,cereales,BOLITA DE CHOCOLATE 250GR,3200
+bolita_choco_2kg,cereales,BOLITA DE CHOCOLATE X 2 KG,14030
+bolita_choco_kg,cereales,BOLITA DE CHOCOLATE X KG,9765
+chia_150,cereales,CHIA X 150GR,3150
+chia_5kg,cereales,SEMILLA DE CHIA X 5KG,58505
+chia_kg,cereales,CHIA X KG,14990
+chia_tira,cereales,TIRA DE CHIA X 13 UNIDADES,4740
+copos_azucar_125,cereales,COPOS DE MAIZ AZUCARADO 125 GR,1755
+copos_azucar_250,cereales,COPOS DE MAIZ AZUCARADO 250GR,2625
+copos_azucar_2kg,cereales,COPOS AZUCARADO X 2 KG,11575
+copos_azucar_kg,cereales,COPOS DE MAIZ AZUCARADO X KG,7480
+copos_sin_125,cereales,COPOS DE MAIZ SIN AZUCAR 125GR,1640
+copos_sin_250,cereales,COPOS DE MAIZ SIN AZUCAR 250GR,2390
+copos_sin_2kg,cereales,COPOS SIN AZUCAR X 2 KG,10025
+copos_sin_kg,cereales,COPOS DE MAIZ SIN AZUCAR X KG,6530
+girasol_pelado_150,cereales,GIRASOL PELADO 150GR,2000
+girasol_pelado_kg,cereales,GIRASOL PELADO X KG,7080
+girasol_semilla_40,cereales,SEMILLA DE GIRASOL X 40GR,250
+girasol_semilla_100,cereales,SEMILLA DE GIRASOL X 100GR,620
+girasol_semilla_5kg,cereales,SEMILLA DE GIRASOL X 5KG,29470
+granola_energia_170,cereales,GRANOLA ENERGETICA Y TROPICAL X 170GR,2945
+granola_energia_kg,cereales,GRANOLA ENERGETICA Y TROPICAL X KG,13015
+granola_premium_170,cereales,GRANOLA PREMIUN X 170GR,3055
+granola_premium_kg,cereales,GRANOLA PREMIUN X KG,14530
+lino_150,cereales,LINO X 150GR,1840
+lino_5kg,cereales,SEMILLA DE LINO X 5KG,20635
+lino_kg,cereales,LINO X KG,5175
+lino_tira,cereales,TIRA DE LINO X 13 UNIDADES,2155
+mix_semillas_150,cereales,MIX DE SEMILLAS X 150GR,2120
+mix_semillas_5kg,cereales,MIX SEMILLA X 5KG,33125
+mix_semillas_kg,cereales,MIX DE SEMILLAS X KG,7865
+mix_semillas_desayuno_150,cereales,MIX DE SEMILLAS DESAYUNO X 150GR,2920
+mix_semillas_desayuno_kg,cereales,MIX SEMILLA DESAYUNO X KG,12360
+mix_semillas_integral_150,cereales,MIX DE SEMILLAS INTEGRAL PREMIUM X 150GR,3315
+mix_semillas_integral_kg,cereales,MIX SEMILLA INTEGRAL PREMIUM X KG,15015
+psyllium_150,cereales,PSYLLIUN SEMILLA -ZARAGOTONA-150GR,4450
+sesamo_blanco_150,cereales,SESAMO BLANCO 150GR,1700
+sesamo_blanco_5kg,cereales,SEMILLA DE SESAMO BLANCO INT X 5K,20170
+sesamo_blanco_kg,cereales,SESAMO BLANCO X KG,5075
+soja_texturizada_150,cereales,SOJA TEXTURIZADA 150GR,1610
+soja_texturizada_5kg,cereales,PROTEINA DE SOJA TEXTURIZADA X 5K,17275
+soja_texturizada_kg,cereales,SOJA TEXTURIZADA X KG,4500
+almidon_500,panificados,ALMIDON DE MANDIOCA X 500GR,2510
+almidon_kg,panificados,ALMIDON DE MANDIOCA X KG,4205
+azucar_impalpable_500,panificados,AZUCAR IMPALPABLE X 500GR,2715
+azucar_impalpable_10kg,panificados,AZUCAR IMPALPABLE X 10KG,35295
+azucar_impalpable_kg,panificados,AZUCAR IMPALPABLE X KG,4625
+azucar_mascabo_400,panificados,AZUCAR MASCABO X 400GR,3170
+azucar_mascabo_10kg,panificados,AZUCAR MASCABO X 10KG,53960
+azucar_mascabo_kg,panificados,AZUCAR MASCABO X KG,6715
+bicarbonato_150,panificados,BICARBONATO DE SODIO 150GR,1770
+bicarbonato_5kg,panificados,BICARBONATO DE SODIO X 5 KG,18630
+bicarbonato_kg,panificados,BICARBONATO DE SODIO X KG,4800
+cacao_150,panificados,CACAO AMARGO EN POLVO 150GR,4050
+cacao_kg,panificados,CACAO AMARGO EN POLVO X KG,21050
+coco_100,panificados,COCO RALLADO X 100GR,2905
+coco_kg,panificados,COCO RALLADO X KG,19705
+fecula_400,panificados,FECULA DE MAIZ X 400GR,2070
+fecula_25kg,panificados,FECULA DE MAIZ X 25KG,70025
+fecula_kg,panificados,FECULA DE MAIZ X KG,3955
+gelatina_200,panificados,GELATINA SIN SABOR X 200GR,7250
+gelatina_kg,panificados,GELATINA SIN SABOR X KG,32085
+gotitas_choco_200,panificados,GOTITA DE CHOCOLATE X 200GR,3835
+gotitas_choco_kg,panificados,GOTITA DE CHOCOLATE X KG,14825
+harina_almendra_17,panificados,HARINA DE ALMENDRA SIN PIEL 100% PURA X 17GR DOYPACK,8865
+harina_almendra_5kg,panificados,HARINA DE ALMEDRA X 5KG,214155
+harina_almendra_kg,panificados,"HARINA DE ALMENDRA SIN PIEL 100% PURA X KG",46860
+huevo_deshidratado_200,panificados,HUEVO DESHIDRATADO X 200GR,1810
+huevo_deshidratado_kg,panificados,HUEVO DESHIDRADO X KG,6390
+polvo_hornear_10kg,panificados,POLVO PARA HORNEAR X 10KG,87665
+pan_leche_doc,panificados,PAN DE LECHE X DOC,4250
+pan_leche_uni,panificados,PAN DE LECHE X UNIDAD,370
+factura_doc,panificados,FACTURA X DOCENA,6875
+factura_uni,panificados,FACTURA X UNIDAD,600
+pan_hamburguesa_4,panificados,PAN DE HAMBURGUESA X 4UND,1250
+pan_hamburguesa_6,panificados,PAN DE HAMBURGUESA Y DE PANCHO X 6 UND,1500
+pan_hamburguesa_20,panificados,PAN DE HAMBURGUESA X 20UND GIGANTES,7500
+pan_hamburguesa_30,panificados,PAN DE HAMBURGUESA X 30UND,7500
+pan_lomito_15,panificados,PAN PARA LOMITO X 15UND,7500
+pan_rallado_kg,panificados,PAN RALLADO X KG,1560
+prepizza,panificados,PREPIZZA,1000
+arandanos_150,frutas,ARANDANOS X 150GR,4950
+arandanos_kg,frutas,ARANDANOS X KG,25890
+banana_chip_100,frutas,BANANA CHIP 100GR,3350
+banana_chip_5kg,frutas,BANANA CHIPS X 5KG,121380
+banana_chip_kg,frutas,BANANA CHIP X KG,23645
+ciruela_170,frutas,CIRUELA 170GR,3600
+ciruela_5kg,frutas,CIRUELA X 5KG,69775
+ciruela_kg,frutas,CIRUELA X KG,15760
+frutilla_150,frutas,FRUTILLA ENTERA 150GR,6715
+frutilla_kg,frutas,FRUTILLA ENTERA X KG,37660
+mix_dulce_125,frutas,"MIX DULCE X 125GR Almendras, Nueces, Chip de banana, Pasas de uva, Mani",3450
+mix_dulce_kg,frutas,"MIX DULCE Almendras, Nueces, Chip de banana, Pasas de uva, Mani X KG",18900
+mix_pan_dulce_150,frutas,MIX PAN DULCE 150GR,4335
+mix_pan_dulce_5kg,frutas,MIX PAN DULCE X 5KG,100725
+mix_pan_dulce_kg,frutas,MIX PAN DULCE X KG,22590
+mix_secos_150,frutas,"MIX SECOS+MANI + AVELLANA + NUEZ + ALMENDRA + CASTAÑA 150GR",6280
+mix_secos_5kg,frutas,MIX SECO X 5KG,156290
+mix_secos_kg,frutas,"MIX SECOS + MANI + AVELLANA + NUEZ + ALMENDRA + CASTAÑA X KG",35545
+mix_tropical_150,frutas,MIX FRUTA TROPICAL+ MANI + BANANA+PAPAYA 150GR,4445
+mix_tropical_5kg,frutas,MIX TROPICAL X 5KG,100725
+mix_tropical_kg,frutas,MIX FRUTA TROPICAL FRUTOS SECOS + MANI + BANANA + PAPAYA X KG,22400
+papaya_170,frutas,PAPAYA X 170GR,3895
+papaya_5kg,frutas,PAPAYA X 5KG,77855
+papaya_kg,frutas,PAPAYA X KG,17500
+pasas_rubia_150,frutas,PASAS DE UVA RUBIA 150GR,3240
+pasas_rubia_5kg,frutas,PASAS DE UVA RUBIA X 5KG,67725
+pasas_rubia_kg,frutas,PASAS DE UVA RUBIA X KG,15430
+pasas_uva_150,frutas,PASAS DE UVA 150GR,2280
+pasas_uva_morocha_5kg,frutas,PASAS DE UVA MOROCHA X 5KG,38135
+pasas_uva_kg,frutas,PASAS DE UVA X KG,8920
+aceite_coco_360,almacen,ACEITE DE COCO 360CC EN FRASCO,8815
+aceite_girasol_900,almacen,ACEITE DE GIRASOL X 900ML,2410
+aceite_oliva_250,almacen,ACEITE DE OLIVA X 250ML,2785
+aceituna_negra_carozo_300,almacen,ACEITUNA NEGRA CON CAROZO DOYPACK X 300GR,2485
+aceituna_negra_carozo_kg,almacen,ACEITUNA NEGRA CON CAROZO X KG,6700
+aceituna_negra_rodaja_300,almacen,ACEITUNA NEGRA EN RODAJA DOYPACK X 300GR,2300
+aceituna_negra_rodaja_kg,almacen,ACEITUNA NEGRA EN RODAJA X KG,6045
+aceituna_negra_sin_carozo_300,almacen,ACEITUNA NEGRA SIN CAROZO DOYPACK X 300GR,2615
+aceituna_negra_sin_carozo_kg,almacen,ACEITUNA NEGRA SIN CAROZO X KG,7070
+aceituna_verde_5kg,almacen,ACEITUNA VERDE BALDE DE 5KG,2410
+aceituna_verde_carozo_300,almacen,ACEITUNA VERDE CON CAROZO DOYPACK X 300GR,2180
+aceituna_verde_carozo_kg,almacen,ACEITUNA VERDE CON CAROZO X KG,5630
+aceituna_verde_rodaja_300,almacen,ACEITUNA VERDE EN RODAJA DOYPACK X 300GR,2180
+aceituna_verde_rodaja_kg,almacen,ACEITUNA VERDE EN RODAJA X KG,5630
+aceituna_verde_rellena_300,almacen,ACEITUNA VERDE RELLENA DE MORRON DOYPACK X 300GR,2735
+aceituna_verde_rellena_kg,almacen,ACEITUNA VERDE RELLENA DE MORRON X KG,7480
+aceituna_verde_sin_carozo_300,almacen,ACEITUNA VERDE SIN CAROZO DOYPACK X 300GR,2230
+aceituna_verde_sin_carozo_kg,almacen,ACEITUNA VERDE SIN CAROZO X KG,5790
+aceto_balsamico_500,almacen,ACETO BALSAMICO X 500ML,3725
+agua_mesa_8l,almacen,AGUA DE MESA BLUE WATER X 8L,3170
+agua_mesa_10l,almacen,AGUA DE MESA BLUE WATER X 10L,3375
+caramelo_miel_kg,almacen,CARAMELO DE MIEL X KG,12090
+cebollitas_300,almacen,CEBOLLITAS EN VINAGRE DOYPACK X 300GR,3625
+cebollitas_kg,almacen,CEBOLLITAS EN VINAGRE X KG,10305
+champinones_300,almacen,CHAMPIÑONES AL NATURAL DOYPACK X 300GR,3550
+champinones_kg,almacen,CHAMPIÑONES AL NATURAL X KG,10425
+jugo_limon_500,almacen,JUGO DE LIMON X 500ML,1950
+pepinos_vinagre_300,almacen,PEPINOS EN VINAGRE DOYPACK X 300GR,4340
+pepinos_vinagre_kg,almacen,PEPINOS EN VINAGRE X KG,12695
+pickles_300,almacen,PICKLE MIXTO CON ACEITUNA NEGRA EN VINAGRE DOYPACK X 300GR,1865
+pickles_kg,almacen,PICKLE MIXTO CON ACEITUNA NEGRA EN VINAGRE X KG,4590
+pimenton_salmuera_300,almacen,PIMENTON ROJA AL NATURAL EN SALMUERA DOYPACK X 300GR,1590
+pimenton_salmuera_kg,almacen,PIMENTON ROJA AL NATURAL EN SALMUERA X KG,4470
+sal_ajo_100,almacen,SAL DE AJO X 100GR,1790
+sal_ajo_kg,almacen,SAL DE AJO X KG,8500
+sal_carnes_100,almacen,SAL PARA CARNES ROJAS X 100GR,1625
+sal_carnes_kg,almacen,SAL PARA CARNES ROJAS X KG,7500
+sal_entrefina_400,almacen,SAL ENTREFINA X 400GR,700
+sal_fina_450,almacen,SAL FINA X 450GR,765
+sal_himalaya_170,almacen,SAL DEL HIMALAYA X 170GR,2470
+sal_himalaya_5kg,almacen,SAL DEL HIMALAYA X 5 KG,17540
+sal_himalaya_kg,almacen,SAL DEL HIMALAYA X KG,4715
+sal_marina_fina_500,almacen,SAL MARINA FINA X 500GR,2475
+sal_marina_gruesa_500,almacen,SAL MARINA GRUESA X 500GR,2475
+tomate_triturado_300,almacen,TOMATE TRITURADO AL NATURAL DOYPACK X 300GR,1345
+tomate_triturado_kg,almacen,TOMATE TRITURADO AL NATURAL X KG,2710
+vinagre_alcohol_300,almacen,VINAGRE DE ALCOHOL X 300ML,775
+vinagre_manzana_300,almacen,VINAGRE DE MANZANA X 300ML,890
+vinagre_vino_300,almacen,VINAGRE DE VINO X 300ML,825
+galletita_diabest_200,golosinas,GALLETITA DIABEST COCO Y AVENA 200GR,2475
+galletita_frutigram_250,golosinas,GALLETITA FRUTIGRAM AVENA Y PASAS X 250GR,2395
+gomitas_acidas_500,golosinas,GOMITAS BOTONES ACIDOS X 500GR,6270
+gomitas_surtidas_500,golosinas,"GOMITAS BANANITAS, ESTRELLITAS SURTIDAS X 500GR",5700
+gomitas_surtidas_800,golosinas,"GOMITAS CONITO FRUT, CONITOS SURT, CONITOS MENTOL, BOTONES SURT, EUCALIPTOS X800G",6860
+gomitas_kiosco_2100,golosinas,"GOMITAS KIT KIOSCOS (ESTRELLITAS, CONITOS FRUTILLA, BOTONES, BOLISTAS) X2100G",17530
+integral_aritos_200,golosinas,INTEGRAL ARITOS X 200GR,2475
+pepas_avena_270,golosinas,PEPAS DE AVENA INTEGRALIA X 270GR,3105
+ajenjo_50,hierbas,AJENJO POTE DE 50G,1795
+alcachofa_50,hierbas,ALCACHOFA 50GR,1705
+alfalfa_40,hierbas,ALFALFA X 40GR,1530
+altamisa_60,hierbas,ALTAMISA X 60GR,1835
+altamisa_kg,hierbas,ALTAMISA X KG,11350
+ambay_50,hierbas,AMBAY POTE X 50GR,1705
+boldo_30,hierbas,BOLDO POTE DE 30GR,1745
+burrito_50,hierbas,BURRITO POTE DE 50R,2050
+carnicera_50,hierbas,CARNICERA POTE X 50GR,1720
+carqueja_50,hierbas,CARQUEJA X 50GR,1720
+cedron_30,hierbas,CEDRON POTE DE 30GR,1970
+cola_caballo_40,hierbas,COLA DE CABALLO 40GR,1615
+diente_leon_50,hierbas,DIENTE DE LEON X 50GR,1775
+jazmin_35,hierbas,JAZMIN FLOR X35GR,1720
+manzanilla_50,hierbas,MANZANILLA EN POTE 50GR,3010
+manzanilla_kg,hierbas,MANZANILLA X KG,43140
+melisa_50,hierbas,MELISA X 50GR,1965
+menta_50,hierbas,MENTA POTE DE 50GR,2155
+moringa_50,hierbas,MORINGA POTE DE 50GR,2860
+olivo_40,hierbas,OLIVO POTE X 40GR,1575
+pezuña_vaca_30,hierbas,PEZUÑA DE VACA X 30GR EN POTE,1505
+poleo_70,hierbas,POLEO X 70GR,2500
+romero_50,hierbas,ROMERO 50GR,2160
+tilo_25,hierbas,TILO EN POTE DE 25GR,3185
+tomillo_50,hierbas,TOMILLO EN POTE DE 50GR,2305
+valeriana_70,hierbas,VALERIANA X 70GR EN POTE,5555
+anis_estrellado_50,hierbas,ANIS ESTRELLADO 50GR,4730
+canela_polvo_100,hierbas,CANELA EN POLVO X 100GR,3455
+canela_rama_30,hierbas,CANELA EN RAMA 30GR,3515
+clavo_olor_grano_15,hierbas,CLAVO DE OLOR EN GRANO X 15GR,1890
+jengibre_raiz_50,hierbas,JENGIBRE RAIZ X 50GR,1905
+jengibre_100,hierbas,JENGIBRE X 100GR,3500
+mix_matero_75,hierbas,MIX MATERO 75GR,2560
+super_mate,hierbas,SUPER MATE PREPARALO COMO QUIERAS,8180
+mezcla_digestiva_50,hierbas,"MEZCLA DIGESTIVA X 50GR (BURRITO, POLEO, MANZANILLA FLOR)",2275
+mezcla_relajante_40,hierbas,"MEZCLA RELAJANTE X 40GR (SEN, CEDRON, MANZANILLA FLOR, MANZANILLA PRE-MOLIDA)",2140
