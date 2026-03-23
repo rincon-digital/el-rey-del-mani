@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "El Rey del Maní | Catálogo de Productos",
   description:
     "Catálogo multirrubros: desde frutos secos y condimentos hasta artículos escolares y panificados.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({
