@@ -1,0 +1,2760 @@
+[
+  {
+    "productos": "ALMOHADITA S/MANI, S/LIMON, S/FRUTILLA, S/CHOCOLATE",
+    "categoria": "CEREALES",
+    "precio": "$ 9.175,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALMOHADITA S/MANI, S/LIMON, S/FRUTILLA, S/CHOCOLATE 125GR",
+    "categoria": "CEREALES",
+    "precio": "$ 1.960,00",
+    "detalle_de_producto": "125GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALMOHADITA S/MANI, S/LIMON, S/FRUTILLA, S/CHOCOLATE 250GR",
+    "categoria": "CEREALES",
+    "precio": "$ 3.045,00",
+    "detalle_de_producto": "250GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALMOHADITA SALVADO",
+    "categoria": "CEREALES",
+    "precio": "$ 10.425,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALMOHADITA SALVADO X 125GR",
+    "categoria": "CEREALES",
+    "precio": "$ 2.125,00",
+    "detalle_de_producto": "125GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALMOHADITA SALVADO X 250GR",
+    "categoria": "CEREALES",
+    "precio": "$ 3.365,00",
+    "detalle_de_producto": "250GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ARITOS FRUTALES",
+    "categoria": "CEREALES",
+    "precio": "$ 8.015,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ARITOS FRUTALES 125GR",
+    "categoria": "CEREALES",
+    "precio": "$ 1.825,00",
+    "detalle_de_producto": "125GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ARITOS FRUTALES 250GR",
+    "categoria": "CEREALES",
+    "precio": "$ 2.760,00",
+    "detalle_de_producto": "250GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AVENA INSTANTANEA",
+    "categoria": "CEREALES",
+    "precio": "$ 4.425,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AVENA INSTANTANEA 300GR",
+    "categoria": "CEREALES",
+    "precio": "$ 1.870,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "BOLITA DE CHOCOLATE",
+    "categoria": "CEREALES",
+    "precio": "$ 9.765,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "BOLITA DE CHOCOLATE 125GR",
+    "categoria": "CEREALES",
+    "precio": "$ 2.040,00",
+    "detalle_de_producto": "125GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "BOLITA DE CHOCOLATE 250GR",
+    "categoria": "CEREALES",
+    "precio": "$ 3.200,00",
+    "detalle_de_producto": "250GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COPOS DE MAIZ AZUCARADO",
+    "categoria": "CEREALES",
+    "precio": "$ 7.480,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COPOS DE MAIZ AZUCARADO 125 GR",
+    "categoria": "CEREALES",
+    "precio": "$ 1.755,00",
+    "detalle_de_producto": "125 GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COPOS DE MAIZ AZUCARADO 250GR",
+    "categoria": "CEREALES",
+    "precio": "$ 2.625,00",
+    "detalle_de_producto": "250GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COPOS DE MAIZ SIN AZUCAR",
+    "categoria": "CEREALES",
+    "precio": "$ 6.530,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COPOS DE MAIZ SIN AZUCAR 125GR",
+    "categoria": "CEREALES",
+    "precio": "$ 1.640,00",
+    "detalle_de_producto": "125GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COPOS DE MAIZ SIN AZUCAR 250GR",
+    "categoria": "CEREALES",
+    "precio": "$ 2.390,00",
+    "detalle_de_producto": "250GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GRANOLA ENERGETICA Y TROPICAL",
+    "categoria": "CEREALES",
+    "precio": "$ 13.015,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GRANOLA ENERGETICA Y TROPICAL X 170GR",
+    "categoria": "CEREALES",
+    "precio": "$ 2.945,00",
+    "detalle_de_producto": "170GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GRANOLA PREMIUN",
+    "categoria": "CEREALES",
+    "precio": "$ 14.530,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GRANOLA PREMIUN X 170GR",
+    "categoria": "CEREALES",
+    "precio": "$ 3.055,00",
+    "detalle_de_producto": "170GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AJI",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 8.550,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AJI 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.335,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AJO EN POLVO",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 11.340,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AJO EN POLVO X 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.765,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AJO TRITURADO",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 15.070,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AJO TRITURADO X150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 3.325,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALBAHACA",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 14.695,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALBAHACA X 70GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.165,00",
+    "detalle_de_producto": "70GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ANIS",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 16.620,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ANIS X 100GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.735,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AZAFRAN EN CAPSULA",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 1.130,00",
+    "detalle_de_producto": "Cápsula",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CALDO DE VERDURA CON SAL SINTACC X 6UND",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 14.040,00",
+    "detalle_de_producto": "6 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CALDO DE VERDURA CON SAL SINTACC X UNIDAD",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.435,00",
+    "detalle_de_producto": "Unidad",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CHIMI",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 9.230,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CHIMI 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.450,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COMINO",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 8.740,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COMINO 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.385,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COND, P/ARROZ, CARNE, EMPANADA, RAVIOLES",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 9.545,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COND, P/ARROZ, CARNE, EMPANADA, RAVIOLES 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.495,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COND, P/PIZZA,",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 7.675,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COND, P/PIZZA X 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.210,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COREANTRO MOLIDO / CILANTRO EN POLVO X 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 1.965,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COREANTRO MOLIDO / CILANTRO EN POLVO X 150GR COLORANTE ROJO",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 8.525,00 / $ 17.500,00",
+    "detalle_de_producto": "150GR / X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CURCUMA",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 8.470,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CURCUMA 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.335,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CURRY",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 13.845,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CURRY 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 3.150,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA AJI",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.575,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA AJO TRITURADO",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 3.845,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA ANIS",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 4.075,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA CHIIMI",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.705,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA COMINO",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.600,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA COND, P/ARROZ, CARNE, EMPANADA, RAVIOLES",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.765,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA COND, P/PIZZA,",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.360,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA COREANTRO MOLIDO / CILANTRO EN POLVO",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.540,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA LAUREL",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.585,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA NUEZ MOSCADA",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 3.045,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA OREGANO",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 1.810,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA PEREJIL",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.715,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA PIMENTON",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.500,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA PIMIENTA BLANCA",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 3.400,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA PIMIENTA NEGRA",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.520,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA PROVENZAL",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.385,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "EN TIRA DE CURCUMA",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.555,00",
+    "detalle_de_producto": "En tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ESPECIAS SURTIDAS CONTIENE PEREJIL, AJO EN POLVO, AJI, CORENDRO, PIMENTON",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 3.960,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ESPECIAS SURTIDAS X 150GR PEREJIL, AJO EN POLVO, AJI, CORENDRO, PIMENTON",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 1.520,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "HOJA DE LAUREL",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 22.905,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "HOJA DE LAUREL X 25GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 1.590,00",
+    "detalle_de_producto": "25GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "INTEGRAL PARA CHORIZO",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 8.395,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX GUISERO",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 3.985,00",
+    "detalle_de_producto": "Mix",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "NUEZ MOSCADA",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 10.980,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "NUEZ MOSCADA 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.710,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "OREGANO",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 6.270,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "OREGANO X 100GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 1.730,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PEREJIL",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 13.215,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PEREJIL X 50GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 1.815,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PIMENTON",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 8.195,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PIMENTON 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.290,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PIMIENTA BLANCA",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 12.875,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PIMIENTA BLANCA 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.980,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PIMIENTA NEGRA",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 8.275,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PIMIENTA NEGRA 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.300,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PROVENZAL",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 7.605,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PROVENZAL 150GR",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.200,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIDA DE ESPECIAS SURTIDAS X 13UND X TIRA",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 1.480,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA AJO EN POLVO X 13 UND",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 3.760,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE ALBAHACA",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 2.910,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE CURRY",
+    "categoria": "CONDIMENTOS",
+    "precio": "$ 3.610,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALMENDRAS",
+    "categoria": "FRUTOS SECOS",
+    "precio": "$ 36.645,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALMENDRAS 150GR",
+    "categoria": "FRUTOS SECOS",
+    "precio": "$ 6.560,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CASTAÑA DE CAJU",
+    "categoria": "FRUTOS SECOS",
+    "precio": "$ 32.215,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CASTAÑA DE CAJU X 150GR",
+    "categoria": "FRUTOS SECOS",
+    "precio": "$ 5.735,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "NUECES SIN CASCARA",
+    "categoria": "FRUTOS SECOS",
+    "precio": "$ 38.830,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "NUECES SIN CASCARA 150GR",
+    "categoria": "FRUTOS SECOS",
+    "precio": "$ 6.765,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SEMILLA DE GIRASOL X 40GR",
+    "categoria": "FRUTOS SECOS",
+    "precio": "$ 250,00",
+    "detalle_de_producto": "40GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SEMILLA DE GIRASOL X 100GR",
+    "categoria": "FRUTOS SECOS",
+    "precio": "$ 620,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ARANDANOS X KG",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 25.890,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ARANDANOS X 150GR",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 4.950,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "BANANA CHIP",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 23.645,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "BANANA CHIP 100GR",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 3.350,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CIRUELA",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 15.760,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CIRUELA 170GR",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 3.600,00",
+    "detalle_de_producto": "170GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "FRUTILLA ENTERA",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 37.660,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "FRUTILLA ENTERA 150GR",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 6.715,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX DULCE Almendras, Nueces, Chip de banana, Pasas de uva, Mani X KG",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 18.900,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX DULCE X 125GR Almendras, Nueces, Chip de banana, Pasas de uva, Mani",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 3.450,00",
+    "detalle_de_producto": "125GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX FRUTATROPICAL FRUTOS SECOS + MANI + BANANA + PAPAYA",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 22.400,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX FRUTA TROPICAL+ MANI + BANANA+PAPAYA 150GR",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 4.445,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX PAN DULCE",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 22.590,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX PAN DULCE 150GR",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 4.335,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX SECOS + MANI + AVELLANA + NUEZ + ALMENDRA + CASTAÑA",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 35.545,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX SECOS+MANI + AVELLANA + NUEZ + ALMENDRA + CASTAÑA 150GR",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 6.280,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAPAYA",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 17.500,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAPAYA X 170GR",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 3.895,00",
+    "detalle_de_producto": "170GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PASAS DE UVA",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 8.920,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PASAS DE UVA 150GR",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 2.280,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PASAS DE UVA RUBIA",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 15.430,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PASAS DE UVA RUBIA 150GR",
+    "categoria": "FRUTAS DESHIDRATADAS",
+    "precio": "$ 3.240,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GALLETITA DIABEST COCO Y AVENA 200GR",
+    "categoria": "GALLETITAS",
+    "precio": "$ 2.475,00",
+    "detalle_de_producto": "200GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GALLETITA FRUTIGRAM AVENA Y PASAS X 250GR",
+    "categoria": "GALLETITAS",
+    "precio": "$ 2.395,00",
+    "detalle_de_producto": "250GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "INTEGRAL ARITOS X 200GR",
+    "categoria": "GALLETITAS",
+    "precio": "$ 2.475,00",
+    "detalle_de_producto": "200GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PEPAS DE AVENA INTEGRALIA X 270GR",
+    "categoria": "GALLETITAS",
+    "precio": "$ 3.105,00",
+    "detalle_de_producto": "270GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GARRAPIÑADA",
+    "categoria": "GOLOSINAS",
+    "precio": "$ 5.640,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GARRAPIÑADA 170GR",
+    "categoria": "GOLOSINAS",
+    "precio": "$ 1.775,00",
+    "detalle_de_producto": "170GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GARRAPIÑADA 250GR",
+    "categoria": "GOLOSINAS",
+    "precio": "$ 2.110,00",
+    "detalle_de_producto": "250GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GOMITAS BANANITAS, ESTRELLITAS SURTIDAS X 500GR",
+    "categoria": "GOLOSINAS",
+    "precio": "$ 5.700,00",
+    "detalle_de_producto": "500GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GOMITAS BOTONES ACIDOS X 500GR",
+    "categoria": "GOLOSINAS",
+    "precio": "$ 6.270,00",
+    "detalle_de_producto": "500GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GOMITAS CONITO FRUT, CONITOS SURT, CONITOS MENTOL, BOTONES SURT, EUCALIPTOS X800G",
+    "categoria": "GOLOSINAS",
+    "precio": "$ 6.860,00",
+    "detalle_de_producto": "800G",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GOMITAS KIT KIOSCOS (ESTRELLITAS, CONITOS FRUTILLA, BOTONES, BOLISTAS) X2100G",
+    "categoria": "GOLOSINAS",
+    "precio": "$ 17.530,00",
+    "detalle_de_producto": "2100G",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "LENTEJA DE CHOCOLATE",
+    "categoria": "GOLOSINAS",
+    "precio": "$ 37.390,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "LENTEJA DE CHOCOLATE 170GR",
+    "categoria": "GOLOSINAS",
+    "precio": "$ 7.300,00",
+    "detalle_de_producto": "170GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "LENTEJA DE CHOCOLATE 250GR",
+    "categoria": "GOLOSINAS",
+    "precio": "$ 10.230,00",
+    "detalle_de_producto": "250GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MANI CON CHOCOLATE",
+    "categoria": "GOLOSINAS",
+    "precio": "$ 31.775,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MANI CON CHOCOLATE 170GR",
+    "categoria": "GOLOSINAS",
+    "precio": "$ 6.440,00",
+    "detalle_de_producto": "170GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MANI CON CHOCOLATE 250GR",
+    "categoria": "GOLOSINAS",
+    "precio": "$ 8.820,00",
+    "detalle_de_producto": "250GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MANI SALADO, SIN SAL, CRUDO Y JAPONES",
+    "categoria": "MANÍ Y FRUTOS SECOS",
+    "precio": "$ 5.360,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MANI VAINA TOSTADO",
+    "categoria": "MANÍ Y FRUTOS SECOS",
+    "precio": "$ 6.125,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITE DE COCO 360CC EN FRASCO",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 8.815,00",
+    "detalle_de_producto": "360CC",
+    "empaque": "taper"
+  },
+  {
+    "productos": "ACEITE DE GIRASOL X 900ML",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.410,00",
+    "detalle_de_producto": "900ML",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITE DE OLIVA X 250ML",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.785,00",
+    "detalle_de_producto": "250ML",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA NEGRA CON CAROZO DOYPACK X 300GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.485,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA NEGRA CON CAROZO X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 6.700,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA NEGRA EN RODAJA DOYPACK X 300GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.300,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA NEGRA EN RODAJA X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 6.045,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA NEGRA SIN CAROZO DOYPACK X 300GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.615,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA NEGRA SIN CAROZO X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 7.070,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA VERDE BALDE DE 5KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.410,00",
+    "detalle_de_producto": "5KG",
+    "empaque": "taper"
+  },
+  {
+    "productos": "ACEITUNA VERDE CON CAROZO DOYPACK X 300GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.180,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA VERDE CON CAROZO X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 5.630,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA VERDE EN RODAJA DOYPACK X 300GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.180,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA VERDE EN RODAJA X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 5.630,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA VERDE RELLENA DE MORRON DOYPACK X 300GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.735,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA VERDE RELLENA DE MORRON X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 7.480,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA VERDE SIN CAROZO DOYPACK X 300GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.230,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACEITUNA VERDE SIN CAROZO X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 5.790,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ACETO BALSAMICO X 500ML",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 3.725,00",
+    "detalle_de_producto": "500ML",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AGUA DE MESA BLUE WATER X 8L",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 3.170,00",
+    "detalle_de_producto": "8L",
+    "empaque": "taper"
+  },
+  {
+    "productos": "AGUA DE MESA BLUE WATER X 10L",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 3.375,00",
+    "detalle_de_producto": "10L",
+    "empaque": "taper"
+  },
+  {
+    "productos": "CARAMELO DE MIEL X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 12.090,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CEBOLLITAS EN VINAGRE DOYPACK X 300GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 3.625,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CEBOLLITAS EN VINAGRE X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 10.305,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CHAMPIÑONES AL NATURAL DOYPACK X 300GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 3.550,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CHAMPIÑONES AL NATURAL X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 10.425,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "JUGO DE LIMON X 500ML",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 1.950,00",
+    "detalle_de_producto": "500ML",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PEPINOS EN VINAGRE DOYPACK X 300GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 4.340,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PEPINOS EN VINAGRE X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 12.695,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PICKLE MIXTO CON ACEITUNA NEGRA EN VINAGRE DOYPACK X 300GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 1.865,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PICKLE MIXTO CON ACEITUNA NEGRA EN VINAGRE X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 4.590,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PIMENTON ROJA AL NATURAL EN SALMUERA DOYPACK X 300GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 1.590,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PIMENTON ROJA AL NATURAL EN SALMUERA X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 4.470,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SAL DE AJO X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 8.500,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SAL DE AJO X 100GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 1.790,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SAL DEL HIMALAYA X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 4.715,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SAL DEL HIMALAYA X 170GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.470,00",
+    "detalle_de_producto": "170GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SAL ENTREFINA X 400GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 700,00",
+    "detalle_de_producto": "400GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SAL FINA X 450GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 765,00",
+    "detalle_de_producto": "450GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SAL MARINA FINA X 500GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.475,00",
+    "detalle_de_producto": "500GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SAL MARINA GRUESA X 500GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.475,00",
+    "detalle_de_producto": "500GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SAL PARA CARNES ROJAS X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 7.500,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SAL PARA CARNES ROJAS X 100GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 1.625,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TOMATE TRITURADO AL NATURAL DOYPACK X 300GR",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 1.345,00",
+    "detalle_de_producto": "300GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TOMATE TRITURADO AL NATURAL X KG",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 2.710,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "VINAGRE DE ALCOHOL X 300ML",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 775,00",
+    "detalle_de_producto": "300ML",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "VINAGRE DE MANZANA X 300ML",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 890,00",
+    "detalle_de_producto": "300ML",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "VINAGRE DE VINO X 300ML",
+    "categoria": "MERCADERÍA VARIA",
+    "precio": "$ 825,00",
+    "detalle_de_producto": "300ML",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "BOCADITOS, BOCADITO CHICO, GRISINES",
+    "categoria": "PANIFICADOS",
+    "precio": "1250",
+    "detalle_de_producto": "Varios",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COCADITO CON QUESO-BOCADITO HOJALDRE-GRISIN CON QUESO",
+    "categoria": "PANIFICADOS",
+    "precio": "1625",
+    "detalle_de_producto": "Varios",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "FACTURA X DOCENA",
+    "categoria": "PANIFICADOS",
+    "precio": "6875",
+    "detalle_de_producto": "X Docena",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "FACTURA X UNIDAD",
+    "categoria": "PANIFICADOS",
+    "precio": "600",
+    "detalle_de_producto": "X Unidad",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAN DE HAMBURGUESA X 4UND",
+    "categoria": "PANIFICADOS",
+    "precio": "1250",
+    "detalle_de_producto": "4 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAN DE HAMBURGUESA X 20UND PAN PARA LOMITO X 15UND GIGANTES",
+    "categoria": "PANIFICADOS",
+    "precio": "7500 / 7500",
+    "detalle_de_producto": "20 UND / 15 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAN DE HAMBURGUESA X 30UND",
+    "categoria": "PANIFICADOS",
+    "precio": "7500",
+    "detalle_de_producto": "30 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAN DE HAMBURGUESA Y DE PANCHO X 6 UND",
+    "categoria": "PANIFICADOS",
+    "precio": "1500",
+    "detalle_de_producto": "6 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAN DE LECHE X DOC",
+    "categoria": "PANIFICADOS",
+    "precio": "4250",
+    "detalle_de_producto": "X Docena",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAN DE LECHE X UNIDAD",
+    "categoria": "PANIFICADOS",
+    "precio": "370",
+    "detalle_de_producto": "X Unidad",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAN RALLADO X KG",
+    "categoria": "PANIFICADOS",
+    "precio": "1560",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PREPIZZA",
+    "categoria": "PANIFICADOS",
+    "precio": "1000",
+    "detalle_de_producto": "Unidad",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AJENJO POTE DE 50G",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.795,00",
+    "detalle_de_producto": "50G",
+    "empaque": "taper"
+  },
+  {
+    "productos": "ALCACHOFA 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.705,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALFALFA X 40GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.530,00",
+    "detalle_de_producto": "40GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALTAMISA X KG",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 11.350,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALTAMISA X 60GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.835,00",
+    "detalle_de_producto": "60GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AMBAY POTE X 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.705,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "ANIS ESTRELLADO 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 4.730,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "BOLDO POTE DE 30GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.745,00",
+    "detalle_de_producto": "30GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "BURRITO POTE DE 50R",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.050,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "CANELA EN POLVO X KG",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 23.420,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CANELA EN POLVO X 100GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.455,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CANELA EN RAMA 30GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.515,00",
+    "detalle_de_producto": "30GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CARNICERA POTE X 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.720,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "CARQUEJA X 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.720,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CASCARA DE NARANJA X 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.550,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CEDRON POTE DE 30GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.970,00",
+    "detalle_de_producto": "30GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "CLAVO DE OLOR X KG",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 21.920,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CLAVO DE OLOR EN GRANO X 15GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.890,00",
+    "detalle_de_producto": "15GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COCU X 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.015,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COLA DE CABALLO 40GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.615,00",
+    "detalle_de_producto": "40GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CONGOROSA X 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.790,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CUASSIA X KG",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 10.830,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CUASSIA X 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.705,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "DIENTE DE LEON X 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.775,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ENELDO X 100GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.030,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "FLOR DE JAMAICA X KG",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 25.000,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "FLOR DE JAMAICA X 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.500,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "JAZMIN FLOR X KG",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 28.985,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "JAZMIN FLOR X35GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.720,00",
+    "detalle_de_producto": "35GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "JENGIBRE RAIZ X 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.905,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "JENGIBRE X 100GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.500,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MALVA X 30GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.490,00",
+    "detalle_de_producto": "30GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MANZANILLA EN POTE 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.010,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "MANZANILLA PRE-MOLIDA X KG",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 22.375,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MANZANILLA PRE-MOLIDA 70GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.455,00",
+    "detalle_de_producto": "70GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MANZANILLA X KG",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 43.140,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MARCELA FLOR AMARILLA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 20.435,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MARCELA FLOR AMARILLA 40GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.830,00",
+    "detalle_de_producto": "40GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MELISA X KG",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 15.930,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MELISA X 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.965,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MENTA POTE DE 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.155,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "MEZCLA ACIDES X 50GR (TE VERDE CONGOROSA, MANZANILLA FLOR)",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.945,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MEZCLA ANTI ESTRÉS (CALENDULA, LAVANDA FLOR, PASIONARIA, MANZAN. FLOR, MANZAN. PRE-MOLIDA)",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 27.395,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MEZCLA ANTI ESTRÉS X 40G (CALENDULA, LAVANDA FLOR, PASIONARIA, MANZAN. FLOR, MANZAN. PRE-MOLIDA)",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.265,00",
+    "detalle_de_producto": "40GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MEZCLA ANTIOXIDANTE X KG(TE VERDE, FLOR DE JAMAICA, MANZAN. FLOR, MANZANI. PRE-MOLIDA)",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 21.790,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MEZCLA ANTIOXIDANTE X 50GR(TE VERDE, FLOR DE JAMAICA, MANZAN. FLOR, MANZANI. PRE-MOLIDA)",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.250,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MEZCLA DIGESTIVA X 50GR (BURRITO, POLEO, MANZANILLA FLOR)",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.275,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MEZCLA RELAJANTE X KG (SEN, CEDRON, MANZANILLA FLOR, MANZANILLA PRE-MOLIDA)",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 24.200,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MEZCLA RELAJANTE X 40GR (SEN, CEDRON, MANZANILLA FLOR, MANZANILLA PRE-MOLIDA)",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.140,00",
+    "detalle_de_producto": "40GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX DE FLORES",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.820,00",
+    "detalle_de_producto": "Mix",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX MATERO X KG",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 25.260,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX MATERO 75GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.560,00",
+    "detalle_de_producto": "75GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX MATERO ECONOMICO X KG",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 17.840,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX MATERO ECONOMICO 80GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.265,00",
+    "detalle_de_producto": "80GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MORINGA POTE DE 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.860,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "OLIVO POTE X 40GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.575,00",
+    "detalle_de_producto": "40GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "PALO AZUL POTE X 100GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.125,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "PEZUÑA DE VACA X 30GR EN POTE",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.505,00",
+    "detalle_de_producto": "30GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "POLEO X 70GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.500,00",
+    "detalle_de_producto": "70GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ROMERO 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.160,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ROMPE PIEDRA POTE DE 100GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.085,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "ROSA MOSQUETA X 100GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.495,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SEN X 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.620,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SIEMPRE VIVE X 40GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 5.425,00",
+    "detalle_de_producto": "40GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SUPER MATE EN POTE DE 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.700,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "SUPER MATE PREPARALO COMO QUIERAS",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 8.180,00",
+    "detalle_de_producto": "Super mate",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TE NEGRO Y TE ROJO X 75GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.950,00",
+    "detalle_de_producto": "75GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TE VERDE X 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.665,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TILO EN POTE DE 25GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.185,00",
+    "detalle_de_producto": "25GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "TIRA DE AJENJO DE 13UND. CADA TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.670,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE ALFALFA X 13 UND, X TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.165,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE ALTAMISA X 13 UND, X TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.460,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE AMBAY X 13 UND, X TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.550,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE ANIS ESTRELLADO X 13UND",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 5.965,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE BOLDO DE 13UND C/TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.380,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE BURRITO DE 13UND C/TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.815,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE CANELA EN POLVO X 13UND",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 5.445,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE CARNICERA X 13 UND, X TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.440,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE CARQUEJA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.255,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE CEDRON DE 13UND C/TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.970,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE CLAVO DE OLOR MOLIDO X 13UND",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 5.445,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE COCU",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.205,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE COLA DE CABALLO X 13UND",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.590,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE CONGOROSA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.915,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE DIENTE DE LEON X 13 UND",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.820,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE ENELDO X 13UND",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 4.600,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE FLOR DE JAMAICA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 5.000,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE JAZMIN FLOR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.695,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE JENGIBRE",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 5.560,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE MALVA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.335,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE MANZANILLA 13UND C/TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 6.480,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE MANZANILLA CON ANIS",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 4.685,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE MANZANILLA PRE-MOLIDA 13UND C/TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.780,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE MARCELA FLOR AMARILLA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.245,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE MELISA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.310,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE MENTA DE 13UND C/TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.570,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE MEZCLA ACIDES (TE VERDE CONGOROSA, MANZANILLA FLOR)",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.030,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE MEZCLA ANTI ESTRÉS (CALENDULA, LAVANDA FLOR, PASIONARIA, MANZAN. FLOR, MANZAN. PRE-MOLIDA)",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 4.540,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE MEZCLA ANTIOXIDANTE (TE VERDE, FLOR DE JAMAICA, MANZAN. FLOR, MANZANI. PRE-MOLIDA)",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 4.045,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE MEZCLA DIGESTIVA (BURRITO, POLEO, MANZANILLA FLOR)",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.880,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE MEZCLA RELAJANTE (SEN, CEDRON, MANZANILLA FLOR, MANZANILLA PRE-MOLIDA)",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 4.240,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE MORINGA DE 13UND C/TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 5.670,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE OLIVO X 13UND X TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.305,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE PALO AZUL X 13UND X TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.305,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE PEZUÑA DE VACA X 13UND",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.405,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE POLEO",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.625,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE ROMERO DE 13UND C/TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.575,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE ROSA MOSQUETA X 13UND",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 5.660,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE SEN",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.460,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE SIEMPRE VIVE",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 8.010,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE SUPER MATE X 13UND,",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 4.460,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE TE NEGRO Y ROJO X 13 UND",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.995,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE TE VERDE",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.980,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE TILO DE 13UND C/TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 7.105,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE TOMILLO DE 13UND C/TIRA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.950,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE VALERIANA X 13UND",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 9.180,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE YERBA BUENA",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 3.715,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE ZARZA PARRILLA X TIRA DE 13UND",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.465,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TOMILLO EN POTE DE 50GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 2.305,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "VALERIANA X 70GR EN POTE",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 5.555,00",
+    "detalle_de_producto": "70GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "YERBA BUENA 40GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.975,00",
+    "detalle_de_producto": "40GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ZARZA PARRILLA POTE X 70GR",
+    "categoria": "REMEDIOS MATEROS, TERE",
+    "precio": "$ 1.905,00",
+    "detalle_de_producto": "70GR",
+    "empaque": "taper"
+  },
+  {
+    "productos": "CARDIO MARIANO X KG",
+    "categoria": "SEMILLAS",
+    "precio": "$ 54.170,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CARDIO MARIANO X 150GR",
+    "categoria": "SEMILLAS",
+    "precio": "$ 9.185,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CHIA",
+    "categoria": "SEMILLAS",
+    "precio": "$ 14.990,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CHIA X 150GR",
+    "categoria": "SEMILLAS",
+    "precio": "$ 3.150,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GIRASOL PELADO",
+    "categoria": "SEMILLAS",
+    "precio": "$ 7.080,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GIRASOL PELADO 150GR",
+    "categoria": "SEMILLAS",
+    "precio": "$ 2.000,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "LINO",
+    "categoria": "SEMILLAS",
+    "precio": "$ 5.175,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "LINO X 150GR",
+    "categoria": "SEMILLAS",
+    "precio": "$ 1.840,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX DE SEMILLAS (amaranto, lino, chia, sesamo integral)",
+    "categoria": "SEMILLAS",
+    "precio": "$ 7.865,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX DE SEMILLAS DESAYUNO",
+    "categoria": "SEMILLAS",
+    "precio": "$ 12.360,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX DE SEMILLAS DESAYUNO X 150GR",
+    "categoria": "SEMILLAS",
+    "precio": "$ 2.920,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX DE SEMILLAS INTEGRAL PREMIUM",
+    "categoria": "SEMILLAS",
+    "precio": "$ 15.015,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX DE SEMILLAS INTEGRAL PREMIUM X 150GR",
+    "categoria": "SEMILLAS",
+    "precio": "$ 3.315,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MIX DE SEMILLAS X 150GR",
+    "categoria": "SEMILLAS",
+    "precio": "$ 2.120,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PSYLLIUN SEMILLA -ZARAGOTONA-150GR",
+    "categoria": "SEMILLAS",
+    "precio": "$ 4.450,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SESAMO BLANCO",
+    "categoria": "SEMILLAS",
+    "precio": "$ 5.075,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SESAMO BLANCO 150GR",
+    "categoria": "SEMILLAS",
+    "precio": "$ 1.700,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SOJA TEXTURIZADA",
+    "categoria": "SEMILLAS",
+    "precio": "$ 4.500,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "SOJA TEXTURIZADA 150GR",
+    "categoria": "SEMILLAS",
+    "precio": "$ 1.610,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE CARDIO MARIANO X 13 UND",
+    "categoria": "SEMILLAS",
+    "precio": "$ 11.510,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE CHIA X 13 UNIDADES",
+    "categoria": "SEMILLAS",
+    "precio": "$ 4.740,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE LINO X 13 UNIDADES",
+    "categoria": "SEMILLAS",
+    "precio": "$ 2.155,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CHISITO",
+    "categoria": "SNACKS",
+    "precio": "$ 7.250,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CHISITO 50GR",
+    "categoria": "SNACKS",
+    "precio": "$ 1.270,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CHISITO 120GR",
+    "categoria": "SNACKS",
+    "precio": "$ 1.555,00",
+    "detalle_de_producto": "120GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CROCANTE CON MANI",
+    "categoria": "SNACKS",
+    "precio": "$ 5.080,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CROCANTE CON MANI 150GR",
+    "categoria": "SNACKS",
+    "precio": "$ 1.445,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MANI 170GR SALADO Y SIN SAL Y J, SABRIZADO PIZZA, JAMON,, QUESO, SALAME, ETC",
+    "categoria": "SNACKS",
+    "precio": "$ 1.840,00",
+    "detalle_de_producto": "170GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MANI 250GR SALADO Y SIN SAL Y J, SABRIZADO PIZZA, JAMON,,QUESO, SALEME ETC",
+    "categoria": "SNACKS",
+    "precio": "$ 2.275,00",
+    "detalle_de_producto": "250GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "MANI VAINA TOSTADO X 150GR",
+    "categoria": "SNACKS",
+    "precio": "$ 1.865,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PALITO 170GR SALADO Y SABORIZADO 140GR",
+    "categoria": "SNACKS",
+    "precio": "$ 1.725,00",
+    "detalle_de_producto": "170GR / 140GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PALITO SALADO",
+    "categoria": "SNACKS",
+    "precio": "$ 5.450,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAPAS BASTON",
+    "categoria": "SNACKS",
+    "precio": "$ 13.025,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAPAS BASTON 150GR",
+    "categoria": "SNACKS",
+    "precio": "$ 2.815,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAPAS ESPAÑOLAS Y ACANALADA",
+    "categoria": "SNACKS",
+    "precio": "$ 14.235,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAPAS ESPAÑOLAS Y ACANALADA 60GR",
+    "categoria": "SNACKS",
+    "precio": "$ 1.755,00",
+    "detalle_de_producto": "60GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PAPAS ESPAÑOLAS Y ACANALADA 120GR",
+    "categoria": "SNACKS",
+    "precio": "$ 2.420,00",
+    "detalle_de_producto": "120GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PUFLITO",
+    "categoria": "SNACKS",
+    "precio": "$ 8.580,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PUFLITO 40GR",
+    "categoria": "SNACKS",
+    "precio": "$ 1.270,00",
+    "detalle_de_producto": "40GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "PUFLITO 100GR",
+    "categoria": "SNACKS",
+    "precio": "$ 1.800,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TUTUCA BLANCA",
+    "categoria": "SNACKS",
+    "precio": "$ 7.440,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TUTUCA BLANCA 50GR",
+    "categoria": "SNACKS",
+    "precio": "$ 1.285,00",
+    "detalle_de_producto": "50GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TUTUCA BLANCA 100GR",
+    "categoria": "SNACKS",
+    "precio": "$ 1.460,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALMIDON DE MANDIOCA X KG",
+    "categoria": "VARIOS",
+    "precio": "$ 4.205,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "ALMIDON DE MANDIOCA X 500GR",
+    "categoria": "VARIOS",
+    "precio": "$ 2.510,00",
+    "detalle_de_producto": "500GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AZUCAR IMPALPABLE X KG",
+    "categoria": "VARIOS",
+    "precio": "$ 4.625,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AZUCAR IMPALPABLE X 500GR",
+    "categoria": "VARIOS",
+    "precio": "$ 2.715,00",
+    "detalle_de_producto": "500GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AZUCAR MASCABO X KG",
+    "categoria": "VARIOS",
+    "precio": "$ 6.715,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "AZUCAR MASCABO X 400GR",
+    "categoria": "VARIOS",
+    "precio": "$ 3.170,00",
+    "detalle_de_producto": "400GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "BICARBONATO DE SODIO X KG",
+    "categoria": "VARIOS",
+    "precio": "$ 4.800,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "BICARBONATO DE SODIO 150GR",
+    "categoria": "VARIOS",
+    "precio": "$ 1.770,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "CACAO AMARGO EN POLVO 150GR",
+    "categoria": "VARIOS",
+    "precio": "$ 4.050,00",
+    "detalle_de_producto": "150GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COCO RALLADO",
+    "categoria": "VARIOS",
+    "precio": "$ 19.705,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "COCO RALLADO X 100GR",
+    "categoria": "VARIOS",
+    "precio": "$ 2.905,00",
+    "detalle_de_producto": "100GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "FECULA DE MAIZ X KG",
+    "categoria": "VARIOS",
+    "precio": "$ 3.955,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "FECULA DE MAIZ X 400GR",
+    "categoria": "VARIOS",
+    "precio": "$ 2.070,00",
+    "detalle_de_producto": "400GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GELATINA SIN SABOR X 200GR",
+    "categoria": "VARIOS",
+    "precio": "$ 7.250,00",
+    "detalle_de_producto": "200GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GOTITA DE CHOCOLATE X KG",
+    "categoria": "VARIOS",
+    "precio": "$ 14.825,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GOTITA DE CHOCOLATE X 200GR",
+    "categoria": "VARIOS",
+    "precio": "$ 3.835,00",
+    "detalle_de_producto": "200GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "GRLATINA SIN SABOR",
+    "categoria": "VARIOS",
+    "precio": "$ 32.085,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "HARINA DE ALMENDRA SIN PIEL 100% PURA CACAO AMARGO EN POLVO",
+    "categoria": "VARIOS",
+    "precio": "$ 46.860,00 / $ 21.050,00",
+    "detalle_de_producto": "Pura / Polvo",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "HARINA DE ALMENDRA SIN PIEL 100% PURA X 17GR DOYPACK",
+    "categoria": "VARIOS",
+    "precio": "$ 8.865,00",
+    "detalle_de_producto": "17GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "HARINA DE CHIA X KG",
+    "categoria": "VARIOS",
+    "precio": "$ 5.865,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "HARINA DE CHIA X 140GR DOYPACK",
+    "categoria": "VARIOS",
+    "precio": "$ 1.745,00",
+    "detalle_de_producto": "140GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "HARINA DE MANI X KG",
+    "categoria": "VARIOS",
+    "precio": "$ 4.320,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "HARINA DE MANI X 170GR DOYPACK",
+    "categoria": "VARIOS",
+    "precio": "$ 1.630,00",
+    "detalle_de_producto": "170GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "HUEVO DESHIDRADO X KG",
+    "categoria": "VARIOS",
+    "precio": "$ 6.390,00",
+    "detalle_de_producto": "X KG",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "HUEVO DESHIDHIDRATADO X 200GR",
+    "categoria": "VARIOS",
+    "precio": "$ 1.810,00",
+    "detalle_de_producto": "200GR",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE COCO RALLADO",
+    "categoria": "VARIOS",
+    "precio": "$ 3.550,00",
+    "detalle_de_producto": "Tira",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TIRA DE GELEATINA SIN SABOR X 13 UND",
+    "categoria": "VARIOS",
+    "precio": "$ 9.110,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  },
+  {
+    "productos": "TRA DE BICARBONATO DE SODIO X 13 UND",
+    "categoria": "VARIOS",
+    "precio": "$ 2.715,00",
+    "detalle_de_producto": "Tira x 13 UND",
+    "empaque": "bolsita"
+  }
+]

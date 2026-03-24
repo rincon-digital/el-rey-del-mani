@@ -1,789 +1,708 @@
 "use client";
-import { useState, useEffect, useMemo } from "react";
-import { motion, AnimatePresence, Variants } from "framer-motion";
-import {
-  ShoppingCart,
-  MessageCircle,
-  X,
-  Plus,
-  Minus,
-  Trash2,
-  CheckCircle2,
-  Search,
-  LayoutGrid,
-} from "lucide-react";
 
-// --- TIPOS DE DATOS ---
-type TipoVenta = "minorista" | "mayorista";
+import React, { useState, useMemo } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import Link from "next/link";
+// Asegurate de que estas rutas a tus JSON sean correctas
+import minoristaData from "@/public/db/producto.json";
+import mayoristaData from "@/public/db/bolsones.json";
 
-type Producto = {
+// --- Tipos de Datos ---
+interface ProductoDB {
+  productos: string;
+  categoria: string;
+  precio: string | number;
+  detalle_de_producto: string;
+  empaque: string;
+}
+
+interface Producto extends ProductoDB {
   id: string;
-  categoria_id: string;
-  tipo_venta: TipoVenta;
-  nombre: string;
-  descripcion: string;
-  formato_venta: string;
-  peso: string;
-  sabor: string;
-  precio: number;
-};
+  tipo: string;
+}
 
-type CarritoItem = {
-  producto: Producto;
+interface ProductoEnCarrito extends Producto {
   cantidad: number;
-};
+}
 
-// --- INFO DE LAS CATEGORÍAS ---
-const CATEGORIAS_INFO = [
-  {
-    id: "frutos",
-    nombre: "Frutos Secos",
-    imagen:
-      "https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=1200&q=80",
-  },
-  {
-    id: "condimentos",
-    nombre: "Condimentos",
-    imagen:
-      "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80",
-  },
-  {
-    id: "cereales",
-    nombre: "Cereales",
-    imagen:
-      "https://images.unsplash.com/photo-1511909525232-61113c912358?w=1200&q=80",
-  },
-  {
-    id: "snacks",
-    nombre: "Snacks",
-    imagen:
-      "https://images.unsplash.com/photo-1631379578550-7038263db699?w=1200&q=80",
-  },
-  {
-    id: "semillas",
-    nombre: "Semillas",
-    imagen:
-      "https://images.unsplash.com/photo-1599599810694-b5b37304c041?w=1200&q=80",
-  },
-  {
-    id: "frutas",
-    nombre: "Frutas Deshidratadas",
-    imagen:
-      "https://images.unsplash.com/photo-1596591606975-97ee5cef3a1e?w=1200&q=80",
-  },
-  {
-    id: "remedios",
-    nombre: "Remedios Materos",
-    imagen:
-      "https://images.unsplash.com/photo-1587593810167-a84920ea0781?w=1200&q=80",
-  },
-  {
-    id: "panaderia",
-    nombre: "Panadería",
-    imagen:
-      "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1200&q=80",
-  },
-  {
-    id: "almacen",
-    nombre: "Almacén",
-    imagen:
-      "https://images.unsplash.com/photo-1507048331197-7d4ac70811cf?w=1200&q=80",
-  },
-  {
-    id: "galletitas",
-    nombre: "Galletitas",
-    imagen:
-      "https://images.unsplash.com/photo-1575224300306-1b8da36134ec?w=1200&q=80",
-  },
-  {
-    id: "golosinas",
-    nombre: "Golosinas",
-    imagen:
-      "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?w=1200&q=80",
-  },
-  {
-    id: "varios",
-    nombre: "Varios",
-    imagen:
-      "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=1200&q=80",
-  },
+interface TarjetaProductoProps {
+  producto: Producto;
+  onClick: () => void;
+}
+
+const numeroWhatsApp = "5493704569418";
+
+// --- Preparación de Datos ---
+const todosLosProductos: Producto[] = [
+  ...minoristaData.map((prod: ProductoDB, index: number) => ({
+    ...prod,
+    id: `min-${index}`,
+    tipo: "Minorista",
+  })),
+  ...mayoristaData.map((prod: ProductoDB, index: number) => ({
+    ...prod,
+    id: `may-${index}`,
+    tipo: "Mayorista",
+  })),
 ];
 
-const parsearPrecio = (precioStr: string): number => {
+// Obtenemos una lista de categorías únicas directamente de los datos
+const categoriasUnicas = Array.from(
+  new Set(todosLosProductos.map((p) => p.categoria.toUpperCase())),
+);
+
+// Mapa de imágenes variadas para las diferentes categorías
+const imagenesCategorias: Record<string, string> = {
+  CEREALES:
+    "https://images.unsplash.com/photo-1521483451569-e33803c0330c?q=80&w=400&auto=format&fit=crop",
+  SNACKS:
+    "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?q=80&w=400&auto=format&fit=crop",
+  "FRUTOS SECOS":
+    "https://images.unsplash.com/photo-1599577239148-7097970d4fdb?q=80&w=400&auto=format&fit=crop",
+  CONDIMENTOS:
+    "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=400&auto=format&fit=crop",
+  "FRUTAS DESHIDRATADAS":
+    "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?q=80&w=400&auto=format&fit=crop",
+  GALLETITAS:
+    "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=400&auto=format&fit=crop",
+  GOLOSINAS:
+    "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?q=80&w=400&auto=format&fit=crop",
+  "MANÍ Y FRUTOS":
+    "https://images.unsplash.com/photo-1563114773-84221bd62bf3?q=80&w=400&auto=format&fit=crop",
+  MERCADERÍA:
+    "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=400&auto=format&fit=crop",
+  DEFAULT:
+    "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=400&auto=format&fit=crop",
+};
+
+// --- Utilidades ---
+const parsePrecio = (precioStr: string | number) => {
   if (!precioStr) return 0;
-  let limpio = precioStr.replace(/[$\s"]/g, "").trim();
-  limpio = limpio.replace(/\./g, "").replace(",", ".");
-  const precio = parseFloat(limpio);
-  return isNaN(precio) ? 0 : precio;
+  const str = precioStr.toString();
+  const limpio = str
+    .replace(/\$/g, "")
+    .replace(/\./g, "")
+    .replace(",", ".")
+    .trim();
+  return parseFloat(limpio) || 0;
 };
 
-const obtenerIdCategoria = (nombreCategoriaCsv: string): string => {
-  if (!nombreCategoriaCsv) return "varios";
-  const normalizado = nombreCategoriaCsv.toLowerCase().trim();
-  const categoriaEncontrada = CATEGORIAS_INFO.find(
-    (c) => c.nombre.toLowerCase() === normalizado || c.id === normalizado,
+const formatPrecio = (numero: number) => {
+  return new Intl.NumberFormat("es-AR", {
+    style: "currency",
+    currency: "ARS",
+  }).format(numero);
+};
+
+const IconoProducto = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    fill="none"
+    viewBox="0 0 24 24"
+    strokeWidth="1.5"
+    stroke="currentColor"
+    className="w-8 h-8 sm:w-10 sm:h-10 text-red-400"
+  >
+    <path
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"
+    />
+  </svg>
+);
+
+const TarjetaProducto = ({ producto, onClick }: TarjetaProductoProps) => {
+  const isMinorista = producto.tipo === "Minorista";
+  return (
+    <motion.div
+      onClick={onClick}
+      whileHover={{ scale: 1.02 }}
+      transition={{ duration: 0.2 }}
+      className="cursor-pointer flex h-full bg-neutral-900/50 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl overflow-hidden hover:bg-neutral-800/80 transition-colors group"
+    >
+      <div className="w-1/3 min-w-[100px] sm:min-w-[120px] bg-black/40 flex flex-col items-center justify-center p-3 sm:p-4 border-r border-white/5">
+        <IconoProducto />
+        <span className="text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest mt-2 sm:mt-3 text-center font-semibold line-clamp-1">
+          {producto.categoria}
+        </span>
+      </div>
+      <div className="w-2/3 p-4 sm:p-5 flex flex-col justify-between">
+        <div>
+          <span
+            className={`text-[10px] sm:text-xs font-bold uppercase tracking-wide mb-1 sm:mb-2 block ${isMinorista ? "text-yellow-500" : "text-red-500"}`}
+          >
+            {producto.tipo}
+          </span>
+          <h3 className="text-base sm:text-lg font-bold text-white leading-snug line-clamp-2">
+            {producto.productos}
+          </h3>
+        </div>
+        <div className="mt-3 sm:mt-4 flex justify-between items-end">
+          <span className="text-lg font-bold text-emerald-400">
+            {producto.precio.toString().startsWith("$")
+              ? producto.precio
+              : `$ ${producto.precio}`}
+          </span>
+          <span className="text-xs sm:text-sm font-medium text-gray-400 group-hover:text-red-400 transition-colors flex items-center gap-1 sm:gap-2">
+            Ver más
+            <svg
+              className="w-3 h-3 sm:w-4 sm:h-4"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M17 8l4 4m0 0l-4 4m4-4H3"
+              />
+            </svg>
+          </span>
+        </div>
+      </div>
+    </motion.div>
   );
-  return categoriaEncontrada ? categoriaEncontrada.id : "varios";
 };
 
-export default function CatalogoPremium() {
-  const [productos, setProductos] = useState<Producto[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  const [tipoVentaActiva, setTipoVentaActiva] =
-    useState<TipoVenta>("minorista");
-  const [categoriaActiva, setCategoriaActiva] = useState<string>("todas");
-  const [busqueda, setBusqueda] = useState<string>("");
-
-  const [mostrarHeader, setMostrarHeader] = useState(true);
-  const [lastScrollY, setLastScrollY] = useState(0);
-
-  const [modalCategoriasAbierto, setModalCategoriasAbierto] = useState(false);
-  const [modalCarritoAbierto, setModalCarritoAbierto] = useState(false);
-  const [modalProductoAbierto, setModalProductoAbierto] = useState(false);
+// --- Página Principal ---
+export default function CatalogoPage() {
   const [productoSeleccionado, setProductoSeleccionado] =
     useState<Producto | null>(null);
 
-  const [carrito, setCarrito] = useState<CarritoItem[]>([]);
-  const [nombreCli, setNombreCli] = useState("");
-  const [apellidoCli, setApellidoCli] = useState("");
-  const [metodoPago, setMetodoPago] = useState("Efectivo");
+  // Estados para filtros
+  const [busqueda, setBusqueda] = useState("");
+  const [categoriaSeleccionada, setCategoriaSeleccionada] =
+    useState<string>("TODOS");
+  const [filtroTipo, setFiltroTipo] = useState<
+    "TODOS" | "Minorista" | "Mayorista"
+  >("TODOS");
 
-  // --- AUTO-HIDE DEL NAVBAR ---
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      if (currentScrollY > lastScrollY && currentScrollY > 100) {
-        setMostrarHeader(false);
-      } else {
-        setMostrarHeader(true);
-      }
-      setLastScrollY(currentScrollY);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScrollY]);
+  // Estados del Carrito
+  const [carrito, setCarrito] = useState<ProductoEnCarrito[]>([]);
+  const [mostrarCarrito, setMostrarCarrito] = useState(false);
+  const [nombreCliente, setNombreCliente] = useState("");
 
-  // --- CARGA DE CSV ---
-  useEffect(() => {
-    const cargarDatos = async () => {
-      try {
-        const [resMin, resMay] = await Promise.all([
-          fetch("/db/precios.csv"),
-          fetch("/db/bolsones.csv"),
-        ]);
-        const csvMin = await resMin.text();
-        const csvMay = await resMay.text();
+  // Lógica de filtrado y ORDEN ALFABÉTICO
+  const productosFiltrados = useMemo(() => {
+    let filtrados = todosLosProductos.filter((prod) => {
+      const coincideBusqueda = prod.productos
+        .toLowerCase()
+        .includes(busqueda.toLowerCase());
+      const coincideCategoria =
+        categoriaSeleccionada === "TODOS" ||
+        prod.categoria.toUpperCase() === categoriaSeleccionada;
+      const coincideTipo = filtroTipo === "TODOS" || prod.tipo === filtroTipo;
 
-        const minoristas = csvMin
-          .split("\n")
-          .filter((l) => l.trim())
-          .slice(1)
-          .map((linea, i) => {
-            const partes = linea.split(",");
-            if (partes.length < 2) return null;
-            const precioStr = partes.slice(6).join(",");
-            return {
-              id: `min-${i}`,
-              categoria_id: obtenerIdCategoria(partes[1]?.trim() || ""),
-              tipo_venta: "minorista" as TipoVenta,
-              nombre: partes[0].trim(),
-              descripcion: "",
-              formato_venta: partes[3] ? partes[3].trim() : "Unidad",
-              sabor: partes[4] ? partes[4].trim() : "",
-              peso: partes[5] ? partes[5].trim() : "",
-              precio: parsearPrecio(precioStr),
-            };
-          })
-          .filter(Boolean) as Producto[];
-
-        const mayoristas = csvMay
-          .split("\n")
-          .filter((l) => l.trim())
-          .slice(1)
-          .map((linea, i) => {
-            const partes = linea.split(",");
-            if (partes.length < 2) return null;
-            const nombre = partes[0].trim();
-            const precioStr = partes.slice(2).join(",");
-            return {
-              id: `may-${i}`,
-              categoria_id: obtenerIdCategoria(partes[1]?.trim() || ""),
-              tipo_venta: "mayorista" as TipoVenta,
-              nombre,
-              descripcion: "Venta por bulto cerrado. Ideal para revendedores.",
-              formato_venta: "Bolsón / Bulto",
-              peso: nombre.match(/X\s?(\d+.*)/i)?.[1] || "Mayorista",
-              sabor: "",
-              precio: parsearPrecio(precioStr),
-            };
-          })
-          .filter(Boolean) as Producto[];
-
-        setProductos([...minoristas, ...mayoristas]);
-      } catch (e) {
-        console.error("Error CSV:", e);
-      } finally {
-        setLoading(false);
-      }
-    };
-    cargarDatos();
-  }, []);
-
-  const productosFiltradosYAgrupados = useMemo(() => {
-    const busquedaLimpia = busqueda.toLowerCase().trim();
-    const filtrados = productos.filter((p) => {
-      const pasaTipo = p.tipo_venta === tipoVentaActiva;
-      const pasaCat =
-        categoriaActiva === "todas" || p.categoria_id === categoriaActiva;
-      const pasaBusqueda =
-        busquedaLimpia === "" ||
-        p.nombre.toLowerCase().includes(busquedaLimpia);
-      return pasaTipo && pasaCat && pasaBusqueda;
+      return coincideBusqueda && coincideCategoria && coincideTipo;
     });
 
-    const grupos: Record<string, Producto[]> = {};
-    filtrados.forEach((p) => {
-      if (!grupos[p.categoria_id]) grupos[p.categoria_id] = [];
-      grupos[p.categoria_id].push(p);
-    });
+    // Ordenamos alfabéticamente por el nombre del producto (A-Z)
+    return filtrados.sort((a, b) => a.productos.localeCompare(b.productos));
+  }, [busqueda, categoriaSeleccionada, filtroTipo]);
 
-    Object.keys(grupos).forEach((catId) => {
-      grupos[catId] = grupos[catId]
-        .sort((a, b) => a.nombre.localeCompare(b.nombre))
-        .slice(0, 15); // Límite para rendimiento
-    });
-    return grupos;
-  }, [productos, tipoVentaActiva, categoriaActiva, busqueda]);
-
-  // --- LOGICA DE CARRITO Y WHATSAPP ---
   const agregarAlCarrito = (producto: Producto) => {
     setCarrito((prev) => {
-      const existe = prev.find((item) => item.producto.id === producto.id);
-      if (existe)
+      const existe = prev.find((item) => item.id === producto.id);
+      if (existe) {
         return prev.map((item) =>
-          item.producto.id === producto.id
+          item.id === producto.id
             ? { ...item, cantidad: item.cantidad + 1 }
             : item,
         );
-      return [...prev, { producto, cantidad: 1 }];
+      }
+      return [...prev, { ...producto, cantidad: 1 }];
     });
-    setModalProductoAbierto(false);
+    setProductoSeleccionado(null);
   };
-  const modificarCantidad = (id: string, delta: number) =>
-    setCarrito((prev) =>
-      prev.map((item) =>
-        item.producto.id === id
-          ? { ...item, cantidad: Math.max(1, item.cantidad + delta) }
-          : item,
-      ),
-    );
-  const eliminarDelCarrito = (id: string) =>
-    setCarrito((prev) => prev.filter((item) => item.producto.id !== id));
+
+  const eliminarDelCarrito = (idProducto: string) => {
+    setCarrito((prev) => prev.filter((item) => item.id !== idProducto));
+  };
+
   const totalCarrito = carrito.reduce(
-    (acc, item) => acc + item.producto.precio * item.cantidad,
+    (total, item) => total + parsePrecio(item.precio) * item.cantidad,
     0,
   );
 
-  const consultarDuda = (producto: Producto) =>
-    window.open(
-      `https://wa.me/5493704569418?text=${encodeURIComponent(`Hola! Tengo una consulta sobre: *${producto.nombre}*.`)}`,
-      "_blank",
-    );
-  const enviarPedido = () => {
-    if (!nombreCli || !apellidoCli)
-      return alert("Por favor, ingresa tu nombre y apellido para el pedido.");
-    let texto = `🔴 *NUEVO PEDIDO - EL REY DEL MANÍ* 🟡\n\n*👤 Cliente:* ${nombreCli} ${apellidoCli}\n*💳 Pago:* ${metodoPago}\n*📦 Tipo:* ${tipoVentaActiva.toUpperCase()}\n\n*🛒 Detalle:*\n`;
+  const armarPedidoWhatsApp = () => {
+    if (!nombreCliente.trim())
+      return alert("Por favor, ingresá tu nombre antes de enviar el pedido.");
+    let texto = `¡Hola El Rey Del Maní! 🥜 Soy ${nombreCliente.trim()}.\nQuiero hacer el siguiente pedido:\n\n`;
     carrito.forEach((item) => {
-      texto += `• ${item.cantidad}x ${item.producto.nombre} ($${item.producto.precio * item.cantidad})\n`;
+      texto += `▪️ ${item.cantidad}x ${item.productos} (${item.tipo})\n`;
     });
-    texto += `\n*🧾 TOTAL: $${totalCarrito}*`;
-    window.open(
-      `https://wa.me/5493704569418?text=${encodeURIComponent(texto)}`,
-      "_blank",
-    );
-  };
+    texto += `\n*Total a pagar:* ${formatPrecio(totalCarrito)}\n`;
+    texto += `*Método de pago:* Efectivo 💵\n\n¡Muchas gracias!`;
 
-  const formatoMoneda = (monto: number) =>
-    new Intl.NumberFormat("es-AR", {
-      style: "currency",
-      currency: "ARS",
-      maximumFractionDigits: 0,
-    }).format(monto);
-
-  // Variantes para animar las tarjetas de productos
-  const cardVariants: Variants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5, ease: "easeOut" },
-    },
+    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
+    window.open(url, "_blank");
   };
 
   return (
-    <div className="min-h-screen bg-[#050505] pb-32 text-white font-sans selection:bg-red-600/30">
-      {/* 🌟 NAVBAR FLOTANTE MOBILE-FIRST 🌟 */}
-      <div
-        className={`fixed top-4 left-4 right-4 z-40 transition-transform duration-500 ease-in-out ${mostrarHeader ? "translate-y-0" : "-translate-y-[150%]"}`}
-      >
-        <div className="max-w-4xl mx-auto bg-[#121212]/95 backdrop-blur-xl border border-white/10 rounded-3xl p-3 flex flex-col gap-3 shadow-2xl">
-          <div className="flex justify-between items-center px-2">
-            <h1 className="text-lg md:text-xl font-bold tracking-tight uppercase bg-gradient-to-r from-white to-gray-400 bg-clip-text text-transparent">
-              El Rey del Maní
-            </h1>
-            <div className="flex bg-black/60 rounded-full p-1 border border-white/5">
-              <button
-                onClick={() => {
-                  setTipoVentaActiva("minorista");
-                  setBusqueda("");
-                }}
-                className={`px-4 py-1.5 rounded-full font-bold text-xs tracking-wider uppercase transition-all duration-300 ${
-                  tipoVentaActiva === "minorista"
-                    ? "bg-gradient-to-r from-red-600 to-red-500 text-white shadow-lg shadow-red-900/40"
-                    : "text-gray-400"
-                }`}
-              >
-                Min
-              </button>
-              <button
-                onClick={() => {
-                  setTipoVentaActiva("mayorista");
-                  setBusqueda("");
-                }}
-                className={`px-4 py-1.5 rounded-full font-bold text-xs tracking-wider uppercase transition-all duration-300 ${
-                  tipoVentaActiva === "mayorista"
-                    ? "bg-gradient-to-r from-yellow-500 to-yellow-600 text-black shadow-lg shadow-yellow-900/40"
-                    : "text-gray-400"
-                }`}
-              >
-                May
-              </button>
-            </div>
-          </div>
+    <div className="relative min-h-screen py-8 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden font-sans bg-gradient-to-br from-red-950 via-black to-black">
+      {/* Botón Volver a la Home */}
+      <div className="absolute top-4 left-4 sm:top-8 sm:left-8 z-20">
+        <Link
+          href="/"
+          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors bg-black/40 px-4 py-2 rounded-full border border-white/10 backdrop-blur-md"
+        >
+          <svg
+            className="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M10 19l-7-7m0 0l7-7m-7 7h18"
+            />
+          </svg>
+          <span className="font-medium text-sm hidden sm:inline">Volver</span>
+        </Link>
+      </div>
 
-          <div className="relative group w-full">
-            <div className="flex items-center bg-[#1a1a1a] border border-white/5 rounded-2xl h-12 px-4 focus-within:border-red-500/50 transition-colors">
-              <Search className="w-5 h-5 text-gray-400 shrink-0" />
+      <div className="max-w-7xl mx-auto relative z-10 pt-10 sm:pt-4">
+        {/* Hero Section */}
+        {categoriaSeleccionada === "TODOS" && (
+          <div className="text-center mb-10 sm:mb-14">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-white mb-4 tracking-tight">
+              El Rey Del Maní
+            </h1>
+            <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed">
+              Explorá nuestra gran variedad de productos. Trabajamos ventas por
+              mayor y menor con la mejor calidad garantizada.
+            </p>
+          </div>
+        )}
+
+        {/* Sección de Filtros y Búsqueda */}
+        <div className="mb-10 space-y-6">
+          {/* Barra de Búsqueda */}
+          <div className="max-w-2xl mx-auto">
+            <div className="relative">
+              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
+                <svg
+                  className="h-5 w-5 text-gray-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                  />
+                </svg>
+              </div>
               <input
                 type="text"
-                placeholder="¿Qué estás buscando hoy?"
                 value={busqueda}
                 onChange={(e) => setBusqueda(e.target.value)}
-                className="bg-transparent border-none text-white px-3 w-full outline-none text-sm placeholder:text-gray-500"
+                placeholder="Buscar productos (ej. Papas, Maní...)"
+                className="w-full bg-neutral-900/80 border border-white/10 rounded-full py-4 pl-12 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-red-500 backdrop-blur-md"
               />
             </div>
-          </div>
-        </div>
-      </div>
 
-      {/* 🌟 BOTONES FLOTANTES INFERIORES 🌟 */}
-      <div className="fixed bottom-6 left-0 w-full z-40 px-4 pointer-events-none">
-        <div className="max-w-6xl mx-auto flex justify-between items-end">
-          <button
-            onClick={() => setModalCategoriasAbierto(true)}
-            className="pointer-events-auto bg-[#121212]/95 border border-white/10 rounded-2xl px-5 py-4 text-white flex items-center gap-3 shadow-2xl backdrop-blur-md active:scale-95 transition-transform"
-          >
-            <LayoutGrid className="w-5 h-5 text-yellow-500" />
-            <span className="font-bold text-sm tracking-wide">Menú</span>
-          </button>
-
-          <button
-            onClick={() => setModalCarritoAbierto(true)}
-            className="pointer-events-auto bg-gradient-to-r from-red-600 to-yellow-500 text-white rounded-2xl p-4 flex items-center gap-2 shadow-[0_10px_30px_rgba(229,57,53,0.3)] active:scale-95 transition-transform relative"
-          >
-            <ShoppingCart className="w-6 h-6" />
-            {carrito.length > 0 && (
-              <span className="absolute -top-2 -right-2 bg-black text-white text-xs font-black w-7 h-7 flex items-center justify-center rounded-full shadow-lg border-2 border-red-500">
-                {carrito.length}
-              </span>
-            )}
-          </button>
-        </div>
-      </div>
-
-      {/* CONTENEDOR DE PRODUCTOS */}
-      <main className="max-w-6xl mx-auto w-full pt-40 px-4 space-y-20">
-        {loading ? (
-          <div className="flex justify-center py-32">
-            <div className="animate-spin rounded-full h-10 w-10 border-t-4 border-b-4 border-red-600"></div>
-          </div>
-        ) : Object.keys(productosFiltradosYAgrupados).length === 0 ? (
-          <div className="text-center py-32 text-gray-500">
-            <Search className="w-12 h-12 mx-auto mb-4 opacity-30 text-yellow-500" />
-            <p className="text-lg font-medium">No encontramos productos.</p>
-          </div>
-        ) : (
-          CATEGORIAS_INFO.map((categoria) => {
-            const productosDeEstaCategoria =
-              productosFiltradosYAgrupados[categoria.id] || [];
-            if (productosDeEstaCategoria.length === 0) return null;
-            return (
-              <section key={categoria.id} className="scroll-mt-40">
-                {/* BANNER DE CATEGORÍA VISUAL */}
-                <div className="relative h-40 md:h-48 rounded-3xl overflow-hidden mb-8 border border-white/10 shadow-2xl">
-                  <img
-                    src={categoria.imagen}
-                    alt={categoria.nombre}
-                    className="absolute inset-0 w-full h-full object-cover scale-105"
-                  />
-                  {/* Filtro oscuro con destello rojo/amarillo sutil */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/60 to-transparent z-10" />
-                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-red-900/30 to-yellow-900/20 mix-blend-overlay z-10" />
-
-                  <div className="absolute bottom-6 left-6 z-20">
-                    <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight uppercase flex items-center gap-3">
-                      <span className="w-2 h-8 bg-gradient-to-b from-red-500 to-yellow-500 rounded-full inline-block"></span>
-                      {categoria.nombre}
-                    </h2>
-                  </div>
-                </div>
-
-                {/* TARJETAS CON ANIMACIÓN */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {productosDeEstaCategoria.map((prod, index) => (
-                    <motion.div
-                      key={prod.id}
-                      variants={cardVariants}
-                      initial="hidden"
-                      whileInView="visible"
-                      viewport={{ once: true, margin: "-50px" }}
-                      className="bg-[#111111] border border-white/5 rounded-3xl p-5 hover:border-red-500/30 transition-colors flex flex-col justify-between"
-                    >
-                      <div>
-                        <div className="mb-3">
-                          <span
-                            className={`px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider ${
-                              prod.tipo_venta === "mayorista"
-                                ? "bg-yellow-500/10 text-yellow-500 border border-yellow-500/20"
-                                : "bg-white/10 text-white border border-white/10"
-                            }`}
-                          >
-                            {prod.tipo_venta}
-                          </span>
-                        </div>
-                        <h3 className="font-semibold text-lg mb-4 text-white leading-tight line-clamp-2">
-                          {prod.nombre}
-                        </h3>
-
-                        <div className="flex flex-col gap-2 mb-6 text-sm text-gray-400">
-                          {prod.formato_venta && (
-                            <div className="flex justify-between items-center bg-black/40 px-3 py-2 rounded-lg">
-                              <span>Formato</span>
-                              <span className="text-white font-medium">
-                                {prod.formato_venta}
-                              </span>
-                            </div>
-                          )}
-                          {prod.peso && (
-                            <div className="flex justify-between items-center bg-black/40 px-3 py-2 rounded-lg">
-                              <span>Peso</span>
-                              <span className="text-white font-medium">
-                                {prod.peso}
-                              </span>
-                            </div>
-                          )}
-                        </div>
-                      </div>
-
-                      <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-4">
-                        <span className="text-2xl font-bold text-white tracking-tight">
-                          {formatoMoneda(prod.precio)}
-                        </span>
-                        <button
-                          onClick={() => {
-                            setProductoSeleccionado(prod);
-                            setModalProductoAbierto(true);
-                          }}
-                          className="bg-white/5 hover:bg-white/10 text-white p-2.5 rounded-xl transition-colors"
-                        >
-                          <Plus className="w-5 h-5" />
-                        </button>
-                      </div>
-                    </motion.div>
-                  ))}
-                </div>
-              </section>
-            );
-          })
-        )}
-      </main>
-
-      {/* MODAL DEL PRODUCTO */}
-      <AnimatePresence>
-        {modalProductoAbierto && productoSeleccionado && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-0 md:p-4 bg-black/80 backdrop-blur-sm"
-          >
-            <motion.div
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="bg-[#121212] border border-white/10 rounded-t-3xl md:rounded-3xl w-full max-w-md p-6 relative shadow-2xl pb-10 md:pb-6"
-            >
-              <button
-                onClick={() => setModalProductoAbierto(false)}
-                className="absolute top-4 right-4 text-gray-500 hover:text-white bg-black/50 p-2 rounded-full"
-              >
-                <X className="w-5 h-5" />
-              </button>
-
-              <span
-                className={`inline-block mb-3 px-2 py-1 rounded-md text-[10px] font-bold uppercase tracking-wider ${
-                  productoSeleccionado.tipo_venta === "mayorista"
-                    ? "bg-yellow-500/10 text-yellow-500"
-                    : "bg-white/10 text-white"
-                }`}
-              >
-                {productoSeleccionado.tipo_venta}
-              </span>
-              <h2 className="text-2xl font-bold text-white leading-tight mb-2">
-                {productoSeleccionado.nombre}
-              </h2>
-              <p className="text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-yellow-500 mb-6">
-                {formatoMoneda(productoSeleccionado.precio)}
-              </p>
-
-              <div className="space-y-2 mb-6">
-                {productoSeleccionado.formato_venta && (
-                  <div className="flex justify-between bg-[#1a1a1a] p-3 rounded-xl border border-white/5 text-sm">
-                    <span className="text-gray-400">Presentación</span>
-                    <span className="text-white font-medium">
-                      {productoSeleccionado.formato_venta}
-                    </span>
-                  </div>
-                )}
-                {productoSeleccionado.peso && (
-                  <div className="flex justify-between bg-[#1a1a1a] p-3 rounded-xl border border-white/5 text-sm">
-                    <span className="text-gray-400">Cantidad/Peso</span>
-                    <span className="text-white font-medium">
-                      {productoSeleccionado.peso}
-                    </span>
-                  </div>
-                )}
-              </div>
-
-              {productoSeleccionado.descripcion && (
-                <p className="text-gray-400 text-sm leading-relaxed mb-8">
-                  {productoSeleccionado.descripcion}
-                </p>
-              )}
-
-              <div className="space-y-3">
+            {/* Filtro Mayorista / Minorista */}
+            <div className="flex flex-wrap justify-center gap-3 mt-5">
+              {(["TODOS", "Minorista", "Mayorista"] as const).map((tipo) => (
                 <button
-                  onClick={() => agregarAlCarrito(productoSeleccionado)}
-                  className="w-full bg-gradient-to-r from-red-600 to-yellow-500 text-white py-4 rounded-2xl font-bold text-lg flex items-center justify-center gap-2 active:scale-95 transition-transform shadow-lg"
-                >
-                  <ShoppingCart className="w-5 h-5" /> Agregar al carrito
-                </button>
-
-                <button
-                  onClick={() => consultarDuda(productoSeleccionado)}
-                  className="w-full bg-[#1a1a1a] text-gray-300 py-3.5 rounded-2xl font-medium text-sm flex items-center justify-center gap-2 border border-white/5 active:scale-95 transition-transform"
-                >
-                  <MessageCircle className="w-4 h-4 text-green-500" />
-                  Consultar por WhatsApp
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* MODAL DE CATEGORÍAS */}
-      <AnimatePresence>
-        {modalCategoriasAbierto && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-end justify-center bg-black/80 backdrop-blur-sm"
-          >
-            <motion.div
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="bg-[#121212] border-t border-white/10 rounded-t-3xl w-full p-6 pb-12 shadow-2xl"
-            >
-              <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
-                <h2 className="text-lg font-bold text-white uppercase">
-                  Menú de Categorías
-                </h2>
-                <button
-                  onClick={() => setModalCategoriasAbierto(false)}
-                  className="text-gray-400 hover:text-white bg-white/5 p-2 rounded-full"
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-              <div className="grid grid-cols-2 gap-3 max-h-[60vh] overflow-y-auto custom-scrollbar pr-2">
-                <button
-                  onClick={() => {
-                    setCategoriaActiva("todas");
-                    setModalCategoriasAbierto(false);
-                  }}
-                  className={`p-3 rounded-xl text-sm font-bold text-left transition-all ${
-                    categoriaActiva === "todas"
-                      ? "bg-white text-black"
-                      : "bg-[#1a1a1a] text-gray-400 border border-white/5"
+                  key={tipo}
+                  onClick={() => setFiltroTipo(tipo)}
+                  className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all ${
+                    filtroTipo === tipo
+                      ? "bg-red-600 text-white shadow-lg shadow-red-900/50"
+                      : "bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10"
                   }`}
                 >
-                  Ver Todo
+                  {tipo === "TODOS" ? "Todos los tipos" : `Venta ${tipo}`}
                 </button>
-                {CATEGORIAS_INFO.map((cat) => (
-                  <button
-                    key={cat.id}
-                    onClick={() => {
-                      setCategoriaActiva(cat.id);
-                      setModalCategoriasAbierto(false);
-                    }}
-                    className={`p-3 rounded-xl text-sm font-bold text-left transition-all ${
-                      categoriaActiva === cat.id
-                        ? "bg-gradient-to-r from-red-600 to-red-500 text-white"
-                        : "bg-[#1a1a1a] text-gray-400 border border-white/5"
-                    }`}
-                  >
-                    {cat.nombre}
-                  </button>
-                ))}
+              ))}
+            </div>
+          </div>
+
+          {/* Filtros por Categoría en forma de "Pirámide" (centrado y multilínea) */}
+          <div className="flex flex-wrap justify-center gap-4 px-2 pt-4">
+            <button
+              onClick={() => setCategoriaSeleccionada("TODOS")}
+              className={`flex-shrink-0 flex flex-col items-center justify-center h-24 w-24 sm:h-28 sm:w-28 rounded-2xl border-2 transition-all overflow-hidden relative group ${
+                categoriaSeleccionada === "TODOS"
+                  ? "border-red-500 ring-4 ring-red-500/20 shadow-xl shadow-red-900/20"
+                  : "border-transparent bg-neutral-900/50 hover:bg-neutral-800"
+              }`}
+            >
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
+              <span className="relative z-20 font-bold text-white text-xs sm:text-sm mt-auto mb-3">
+                TODOS
+              </span>
+            </button>
+
+            {categoriasUnicas.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setCategoriaSeleccionada(cat)}
+                className={`flex-shrink-0 flex flex-col items-center justify-end h-24 w-24 sm:h-28 sm:w-28 rounded-2xl border-2 transition-all overflow-hidden relative group ${
+                  categoriaSeleccionada === cat
+                    ? "border-red-500 ring-4 ring-red-500/20 shadow-xl shadow-red-900/20"
+                    : "border-transparent bg-neutral-900/50 hover:border-white/20"
+                }`}
+              >
+                <img
+                  src={imagenesCategorias[cat] || imagenesCategorias.DEFAULT}
+                  alt={cat}
+                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
+                <span className="relative z-20 font-bold text-white text-[10px] sm:text-xs mb-3 px-2 text-center w-full truncate">
+                  {cat}
+                </span>
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Banner de Categoría Seleccionada */}
+        <AnimatePresence mode="wait">
+          {categoriaSeleccionada !== "TODOS" && (
+            <motion.div
+              key={categoriaSeleccionada}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              className="relative w-full h-40 sm:h-56 rounded-3xl overflow-hidden mb-8 shadow-2xl border border-white/10"
+            >
+              <img
+                src={
+                  imagenesCategorias[categoriaSeleccionada] ||
+                  imagenesCategorias.DEFAULT
+                }
+                className="absolute inset-0 w-full h-full object-cover opacity-50"
+                alt={categoriaSeleccionada}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
+                <span className="text-red-400 font-bold tracking-widest uppercase text-xs sm:text-sm mb-2 drop-shadow-md">
+                  Categoría
+                </span>
+                <h2 className="text-3xl sm:text-5xl font-black text-white tracking-wider uppercase drop-shadow-xl">
+                  {categoriaSeleccionada}
+                </h2>
               </div>
             </motion.div>
-          </motion.div>
+          )}
+        </AnimatePresence>
+
+        {/* Grilla de productos filtrados y ordenados */}
+        {productosFiltrados.length === 0 ? (
+          <div className="text-center py-20 bg-neutral-900/30 rounded-3xl border border-white/5">
+            <p className="text-gray-400 text-lg">
+              No se encontraron productos para tu búsqueda o filtro.
+            </p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+            {productosFiltrados.map((prod) => (
+              <TarjetaProducto
+                key={prod.id}
+                producto={prod}
+                onClick={() => setProductoSeleccionado(prod)}
+              />
+            ))}
+          </div>
+        )}
+      </div>
+
+      {/* Botón flotante del carrito */}
+      {carrito.length > 0 && (
+        <motion.button
+          initial={{ scale: 0 }}
+          animate={{ scale: 1 }}
+          onClick={() => setMostrarCarrito(true)}
+          className="fixed bottom-6 right-6 sm:bottom-10 sm:right-10 z-40 bg-red-600 hover:bg-red-500 text-white p-4 rounded-full shadow-[0_0_30px_rgba(220,38,38,0.4)] transition-colors flex items-center justify-center"
+        >
+          <svg
+            className="w-8 h-8"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+            />
+          </svg>
+          <span className="absolute -top-2 -right-2 bg-white text-red-600 font-black text-xs w-6 h-6 flex items-center justify-center rounded-full border-2 border-red-600">
+            {carrito.length}
+          </span>
+        </motion.button>
+      )}
+
+      {/* Modal Detalles del Producto */}
+      <AnimatePresence>
+        {productoSeleccionado && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setProductoSeleccionado(null)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
+            ></motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-neutral-900/95 backdrop-blur-xl border border-red-900/30 rounded-2xl shadow-2xl text-white scrollbar-hide"
+            >
+              <button
+                onClick={() => setProductoSeleccionado(null)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-20 bg-black/50 rounded-full p-1"
+              >
+                <svg
+                  className="w-6 h-6 sm:w-8 sm:h-8"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
+
+              <div className="p-6 sm:p-8 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
+                <div className="flex flex-col justify-center min-w-0 pt-4 sm:pt-0">
+                  <span
+                    className={`text-xs sm:text-sm uppercase tracking-widest font-semibold block mb-2 sm:mb-3 ${productoSeleccionado.tipo === "Minorista" ? "text-yellow-400" : "text-red-400"}`}
+                  >
+                    Venta {productoSeleccionado.tipo}
+                  </span>
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-4 sm:mb-6 break-words">
+                    {productoSeleccionado.productos}
+                  </h2>
+                  <div className="text-sm sm:text-base text-gray-300 leading-relaxed space-y-3 sm:space-y-4">
+                    <p>
+                      Excelente producto de primera calidad, ideal para tus
+                      ventas o para consumo personal.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex flex-col justify-center space-y-4">
+                  <div className="bg-white/5 border border-white/10 p-4 sm:p-5 rounded-xl flex items-center gap-4">
+                    <div className="bg-red-950/50 p-2 sm:p-3 rounded-lg text-red-400">
+                      <IconoProducto />
+                    </div>
+                    <div>
+                      <span className="block text-xs text-gray-400 uppercase tracking-wider mb-1">
+                        Formato de Venta
+                      </span>
+                      <span className="text-base sm:text-lg font-bold text-white block">
+                        {productoSeleccionado.detalle_de_producto}
+                      </span>
+                      <span className="text-xs text-gray-400 mt-1 block capitalize">
+                        Empaque: {productoSeleccionado.empaque}
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="mt-4 sm:mt-6 bg-gradient-to-r from-red-900/40 to-transparent p-5 sm:p-6 rounded-xl border-l-4 border-red-500 flex flex-col gap-4">
+                    <div>
+                      <span className="block text-xs sm:text-sm text-gray-400 uppercase tracking-wider mb-1">
+                        Precio Final
+                      </span>
+                      <span className="text-3xl sm:text-4xl font-black text-emerald-400">
+                        {productoSeleccionado.precio.toString().startsWith("$")
+                          ? productoSeleccionado.precio
+                          : `$ ${productoSeleccionado.precio}`}
+                      </span>
+                    </div>
+
+                    <div className="flex flex-col sm:flex-row gap-3 mt-2">
+                      <button
+                        onClick={() => agregarAlCarrito(productoSeleccionado)}
+                        className="flex-1 bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
+                      >
+                        <svg
+                          className="w-5 h-5"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          stroke="currentColor"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                          />
+                        </svg>
+                        Agregar al bolso
+                      </button>
+                      <a
+                        href={`https://wa.me/${numeroWhatsApp}?text=Hola, tengo una duda sobre el producto: ${productoSeleccionado.productos}`}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="sm:flex-none bg-green-600/20 hover:bg-green-600/40 text-green-400 border border-green-600/30 font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
+                      >
+                        <svg
+                          className="w-5 h-5"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                        </svg>
+                        Tengo dudas
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
 
-      {/* MODAL DEL CARRITO */}
+      {/* Modal / Resumen del Carrito */}
       <AnimatePresence>
-        {modalCarritoAbierto && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-0 md:p-4 bg-black/80 backdrop-blur-sm"
-          >
+        {mostrarCarrito && (
+          <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4">
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMostrarCarrito(false)}
+              className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
+            ></motion.div>
             <motion.div
               initial={{ y: "100%" }}
               animate={{ y: 0 }}
               exit={{ y: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="bg-[#121212] border border-white/10 rounded-t-3xl md:rounded-3xl w-full max-w-lg p-6 relative shadow-2xl flex flex-col max-h-[90vh]"
+              className="relative w-full max-w-md bg-neutral-900 border-t sm:border border-white/10 sm:rounded-2xl shadow-2xl overflow-hidden text-white flex flex-col max-h-[85vh]"
             >
-              <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-4">
-                <h2 className="text-xl font-bold text-white uppercase">
-                  Tu Carrito
-                </h2>
+              <div className="p-5 border-b border-white/10 flex justify-between items-center bg-black/20">
+                <h3 className="text-xl font-bold flex items-center gap-2">
+                  🛒 Tu Pedido
+                </h3>
                 <button
-                  onClick={() => setModalCarritoAbierto(false)}
-                  className="text-gray-400 bg-white/5 p-2 rounded-full"
+                  onClick={() => setMostrarCarrito(false)}
+                  className="text-gray-400 hover:text-white"
                 >
-                  <X className="w-5 h-5" />
+                  <svg
+                    className="w-6 h-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M6 18L18 6M6 6l12 12"
+                    />
+                  </svg>
                 </button>
               </div>
 
-              <div className="flex-1 overflow-y-auto space-y-3 mb-6 pr-2">
+              <div className="p-5 overflow-y-auto flex-grow space-y-4">
                 {carrito.length === 0 ? (
-                  <div className="text-center py-10 text-gray-500 font-medium">
-                    Aún no agregaste productos.
-                  </div>
+                  <p className="text-center text-gray-400 py-10">
+                    Tu bolso está vacío.
+                  </p>
                 ) : (
                   carrito.map((item) => (
                     <div
-                      key={item.producto.id}
-                      className="bg-[#1a1a1a] border border-white/5 rounded-2xl p-4 flex gap-3 items-center"
+                      key={item.id}
+                      className="flex justify-between items-center bg-white/5 p-3 rounded-lg border border-white/5 group"
                     >
-                      <div className="flex-1 min-w-0">
-                        <h4 className="font-bold text-white text-sm truncate">
-                          {item.producto.nombre}
-                        </h4>
-                        <p className="text-red-400 font-bold text-sm">
-                          {formatoMoneda(item.producto.precio)}
+                      <div className="flex-1 min-w-0 pr-4">
+                        <p className="font-bold text-sm truncate">
+                          {item.productos}
+                        </p>
+                        <p className="text-xs text-gray-400">
+                          {item.tipo} - {item.cantidad}x
                         </p>
                       </div>
-                      <div className="flex items-center gap-2 bg-black rounded-xl p-1 border border-white/5 shrink-0">
+                      <div className="text-right flex items-center gap-3">
+                        <p className="font-bold text-emerald-400">
+                          {formatPrecio(
+                            parsePrecio(item.precio) * item.cantidad,
+                          )}
+                        </p>
                         <button
-                          onClick={() =>
-                            modificarCantidad(item.producto.id, -1)
-                          }
-                          className="p-1.5 text-gray-400 hover:text-white bg-white/5 rounded-lg"
+                          onClick={() => eliminarDelCarrito(item.id)}
+                          className="text-gray-500 hover:text-red-500 p-1 bg-black/20 rounded-md transition-colors"
+                          title="Eliminar producto"
                         >
-                          <Minus className="w-3 h-3" />
-                        </button>
-                        <span className="font-bold w-5 text-center text-sm">
-                          {item.cantidad}
-                        </span>
-                        <button
-                          onClick={() => modificarCantidad(item.producto.id, 1)}
-                          className="p-1.5 text-gray-400 hover:text-white bg-white/5 rounded-lg"
-                        >
-                          <Plus className="w-3 h-3" />
+                          <svg
+                            className="w-5 h-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                            />
+                          </svg>
                         </button>
                       </div>
-                      <button
-                        onClick={() => eliminarDelCarrito(item.producto.id)}
-                        className="p-2 text-gray-500 hover:text-red-500 shrink-0"
-                      >
-                        <Trash2 className="w-5 h-5" />
-                      </button>
                     </div>
                   ))
                 )}
               </div>
 
-              {carrito.length > 0 && (
-                <div className="border-t border-white/10 pt-6 space-y-4 shrink-0">
-                  <div className="flex justify-between items-end mb-2 bg-[#1a1a1a] p-4 rounded-2xl border border-white/5">
-                    <span className="text-gray-400 font-bold uppercase text-xs">
-                      Total a pagar
-                    </span>
-                    <span className="text-2xl font-black text-white">
-                      {formatoMoneda(totalCarrito)}
-                    </span>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <input
-                      type="text"
-                      placeholder="Nombre"
-                      value={nombreCli}
-                      onChange={(e) => setNombreCli(e.target.value)}
-                      className="bg-[#1a1a1a] border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-red-500 w-full"
-                    />
-                    <input
-                      type="text"
-                      placeholder="Apellido"
-                      value={apellidoCli}
-                      onChange={(e) => setApellidoCli(e.target.value)}
-                      className="bg-[#1a1a1a] border border-white/5 rounded-xl px-4 py-3.5 text-sm text-white outline-none focus:border-red-500 w-full"
-                    />
-                  </div>
-                  <div className="flex gap-2">
-                    <button
-                      onClick={() => setMetodoPago("Efectivo")}
-                      className={`flex-1 py-3.5 rounded-xl font-bold text-sm transition-all ${metodoPago === "Efectivo" ? "bg-white text-black" : "bg-[#1a1a1a] text-gray-400 border border-white/5"}`}
-                    >
-                      Efectivo
-                    </button>
-                    <button
-                      onClick={() => setMetodoPago("Transferencia")}
-                      className={`flex-1 py-3.5 rounded-xl font-bold text-sm transition-all ${metodoPago === "Transferencia" ? "bg-white text-black" : "bg-[#1a1a1a] text-gray-400 border border-white/5"}`}
-                    >
-                      Transferencia
-                    </button>
-                  </div>
-                  <button
-                    onClick={enviarPedido}
-                    className="w-full bg-[#25D366] text-black py-4 rounded-2xl font-bold text-base flex items-center justify-center gap-2 mt-2 shadow-lg active:scale-95 transition-transform"
-                  >
-                    <CheckCircle2 className="w-6 h-6" /> Pedir por WhatsApp
-                  </button>
+              <div className="p-5 border-t border-white/10 bg-black/40">
+                <div className="flex justify-between items-center mb-4">
+                  <span className="text-gray-400 font-medium">
+                    Total (Efectivo)
+                  </span>
+                  <span className="text-2xl font-black">
+                    {formatPrecio(totalCarrito)}
+                  </span>
                 </div>
-              )}
+
+                <div className="mb-4">
+                  <label className="block text-xs text-gray-400 uppercase tracking-widest mb-2 font-semibold">
+                    Tu Nombre y Apellido
+                  </label>
+                  <input
+                    type="text"
+                    value={nombreCliente}
+                    onChange={(e) => setNombreCliente(e.target.value)}
+                    placeholder="Ej: Mauri..."
+                    className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-500 transition-colors"
+                  />
+                </div>
+
+                <button
+                  onClick={armarPedidoWhatsApp}
+                  disabled={carrito.length === 0}
+                  className={`w-full font-bold py-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-lg ${carrito.length === 0 ? "bg-gray-600 cursor-not-allowed text-gray-400" : "bg-emerald-600 hover:bg-emerald-500 text-white"}`}
+                >
+                  <svg
+                    className="w-6 h-6"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
+                  </svg>
+                  Enviar pedido por WhatsApp
+                </button>
+              </div>
             </motion.div>
-          </motion.div>
+          </div>
         )}
       </AnimatePresence>
     </div>
