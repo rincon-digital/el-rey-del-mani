@@ -184,8 +184,9 @@ export default function CatalogoPage() {
   const [nombreCliente, setNombreCliente] = useState("");
 
   // Lógica de filtrado y ORDEN ALFABÉTICO
+  // Lógica de filtrado y ORDEN ALFABÉTICO
   const productosFiltrados = useMemo(() => {
-    let filtrados = todosLosProductos.filter((prod) => {
+    const filtrados = todosLosProductos.filter((prod) => {
       const coincideBusqueda = prod.productos
         .toLowerCase()
         .includes(busqueda.toLowerCase());
