@@ -1,10 +1,12 @@
 import type { Metadata } from "next";
-import { Syne } from "next/font/google";
+import { Inter } from "next/font/google";
 import "./globals.css";
 
-const syne = Syne({
-  variable: "--font-syne",
+// Cambiamos Syne por Inter para un look más limpio y minimalista
+const inter = Inter({
+  variable: "--font-inter",
   subsets: ["latin"],
+  display: "swap", // Mejora el rendimiento de carga
 });
 
 export const metadata: Metadata = {
@@ -22,8 +24,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className={`${syne.variable} antialiased`}>
-      <body>{children}</body>
+    // Aplicamos la variable de la nueva fuente
+    <html lang="es" className={`${inter.variable} antialiased`}>
+      <body className="font-sans bg-[#0a0a0a] text-neutral-200">
+        {children}
+      </body>
     </html>
   );
 }
