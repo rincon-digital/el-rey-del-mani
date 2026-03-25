@@ -1,14 +1,28 @@
 "use client";
-
-import React, { useState, useMemo } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
-// Asegurate de que estas rutas a tus JSON sean correctas
-import minoristaData from "@/public/db/producto.json";
-import mayoristaData from "@/public/db/bolsones.json";
+import Aurora from "@/components/Aurora";
+import Navbar from "@/components/Navbar";
+import Image from "next/image";
+import { Search } from "lucide-react";
+
+import productosMinorista from "@/public/db/productos_final.json";
+import productosMayorista from "@/public/db/bolsones.json";
 
 // --- Tipos de Datos ---
-interface ProductoDB {
+interface Presentacion {
+  detalle: string;
+  precio: string;
+}
+
+interface ProductoMinorista {
+  producto: string;
+  categoria: string;
+  sabores?: string[];
+  presentaciones: Presentacion[];
+}
+
+interface ProductoMayorista {
   productos: string;
   categoria: string;
   precio: string | number;
@@ -16,75 +30,63 @@ interface ProductoDB {
   empaque: string;
 }
 
-interface Producto extends ProductoDB {
-  id: string;
-  tipo: string;
-}
+// Creamos un tipo que puede ser o uno o el otro para que TypeScript no se queje
+type ProductoCatalogo = ProductoMinorista | ProductoMayorista;
 
-interface ProductoEnCarrito extends Producto {
+interface ProductoEnCarrito {
+  id_carrito: string;
+  producto: string;
+  categoria: string;
+  saborSeleccionado: string;
+  presentacionSeleccionada: string;
+  precioUnitario: number;
   cantidad: number;
+  tipoVenta: "MINORISTA" | "MAYORISTA";
 }
 
-interface TarjetaProductoProps {
-  producto: Producto;
-  onClick: () => void;
-}
-
-const numeroWhatsApp = "5493704569418";
-
-// --- Preparación de Datos ---
-const todosLosProductos: Producto[] = [
-  ...minoristaData.map((prod: ProductoDB, index: number) => ({
-    ...prod,
-    id: `min-${index}`,
-    tipo: "Minorista",
-  })),
-  ...mayoristaData.map((prod: ProductoDB, index: number) => ({
-    ...prod,
-    id: `may-${index}`,
-    tipo: "Mayorista",
-  })),
+const CATEGORIAS_ALFABETICO = [
+  "CEREALES",
+  "CONDIMENTOS",
+  "FRUTAS DESHIDRATADAS",
+  "FRUTOS SECOS",
+  "GALLETITAS",
+  "GOLOSINAS",
+  "MANÍ Y FRUTOS SECOS",
+  "MERCADERÍA VARIA / VARIOS",
 ];
 
-// Obtenemos una lista de categorías únicas directamente de los datos
-const categoriasUnicas = Array.from(
-  new Set(todosLosProductos.map((p) => p.categoria.toUpperCase())),
-);
-
-// Mapa de imágenes variadas para las diferentes categorías
-const imagenesCategorias: Record<string, string> = {
-  CEREALES:
-    "https://images.unsplash.com/photo-1521483451569-e33803c0330c?q=80&w=400&auto=format&fit=crop",
-  SNACKS:
-    "https://images.unsplash.com/photo-1621506289937-a8e4df240d0b?q=80&w=400&auto=format&fit=crop",
-  "FRUTOS SECOS":
-    "https://images.unsplash.com/photo-1599577239148-7097970d4fdb?q=80&w=400&auto=format&fit=crop",
-  CONDIMENTOS:
-    "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?q=80&w=400&auto=format&fit=crop",
-  "FRUTAS DESHIDRATADAS":
-    "https://images.unsplash.com/photo-1600857544200-b2f666a9a2ec?q=80&w=400&auto=format&fit=crop",
-  GALLETITAS:
-    "https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=400&auto=format&fit=crop",
-  GOLOSINAS:
-    "https://images.unsplash.com/photo-1582058091505-f87a2e55a40f?q=80&w=400&auto=format&fit=crop",
-  "MANÍ Y FRUTOS":
-    "https://images.unsplash.com/photo-1563114773-84221bd62bf3?q=80&w=400&auto=format&fit=crop",
-  MERCADERÍA:
-    "https://images.unsplash.com/photo-1542838132-92c53300491e?q=80&w=400&auto=format&fit=crop",
-  DEFAULT:
-    "https://images.unsplash.com/photo-1608686207856-001b95cf60ca?q=80&w=400&auto=format&fit=crop",
+const IMAGENES_CATEGORIAS: Record<string, string> = {
+  CEREALES: "/cereales.jpg",
+  CONDIMENTOS: "/condimentos.jpg",
+  "FRUTAS DESHIDRATADAS": "/FRUTAS-DESHIDRATADAS.jpg",
+  "FRUTOS SECOS": "/frutos-secos.jpg",
+  GALLETITAS: "/GALLETITAS.jpg",
+  GOLOSINAS: "/GOLOSINAS.jpg",
+  "MANÍ Y FRUTOS SECOS": "/MANÍ-Y-FRUTOS SECOS.jpg",
+  "MERCADERÍA VARIA / VARIOS": "/MERCADERÍA-VARIA.jpg",
 };
 
-// --- Utilidades ---
+const PIRAMIDE_CATEGORIAS = [
+  ["TODOS"],
+  [CATEGORIAS_ALFABETICO[0], CATEGORIAS_ALFABETICO[1]],
+  [
+    CATEGORIAS_ALFABETICO[2],
+    CATEGORIAS_ALFABETICO[3],
+    CATEGORIAS_ALFABETICO[4],
+  ],
+  [
+    CATEGORIAS_ALFABETICO[5],
+    CATEGORIAS_ALFABETICO[6],
+    CATEGORIAS_ALFABETICO[7],
+  ],
+];
+
 const parsePrecio = (precioStr: string | number) => {
   if (!precioStr) return 0;
   const str = precioStr.toString();
-  const limpio = str
-    .replace(/\$/g, "")
-    .replace(/\./g, "")
-    .replace(",", ".")
-    .trim();
-  return parseFloat(limpio) || 0;
+  return parseFloat(
+    str.replace("$", "").replace(/\./g, "").replace(",", ".").trim(),
+  );
 };
 
 const formatPrecio = (numero: number) => {
@@ -94,279 +96,273 @@ const formatPrecio = (numero: number) => {
   }).format(numero);
 };
 
-const IconoProducto = () => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    fill="none"
-    viewBox="0 0 24 24"
-    strokeWidth="1.5"
-    stroke="currentColor"
-    className="w-8 h-8 sm:w-10 sm:h-10 text-red-400"
-  >
-    <path
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M4.098 19.902a3.75 3.75 0 0 0 5.304 0l6.401-6.402M6.75 21A3.75 3.75 0 0 1 3 17.25V4.125C3 3.504 3.504 3 4.125 3h5.25c.621 0 1.125.504 1.125 1.125v4.072M6.75 21a3.75 3.75 0 0 0 3.75-3.75V8.197M6.75 21h13.125c.621 0 1.125-.504 1.125-1.125v-5.25c0-.621-.504-1.125-1.125-1.125h-4.072M10.5 8.197l2.88-2.88c.438-.439 1.15-.439 1.59 0l3.712 3.713c.44.44.44 1.152 0 1.59l-2.879 2.88M6.75 17.25h.008v.008H6.75v-.008Z"
-    />
-  </svg>
-);
-
-const TarjetaProducto = ({ producto, onClick }: TarjetaProductoProps) => {
-  const isMinorista = producto.tipo === "Minorista";
-  return (
-    <motion.div
-      onClick={onClick}
-      whileHover={{ scale: 1.02 }}
-      transition={{ duration: 0.2 }}
-      className="cursor-pointer flex h-full bg-neutral-900/50 backdrop-blur-md border border-white/10 rounded-2xl shadow-xl overflow-hidden hover:bg-neutral-800/80 transition-colors group"
-    >
-      <div className="w-1/3 min-w-[100px] sm:min-w-[120px] bg-black/40 flex flex-col items-center justify-center p-3 sm:p-4 border-r border-white/5">
-        <IconoProducto />
-        <span className="text-[9px] sm:text-[10px] text-gray-400 uppercase tracking-widest mt-2 sm:mt-3 text-center font-semibold line-clamp-1">
-          {producto.categoria}
-        </span>
-      </div>
-      <div className="w-2/3 p-4 sm:p-5 flex flex-col justify-between">
-        <div>
-          <span
-            className={`text-[10px] sm:text-xs font-bold uppercase tracking-wide mb-1 sm:mb-2 block ${isMinorista ? "text-yellow-500" : "text-red-500"}`}
-          >
-            {producto.tipo}
-          </span>
-          <h3 className="text-base sm:text-lg font-bold text-white leading-snug line-clamp-2">
-            {producto.productos}
-          </h3>
-        </div>
-        <div className="mt-3 sm:mt-4 flex justify-between items-end">
-          <span className="text-lg font-bold text-emerald-400">
-            {producto.precio.toString().startsWith("$")
-              ? producto.precio
-              : `$ ${producto.precio}`}
-          </span>
-          <span className="text-xs sm:text-sm font-medium text-gray-400 group-hover:text-red-400 transition-colors flex items-center gap-1 sm:gap-2">
-            Ver más
-            <svg
-              className="w-3 h-3 sm:w-4 sm:h-4"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </span>
-        </div>
-      </div>
-    </motion.div>
-  );
-};
-
-// --- Página Principal ---
 export default function CatalogoPage() {
-  const [productoSeleccionado, setProductoSeleccionado] =
-    useState<Producto | null>(null);
+  const [tipoCatalogo, setTipoCatalogo] = useState<"MINORISTA" | "MAYORISTA">(
+    "MINORISTA",
+  );
 
-  // Estados para filtros
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState("TODOS");
   const [busqueda, setBusqueda] = useState("");
-  const [categoriaSeleccionada, setCategoriaSeleccionada] =
-    useState<string>("TODOS");
-  const [filtroTipo, setFiltroTipo] = useState<
-    "TODOS" | "Minorista" | "Mayorista"
-  >("TODOS");
+  const [scrolled, setScrolled] = useState(false);
+  const [modalCategoriasAbierto, setModalCategoriasAbierto] = useState(false);
 
-  // Estados del Carrito
+  // Solución TS: Ahora usamos el type ProductoCatalogo
+  const [productoSeleccionado, setProductoSeleccionado] =
+    useState<ProductoCatalogo | null>(null);
+
   const [carrito, setCarrito] = useState<ProductoEnCarrito[]>([]);
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
   const [nombreCliente, setNombreCliente] = useState("");
 
-  // Lógica de filtrado y ORDEN ALFABÉTICO
-  // Lógica de filtrado y ORDEN ALFABÉTICO
+  const [saborElegido, setSaborElegido] = useState<string>("");
+  const [presentacionElegida, setPresentacionElegida] = useState<number>(0);
+  const [cantidadElegida, setCantidadElegida] = useState<number>(1);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+        setModalCategoriasAbierto(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  // Solución TS: Le decimos a la lista qué forma tiene
   const productosFiltrados = useMemo(() => {
-    const filtrados = todosLosProductos.filter((prod) => {
-      const coincideBusqueda = prod.productos
-        .toLowerCase()
-        .includes(busqueda.toLowerCase());
-      const coincideCategoria =
-        categoriaSeleccionada === "TODOS" ||
-        prod.categoria.toUpperCase() === categoriaSeleccionada;
-      const coincideTipo = filtroTipo === "TODOS" || prod.tipo === filtroTipo;
+    let list: ProductoCatalogo[] =
+      tipoCatalogo === "MINORISTA"
+        ? (productosMinorista as ProductoMinorista[])
+        : (productosMayorista as ProductoMayorista[]);
 
-      return coincideBusqueda && coincideCategoria && coincideTipo;
+    if (categoriaSeleccionada !== "TODOS") {
+      list = list.filter((p) => p.categoria === categoriaSeleccionada);
+    }
+
+    if (busqueda.trim() !== "") {
+      const termino = busqueda.toLowerCase();
+      list = list.filter((p) => {
+        const nombreProducto = "producto" in p ? p.producto : p.productos;
+        return nombreProducto.toLowerCase().includes(termino);
+      });
+    }
+
+    return list.sort((a, b) => {
+      const nombreA = "producto" in a ? a.producto : a.productos;
+      const nombreB = "producto" in b ? b.producto : b.productos;
+      return nombreA.localeCompare(nombreB);
     });
+  }, [categoriaSeleccionada, busqueda, tipoCatalogo]);
 
-    // Ordenamos alfabéticamente por el nombre del producto (A-Z)
-    return filtrados.sort((a, b) => a.productos.localeCompare(b.productos));
-  }, [busqueda, categoriaSeleccionada, filtroTipo]);
+  const abrirModalProducto = (prod: ProductoCatalogo) => {
+    setProductoSeleccionado(prod);
+    setCantidadElegida(1);
 
-  const agregarAlCarrito = (producto: Producto) => {
+    if (tipoCatalogo === "MINORISTA") {
+      const prodMin = prod as ProductoMinorista;
+      setSaborElegido(
+        prodMin.sabores && prodMin.sabores.length > 0
+          ? prodMin.sabores[0]
+          : "Original",
+      );
+      setPresentacionElegida(0);
+    } else {
+      setSaborElegido("Original");
+    }
+  };
+
+  const agregarAlCarrito = () => {
+    if (!productoSeleccionado) return;
+
+    let idUnico = "";
+    let nombreProd = "";
+    let detallePres = "";
+    let precioNumerico = 0;
+
+    if (tipoCatalogo === "MINORISTA") {
+      const prodMin = productoSeleccionado as ProductoMinorista;
+      const presentacionObj = prodMin.presentaciones[presentacionElegida];
+      precioNumerico = parsePrecio(presentacionObj.precio);
+      nombreProd = prodMin.producto;
+      detallePres = presentacionObj.detalle;
+      idUnico = `MIN-${nombreProd}-${saborElegido}-${detallePres}`;
+    } else {
+      const prodMay = productoSeleccionado as ProductoMayorista;
+      precioNumerico = parsePrecio(prodMay.precio);
+      nombreProd = prodMay.productos;
+      detallePres = `${prodMay.detalle_de_producto} (${prodMay.empaque})`;
+      idUnico = `MAY-${nombreProd}-${detallePres}`;
+    }
+
     setCarrito((prev) => {
-      const existe = prev.find((item) => item.id === producto.id);
+      const existe = prev.find((item) => item.id_carrito === idUnico);
       if (existe) {
         return prev.map((item) =>
-          item.id === producto.id
-            ? { ...item, cantidad: item.cantidad + 1 }
+          item.id_carrito === idUnico
+            ? { ...item, cantidad: item.cantidad + cantidadElegida }
             : item,
         );
       }
-      return [...prev, { ...producto, cantidad: 1 }];
+      return [
+        ...prev,
+        {
+          id_carrito: idUnico,
+          producto: nombreProd,
+          categoria: productoSeleccionado.categoria,
+          saborSeleccionado: saborElegido,
+          presentacionSeleccionada: detallePres,
+          precioUnitario: precioNumerico,
+          cantidad: cantidadElegida,
+          tipoVenta: tipoCatalogo,
+        },
+      ];
     });
     setProductoSeleccionado(null);
   };
 
-  const eliminarDelCarrito = (idProducto: string) => {
-    setCarrito((prev) => prev.filter((item) => item.id !== idProducto));
+  const eliminarDelCarrito = (id_carrito: string) => {
+    setCarrito((prev) => prev.filter((item) => item.id_carrito !== id_carrito));
   };
 
   const totalCarrito = carrito.reduce(
-    (total, item) => total + parsePrecio(item.precio) * item.cantidad,
+    (total, item) => total + item.precioUnitario * item.cantidad,
     0,
   );
 
   const armarPedidoWhatsApp = () => {
     if (!nombreCliente.trim())
-      return alert("Por favor, ingresá tu nombre antes de enviar el pedido.");
+      return alert("Por favor, ingresá tu Nombre o el de tu Empresa.");
+
     let texto = `¡Hola El Rey Del Maní! 🥜 Soy ${nombreCliente.trim()}.\nQuiero hacer el siguiente pedido:\n\n`;
+
     carrito.forEach((item) => {
-      texto += `▪️ ${item.cantidad}x ${item.productos} (${item.tipo})\n`;
+      const tipoTag =
+        item.tipoVenta === "MAYORISTA" ? "[MAYORISTA]" : "[MINORISTA]";
+      texto += `▪️ ${tipoTag} ${item.cantidad}x ${item.producto}\n`;
+      if (
+        item.tipoVenta === "MINORISTA" &&
+        item.saborSeleccionado !== "Original"
+      ) {
+        texto += `   Sabor: ${item.saborSeleccionado}\n`;
+      }
+      texto += `   Detalle: ${item.presentacionSeleccionada}\n`;
+      texto += `   Subtotal: ${formatPrecio(item.precioUnitario * item.cantidad)}\n\n`;
     });
-    texto += `\n*Total a pagar:* ${formatPrecio(totalCarrito)}\n`;
+
+    texto += `*Total a pagar:* ${formatPrecio(totalCarrito)}\n`;
     texto += `*Método de pago:* Efectivo 💵\n\n¡Muchas gracias!`;
 
-    const url = `https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(texto)}`;
-    window.open(url, "_blank");
+    window.open(
+      `https://wa.me/5493704569418?text=${encodeURIComponent(texto)}`,
+      "_blank",
+    );
   };
 
   return (
-    <div className="relative min-h-screen py-8 sm:py-12 px-4 sm:px-6 lg:px-8 overflow-hidden font-sans bg-gradient-to-br from-red-950 via-black to-black">
-      {/* Botón Volver a la Home */}
-      <div className="absolute top-4 left-4 sm:top-8 sm:left-8 z-20">
-        <Link
-          href="/"
-          className="flex items-center gap-2 text-gray-400 hover:text-white transition-colors bg-black/40 px-4 py-2 rounded-full border border-white/10 backdrop-blur-md"
-        >
-          <svg
-            className="w-5 h-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M10 19l-7-7m0 0l7-7m-7 7h18"
-            />
-          </svg>
-          <span className="font-medium text-sm hidden sm:inline">Volver</span>
-        </Link>
+    <main className="relative min-h-screen bg-[#050505] text-white selection:bg-red-700 selection:text-white pb-32">
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
+        .font-display { font-family: 'Montserrat', sans-serif; }
+        .font-ui      { font-family: 'Inter', sans-serif; }
+      `}</style>
+
+      <Navbar />
+
+      <div className="fixed inset-0 z-0 pointer-events-none">
+        <Aurora
+          colorStops={["#dc2626", "#050505", "#eab308"]}
+          blend={0.6}
+          amplitude={1.5}
+          speed={1.2}
+        />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10 pt-10 sm:pt-4">
-        {/* Hero Section */}
-        {categoriaSeleccionada === "TODOS" && (
-          <div className="text-center mb-10 sm:mb-14">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-red-500 to-white mb-4 tracking-tight">
-              El Rey Del Maní
-            </h1>
-            <p className="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto font-light leading-relaxed">
-              Explorá nuestra gran variedad de productos. Trabajamos ventas por
-              mayor y menor con la mejor calidad garantizada.
-            </p>
-          </div>
-        )}
-
-        {/* Sección de Filtros y Búsqueda */}
-        <div className="mb-10 space-y-6">
-          {/* Barra de Búsqueda */}
-          <div className="max-w-2xl mx-auto">
-            <div className="relative">
-              <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <svg
-                  className="h-5 w-5 text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                  />
-                </svg>
-              </div>
-              <input
-                type="text"
-                value={busqueda}
-                onChange={(e) => setBusqueda(e.target.value)}
-                placeholder="Buscar productos (ej. Papas, Maní...)"
-                className="w-full bg-neutral-900/80 border border-white/10 rounded-full py-4 pl-12 pr-4 text-white focus:outline-none focus:ring-2 focus:ring-red-500 backdrop-blur-md"
-              />
-            </div>
-
-            {/* Filtro Mayorista / Minorista */}
-            <div className="flex flex-wrap justify-center gap-3 mt-5">
-              {(["TODOS", "Minorista", "Mayorista"] as const).map((tipo) => (
-                <button
-                  key={tipo}
-                  onClick={() => setFiltroTipo(tipo)}
-                  className={`px-5 py-2 rounded-full text-xs sm:text-sm font-bold transition-all ${
-                    filtroTipo === tipo
-                      ? "bg-red-600 text-white shadow-lg shadow-red-900/50"
-                      : "bg-white/5 text-gray-400 border border-white/10 hover:bg-white/10"
-                  }`}
-                >
-                  {tipo === "TODOS" ? "Todos los tipos" : `Venta ${tipo}`}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Filtros por Categoría en forma de "Pirámide" (centrado y multilínea) */}
-          <div className="flex flex-wrap justify-center gap-4 px-2 pt-4">
-            <button
-              onClick={() => setCategoriaSeleccionada("TODOS")}
-              className={`flex-shrink-0 flex flex-col items-center justify-center h-24 w-24 sm:h-28 sm:w-28 rounded-2xl border-2 transition-all overflow-hidden relative group ${
-                categoriaSeleccionada === "TODOS"
-                  ? "border-red-500 ring-4 ring-red-500/20 shadow-xl shadow-red-900/20"
-                  : "border-transparent bg-neutral-900/50 hover:bg-neutral-800"
-              }`}
+      <div className="relative z-10 max-w-7xl mx-auto pt-32 px-6">
+        <AnimatePresence mode="wait">
+          {categoriaSeleccionada === "TODOS" && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "auto" }}
+              exit={{ opacity: 0, height: 0 }}
+              className="text-center mb-10"
             >
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10"></div>
-              <span className="relative z-20 font-bold text-white text-xs sm:text-sm mt-auto mb-3">
-                TODOS
-              </span>
-            </button>
+              <h1 className="font-display text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                Catálogo
+              </h1>
 
-            {categoriasUnicas.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setCategoriaSeleccionada(cat)}
-                className={`flex-shrink-0 flex flex-col items-center justify-end h-24 w-24 sm:h-28 sm:w-28 rounded-2xl border-2 transition-all overflow-hidden relative group ${
-                  categoriaSeleccionada === cat
-                    ? "border-red-500 ring-4 ring-red-500/20 shadow-xl shadow-red-900/20"
-                    : "border-transparent bg-neutral-900/50 hover:border-white/20"
-                }`}
-              >
-                <img
-                  src={imagenesCategorias[cat] || imagenesCategorias.DEFAULT}
-                  alt={cat}
-                  className="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:opacity-80 transition-opacity"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent z-10"></div>
-                <span className="relative z-20 font-bold text-white text-[10px] sm:text-xs mb-3 px-2 text-center w-full truncate">
-                  {cat}
-                </span>
-              </button>
-            ))}
+              <div className="flex justify-center">
+                <div className="bg-black/40 border border-white/10 p-1.5 rounded-full flex items-center backdrop-blur-md">
+                  <button
+                    onClick={() => {
+                      setTipoCatalogo("MINORISTA");
+                      setBusqueda("");
+                    }}
+                    className={`font-ui text-xs md:text-sm tracking-widest uppercase px-6 py-3 rounded-full font-bold transition-all duration-300 ${tipoCatalogo === "MINORISTA" ? "bg-red-700 text-white shadow-lg" : "text-white/50 hover:text-white"}`}
+                  >
+                    Minorista
+                  </button>
+                  <button
+                    onClick={() => {
+                      setTipoCatalogo("MAYORISTA");
+                      setBusqueda("");
+                    }}
+                    className={`font-ui text-xs md:text-sm tracking-widest uppercase px-6 py-3 rounded-full font-bold transition-all duration-300 ${tipoCatalogo === "MAYORISTA" ? "bg-yellow-500 text-black shadow-[0_0_15px_rgba(234,179,8,0.4)]" : "text-white/50 hover:text-white"}`}
+                  >
+                    Mayorista
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
+
+        <div className="flex flex-col items-center gap-3 mb-8">
+          {PIRAMIDE_CATEGORIAS.map((fila, indexFila) => (
+            <div
+              key={indexFila}
+              className="flex flex-wrap justify-center gap-2 md:gap-3"
+            >
+              {fila.map((cat) => {
+                const isSelected = categoriaSeleccionada === cat;
+                return (
+                  <button
+                    key={cat}
+                    onClick={() => {
+                      setCategoriaSeleccionada(cat);
+                      setBusqueda("");
+                    }}
+                    className={`font-ui text-[0.65rem] sm:text-xs tracking-[0.1em] uppercase px-5 py-3 rounded-full transition-all duration-300 border backdrop-blur-md font-semibold ${
+                      isSelected
+                        ? "bg-yellow-500/20 border-yellow-500 text-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.2)]"
+                        : "bg-black/40 border-white/10 text-white/70 hover:bg-white/10 hover:text-white"
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                );
+              })}
+            </div>
+          ))}
+        </div>
+
+        <div className="flex justify-center mb-10">
+          <div className="relative w-full max-w-md">
+            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
+              <Search className="w-5 h-5 text-white/40" />
+            </div>
+            <input
+              type="text"
+              placeholder="Buscar un producto rápido..."
+              value={busqueda}
+              onChange={(e) => setBusqueda(e.target.value)}
+              className="w-full bg-black/40 border border-white/10 rounded-full py-4 pl-12 pr-4 font-ui text-sm text-white placeholder-white/40 focus:outline-none focus:border-yellow-500/50 focus:bg-black/60 backdrop-blur-md transition-all"
+            />
           </div>
         </div>
 
-        {/* Banner de Categoría Seleccionada */}
         <AnimatePresence mode="wait">
           {categoriaSeleccionada !== "TODOS" && (
             <motion.div
@@ -374,22 +370,22 @@ export default function CatalogoPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="relative w-full h-40 sm:h-56 rounded-3xl overflow-hidden mb-8 shadow-2xl border border-white/10"
+              className="relative w-full h-40 md:h-56 rounded-3xl overflow-hidden mb-12 border border-white/10 shadow-2xl"
             >
-              <img
-                src={
-                  imagenesCategorias[categoriaSeleccionada] ||
-                  imagenesCategorias.DEFAULT
-                }
-                className="absolute inset-0 w-full h-full object-cover opacity-50"
+              <Image
+                src={IMAGENES_CATEGORIAS[categoriaSeleccionada] || "/logo.png"}
                 alt={categoriaSeleccionada}
+                fill
+                className="object-cover opacity-40 mix-blend-luminosity"
+                priority
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-4 text-center">
-                <span className="text-red-400 font-bold tracking-widest uppercase text-xs sm:text-sm mb-2 drop-shadow-md">
+              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/50 to-transparent"></div>
+              <div className="absolute inset-0 bg-red-950/20 mix-blend-overlay"></div>
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                <span className="font-ui text-yellow-500 text-[0.6rem] font-semibold tracking-[0.3em] uppercase mb-2">
                   Categoría
                 </span>
-                <h2 className="text-3xl sm:text-5xl font-black text-white tracking-wider uppercase drop-shadow-xl">
+                <h2 className="font-display text-3xl md:text-5xl font-extrabold text-white drop-shadow-lg">
                   {categoriaSeleccionada}
                 </h2>
               </div>
@@ -397,36 +393,272 @@ export default function CatalogoPage() {
           )}
         </AnimatePresence>
 
-        {/* Grilla de productos filtrados y ordenados */}
         {productosFiltrados.length === 0 ? (
-          <div className="text-center py-20 bg-neutral-900/30 rounded-3xl border border-white/5">
-            <p className="text-gray-400 text-lg">
-              No se encontraron productos para tu búsqueda o filtro.
-            </p>
+          <div className="text-center py-20 text-white/50 font-ui tracking-widest uppercase text-sm">
+            No encontramos productos.
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-            {productosFiltrados.map((prod) => (
-              <TarjetaProducto
-                key={prod.id}
-                producto={prod}
-                onClick={() => setProductoSeleccionado(prod)}
-              />
-            ))}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+            {productosFiltrados.map((prod, index) => {
+              const isMinorista = tipoCatalogo === "MINORISTA";
+              const nombreProducto = isMinorista
+                ? (prod as ProductoMinorista).producto
+                : (prod as ProductoMayorista).productos;
+
+              const precioMostrar = isMinorista
+                ? (prod as ProductoMinorista).presentaciones.length > 0
+                  ? (prod as ProductoMinorista).presentaciones[0].precio
+                  : "$ 0,00"
+                : formatPrecio(parsePrecio((prod as ProductoMayorista).precio));
+
+              const etiquetaPrecio = isMinorista ? "Desde" : "Precio Bolsón";
+
+              return (
+                <div
+                  key={index}
+                  onClick={() => abrirModalProducto(prod)}
+                  className="group flex flex-col items-center justify-between aspect-square bg-[#0a0a0a]/60 hover:bg-[#151515]/90 backdrop-blur-md border border-white/10 hover:border-yellow-500/40 rounded-3xl p-5 md:p-6 cursor-pointer transition-all duration-300 shadow-xl"
+                >
+                  <div className="flex flex-col items-center w-full">
+                    <svg
+                      className="w-8 h-8 md:w-10 md:h-10 text-yellow-500 mb-3 opacity-60 group-hover:opacity-100 transition-opacity"
+                      viewBox="0 0 100 60"
+                      fill="currentColor"
+                    >
+                      <path d="M10,50 L90,50 L100,20 L75,35 L50,10 L25,35 L0,20 Z" />
+                    </svg>
+
+                    <p
+                      className={`font-ui text-[0.55rem] md:text-[0.6rem] tracking-[0.1em] uppercase mb-2 font-medium text-center ${tipoCatalogo === "MAYORISTA" ? "text-yellow-500" : "text-red-400"}`}
+                    >
+                      {prod.categoria}{" "}
+                      {tipoCatalogo === "MAYORISTA" && "· MAYOR"}
+                    </p>
+
+                    <h3 className="font-display text-sm md:text-lg font-bold text-white text-center leading-tight group-hover:text-yellow-500 transition-colors line-clamp-3">
+                      {nombreProducto}
+                    </h3>
+                  </div>
+
+                  <div className="flex flex-col items-center w-full mt-auto pt-4 border-t border-white/5">
+                    <span className="font-ui text-[0.6rem] text-white/40 uppercase tracking-widest mb-1">
+                      {etiquetaPrecio}
+                    </span>
+                    <span className="font-display text-lg md:text-xl font-bold text-emerald-400 mb-4">
+                      {precioMostrar}
+                    </span>
+                    <button className="font-ui font-semibold text-[0.6rem] md:text-xs uppercase w-full py-2.5 bg-white/5 text-white border border-white/10 rounded-xl group-hover:bg-red-700 group-hover:border-red-700 transition-colors">
+                      Ver más detalles
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         )}
       </div>
 
-      {/* Botón flotante del carrito */}
+      <AnimatePresence>
+        {productoSeleccionado && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
+            onClick={() => setProductoSeleccionado(null)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-[#0a0a0a] border border-white/10 p-6 md:p-8 rounded-3xl w-full max-w-lg relative shadow-2xl flex flex-col gap-6 max-h-[90vh] overflow-y-auto scrollbar-hide"
+            >
+              <button
+                onClick={() => setProductoSeleccionado(null)}
+                className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors"
+              >
+                ✕
+              </button>
+
+              <div>
+                <p
+                  className={`font-ui text-[0.65rem] tracking-[0.2em] uppercase font-semibold mb-2 ${tipoCatalogo === "MAYORISTA" ? "text-yellow-500" : "text-red-500"}`}
+                >
+                  {tipoCatalogo} · {productoSeleccionado.categoria}
+                </p>
+                <h3 className="font-display text-2xl md:text-3xl font-bold text-white leading-tight mb-2">
+                  {tipoCatalogo === "MINORISTA"
+                    ? (productoSeleccionado as ProductoMinorista).producto
+                    : (productoSeleccionado as ProductoMayorista).productos}
+                </h3>
+              </div>
+
+              {tipoCatalogo === "MINORISTA" ? (
+                <>
+                  {(productoSeleccionado as ProductoMinorista).sabores &&
+                    (productoSeleccionado as ProductoMinorista).sabores!
+                      .length > 0 && (
+                      <div>
+                        <label className="font-ui text-[0.7rem] uppercase font-semibold tracking-widest text-white/60 mb-3 block">
+                          1. Elegí el Sabor
+                        </label>
+                        <div className="flex flex-wrap gap-2">
+                          {(
+                            productoSeleccionado as ProductoMinorista
+                          ).sabores!.map((sabor: string) => (
+                            <button
+                              key={sabor}
+                              onClick={() => setSaborElegido(sabor)}
+                              className={`font-ui text-sm px-4 py-2.5 rounded-xl border capitalize font-medium transition-all ${saborElegido === sabor ? "bg-red-900/40 border-red-500 text-white" : "bg-transparent border-white/10 text-white/60 hover:bg-white/5"}`}
+                            >
+                              {sabor}
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                  <div>
+                    <label className="font-ui text-[0.7rem] uppercase font-semibold tracking-widest text-white/60 mb-3 block">
+                      2. Tamaño y Precio
+                    </label>
+                    <div className="flex flex-col gap-2">
+                      {(
+                        productoSeleccionado as ProductoMinorista
+                      ).presentaciones.map(
+                        (pres: Presentacion, index: number) => (
+                          <button
+                            key={index}
+                            onClick={() => setPresentacionElegida(index)}
+                            className={`flex justify-between items-center px-4 py-4 rounded-xl border transition-all text-left ${presentacionElegida === index ? "bg-yellow-500/10 border-yellow-500" : "bg-transparent border-white/10 hover:bg-white/5"}`}
+                          >
+                            <span
+                              className={`font-ui text-sm pr-4 ${presentacionElegida === index ? "text-yellow-500 font-semibold" : "text-white/80"}`}
+                            >
+                              {pres.detalle}
+                            </span>
+                            <span className="font-display font-bold text-emerald-400 whitespace-nowrap">
+                              {pres.precio}
+                            </span>
+                          </button>
+                        ),
+                      )}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <div className="bg-white/5 border border-white/10 p-5 rounded-2xl flex flex-col gap-3">
+                  <div className="flex justify-between border-b border-white/10 pb-3">
+                    <span className="font-ui text-sm text-white/60">
+                      Detalle:
+                    </span>
+                    <span className="font-ui text-sm font-bold text-white">
+                      {
+                        (productoSeleccionado as ProductoMayorista)
+                          .detalle_de_producto
+                      }
+                    </span>
+                  </div>
+                  <div className="flex justify-between border-b border-white/10 pb-3">
+                    <span className="font-ui text-sm text-white/60">
+                      Empaque:
+                    </span>
+                    <span className="font-ui text-sm font-bold text-white capitalize">
+                      {(productoSeleccionado as ProductoMayorista).empaque}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center pt-2">
+                    <span className="font-ui text-sm text-white/60">
+                      Precio x Bolsón:
+                    </span>
+                    <span className="font-display text-2xl font-bold text-emerald-400">
+                      {formatPrecio(
+                        parsePrecio(
+                          (productoSeleccionado as ProductoMayorista).precio,
+                        ),
+                      )}
+                    </span>
+                  </div>
+                </div>
+              )}
+
+              <div className="flex flex-col gap-4 mt-2">
+                <div className="flex gap-4 items-end">
+                  <div className="flex-1">
+                    <label className="font-ui text-[0.7rem] uppercase font-semibold tracking-widest text-white/60 mb-2 block">
+                      Cantidad
+                    </label>
+                    <div className="flex items-center border border-white/10 rounded-xl bg-black/40 p-1">
+                      <button
+                        onClick={() =>
+                          setCantidadElegida(Math.max(1, cantidadElegida - 1))
+                        }
+                        className="px-4 py-3 text-white/50 hover:text-white font-bold"
+                      >
+                        -
+                      </button>
+                      <span className="flex-1 text-center font-bold text-lg">
+                        {cantidadElegida}
+                      </span>
+                      <button
+                        onClick={() => setCantidadElegida(cantidadElegida + 1)}
+                        className="px-4 py-3 text-white/50 hover:text-white font-bold"
+                      >
+                        +
+                      </button>
+                    </div>
+                  </div>
+                  <button
+                    onClick={agregarAlCarrito}
+                    className="font-ui flex-[2] bg-red-700 hover:bg-red-600 text-white text-xs tracking-widest uppercase font-bold py-4 rounded-xl transition-colors shadow-[0_0_15px_rgba(220,38,38,0.3)]"
+                  >
+                    Añadir al Bolso
+                  </button>
+                </div>
+
+                <a
+                  href={`https://wa.me/5493704569418?text=${encodeURIComponent(`Hola! Necesito más información sobre el producto: ${tipoCatalogo === "MINORISTA" ? (productoSeleccionado as ProductoMinorista).producto : (productoSeleccionado as ProductoMayorista).productos}`)}`}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="font-ui text-center text-white/40 hover:text-yellow-500 text-[0.7rem] uppercase tracking-widest transition-colors py-2"
+                >
+                  ¿Dudas sobre el producto? Escribile al dueño
+                </a>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {scrolled && (
+          <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: 100, opacity: 0 }}
+            className="fixed bottom-8 left-1/2 -translate-x-1/2 z-40"
+          >
+            <button
+              onClick={() => setModalCategoriasAbierto(true)}
+              className="font-ui text-[0.7rem] font-semibold tracking-[0.2em] uppercase px-8 py-4 bg-[#050505]/90 backdrop-blur-xl border border-yellow-500/50 text-white rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.8)] hover:bg-yellow-500/20 transition-colors flex items-center gap-2"
+            >
+              <Search className="w-4 h-4 text-yellow-500" />
+              Filtrar
+            </button>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {carrito.length > 0 && (
         <motion.button
           initial={{ scale: 0 }}
           animate={{ scale: 1 }}
           onClick={() => setMostrarCarrito(true)}
-          className="fixed bottom-6 right-6 sm:bottom-10 sm:right-10 z-40 bg-red-600 hover:bg-red-500 text-white p-4 rounded-full shadow-[0_0_30px_rgba(220,38,38,0.4)] transition-colors flex items-center justify-center"
+          className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 bg-white text-black p-4 rounded-full shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-105 transition-transform flex items-center justify-center"
         >
           <svg
-            className="w-8 h-8"
+            className="w-6 h-6"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -438,274 +670,124 @@ export default function CatalogoPage() {
               d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
             />
           </svg>
-          <span className="absolute -top-2 -right-2 bg-white text-red-600 font-black text-xs w-6 h-6 flex items-center justify-center rounded-full border-2 border-red-600">
-            {carrito.length}
+          <span className="absolute -top-1 -right-1 bg-red-600 text-white font-black text-[10px] w-6 h-6 flex items-center justify-center rounded-full border-2 border-[#050505]">
+            {carrito.reduce((acc, item) => acc + item.cantidad, 0)}
           </span>
         </motion.button>
       )}
 
-      {/* Modal Detalles del Producto */}
-      <AnimatePresence>
-        {productoSeleccionado && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setProductoSeleccionado(null)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
-            ></motion.div>
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 20 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-neutral-900/95 backdrop-blur-xl border border-red-900/30 rounded-2xl shadow-2xl text-white scrollbar-hide"
-            >
-              <button
-                onClick={() => setProductoSeleccionado(null)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white transition-colors z-20 bg-black/50 rounded-full p-1"
-              >
-                <svg
-                  className="w-6 h-6 sm:w-8 sm:h-8"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
-              </button>
-
-              <div className="p-6 sm:p-8 md:p-10 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
-                <div className="flex flex-col justify-center min-w-0 pt-4 sm:pt-0">
-                  <span
-                    className={`text-xs sm:text-sm uppercase tracking-widest font-semibold block mb-2 sm:mb-3 ${productoSeleccionado.tipo === "Minorista" ? "text-yellow-400" : "text-red-400"}`}
-                  >
-                    Venta {productoSeleccionado.tipo}
-                  </span>
-                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-extrabold leading-tight mb-4 sm:mb-6 break-words">
-                    {productoSeleccionado.productos}
-                  </h2>
-                  <div className="text-sm sm:text-base text-gray-300 leading-relaxed space-y-3 sm:space-y-4">
-                    <p>
-                      Excelente producto de primera calidad, ideal para tus
-                      ventas o para consumo personal.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex flex-col justify-center space-y-4">
-                  <div className="bg-white/5 border border-white/10 p-4 sm:p-5 rounded-xl flex items-center gap-4">
-                    <div className="bg-red-950/50 p-2 sm:p-3 rounded-lg text-red-400">
-                      <IconoProducto />
-                    </div>
-                    <div>
-                      <span className="block text-xs text-gray-400 uppercase tracking-wider mb-1">
-                        Formato de Venta
-                      </span>
-                      <span className="text-base sm:text-lg font-bold text-white block">
-                        {productoSeleccionado.detalle_de_producto}
-                      </span>
-                      <span className="text-xs text-gray-400 mt-1 block capitalize">
-                        Empaque: {productoSeleccionado.empaque}
-                      </span>
-                    </div>
-                  </div>
-
-                  <div className="mt-4 sm:mt-6 bg-gradient-to-r from-red-900/40 to-transparent p-5 sm:p-6 rounded-xl border-l-4 border-red-500 flex flex-col gap-4">
-                    <div>
-                      <span className="block text-xs sm:text-sm text-gray-400 uppercase tracking-wider mb-1">
-                        Precio Final
-                      </span>
-                      <span className="text-3xl sm:text-4xl font-black text-emerald-400">
-                        {productoSeleccionado.precio.toString().startsWith("$")
-                          ? productoSeleccionado.precio
-                          : `$ ${productoSeleccionado.precio}`}
-                      </span>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row gap-3 mt-2">
-                      <button
-                        onClick={() => agregarAlCarrito(productoSeleccionado)}
-                        className="flex-1 bg-red-600 hover:bg-red-500 text-white font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
-                      >
-                        <svg
-                          className="w-5 h-5"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-                          />
-                        </svg>
-                        Agregar al bolso
-                      </button>
-                      <a
-                        href={`https://wa.me/${numeroWhatsApp}?text=Hola, tengo una duda sobre el producto: ${productoSeleccionado.productos}`}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="sm:flex-none bg-green-600/20 hover:bg-green-600/40 text-green-400 border border-green-600/30 font-bold py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2"
-                      >
-                        <svg
-                          className="w-5 h-5"
-                          fill="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
-                        </svg>
-                        Tengo dudas
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        )}
-      </AnimatePresence>
-
-      {/* Modal / Resumen del Carrito */}
       <AnimatePresence>
         {mostrarCarrito && (
-          <div className="fixed inset-0 z-[60] flex items-end sm:items-center justify-center p-0 sm:p-4">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex justify-end bg-black/80 backdrop-blur-sm"
+            onClick={() => setMostrarCarrito(false)}
+          >
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              onClick={() => setMostrarCarrito(false)}
-              className="absolute inset-0 bg-black/80 backdrop-blur-sm cursor-pointer"
-            ></motion.div>
-            <motion.div
-              initial={{ y: "100%" }}
-              animate={{ y: 0 }}
-              exit={{ y: "100%" }}
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="relative w-full max-w-md bg-neutral-900 border-t sm:border border-white/10 sm:rounded-2xl shadow-2xl overflow-hidden text-white flex flex-col max-h-[85vh]"
+              onClick={(e) => e.stopPropagation()}
+              className="w-full max-w-md h-full bg-[#0a0a0a] border-l border-white/10 shadow-2xl flex flex-col"
             >
-              <div className="p-5 border-b border-white/10 flex justify-between items-center bg-black/20">
-                <h3 className="text-xl font-bold flex items-center gap-2">
-                  🛒 Tu Pedido
+              <div className="p-6 border-b border-white/10 flex justify-between items-center">
+                <h3 className="font-display text-2xl font-bold text-white">
+                  Tu Bolso
                 </h3>
                 <button
                   onClick={() => setMostrarCarrito(false)}
-                  className="text-gray-400 hover:text-white"
+                  className="text-white/50 hover:text-white"
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
+                  ✕
                 </button>
               </div>
-
-              <div className="p-5 overflow-y-auto flex-grow space-y-4">
+              <div className="p-6 overflow-y-auto flex-grow space-y-4">
                 {carrito.length === 0 ? (
-                  <p className="text-center text-gray-400 py-10">
+                  <p className="text-center font-ui text-white/40 text-sm tracking-widest uppercase mt-10">
                     Tu bolso está vacío.
                   </p>
                 ) : (
                   carrito.map((item) => (
                     <div
-                      key={item.id}
-                      className="flex justify-between items-center bg-white/5 p-3 rounded-lg border border-white/5 group"
+                      key={item.id_carrito}
+                      className="flex flex-col bg-white/5 p-4 rounded-xl border border-white/5 relative overflow-hidden"
                     >
-                      <div className="flex-1 min-w-0 pr-4">
-                        <p className="font-bold text-sm truncate">
-                          {item.productos}
-                        </p>
-                        <p className="text-xs text-gray-400">
-                          {item.tipo} - {item.cantidad}x
-                        </p>
-                      </div>
-                      <div className="text-right flex items-center gap-3">
-                        <p className="font-bold text-emerald-400">
-                          {formatPrecio(
-                            parsePrecio(item.precio) * item.cantidad,
-                          )}
-                        </p>
+                      <div
+                        className={`absolute top-0 left-0 w-1 h-full ${item.tipoVenta === "MAYORISTA" ? "bg-yellow-500" : "bg-red-500"}`}
+                      ></div>
+                      <div className="flex justify-between items-start mb-2 pl-2">
+                        <div className="pr-4">
+                          <p className="font-ui text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-1">
+                            {item.tipoVenta}
+                          </p>
+                          <p className="font-display font-bold text-sm text-white">
+                            {item.producto}
+                          </p>
+                          <p className="font-ui text-xs text-white/50 mt-1">
+                            {item.presentacionSeleccionada}
+                          </p>
+                          {item.tipoVenta === "MINORISTA" &&
+                            item.saborSeleccionado !== "Original" && (
+                              <p className="font-ui text-xs text-yellow-500/80 mt-1 capitalize">
+                                Sabor: {item.saborSeleccionado}
+                              </p>
+                            )}
+                        </div>
                         <button
-                          onClick={() => eliminarDelCarrito(item.id)}
-                          className="text-gray-500 hover:text-red-500 p-1 bg-black/20 rounded-md transition-colors"
-                          title="Eliminar producto"
+                          onClick={() => eliminarDelCarrito(item.id_carrito)}
+                          className="text-white/30 hover:text-red-500 transition-colors"
                         >
-                          <svg
-                            className="w-5 h-5"
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                          >
-                            <path
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                              strokeWidth={2}
-                              d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                            />
-                          </svg>
+                          ✕
                         </button>
+                      </div>
+                      <div className="flex justify-between items-end mt-2 pt-2 border-t border-white/5 pl-2">
+                        <span className="font-ui text-xs text-white/40">
+                          Cant: {item.cantidad}
+                        </span>
+                        <span className="font-display font-bold text-emerald-400">
+                          {formatPrecio(item.precioUnitario * item.cantidad)}
+                        </span>
                       </div>
                     </div>
                   ))
                 )}
               </div>
-
-              <div className="p-5 border-t border-white/10 bg-black/40">
-                <div className="flex justify-between items-center mb-4">
-                  <span className="text-gray-400 font-medium">
-                    Total (Efectivo)
+              <div className="p-6 border-t border-white/10 bg-black">
+                <div className="flex justify-between items-center mb-6">
+                  <span className="font-ui text-xs text-white/50 uppercase font-semibold tracking-widest">
+                    Total a pagar
                   </span>
-                  <span className="text-2xl font-black">
+                  <span className="font-display text-3xl font-bold text-white">
                     {formatPrecio(totalCarrito)}
                   </span>
                 </div>
-
-                <div className="mb-4">
-                  <label className="block text-xs text-gray-400 uppercase tracking-widest mb-2 font-semibold">
-                    Tu Nombre y Apellido
+                <div className="mb-6">
+                  <label className="block font-ui text-[0.65rem] text-white/50 uppercase font-semibold tracking-widest mb-2">
+                    Nombre y Apellido / Empresa
                   </label>
                   <input
                     type="text"
                     value={nombreCliente}
                     onChange={(e) => setNombreCliente(e.target.value)}
-                    placeholder="Ej: Mauri..."
-                    className="w-full bg-black/50 border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-500 transition-colors"
+                    placeholder="Ej: Kiosco Mauri..."
+                    className="w-full bg-[#111] border border-white/10 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-red-500 transition-colors font-ui text-sm"
                   />
                 </div>
-
                 <button
                   onClick={armarPedidoWhatsApp}
                   disabled={carrito.length === 0}
-                  className={`w-full font-bold py-4 rounded-lg transition-colors flex items-center justify-center gap-2 text-lg ${carrito.length === 0 ? "bg-gray-600 cursor-not-allowed text-gray-400" : "bg-emerald-600 hover:bg-emerald-500 text-white"}`}
+                  className={`w-full font-ui text-xs tracking-widest uppercase font-bold py-4 rounded-xl transition-colors shadow-lg ${carrito.length === 0 ? "bg-white/10 text-white/30 cursor-not-allowed" : "bg-emerald-600 hover:bg-emerald-500 text-white shadow-emerald-900/50"}`}
                 >
-                  <svg
-                    className="w-6 h-6"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z" />
-                  </svg>
-                  Enviar pedido por WhatsApp
+                  Enviar por WhatsApp
                 </button>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         )}
       </AnimatePresence>
-    </div>
+    </main>
   );
 }

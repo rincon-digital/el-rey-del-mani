@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Geist } from "next/font/google";
 import "./globals.css";
+import { cn } from "@/lib/utils";
+
+const geist = Geist({subsets:['latin'],variable:'--font-sans'});
+
 
 // Cambiamos Syne por Inter para un look más limpio y minimalista
 const inter = Inter({
@@ -25,7 +29,7 @@ export default function RootLayout({
 }>) {
   return (
     // Aplicamos la variable de la nueva fuente
-    <html lang="es" className={`${inter.variable} antialiased`}>
+    <html lang="es" className={cn("antialiased", inter.variable, "font-sans", geist.variable)}>
       <body className="font-sans bg-[#0a0a0a] text-neutral-200">
         {children}
       </body>
