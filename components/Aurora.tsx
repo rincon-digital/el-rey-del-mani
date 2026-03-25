@@ -151,7 +151,7 @@ export default function Aurora(props: AuroraProps) {
       return [c.r, c.g, c.b];
     });
 
-    // Ahora program es const y se define ANTES de las funciones que lo usan
+    // Creamos el program como CONST para que TS esté contento
     const program = new Program(gl, {
       vertex: VERT,
       fragment: FRAG,
@@ -171,7 +171,6 @@ export default function Aurora(props: AuroraProps) {
       renderer.setSize(width, height);
       program.uniforms.uResolution.value = [width, height];
     }
-
     window.addEventListener("resize", resize);
 
     const mesh = new Mesh(gl, { geometry, program });
@@ -206,8 +205,7 @@ export default function Aurora(props: AuroraProps) {
       }
       gl.getExtension("WEBGL_lose_context")?.loseContext();
     };
-    // Actualizamos las dependencias del useEffect para evitar warnings
-  }, [amplitude, blend, colorStops]);
+  }, [amplitude]);
 
   return <div ref={ctnDom} className="w-full h-full" />;
 }

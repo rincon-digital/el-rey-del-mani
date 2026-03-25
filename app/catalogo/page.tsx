@@ -30,7 +30,6 @@ interface ProductoMayorista {
   empaque: string;
 }
 
-// Creamos un tipo que puede ser o uno o el otro para que TypeScript no se queje
 type ProductoCatalogo = ProductoMinorista | ProductoMayorista;
 
 interface ProductoEnCarrito {
@@ -44,6 +43,7 @@ interface ProductoEnCarrito {
   tipoVenta: "MINORISTA" | "MAYORISTA";
 }
 
+// 1. LISTA COMPLETA SACADA DIRECTO DE TU JSON (12 Categorías)
 const CATEGORIAS_ALFABETICO = [
   "CEREALES",
   "CONDIMENTOS",
@@ -53,19 +53,13 @@ const CATEGORIAS_ALFABETICO = [
   "GOLOSINAS",
   "MANÍ Y FRUTOS SECOS",
   "MERCADERÍA VARIA / VARIOS",
+  "PANIFICADOS",
+  "REMEDIOS MATEROS, TERE",
+  "SEMILLAS",
+  "SNACKS",
 ];
 
-const IMAGENES_CATEGORIAS: Record<string, string> = {
-  CEREALES: "/cereales.jpg",
-  CONDIMENTOS: "/condimentos.jpg",
-  "FRUTAS DESHIDRATADAS": "/FRUTAS-DESHIDRATADAS.jpg",
-  "FRUTOS SECOS": "/frutos-secos.jpg",
-  GALLETITAS: "/GALLETITAS.jpg",
-  GOLOSINAS: "/GOLOSINAS.jpg",
-  "MANÍ Y FRUTOS SECOS": "/MANÍ-Y-FRUTOS SECOS.jpg",
-  "MERCADERÍA VARIA / VARIOS": "/MERCADERÍA-VARIA.jpg",
-};
-
+// 2. NUEVA PIRÁMIDE (Se adapta perfecto a 12 categorías)
 const PIRAMIDE_CATEGORIAS = [
   ["TODOS"],
   [CATEGORIAS_ALFABETICO[0], CATEGORIAS_ALFABETICO[1]],
@@ -79,7 +73,28 @@ const PIRAMIDE_CATEGORIAS = [
     CATEGORIAS_ALFABETICO[6],
     CATEGORIAS_ALFABETICO[7],
   ],
+  [
+    CATEGORIAS_ALFABETICO[8],
+    CATEGORIAS_ALFABETICO[9],
+    CATEGORIAS_ALFABETICO[10],
+    CATEGORIAS_ALFABETICO[11],
+  ],
 ];
+
+const IMAGENES_CATEGORIAS: Record<string, string> = {
+  CEREALES: "/cereales.jpg",
+  CONDIMENTOS: "/condimentos.jpg",
+  "FRUTAS DESHIDRATADAS": "/FRUTAS-DESHIDRATADAS.jpg",
+  "FRUTOS SECOS": "/frutos-secos.jpg",
+  GALLETITAS: "/GALLETITAS.jpg",
+  GOLOSINAS: "/GOLOSINAS.jpg",
+  "MANÍ Y FRUTOS SECOS": "/MANÍ-Y-FRUTOS-SECOS.jpg",
+  "MERCADERÍA VARIA / VARIOS": "/MERCADERÍA-VARIA.jpg",
+  PANIFICADOS: "/panificados.jpg",
+  "REMEDIOS MATEROS, TERE": "/remedios.jpg",
+  SEMILLAS: "/semillas.jpg",
+  SNACKS: "/snacks.jpg",
+};
 
 const parsePrecio = (precioStr: string | number) => {
   if (!precioStr) return 0;
@@ -106,7 +121,6 @@ export default function CatalogoPage() {
   const [scrolled, setScrolled] = useState(false);
   const [modalCategoriasAbierto, setModalCategoriasAbierto] = useState(false);
 
-  // Solución TS: Ahora usamos el type ProductoCatalogo
   const [productoSeleccionado, setProductoSeleccionado] =
     useState<ProductoCatalogo | null>(null);
 
@@ -131,7 +145,7 @@ export default function CatalogoPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Solución TS: Le decimos a la lista qué forma tiene
+  // 3. FILTRADO CORREGIDO: Ahora atrapa a "MERCADERÍA VARIA" y a "VARIOS" juntos
   const productosFiltrados = useMemo(() => {
     let list: ProductoCatalogo[] =
       tipoCatalogo === "MINORISTA"
@@ -139,7 +153,12 @@ export default function CatalogoPage() {
         : (productosMayorista as ProductoMayorista[]);
 
     if (categoriaSeleccionada !== "TODOS") {
-      list = list.filter((p) => p.categoria === categoriaSeleccionada);
+      list = list.filter((p) => {
+        if (categoriaSeleccionada === "MERCADERÍA VARIA / VARIOS") {
+          return p.categoria === "MERCADERÍA VARIA" || p.categoria === "VARIOS";
+        }
+        return p.categoria === categoriaSeleccionada;
+      });
     }
 
     if (busqueda.trim() !== "") {
@@ -395,7 +414,7 @@ export default function CatalogoPage() {
 
         {productosFiltrados.length === 0 ? (
           <div className="text-center py-20 text-white/50 font-ui tracking-widest uppercase text-sm">
-            No encontramos productos.
+            No encontramos productos en esta categoría.
           </div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
