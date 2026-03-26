@@ -1,408 +1,349 @@
-[
-  {
-    "productos": "ALMOHADITA SALVADO X 1,5KG",
-    "categoria": "CEREALES",
-    "precio": "13395",
-    "detalle_de_producto": "1,5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "ALMOHADITAS X 2KG",
-    "categoria": "CEREALES",
-    "precio": "14295",
-    "detalle_de_producto": "2KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "ARITOS DE MIEL X 2KG",
-    "categoria": "CEREALES",
-    "precio": "17000",
-    "detalle_de_producto": "2KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "ARITOS FRUTALES X 2KG",
-    "categoria": "CEREALES",
-    "precio": "12445",
-    "detalle_de_producto": "2KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "AVENA X 25KG",
-    "categoria": "CEREALES",
-    "precio": "81425",
-    "detalle_de_producto": "25KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "BOLITA DE CHOCOLATE X 2 KG",
-    "categoria": "CEREALES",
-    "precio": "14030",
-    "detalle_de_producto": "2 KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "COPOS AZUCARADO X 2 KG",
-    "categoria": "CEREALES",
-    "precio": "11575",
-    "detalle_de_producto": "2 KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "COPOS SIN AZUCAR X 2 KG",
-    "categoria": "CEREALES",
-    "precio": "10025",
-    "detalle_de_producto": "2 KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "CHIMICHURRI X 25KG",
-    "categoria": "CONDIMENTOS",
-    "precio": "191760",
-    "detalle_de_producto": "25KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "COMINO X 25KG",
-    "categoria": "CONDIMENTOS",
-    "precio": "179520",
-    "detalle_de_producto": "25KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "COND. P/ARROZ, P/CARNE, P/EMP. X 10K",
-    "categoria": "CONDIMENTOS",
-    "precio": "80990",
-    "detalle_de_producto": "10K",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "CONDIMENTO PARA PIZZA X 25KG",
-    "categoria": "CONDIMENTOS",
-    "precio": "156975",
-    "detalle_de_producto": "25KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "CURCUMA X 10 KG",
-    "categoria": "CONDIMENTOS",
-    "precio": "70995",
-    "detalle_de_producto": "10 KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "CURRY X 5KG",
-    "categoria": "CONDIMENTOS",
-    "precio": "60430",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "INTEGRAL DE CHORIZO X 5KG",
-    "categoria": "CONDIMENTOS",
-    "precio": "35575",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "LAUREL X 10KG",
-    "categoria": "CONDIMENTOS",
-    "precio": "135400",
-    "detalle_de_producto": "10KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "NUEZ MOSCADA X 10KG",
-    "categoria": "CONDIMENTOS",
-    "precio": "94330",
-    "detalle_de_producto": "10KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "OREGANO X 25KG",
-    "categoria": "CONDIMENTOS",
-    "precio": "124345",
-    "detalle_de_producto": "25KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "PEREJIL X 5KG",
-    "categoria": "CONDIMENTOS",
-    "precio": "57830",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "PIMENTON X 25KG",
-    "categoria": "CONDIMENTOS",
-    "precio": "169695",
-    "detalle_de_producto": "25KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "PIMIENTA BLANCA X 10KG",
-    "categoria": "CONDIMENTOS",
-    "precio": "111000",
-    "detalle_de_producto": "10KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "PIMIENTA NEGRA X 10KG",
-    "categoria": "CONDIMENTOS",
-    "precio": "69150",
-    "detalle_de_producto": "10KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "PROVENZAL",
-    "categoria": "CONDIMENTOS",
-    "precio": "155860",
-    "detalle_de_producto": "Mayorista",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "BANANA CHIPS X 5KG",
-    "categoria": "FRUTAS DESHIDRATADAS",
-    "precio": "121380",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "CIRUELA X 5KG",
-    "categoria": "FRUTAS DESHIDRATADAS",
-    "precio": "69775",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "MIX PAN DULCE X 5KG",
-    "categoria": "FRUTAS DESHIDRATADAS",
-    "precio": "100725",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "MIX SECO X 5KG",
-    "categoria": "FRUTAS DESHIDRATADAS",
-    "precio": "156290",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "MIX TROPICAL X 5KG",
-    "categoria": "FRUTAS DESHIDRATADAS",
-    "precio": "100725",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "PAPAYA X 5KG",
-    "categoria": "FRUTAS DESHIDRATADAS",
-    "precio": "77855",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "PASAS DE UVA MOROCHA X 5KG",
-    "categoria": "FRUTAS DESHIDRATADAS",
-    "precio": "38135",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "PASAS DE UVA RUBIA X 5KG",
-    "categoria": "FRUTAS DESHIDRATADAS",
-    "precio": "67725",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "ALMENDRA X 5KG",
-    "categoria": "MANÍ Y FRUTOS SECOS",
-    "precio": "166720",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "CASTAÑA DE CAJU X 5KG",
-    "categoria": "MANÍ Y FRUTOS SECOS",
-    "precio": "146185",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "NUEZ SIN CASCARA X 5KG",
-    "categoria": "MANÍ Y FRUTOS SECOS",
-    "precio": "176890",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "SAL DEL HIMALAYA X 5 KG",
-    "categoria": "MERCADERÍA VARIA",
-    "precio": "17540",
-    "detalle_de_producto": "5 KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "MIX SEMILLA DESAYUNO X KG",
-    "categoria": "SEMILLAS",
-    "precio": "12360",
-    "detalle_de_producto": "X KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "MIX SEMILLA INTEGRAL PREMIUM X KG",
-    "categoria": "SEMILLAS",
-    "precio": "15015",
-    "detalle_de_producto": "X KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "MIX SEMILLA X 5KG",
-    "categoria": "SEMILLAS",
-    "precio": "33125",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "PROTEINA DE SOJA TEXTURIZADA X 5K",
-    "categoria": "SEMILLAS",
-    "precio": "17275",
-    "detalle_de_producto": "5K",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "SEMILLA DE CHIA X 5KG",
-    "categoria": "SEMILLAS",
-    "precio": "58505",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "SEMILLA DE GIRASOL X 5KG",
-    "categoria": "SEMILLAS",
-    "precio": "29470",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "SEMILLA DE LINO X 5KG",
-    "categoria": "SEMILLAS",
-    "precio": "20635",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "SEMILLA DE SESAMO BLANCO INT X 5K",
-    "categoria": "SEMILLAS",
-    "precio": "20170",
-    "detalle_de_producto": "5K",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "CHISITO X 5KG",
-    "categoria": "SNACKS",
-    "precio": "27285",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "CHISITO X 7KG",
-    "categoria": "SNACKS",
-    "precio": "38400",
-    "detalle_de_producto": "7KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "PAPA BASTON X 5 KG",
-    "categoria": "SNACKS",
-    "precio": "56195",
-    "detalle_de_producto": "5 KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "PAPA ESPAÑOLA/ACANALADA X 5KG",
-    "categoria": "SNACKS",
-    "precio": "56275",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "PUFLITO X 7 KG",
-    "categoria": "SNACKS",
-    "precio": "46780",
-    "detalle_de_producto": "7 KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "TUTUCA X 10KG",
-    "categoria": "SNACKS",
-    "precio": "57280",
-    "detalle_de_producto": "10KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "AZUCAR IMPALPABLE X 10KG",
-    "categoria": "VARIOS",
-    "precio": "35295",
-    "detalle_de_producto": "10KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "AZUCAR MASCABO X 10KG",
-    "categoria": "VARIOS",
-    "precio": "53960",
-    "detalle_de_producto": "10KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "BICARBONATO DE SODIO X 5 KG",
-    "categoria": "VARIOS",
-    "precio": "18630",
-    "detalle_de_producto": "5 KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "CACAO AMARGO EN POLVO X KG",
-    "categoria": "VARIOS",
-    "precio": "21050",
-    "detalle_de_producto": "X KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "COCO RALLADO X KG",
-    "categoria": "VARIOS",
-    "precio": "19705",
-    "detalle_de_producto": "X KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "FECULA DE MAIZ X 25KG",
-    "categoria": "VARIOS",
-    "precio": "70025",
-    "detalle_de_producto": "25KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "GELATINA SIN SABOR X KG",
-    "categoria": "VARIOS",
-    "precio": "32085",
-    "detalle_de_producto": "X KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "HARINA DE ALMEDRA X 5KG",
-    "categoria": "VARIOS",
-    "precio": "214155",
-    "detalle_de_producto": "5KG",
-    "empaque": "bolsita"
-  },
-  {
-    "productos": "POLVO PARA HORNEAR X 10KG",
-    "categoria": "VARIOS",
-    "precio": "87665",
-    "detalle_de_producto": "10KG",
-    "empaque": "bolsita"
-  }
-]
+{
+  "productos": [
+    {
+      "producto": "Aritos de Miel",
+      "categoria": "cereales",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 2KG", "precio": "$ 17.000,00" }]
+    },
+    {
+      "producto": "Aritos Frutales",
+      "categoria": "cereales",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 2KG", "precio": "$ 12.445,00" }]
+    },
+    {
+      "producto": "Almohaditas",
+      "categoria": "cereales",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 2KG", "precio": "$ 14.295,00" }]
+    },
+    {
+      "producto": "Almohadita Salvado",
+      "categoria": "cereales",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 1,5KG", "precio": "$ 13.395,00" }]
+    },
+    {
+      "producto": "Bolita de Chocolate",
+      "categoria": "cereales",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 2KG", "precio": "$ 14.030,00" }]
+    },
+    {
+      "producto": "Copos de Maíz Azucarado",
+      "categoria": "cereales",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 2KG", "precio": "$ 11.575,00" }]
+    },
+    {
+      "producto": "Copos de Maíz sin Azúcar",
+      "categoria": "cereales",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 2KG", "precio": "$ 10.025,00" }]
+    },
+    {
+      "producto": "Chisito",
+      "categoria": "snacks",
+      "sabores": [],
+      "presentaciones": [
+        { "detalle": "X 7KG", "precio": "$ 38.400,00" },
+        { "detalle": "X 5KG", "precio": "$ 27.285,00" }
+      ]
+    },
+    {
+      "producto": "Puflito",
+      "categoria": "snacks",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 7KG", "precio": "$ 46.780,00" }]
+    },
+    {
+      "producto": "Tutuca Blanca",
+      "categoria": "snacks",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 57.280,00" }]
+    },
+    {
+      "producto": "Papas Españolas y Acanalada",
+      "categoria": "snacks",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 56.275,00" }]
+    },
+    {
+      "producto": "Papas Bastón",
+      "categoria": "snacks",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 56.195,00" }]
+    },
+    {
+      "producto": "Chimichurri",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 191.760,00" }]
+    },
+    {
+      "producto": "Comino",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 179.520,00" }]
+    },
+    {
+      "producto": "Condimento para Arroz, Carne, Empanada",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 80.990,00" }]
+    },
+    {
+      "producto": "Condimento para Pizza",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 156.975,00" }]
+    },
+    {
+      "producto": "Cúrcuma",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 70.995,00" }]
+    },
+    {
+      "producto": "Curry",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 60.430,00" }]
+    },
+    {
+      "producto": "Integral para Chorizo",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 35.575,00" }]
+    },
+    {
+      "producto": "Hoja de Laurel",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 135.400,00" }]
+    },
+    {
+      "producto": "Nuez Moscada",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 94.330,00" }]
+    },
+    {
+      "producto": "Orégano",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 124.345,00" }]
+    },
+    {
+      "producto": "Perejil",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 57.830,00" }]
+    },
+    {
+      "producto": "Pimentón",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 169.695,00" }]
+    },
+    {
+      "producto": "Pimienta Blanca",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 111.000,00" }]
+    },
+    {
+      "producto": "Pimienta Negra",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 69.150,00" }]
+    },
+    {
+      "producto": "Provenzal",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 155.860,00" }]
+    },
+    {
+      "producto": "Azúcar Impalpable",
+      "categoria": "varios",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 35.295,00" }]
+    },
+    {
+      "producto": "Avena",
+      "categoria": "varios",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 81.425,00" }]
+    },
+    {
+      "producto": "Azúcar Mascabo",
+      "categoria": "varios",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 53.960,00" }]
+    },
+    {
+      "producto": "Polvo para Hornear",
+      "categoria": "varios",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 87.665,00" }]
+    },
+    {
+      "producto": "Proteína de Soja Texturizada",
+      "categoria": "varios",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 17.275,00" }]
+    },
+    {
+      "producto": "Cacao Amargo en Polvo",
+      "categoria": "varios",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X KG", "precio": "$ 21.050,00" }]
+    },
+    {
+      "producto": "Coco Rallado",
+      "categoria": "varios",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X KG", "precio": "$ 19.705,00" }]
+    },
+    {
+      "producto": "Gelatina sin Sabor",
+      "categoria": "varios",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X KG", "precio": "$ 32.085,00" }]
+    },
+    {
+      "producto": "Sal del Himalaya",
+      "categoria": "varios",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 17.540,00" }]
+    },
+    {
+      "producto": "Bicarbonato de Sodio",
+      "categoria": "varios",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 18.630,00" }]
+    },
+    {
+      "producto": "Fécula de Maíz",
+      "categoria": "varios",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 70.025,00" }]
+    },
+    {
+      "producto": "Almendras",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 166.720,00" }]
+    },
+    {
+      "producto": "Harina de Almendra",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 214.155,00" }]
+    },
+    {
+      "producto": "Castaña de Caju",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 146.185,00" }]
+    },
+    {
+      "producto": "Nueces sin Cáscara",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 176.890,00" }]
+    },
+    {
+      "producto": "Mix Pan Dulce",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 100.725,00" }]
+    },
+    {
+      "producto": "Mix Tropical",
+      "categoria": "semillas",
+      "sabores": ["Maní", "Banana", "Papaya"],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 100.725,00" }]
+    },
+    {
+      "producto": "Mix Secos",
+      "categoria": "semillas",
+      "sabores": ["Maní", "Avellana", "Nuez", "Almendra", "Castaña"],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 156.290,00" }]
+    },
+    {
+      "producto": "Banana Chips",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 121.380,00" }]
+    },
+    {
+      "producto": "Ciruela",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 69.775,00" }]
+    },
+    {
+      "producto": "Papaya",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 77.855,00" }]
+    },
+    {
+      "producto": "Pasas de Uva Morocho",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 38.135,00" }]
+    },
+    {
+      "producto": "Pasas de Uva Rubia",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 67.725,00" }]
+    },
+    {
+      "producto": "Semilla de Chía",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 58.505,00" }]
+    },
+    {
+      "producto": "Semilla de Girasol",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 29.470,00" }]
+    },
+    {
+      "producto": "Semilla de Lino",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 20.635,00" }]
+    },
+    {
+      "producto": "Semilla de Sésamo Blanco Integral",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 20.170,00" }]
+    },
+    {
+      "producto": "Mix de Semillas",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 33.125,00" }]
+    },
+    {
+      "producto": "Mix de Semillas Desayuno",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X KG", "precio": "$ 12.360,00" }]
+    },
+    {
+      "producto": "Mix de Semillas Integral Premium",
+      "categoria": "semillas",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "X KG", "precio": "$ 15.015,00" }]
+    }
+  ]
+}

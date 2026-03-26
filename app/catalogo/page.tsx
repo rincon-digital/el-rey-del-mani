@@ -4,32 +4,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import Aurora from "@/components/Aurora";
 import Navbar from "@/components/Navbar";
 import { Search } from "lucide-react";
+import productosMinoristaRaw from "@/public/db/productos_final.json";
+import productosMayoristaRaw from "@/public/db/bolsones.json";
 
-import productosMinorista from "@/public/db/productos_final.json";
-import productosMayorista from "@/public/db/bolsones.json";
-
-// --- Tipos de Datos ---
+// --- Tipos de Datos (¡Ahora unificados porque ambos JSON son iguales!) ---
 interface Presentacion {
   detalle: string;
   precio: string;
 }
 
-interface ProductoMinorista {
+interface Producto {
   producto: string;
   categoria: string;
   sabores?: string[];
   presentaciones: Presentacion[];
 }
-
-interface ProductoMayorista {
-  productos: string;
-  categoria: string;
-  precio: string | number;
-  detalle_de_producto: string;
-  empaque: string;
-}
-
-type ProductoCatalogo = ProductoMinorista | ProductoMayorista;
 
 interface ProductoEnCarrito {
   id_carrito: string;
@@ -42,26 +31,36 @@ interface ProductoEnCarrito {
   tipoVenta: "MINORISTA" | "MAYORISTA";
 }
 
-// 1. NUEVAS CATEGORÍAS OFICIALES ALFABÉTICAS (15 en total)
+// --- Parseo seguro del JSON ---
+type RawJson = { productos: Producto[] } | Producto[];
+
+const parsedRawMin = productosMinoristaRaw as unknown as RawJson;
+const parsedRawMay = productosMayoristaRaw as unknown as RawJson;
+
+const productosMinorista: Producto[] = Array.isArray(parsedRawMin)
+  ? parsedRawMin
+  : parsedRawMin.productos || [];
+
+const productosMayorista: Producto[] = Array.isArray(parsedRawMay)
+  ? parsedRawMay
+  : parsedRawMay.productos || [];
+
+// 1. CATEGORÍAS OFICIALES
 const CATEGORIAS_ALFABETICO = [
-  "Aceites y Condimentos Líquidos",
-  "Bebidas",
-  "Cereales",
-  "Condimentos y Especias",
-  "Conservas y Encurtidos",
-  "Frutas Deshidratadas",
-  "Frutos Secos y Snacks Naturales",
-  "Galletitas",
-  "Golosinas",
-  "Hierbas y Remedios Naturales",
-  "Panadería y Repostería",
-  "Sales y Minerales",
-  "Semillas",
-  "Snacks",
-  "Tés e Infusiones",
+  "CEREALES",
+  "CONDIMENTOS",
+  "FRUTAS DESHIDRATADAS",
+  "FRUTOS SECOS",
+  "GALLETITAS",
+  "GOLOSINAS",
+  "PANIFICADOS",
+  "REMEDIOS MATEROS Y TÉS",
+  "SEMILLAS",
+  "SNACKS",
+  "MERCADERÍA VARIAS",
 ];
 
-// 2. NUEVA PIRÁMIDE (Adaptada para 15 categorías: 2, 3, 4, 6)
+// 2. NUEVA PIRÁMIDE PARA 11 ELEMENTOS
 const PIRAMIDE_CATEGORIAS = [
   ["TODOS"],
   [CATEGORIAS_ALFABETICO[0], CATEGORIAS_ALFABETICO[1]],
@@ -74,15 +73,11 @@ const PIRAMIDE_CATEGORIAS = [
     CATEGORIAS_ALFABETICO[5],
     CATEGORIAS_ALFABETICO[6],
     CATEGORIAS_ALFABETICO[7],
-    CATEGORIAS_ALFABETICO[8],
   ],
   [
+    CATEGORIAS_ALFABETICO[8],
     CATEGORIAS_ALFABETICO[9],
     CATEGORIAS_ALFABETICO[10],
-    CATEGORIAS_ALFABETICO[11],
-    CATEGORIAS_ALFABETICO[12],
-    CATEGORIAS_ALFABETICO[13],
-    CATEGORIAS_ALFABETICO[14],
   ],
 ];
 
@@ -101,6 +96,25 @@ const formatPrecio = (numero: number) => {
   }).format(numero);
 };
 
+// --- FUNCIÓN UTILITARIA PARA NORMALIZAR CATEGORÍAS DEL JSON ---
+const normalizarCategoria = (catRaw: string) => {
+  if (!catRaw) return "MERCADERÍA VARIAS";
+  const cat = catRaw.toLowerCase().trim();
+
+  if (cat.includes("cereales")) return "CEREALES";
+  if (cat.includes("condimentos")) return "CONDIMENTOS";
+  if (cat.includes("frutas deshidratadas")) return "FRUTAS DESHIDRATADAS";
+  if (cat.includes("frutos secos")) return "FRUTOS SECOS";
+  if (cat.includes("galletitas")) return "GALLETITAS";
+  if (cat.includes("golosinas")) return "GOLOSINAS";
+  if (cat.includes("panificados")) return "PANIFICADOS";
+  if (cat.includes("remedios")) return "REMEDIOS MATEROS Y TÉS";
+  if (cat.includes("semillas")) return "SEMILLAS";
+  if (cat.includes("snacks")) return "SNACKS";
+
+  return "MERCADERÍA VARIAS";
+};
+
 export default function CatalogoPage() {
   const [tipoCatalogo, setTipoCatalogo] = useState<"MINORISTA" | "MAYORISTA">(
     "MINORISTA",
@@ -112,7 +126,7 @@ export default function CatalogoPage() {
   const [modalCategoriasAbierto, setModalCategoriasAbierto] = useState(false);
 
   const [productoSeleccionado, setProductoSeleccionado] =
-    useState<ProductoCatalogo | null>(null);
+    useState<Producto | null>(null);
 
   const [carrito, setCarrito] = useState<ProductoEnCarrito[]>([]);
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
@@ -124,12 +138,10 @@ export default function CatalogoPage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      // Bajamos un poco el punto de aparición para que el botón no titile
-      if (window.scrollY > 400) {
+      if (window.scrollY > 300) {
         setScrolled(true);
       } else {
         setScrolled(false);
-        // NO cerramos el modal acá para evitar bugs visuales
       }
     };
     window.addEventListener("scroll", handleScroll);
@@ -137,69 +149,47 @@ export default function CatalogoPage() {
   }, []);
 
   const productosFiltrados = useMemo(() => {
-    let list: ProductoCatalogo[] =
-      tipoCatalogo === "MINORISTA"
-        ? (productosMinorista as ProductoMinorista[])
-        : (productosMayorista as ProductoMayorista[]);
+    let list: Producto[] =
+      tipoCatalogo === "MINORISTA" ? productosMinorista : productosMayorista;
 
+    // 1. Filtrado por categoría usando la función normalizadora
     if (categoriaSeleccionada !== "TODOS") {
-      list = list.filter((p) => p.categoria === categoriaSeleccionada);
+      list = list.filter(
+        (p) => normalizarCategoria(p.categoria) === categoriaSeleccionada,
+      );
     }
 
+    // 2. Filtrado por texto (búsqueda)
     if (busqueda.trim() !== "") {
       const termino = busqueda.toLowerCase();
-      list = list.filter((p) => {
-        const nombreProducto = "producto" in p ? p.producto : p.productos;
-        return nombreProducto.toLowerCase().includes(termino);
-      });
+      list = list.filter((p) => p.producto.toLowerCase().includes(termino));
     }
 
-    return list.sort((a, b) => {
-      const nombreA = "producto" in a ? a.producto : a.productos;
-      const nombreB = "producto" in b ? b.producto : b.productos;
-      return nombreA.localeCompare(nombreB);
-    });
+    // 3. Orden alfabético final
+    return list.sort((a, b) => a.producto.localeCompare(b.producto));
   }, [categoriaSeleccionada, busqueda, tipoCatalogo]);
 
-  const abrirModalProducto = (prod: ProductoCatalogo) => {
+  const abrirModalProducto = (prod: Producto) => {
     setProductoSeleccionado(prod);
     setCantidadElegida(1);
-
-    if (tipoCatalogo === "MINORISTA") {
-      const prodMin = prod as ProductoMinorista;
-      setSaborElegido(
-        prodMin.sabores && prodMin.sabores.length > 0
-          ? prodMin.sabores[0]
-          : "Original",
-      );
-      setPresentacionElegida(0);
-    } else {
-      setSaborElegido("Original");
-    }
+    setSaborElegido(
+      prod.sabores && prod.sabores.length > 0 ? prod.sabores[0] : "Original",
+    );
+    setPresentacionElegida(0);
   };
 
   const agregarAlCarrito = () => {
     if (!productoSeleccionado) return;
 
-    let idUnico = "";
-    let nombreProd = "";
-    let detallePres = "";
-    let precioNumerico = 0;
+    const presentacionObj =
+      productoSeleccionado.presentaciones[presentacionElegida];
+    const precioNumerico = parsePrecio(presentacionObj.precio);
+    const nombreProd = productoSeleccionado.producto;
+    const detallePres = presentacionObj.detalle;
+    const catNormalizada = normalizarCategoria(productoSeleccionado.categoria);
 
-    if (tipoCatalogo === "MINORISTA") {
-      const prodMin = productoSeleccionado as ProductoMinorista;
-      const presentacionObj = prodMin.presentaciones[presentacionElegida];
-      precioNumerico = parsePrecio(presentacionObj.precio);
-      nombreProd = prodMin.producto;
-      detallePres = presentacionObj.detalle;
-      idUnico = `MIN-${nombreProd}-${saborElegido}-${detallePres}`;
-    } else {
-      const prodMay = productoSeleccionado as ProductoMayorista;
-      precioNumerico = parsePrecio(prodMay.precio);
-      nombreProd = prodMay.productos;
-      detallePres = `${prodMay.detalle_de_producto} (${prodMay.empaque})`;
-      idUnico = `MAY-${nombreProd}-${detallePres}`;
-    }
+    const prefijo = tipoCatalogo === "MINORISTA" ? "MIN" : "MAY";
+    const idUnico = `${prefijo}-${nombreProd}-${saborElegido}-${detallePres}`;
 
     setCarrito((prev) => {
       const existe = prev.find((item) => item.id_carrito === idUnico);
@@ -215,7 +205,7 @@ export default function CatalogoPage() {
         {
           id_carrito: idUnico,
           producto: nombreProd,
-          categoria: productoSeleccionado.categoria,
+          categoria: catNormalizada,
           saborSeleccionado: saborElegido,
           presentacionSeleccionada: detallePres,
           precioUnitario: precioNumerico,
@@ -246,10 +236,7 @@ export default function CatalogoPage() {
       const tipoTag =
         item.tipoVenta === "MAYORISTA" ? "[MAYORISTA]" : "[MINORISTA]";
       texto += `▪️ ${tipoTag} ${item.cantidad}x ${item.producto}\n`;
-      if (
-        item.tipoVenta === "MINORISTA" &&
-        item.saborSeleccionado !== "Original"
-      ) {
+      if (item.saborSeleccionado !== "Original") {
         texto += `   Sabor: ${item.saborSeleccionado}\n`;
       }
       texto += `   Detalle: ${item.presentacionSeleccionada}\n`;
@@ -271,6 +258,14 @@ export default function CatalogoPage() {
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
         .font-display { font-family: 'Montserrat', sans-serif; }
         .font-ui      { font-family: 'Inter', sans-serif; }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
       `}</style>
 
       <Navbar />
@@ -352,22 +347,27 @@ export default function CatalogoPage() {
           ))}
         </div>
 
-        <div className="flex justify-center mb-10">
-          <div className="relative w-full max-w-md">
-            <div className="absolute inset-y-0 left-4 flex items-center pointer-events-none">
-              <Search className="w-5 h-5 text-white/40" />
+        {/* --- NUEVA BARRA DE BÚSQUEDA DESTACADA --- */}
+        <div className="flex justify-center mb-12 px-2">
+          <div className="relative w-full max-w-xl group">
+            {/* Efecto Glow de fondo con colores corporativos */}
+            <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 via-red-600 to-yellow-600 rounded-full blur-md opacity-60 group-hover:opacity-100 transition duration-500"></div>
+
+            <div className="relative flex items-center bg-[#050505] rounded-full border border-white/20 shadow-2xl">
+              <div className="pl-6 pr-3 py-4 flex items-center pointer-events-none">
+                <Search className="w-6 h-6 text-yellow-500" />
+              </div>
+              <input
+                type="text"
+                placeholder={`Buscar en Catálogo ${tipoCatalogo}...`}
+                value={busqueda}
+                onChange={(e) => setBusqueda(e.target.value)}
+                className="w-full bg-transparent py-4 pr-6 font-ui text-base text-white placeholder-white/50 focus:outline-none transition-all"
+              />
             </div>
-            <input
-              type="text"
-              placeholder="Buscar un producto rápido..."
-              value={busqueda}
-              onChange={(e) => setBusqueda(e.target.value)}
-              className="w-full bg-black/40 border border-white/10 rounded-full py-4 pl-12 pr-4 font-ui text-sm text-white placeholder-white/40 focus:outline-none focus:border-yellow-500/50 focus:bg-black/60 backdrop-blur-md transition-all"
-            />
           </div>
         </div>
 
-        {/* --- BANNER DE CATEGORÍA SELECCIONADA SIN IMAGEN --- */}
         <AnimatePresence mode="wait">
           {categoriaSeleccionada !== "TODOS" && (
             <motion.div
@@ -380,7 +380,7 @@ export default function CatalogoPage() {
               <span className="font-ui text-yellow-500 text-[0.6rem] font-semibold tracking-[0.3em] uppercase mb-2">
                 Categoría
               </span>
-              <h2 className="font-display text-3xl md:text-5xl font-extrabold text-white drop-shadow-lg">
+              <h2 className="font-display text-3xl md:text-5xl font-extrabold text-white drop-shadow-lg text-balance">
                 {categoriaSeleccionada}
               </h2>
             </motion.div>
@@ -389,15 +389,12 @@ export default function CatalogoPage() {
 
         {productosFiltrados.length === 0 ? (
           <div className="text-center py-20 text-white/50 font-ui tracking-widest uppercase text-sm">
-            No encontramos productos en esta categoría.
+            No encontramos productos con esa búsqueda.
           </div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {productosFiltrados.map((prod, index) => {
-              const isMinorista = tipoCatalogo === "MINORISTA";
-              const nombreProducto = isMinorista
-                ? (prod as ProductoMinorista).producto
-                : (prod as ProductoMayorista).productos;
+              const catNormalizada = normalizarCategoria(prod.categoria);
 
               return (
                 <div
@@ -415,20 +412,20 @@ export default function CatalogoPage() {
                     </svg>
 
                     <p
-                      className={`font-ui text-[0.55rem] md:text-[0.6rem] tracking-[0.1em] uppercase mb-2 font-medium text-center ${tipoCatalogo === "MAYORISTA" ? "text-yellow-500" : "text-red-400"}`}
+                      className={`font-ui text-[0.5rem] md:text-[0.55rem] tracking-[0.1em] uppercase mb-2 font-medium text-center line-clamp-1 ${tipoCatalogo === "MAYORISTA" ? "text-yellow-500" : "text-red-400"}`}
                     >
-                      {prod.categoria}{" "}
+                      {catNormalizada}{" "}
                       {tipoCatalogo === "MAYORISTA" && "· MAYOR"}
                     </p>
 
                     <h3 className="font-display text-sm md:text-lg font-bold text-white text-center leading-tight group-hover:text-yellow-500 transition-colors line-clamp-3">
-                      {nombreProducto}
+                      {prod.producto}
                     </h3>
                   </div>
 
                   <div className="flex flex-col items-center w-full mt-auto pt-4 border-t border-white/5">
                     <button className="font-ui font-semibold text-[0.6rem] md:text-xs uppercase w-full py-3 bg-white/5 text-white border border-white/10 rounded-xl group-hover:bg-red-700 group-hover:border-red-700 transition-colors">
-                      Ver detalles y precios
+                      Ver detalles
                     </button>
                   </div>
                 </div>
@@ -438,6 +435,7 @@ export default function CatalogoPage() {
         )}
       </div>
 
+      {/* --- MODAL DEL PRODUCTO --- */}
       <AnimatePresence>
         {productoSeleccionado && (
           <motion.div
@@ -465,103 +463,65 @@ export default function CatalogoPage() {
                 <p
                   className={`font-ui text-[0.65rem] tracking-[0.2em] uppercase font-semibold mb-2 ${tipoCatalogo === "MAYORISTA" ? "text-yellow-500" : "text-red-500"}`}
                 >
-                  {tipoCatalogo} · {productoSeleccionado.categoria}
+                  {tipoCatalogo} ·{" "}
+                  {normalizarCategoria(productoSeleccionado.categoria)}
                 </p>
                 <h3 className="font-display text-2xl md:text-3xl font-bold text-white leading-tight mb-2">
-                  {tipoCatalogo === "MINORISTA"
-                    ? (productoSeleccionado as ProductoMinorista).producto
-                    : (productoSeleccionado as ProductoMayorista).productos}
+                  {productoSeleccionado.producto}
                 </h3>
               </div>
 
-              {tipoCatalogo === "MINORISTA" ? (
-                <>
-                  {(productoSeleccionado as ProductoMinorista).sabores &&
-                    (productoSeleccionado as ProductoMinorista).sabores!
-                      .length > 0 && (
-                      <div>
-                        <label className="font-ui text-[0.7rem] uppercase font-semibold tracking-widest text-white/60 mb-3 block">
-                          1. Elegí el Sabor
-                        </label>
-                        <div className="flex flex-wrap gap-2">
-                          {(
-                            productoSeleccionado as ProductoMinorista
-                          ).sabores!.map((sabor: string) => (
-                            <button
-                              key={sabor}
-                              onClick={() => setSaborElegido(sabor)}
-                              className={`font-ui text-sm px-4 py-2.5 rounded-xl border capitalize font-medium transition-all ${saborElegido === sabor ? "bg-red-900/40 border-red-500 text-white" : "bg-transparent border-white/10 text-white/60 hover:bg-white/5"}`}
-                            >
-                              {sabor}
-                            </button>
-                          ))}
-                        </div>
-                      </div>
-                    )}
-
+              {/* TEMA SABORES: Ahora funciona para los dos (si tienen) */}
+              {productoSeleccionado.sabores &&
+                productoSeleccionado.sabores.length > 0 && (
                   <div>
                     <label className="font-ui text-[0.7rem] uppercase font-semibold tracking-widest text-white/60 mb-3 block">
-                      2. Tamaño y Precio
+                      1. Elegí el Sabor
                     </label>
-                    <div className="flex flex-col gap-2">
-                      {(
-                        productoSeleccionado as ProductoMinorista
-                      ).presentaciones.map(
-                        (pres: Presentacion, index: number) => (
-                          <button
-                            key={index}
-                            onClick={() => setPresentacionElegida(index)}
-                            className={`flex justify-between items-center px-4 py-4 rounded-xl border transition-all text-left ${presentacionElegida === index ? "bg-yellow-500/10 border-yellow-500" : "bg-transparent border-white/10 hover:bg-white/5"}`}
-                          >
-                            <span
-                              className={`font-ui text-sm pr-4 ${presentacionElegida === index ? "text-yellow-500 font-semibold" : "text-white/80"}`}
-                            >
-                              {pres.detalle}
-                            </span>
-                            <span className="font-display font-bold text-emerald-400 whitespace-nowrap">
-                              {pres.precio}
-                            </span>
-                          </button>
-                        ),
-                      )}
+                    <div className="flex flex-wrap gap-2">
+                      {productoSeleccionado.sabores.map((sabor: string) => (
+                        <button
+                          key={sabor}
+                          onClick={() => setSaborElegido(sabor)}
+                          className={`font-ui text-sm px-4 py-2.5 rounded-xl border capitalize font-medium transition-all ${saborElegido === sabor ? "bg-red-900/40 border-red-500 text-white" : "bg-transparent border-white/10 text-white/60 hover:bg-white/5"}`}
+                        >
+                          {sabor}
+                        </button>
+                      ))}
                     </div>
                   </div>
-                </>
-              ) : (
-                <div className="bg-white/5 border border-white/10 p-5 rounded-2xl flex flex-col gap-3">
-                  <div className="flex justify-between border-b border-white/10 pb-3">
-                    <span className="font-ui text-sm text-white/60">
-                      Detalle:
-                    </span>
-                    <span className="font-ui text-sm font-bold text-white">
-                      {
-                        (productoSeleccionado as ProductoMayorista)
-                          .detalle_de_producto
-                      }
-                    </span>
-                  </div>
-                  <div className="flex justify-between border-b border-white/10 pb-3">
-                    <span className="font-ui text-sm text-white/60">
-                      Empaque:
-                    </span>
-                    <span className="font-ui text-sm font-bold text-white capitalize">
-                      {(productoSeleccionado as ProductoMayorista).empaque}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center pt-2">
-                    <span className="font-ui text-sm text-white/60">
-                      Precio x Bolsón:
-                    </span>
-                    <span className="font-display text-2xl font-bold text-emerald-400">
-                      {formatPrecio(
-                        parsePrecio(
-                          (productoSeleccionado as ProductoMayorista).precio,
-                        ),
-                      )}
-                    </span>
-                  </div>
+                )}
+
+              {/* TEMA PRESENTACIONES: Ahora funciona para los dos */}
+              <div>
+                <label className="font-ui text-[0.7rem] uppercase font-semibold tracking-widest text-white/60 mb-3 block">
+                  {productoSeleccionado.sabores &&
+                  productoSeleccionado.sabores.length > 0
+                    ? "2. "
+                    : "1. "}
+                  Tamaño y Precio
+                </label>
+                <div className="flex flex-col gap-2">
+                  {productoSeleccionado.presentaciones.map(
+                    (pres: Presentacion, index: number) => (
+                      <button
+                        key={index}
+                        onClick={() => setPresentacionElegida(index)}
+                        className={`flex justify-between items-center px-4 py-4 rounded-xl border transition-all text-left ${presentacionElegida === index ? "bg-yellow-500/10 border-yellow-500" : "bg-transparent border-white/10 hover:bg-white/5"}`}
+                      >
+                        <span
+                          className={`font-ui text-sm pr-4 ${presentacionElegida === index ? "text-yellow-500 font-semibold" : "text-white/80"}`}
+                        >
+                          {pres.detalle}
+                        </span>
+                        <span className="font-display font-bold text-emerald-400 whitespace-nowrap">
+                          {pres.precio}
+                        </span>
+                      </button>
+                    ),
+                  )}
                 </div>
-              )}
+              </div>
 
               <div className="flex flex-col gap-4 mt-2">
                 <div className="flex gap-4 items-end">
@@ -596,9 +556,8 @@ export default function CatalogoPage() {
                     Añadir al Bolso
                   </button>
                 </div>
-
                 <a
-                  href={`https://wa.me/5493704569418?text=${encodeURIComponent(`Hola! Necesito más información sobre el producto: ${tipoCatalogo === "MINORISTA" ? (productoSeleccionado as ProductoMinorista).producto : (productoSeleccionado as ProductoMayorista).productos}`)}`}
+                  href={`https://wa.me/5493704569418?text=${encodeURIComponent(`Hola! Necesito más información sobre el producto: ${productoSeleccionado.producto}`)}`}
                   target="_blank"
                   rel="noreferrer"
                   className="font-ui text-center text-white/40 hover:text-yellow-500 text-[0.7rem] uppercase tracking-widest transition-colors py-2"
@@ -631,7 +590,7 @@ export default function CatalogoPage() {
         )}
       </AnimatePresence>
 
-      {/* --- MODAL DE CATEGORÍAS (PIRÁMIDE SIN IMÁGENES) --- */}
+      {/* --- MODAL DE CATEGORÍAS --- */}
       <AnimatePresence>
         {modalCategoriasAbierto && (
           <motion.div
@@ -654,7 +613,6 @@ export default function CatalogoPage() {
               >
                 ✕
               </button>
-
               <h3 className="font-display text-2xl md:text-3xl font-bold text-white text-center">
                 Filtrar Categorías
               </h3>
@@ -773,12 +731,11 @@ export default function CatalogoPage() {
                           <p className="font-ui text-xs text-white/50 mt-1">
                             {item.presentacionSeleccionada}
                           </p>
-                          {item.tipoVenta === "MINORISTA" &&
-                            item.saborSeleccionado !== "Original" && (
-                              <p className="font-ui text-xs text-yellow-500/80 mt-1 capitalize">
-                                Sabor: {item.saborSeleccionado}
-                              </p>
-                            )}
+                          {item.saborSeleccionado !== "Original" && (
+                            <p className="font-ui text-xs text-yellow-500/80 mt-1 capitalize">
+                              Sabor: {item.saborSeleccionado}
+                            </p>
+                          )}
                         </div>
                         <button
                           onClick={() => eliminarDelCarrito(item.id_carrito)}
