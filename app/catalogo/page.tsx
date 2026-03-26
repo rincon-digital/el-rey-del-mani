@@ -7,7 +7,7 @@ import { Search } from "lucide-react";
 import productosMinoristaRaw from "@/public/db/productos_final.json";
 import productosMayoristaRaw from "@/public/db/bolsones.json";
 
-// --- Tipos de Datos (¡Ahora unificados porque ambos JSON son iguales!) ---
+// --- Tipos de Datos ---
 interface Presentacion {
   detalle: string;
   precio: string;
@@ -45,22 +45,22 @@ const productosMayorista: Producto[] = Array.isArray(parsedRawMay)
   ? parsedRawMay
   : parsedRawMay.productos || [];
 
-// 1. CATEGORÍAS OFICIALES
+// 1. CATEGORÍAS EXTRAÍDAS EXACTAMENTE DE TU JSON (Orden Alfabético)
 const CATEGORIAS_ALFABETICO = [
   "CEREALES",
   "CONDIMENTOS",
   "FRUTAS DESHIDRATADAS",
-  "FRUTOS SECOS",
   "GALLETITAS",
   "GOLOSINAS",
+  "MERCADERÍAS VARIAS",
   "PANIFICADOS",
-  "REMEDIOS MATEROS Y TÉS",
+  "REMEDIOS MATEROS/TERES",
   "SEMILLAS",
   "SNACKS",
-  "MERCADERÍA VARIAS",
+  "VARIOS",
 ];
 
-// 2. NUEVA PIRÁMIDE PARA 11 ELEMENTOS
+// 2. PIRÁMIDE PARA LAS 11 CATEGORÍAS + "TODOS"
 const PIRAMIDE_CATEGORIAS = [
   ["TODOS"],
   [CATEGORIAS_ALFABETICO[0], CATEGORIAS_ALFABETICO[1]],
@@ -96,23 +96,26 @@ const formatPrecio = (numero: number) => {
   }).format(numero);
 };
 
-// --- FUNCIÓN UTILITARIA PARA NORMALIZAR CATEGORÍAS DEL JSON ---
+// --- FUNCIÓN UTILITARIA PARA LEER TUS CATEGORÍAS TAL CUAL ESTÁN EN EL JSON ---
 const normalizarCategoria = (catRaw: string) => {
-  if (!catRaw) return "MERCADERÍA VARIAS";
+  if (!catRaw) return "VARIOS";
   const cat = catRaw.toLowerCase().trim();
 
   if (cat.includes("cereales")) return "CEREALES";
   if (cat.includes("condimentos")) return "CONDIMENTOS";
   if (cat.includes("frutas deshidratadas")) return "FRUTAS DESHIDRATADAS";
-  if (cat.includes("frutos secos")) return "FRUTOS SECOS";
   if (cat.includes("galletitas")) return "GALLETITAS";
   if (cat.includes("golosinas")) return "GOLOSINAS";
+  if (cat.includes("mercaderías varias") || cat.includes("mercaderias varias"))
+    return "MERCADERÍAS VARIAS";
   if (cat.includes("panificados")) return "PANIFICADOS";
-  if (cat.includes("remedios")) return "REMEDIOS MATEROS Y TÉS";
+  if (cat.includes("remedios") || cat.includes("teres"))
+    return "REMEDIOS MATEROS/TERES";
   if (cat.includes("semillas")) return "SEMILLAS";
   if (cat.includes("snacks")) return "SNACKS";
+  if (cat.includes("varios")) return "VARIOS";
 
-  return "MERCADERÍA VARIAS";
+  return "VARIOS";
 };
 
 export default function CatalogoPage() {
@@ -471,7 +474,7 @@ export default function CatalogoPage() {
                 </h3>
               </div>
 
-              {/* TEMA SABORES: Ahora funciona para los dos (si tienen) */}
+              {/* TEMA SABORES */}
               {productoSeleccionado.sabores &&
                 productoSeleccionado.sabores.length > 0 && (
                   <div>
@@ -492,7 +495,7 @@ export default function CatalogoPage() {
                   </div>
                 )}
 
-              {/* TEMA PRESENTACIONES: Ahora funciona para los dos */}
+              {/* TEMA PRESENTACIONES */}
               <div>
                 <label className="font-ui text-[0.7rem] uppercase font-semibold tracking-widest text-white/60 mb-3 block">
                   {productoSeleccionado.sabores &&
