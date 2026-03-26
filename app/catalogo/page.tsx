@@ -3,7 +3,6 @@ import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Aurora from "@/components/Aurora";
 import Navbar from "@/components/Navbar";
-import Image from "next/image";
 import { Search } from "lucide-react";
 
 import productosMinorista from "@/public/db/productos_final.json";
@@ -43,23 +42,26 @@ interface ProductoEnCarrito {
   tipoVenta: "MINORISTA" | "MAYORISTA";
 }
 
-// 1. LISTA COMPLETA SACADA DIRECTO DE TU JSON (12 Categorías)
+// 1. NUEVAS CATEGORÍAS OFICIALES ALFABÉTICAS (15 en total)
 const CATEGORIAS_ALFABETICO = [
-  "CEREALES",
-  "CONDIMENTOS",
-  "FRUTAS DESHIDRATADAS",
-  "FRUTOS SECOS",
-  "GALLETITAS",
-  "GOLOSINAS",
-  "MANÍ Y FRUTOS SECOS",
-  "MERCADERÍA VARIA / VARIOS",
-  "PANIFICADOS",
-  "REMEDIOS MATEROS, TERE",
-  "SEMILLAS",
-  "SNACKS",
+  "Aceites y Condimentos Líquidos",
+  "Bebidas",
+  "Cereales",
+  "Condimentos y Especias",
+  "Conservas y Encurtidos",
+  "Frutas Deshidratadas",
+  "Frutos Secos y Snacks Naturales",
+  "Galletitas",
+  "Golosinas",
+  "Hierbas y Remedios Naturales",
+  "Panadería y Repostería",
+  "Sales y Minerales",
+  "Semillas",
+  "Snacks",
+  "Tés e Infusiones",
 ];
 
-// 2. NUEVA PIRÁMIDE (Se adapta perfecto a 12 categorías)
+// 2. NUEVA PIRÁMIDE (Adaptada para 15 categorías: 2, 3, 4, 6)
 const PIRAMIDE_CATEGORIAS = [
   ["TODOS"],
   [CATEGORIAS_ALFABETICO[0], CATEGORIAS_ALFABETICO[1]],
@@ -72,29 +74,17 @@ const PIRAMIDE_CATEGORIAS = [
     CATEGORIAS_ALFABETICO[5],
     CATEGORIAS_ALFABETICO[6],
     CATEGORIAS_ALFABETICO[7],
+    CATEGORIAS_ALFABETICO[8],
   ],
   [
-    CATEGORIAS_ALFABETICO[8],
     CATEGORIAS_ALFABETICO[9],
     CATEGORIAS_ALFABETICO[10],
     CATEGORIAS_ALFABETICO[11],
+    CATEGORIAS_ALFABETICO[12],
+    CATEGORIAS_ALFABETICO[13],
+    CATEGORIAS_ALFABETICO[14],
   ],
 ];
-
-const IMAGENES_CATEGORIAS: Record<string, string> = {
-  CEREALES: "/cereales.jpg",
-  CONDIMENTOS: "/condimentos.jpg",
-  "FRUTAS DESHIDRATADAS": "/FRUTAS-DESHIDRATADAS.jpg",
-  "FRUTOS SECOS": "/frutos-secos.jpg",
-  GALLETITAS: "/GALLETITAS.jpg",
-  GOLOSINAS: "/GOLOSINAS.jpg",
-  "MANÍ Y FRUTOS SECOS": "/MANÍ-Y-FRUTOS-SECOS.jpg",
-  "MERCADERÍA VARIA / VARIOS": "/MERCADERÍA-VARIA.jpg",
-  PANIFICADOS: "/panificados.jpg",
-  "REMEDIOS MATEROS, TERE": "/remedios.jpg",
-  SEMILLAS: "/semillas.jpg",
-  SNACKS: "/snacks.jpg",
-};
 
 const parsePrecio = (precioStr: string | number) => {
   if (!precioStr) return 0;
@@ -134,18 +124,18 @@ export default function CatalogoPage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 300) {
+      // Bajamos un poco el punto de aparición para que el botón no titile
+      if (window.scrollY > 400) {
         setScrolled(true);
       } else {
         setScrolled(false);
-        setModalCategoriasAbierto(false);
+        // NO cerramos el modal acá para evitar bugs visuales
       }
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // 3. FILTRADO CORREGIDO: Ahora atrapa a "MERCADERÍA VARIA" y a "VARIOS" juntos
   const productosFiltrados = useMemo(() => {
     let list: ProductoCatalogo[] =
       tipoCatalogo === "MINORISTA"
@@ -153,12 +143,7 @@ export default function CatalogoPage() {
         : (productosMayorista as ProductoMayorista[]);
 
     if (categoriaSeleccionada !== "TODOS") {
-      list = list.filter((p) => {
-        if (categoriaSeleccionada === "MERCADERÍA VARIA / VARIOS") {
-          return p.categoria === "MERCADERÍA VARIA" || p.categoria === "VARIOS";
-        }
-        return p.categoria === categoriaSeleccionada;
-      });
+      list = list.filter((p) => p.categoria === categoriaSeleccionada);
     }
 
     if (busqueda.trim() !== "") {
@@ -382,6 +367,7 @@ export default function CatalogoPage() {
           </div>
         </div>
 
+        {/* --- BANNER DE CATEGORÍA SELECCIONADA SIN IMAGEN --- */}
         <AnimatePresence mode="wait">
           {categoriaSeleccionada !== "TODOS" && (
             <motion.div
@@ -389,25 +375,14 @@ export default function CatalogoPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="relative w-full h-40 md:h-56 rounded-3xl overflow-hidden mb-12 border border-white/10 shadow-2xl"
+              className="relative w-full h-32 md:h-40 rounded-3xl overflow-hidden mb-12 border border-yellow-500/20 bg-yellow-500/10 shadow-2xl flex flex-col items-center justify-center p-6 text-center backdrop-blur-md"
             >
-              <Image
-                src={IMAGENES_CATEGORIAS[categoriaSeleccionada] || "/logo.png"}
-                alt={categoriaSeleccionada}
-                fill
-                className="object-cover opacity-40 mix-blend-luminosity"
-                priority
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#050505] via-[#050505]/50 to-transparent"></div>
-              <div className="absolute inset-0 bg-red-950/20 mix-blend-overlay"></div>
-              <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                <span className="font-ui text-yellow-500 text-[0.6rem] font-semibold tracking-[0.3em] uppercase mb-2">
-                  Categoría
-                </span>
-                <h2 className="font-display text-3xl md:text-5xl font-extrabold text-white drop-shadow-lg">
-                  {categoriaSeleccionada}
-                </h2>
-              </div>
+              <span className="font-ui text-yellow-500 text-[0.6rem] font-semibold tracking-[0.3em] uppercase mb-2">
+                Categoría
+              </span>
+              <h2 className="font-display text-3xl md:text-5xl font-extrabold text-white drop-shadow-lg">
+                {categoriaSeleccionada}
+              </h2>
             </motion.div>
           )}
         </AnimatePresence>
@@ -423,14 +398,6 @@ export default function CatalogoPage() {
               const nombreProducto = isMinorista
                 ? (prod as ProductoMinorista).producto
                 : (prod as ProductoMayorista).productos;
-
-              const precioMostrar = isMinorista
-                ? (prod as ProductoMinorista).presentaciones.length > 0
-                  ? (prod as ProductoMinorista).presentaciones[0].precio
-                  : "$ 0,00"
-                : formatPrecio(parsePrecio((prod as ProductoMayorista).precio));
-
-              const etiquetaPrecio = isMinorista ? "Desde" : "Precio Bolsón";
 
               return (
                 <div
@@ -460,14 +427,8 @@ export default function CatalogoPage() {
                   </div>
 
                   <div className="flex flex-col items-center w-full mt-auto pt-4 border-t border-white/5">
-                    <span className="font-ui text-[0.6rem] text-white/40 uppercase tracking-widest mb-1">
-                      {etiquetaPrecio}
-                    </span>
-                    <span className="font-display text-lg md:text-xl font-bold text-emerald-400 mb-4">
-                      {precioMostrar}
-                    </span>
-                    <button className="font-ui font-semibold text-[0.6rem] md:text-xs uppercase w-full py-2.5 bg-white/5 text-white border border-white/10 rounded-xl group-hover:bg-red-700 group-hover:border-red-700 transition-colors">
-                      Ver más detalles
+                    <button className="font-ui font-semibold text-[0.6rem] md:text-xs uppercase w-full py-3 bg-white/5 text-white border border-white/10 rounded-xl group-hover:bg-red-700 group-hover:border-red-700 transition-colors">
+                      Ver detalles y precios
                     </button>
                   </div>
                 </div>
@@ -650,6 +611,7 @@ export default function CatalogoPage() {
         )}
       </AnimatePresence>
 
+      {/* --- BOTÓN FLOTANTE "FILTRAR" --- */}
       <AnimatePresence>
         {scrolled && (
           <motion.div
@@ -669,6 +631,69 @@ export default function CatalogoPage() {
         )}
       </AnimatePresence>
 
+      {/* --- MODAL DE CATEGORÍAS (PIRÁMIDE SIN IMÁGENES) --- */}
+      <AnimatePresence>
+        {modalCategoriasAbierto && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
+            onClick={() => setModalCategoriasAbierto(false)}
+          >
+            <motion.div
+              initial={{ scale: 0.95, opacity: 0, y: 20 }}
+              animate={{ scale: 1, opacity: 1, y: 0 }}
+              exit={{ scale: 0.95, opacity: 0, y: 20 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-[#0a0a0a] border border-white/10 p-6 md:p-8 rounded-3xl w-full max-w-lg relative shadow-2xl flex flex-col gap-6 max-h-[85vh] overflow-y-auto scrollbar-hide"
+            >
+              <button
+                onClick={() => setModalCategoriasAbierto(false)}
+                className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors"
+              >
+                ✕
+              </button>
+
+              <h3 className="font-display text-2xl md:text-3xl font-bold text-white text-center">
+                Filtrar Categorías
+              </h3>
+
+              <div className="flex flex-col items-center gap-2">
+                {PIRAMIDE_CATEGORIAS.map((fila, indexFila) => (
+                  <div
+                    key={indexFila}
+                    className="flex flex-wrap justify-center gap-2"
+                  >
+                    {fila.map((cat) => {
+                      const isSelected = categoriaSeleccionada === cat;
+                      return (
+                        <button
+                          key={cat}
+                          onClick={() => {
+                            setCategoriaSeleccionada(cat);
+                            setModalCategoriasAbierto(false);
+                            window.scrollTo({ top: 0, behavior: "smooth" });
+                          }}
+                          className={`font-ui text-[0.6rem] sm:text-xs tracking-[0.1em] uppercase px-4 py-2.5 rounded-full transition-all duration-300 border backdrop-blur-md font-semibold ${
+                            isSelected
+                              ? "bg-yellow-500/20 border-yellow-500 text-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.2)]"
+                              : "bg-white/5 border-white/10 text-white/70 hover:bg-white/10 hover:text-white"
+                          }`}
+                        >
+                          {cat === "TODOS" ? "TODOS LOS PRODUCTOS" : cat}
+                        </button>
+                      );
+                    })}
+                  </div>
+                ))}
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* --- CARRITO (Botón y Modal) --- */}
       {carrito.length > 0 && (
         <motion.button
           initial={{ scale: 0 }}
