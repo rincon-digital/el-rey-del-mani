@@ -67,7 +67,7 @@
     },
     {
       "producto": "Almendras",
-      "categoria": "snacks",
+      "categoria": "frutos secos",
       "sabores": [],
       "presentaciones": [
         { "detalle": "150GR", "precio": "$ 6.560,00" },
@@ -76,7 +76,7 @@
     },
     {
       "producto": "Castaña de Caju",
-      "categoria": "snacks",
+      "categoria": "frutos secos",
       "sabores": [],
       "presentaciones": [
         { "detalle": "150GR", "precio": "$ 5.735,00" },
@@ -85,7 +85,7 @@
     },
     {
       "producto": "Nueces sin Cáscara",
-      "categoria": "snacks",
+      "categoria": "frutos secos",
       "sabores": [],
       "presentaciones": [
         { "detalle": "150GR", "precio": "$ 6.765,00" },
@@ -628,7 +628,7 @@
     },
     {
       "producto": "Mix Secos",
-      "categoria": "Frutas Deshidratadas",
+      "categoria": "Frutos Secos",
       "sabores": ["Maní", "Avellana", "Nuez", "Almendra", "Castaña"],
       "presentaciones": [
         { "detalle": "150GR", "precio": "$ 6.280,00" },
@@ -646,7 +646,7 @@
     },
     {
       "producto": "Mix Dulce",
-      "categoria": "Frutas Deshidratadas",
+      "categoria": "Frutos Secos",
       "sabores": [
         "Almendras",
         "Nueces",

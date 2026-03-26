@@ -50,6 +50,7 @@ const CATEGORIAS_ALFABETICO = [
   "CEREALES",
   "CONDIMENTOS",
   "FRUTAS DESHIDRATADAS",
+  "FRUTOS SECOS",
   "GALLETITAS",
   "GOLOSINAS",
   "MERCADERÍAS VARIAS",
@@ -60,7 +61,7 @@ const CATEGORIAS_ALFABETICO = [
   "VARIOS",
 ];
 
-// 2. PIRÁMIDE PARA LAS 11 CATEGORÍAS + "TODOS"
+// 2. PIRÁMIDE PARA LAS 12 CATEGORÍAS + "TODOS"
 const PIRAMIDE_CATEGORIAS = [
   ["TODOS"],
   [CATEGORIAS_ALFABETICO[0], CATEGORIAS_ALFABETICO[1]],
@@ -78,6 +79,7 @@ const PIRAMIDE_CATEGORIAS = [
     CATEGORIAS_ALFABETICO[8],
     CATEGORIAS_ALFABETICO[9],
     CATEGORIAS_ALFABETICO[10],
+    CATEGORIAS_ALFABETICO[11],
   ],
 ];
 
@@ -104,6 +106,7 @@ const normalizarCategoria = (catRaw: string) => {
   if (cat.includes("cereales")) return "CEREALES";
   if (cat.includes("condimentos")) return "CONDIMENTOS";
   if (cat.includes("frutas deshidratadas")) return "FRUTAS DESHIDRATADAS";
+  if (cat.includes("frutos secos")) return "FRUTOS SECOS";
   if (cat.includes("galletitas")) return "GALLETITAS";
   if (cat.includes("golosinas")) return "GOLOSINAS";
   if (cat.includes("mercaderías varias") || cat.includes("mercaderias varias"))
