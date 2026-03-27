@@ -17,6 +17,7 @@ interface Producto {
   producto: string;
   categoria: string;
   sabores?: string[];
+  ingredientes?: string[]; // Agregamos "ingredientes" para los Mix y Especias
   presentaciones: Presentacion[];
 }
 
@@ -45,41 +46,48 @@ const productosMayorista: Producto[] = Array.isArray(parsedRawMay)
   ? parsedRawMay
   : parsedRawMay.productos || [];
 
-// 1. CATEGORÍAS EXTRAÍDAS EXACTAMENTE DE TU JSON (Orden Alfabético)
+// 1. NUEVAS CATEGORÍAS DEL CLIENTE
 const CATEGORIAS_ALFABETICO = [
   "CEREALES",
-  "CONDIMENTOS",
-  "FRUTAS DESHIDRATADAS",
-  "FRUTOS SECOS",
-  "GALLETITAS",
+  "CONDIMENTOS Y ESPECIAS",
+  "FRUTOS SECOS, DESHIDRATADAS Y SEMILLAS",
+  "GALLETITAS INTEGRALES",
   "GOLOSINAS",
-  "MERCADERÍAS VARIAS",
-  "PANIFICADOS",
-  "REMEDIOS MATEROS/TERES",
-  "SEMILLAS",
+  "MERCADERÍA VARIAS",
+  "PANIFICADOS Y REPOSTERÍA",
+  "SALES NATURALES Y ACEITES",
   "SNACKS",
-  "VARIOS",
+  "YERBAS, REMEDIOS NATURALES Y TÉ",
 ];
 
-// 2. PIRÁMIDE PARA LAS 12 CATEGORÍAS + "TODOS"
+// --- MAPA DE IMÁGENES SEGÚN LA CARPETA PUBLIC ---
+const IMAGENES_CATEGORIAS: Record<string, string> = {
+  CEREALES: "/cereales.jpg",
+  "CONDIMENTOS Y ESPECIAS": "/condimentos.jpg",
+  "FRUTOS SECOS, DESHIDRATADAS Y SEMILLAS": "/FRUTAS-DESHIDRATADAS.jpg",
+  "GALLETITAS INTEGRALES": "/GALLETITAS.jpg",
+  GOLOSINAS: "/GOLOSINAS.jpg",
+  "MERCADERÍA VARIAS": "/MERCADERÍA-VARIA.webp",
+  "PANIFICADOS Y REPOSTERÍA": "/panificados.jpeg",
+  "SALES NATURALES Y ACEITES": "/condimentos.jpg",
+  SNACKS: "/snacks.jpg",
+  "YERBAS, REMEDIOS NATURALES Y TÉ": "/remedios.jpeg",
+};
+
+// 2. PIRÁMIDE PARA LAS 10 CATEGORÍAS + "TODOS"
 const PIRAMIDE_CATEGORIAS = [
   ["TODOS"],
   [CATEGORIAS_ALFABETICO[0], CATEGORIAS_ALFABETICO[1]],
+  [CATEGORIAS_ALFABETICO[2], CATEGORIAS_ALFABETICO[3]],
   [
-    CATEGORIAS_ALFABETICO[2],
-    CATEGORIAS_ALFABETICO[3],
     CATEGORIAS_ALFABETICO[4],
-  ],
-  [
     CATEGORIAS_ALFABETICO[5],
     CATEGORIAS_ALFABETICO[6],
-    CATEGORIAS_ALFABETICO[7],
   ],
   [
+    CATEGORIAS_ALFABETICO[7],
     CATEGORIAS_ALFABETICO[8],
     CATEGORIAS_ALFABETICO[9],
-    CATEGORIAS_ALFABETICO[10],
-    CATEGORIAS_ALFABETICO[11],
   ],
 ];
 
@@ -98,27 +106,37 @@ const formatPrecio = (numero: number) => {
   }).format(numero);
 };
 
-// --- FUNCIÓN UTILITARIA PARA LEER TUS CATEGORÍAS TAL CUAL ESTÁN EN EL JSON ---
-const normalizarCategoria = (catRaw: string) => {
-  if (!catRaw) return "VARIOS";
-  const cat = catRaw.toLowerCase().trim();
+// --- FUNCIÓN PARA QUITAR ACENTOS ---
+const quitarAcentos = (texto: string) => {
+  return texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+};
 
-  if (cat.includes("cereales")) return "CEREALES";
-  if (cat.includes("condimentos")) return "CONDIMENTOS";
-  if (cat.includes("frutas deshidratadas")) return "FRUTAS DESHIDRATADAS";
-  if (cat.includes("frutos secos")) return "FRUTOS SECOS";
-  if (cat.includes("galletitas")) return "GALLETITAS";
-  if (cat.includes("golosinas")) return "GOLOSINAS";
-  if (cat.includes("mercaderías varias") || cat.includes("mercaderias varias"))
-    return "MERCADERÍAS VARIAS";
-  if (cat.includes("panificados")) return "PANIFICADOS";
+// --- FUNCIÓN UTILITARIA INTELIGENTE ---
+const normalizarCategoria = (prod: Producto) => {
+  const cat = (prod.categoria || "").toLowerCase().trim();
+  const nombre = (prod.producto || "").toLowerCase().trim();
+
+  if (cat.includes("condimentos")) return "CONDIMENTOS Y ESPECIAS";
   if (cat.includes("remedios") || cat.includes("teres"))
-    return "REMEDIOS MATEROS/TERES";
-  if (cat.includes("semillas")) return "SEMILLAS";
+    return "YERBAS, REMEDIOS NATURALES Y TÉ";
   if (cat.includes("snacks")) return "SNACKS";
-  if (cat.includes("varios")) return "VARIOS";
-
-  return "VARIOS";
+  if (cat.includes("cereales")) return "CEREALES";
+  if (
+    cat.includes("frutos secos") ||
+    cat.includes("frutas deshidratadas") ||
+    cat.includes("semillas")
+  ) {
+    return "FRUTOS SECOS, DESHIDRATADAS Y SEMILLAS";
+  }
+  if (cat.includes("galletitas")) return "GALLETITAS INTEGRALES";
+  if (cat.includes("golosinas")) return "GOLOSINAS";
+  if (nombre.startsWith("sal ") || nombre.includes("aceite")) {
+    return "SALES NATURALES Y ACEITES";
+  }
+  if (cat.includes("panificados") || cat === "varios") {
+    return "PANIFICADOS Y REPOSTERÍA";
+  }
+  return "MERCADERÍA VARIAS";
 };
 
 export default function CatalogoPage() {
@@ -158,20 +176,20 @@ export default function CatalogoPage() {
     let list: Producto[] =
       tipoCatalogo === "MINORISTA" ? productosMinorista : productosMayorista;
 
-    // 1. Filtrado por categoría usando la función normalizadora
     if (categoriaSeleccionada !== "TODOS") {
       list = list.filter(
-        (p) => normalizarCategoria(p.categoria) === categoriaSeleccionada,
+        (p) => normalizarCategoria(p) === categoriaSeleccionada,
       );
     }
 
-    // 2. Filtrado por texto (búsqueda)
     if (busqueda.trim() !== "") {
-      const termino = busqueda.toLowerCase();
-      list = list.filter((p) => p.producto.toLowerCase().includes(termino));
+      const termino = quitarAcentos(busqueda.toLowerCase());
+      list = list.filter((p) => {
+        const nombreProducto = quitarAcentos(p.producto.toLowerCase());
+        return nombreProducto.includes(termino);
+      });
     }
 
-    // 3. Orden alfabético final
     return list.sort((a, b) => a.producto.localeCompare(b.producto));
   }, [categoriaSeleccionada, busqueda, tipoCatalogo]);
 
@@ -192,7 +210,7 @@ export default function CatalogoPage() {
     const precioNumerico = parsePrecio(presentacionObj.precio);
     const nombreProd = productoSeleccionado.producto;
     const detallePres = presentacionObj.detalle;
-    const catNormalizada = normalizarCategoria(productoSeleccionado.categoria);
+    const catNormalizada = normalizarCategoria(productoSeleccionado);
 
     const prefijo = tipoCatalogo === "MINORISTA" ? "MIN" : "MAY";
     const idUnico = `${prefijo}-${nombreProd}-${saborElegido}-${detallePres}`;
@@ -353,10 +371,8 @@ export default function CatalogoPage() {
           ))}
         </div>
 
-        {/* --- NUEVA BARRA DE BÚSQUEDA DESTACADA --- */}
         <div className="flex justify-center mb-12 px-2">
           <div className="relative w-full max-w-xl group">
-            {/* Efecto Glow de fondo con colores corporativos */}
             <div className="absolute -inset-1 bg-gradient-to-r from-yellow-500 via-red-600 to-yellow-600 rounded-full blur-md opacity-60 group-hover:opacity-100 transition duration-500"></div>
 
             <div className="relative flex items-center bg-[#050505] rounded-full border border-white/20 shadow-2xl">
@@ -381,7 +397,12 @@ export default function CatalogoPage() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
-              className="relative w-full h-32 md:h-40 rounded-3xl overflow-hidden mb-12 border border-yellow-500/20 bg-yellow-500/10 shadow-2xl flex flex-col items-center justify-center p-6 text-center backdrop-blur-md"
+              className="relative w-full h-32 md:h-40 rounded-3xl overflow-hidden mb-12 border border-yellow-500/20 shadow-2xl flex flex-col items-center justify-center p-6 text-center"
+              style={{
+                backgroundImage: `linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.4)), url('${IMAGENES_CATEGORIAS[categoriaSeleccionada] || "/logo.png"}')`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
             >
               <span className="font-ui text-yellow-500 text-[0.6rem] font-semibold tracking-[0.3em] uppercase mb-2">
                 Categoría
@@ -400,17 +421,24 @@ export default function CatalogoPage() {
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
             {productosFiltrados.map((prod, index) => {
-              const catNormalizada = normalizarCategoria(prod.categoria);
+              const catNormalizada = normalizarCategoria(prod);
+              const imagenFondo =
+                IMAGENES_CATEGORIAS[catNormalizada] || "/logo.png";
 
               return (
                 <div
                   key={index}
                   onClick={() => abrirModalProducto(prod)}
-                  className="group flex flex-col items-center justify-between aspect-square bg-[#0a0a0a]/60 hover:bg-[#151515]/90 backdrop-blur-md border border-white/10 hover:border-yellow-500/40 rounded-3xl p-5 md:p-6 cursor-pointer transition-all duration-300 shadow-xl"
+                  className="group relative flex flex-col items-center justify-between aspect-square border border-white/10 hover:border-yellow-500/80 rounded-3xl p-5 md:p-6 cursor-pointer transition-all duration-300 shadow-2xl overflow-hidden"
+                  style={{
+                    backgroundImage: `linear-gradient(to top, rgba(5,5,5,0.95) 0%, rgba(5,5,5,0.3) 100%), url('${imagenFondo}')`,
+                    backgroundSize: "cover",
+                    backgroundPosition: "center",
+                  }}
                 >
-                  <div className="flex flex-col items-center w-full">
+                  <div className="flex flex-col items-center w-full z-10">
                     <svg
-                      className="w-8 h-8 md:w-10 md:h-10 text-yellow-500 mb-3 opacity-60 group-hover:opacity-100 transition-opacity"
+                      className="w-8 h-8 md:w-10 md:h-10 text-yellow-500 mb-3 opacity-60 group-hover:opacity-100 transition-opacity drop-shadow-md"
                       viewBox="0 0 100 60"
                       fill="currentColor"
                     >
@@ -418,19 +446,19 @@ export default function CatalogoPage() {
                     </svg>
 
                     <p
-                      className={`font-ui text-[0.5rem] md:text-[0.55rem] tracking-[0.1em] uppercase mb-2 font-medium text-center line-clamp-1 ${tipoCatalogo === "MAYORISTA" ? "text-yellow-500" : "text-red-400"}`}
+                      className={`font-ui text-[0.5rem] md:text-[0.55rem] tracking-[0.1em] uppercase mb-2 font-medium text-center line-clamp-1 drop-shadow-md ${tipoCatalogo === "MAYORISTA" ? "text-yellow-400" : "text-red-400"}`}
                     >
                       {catNormalizada}{" "}
                       {tipoCatalogo === "MAYORISTA" && "· MAYOR"}
                     </p>
 
-                    <h3 className="font-display text-sm md:text-lg font-bold text-white text-center leading-tight group-hover:text-yellow-500 transition-colors line-clamp-3">
+                    <h3 className="font-display text-sm md:text-lg font-bold text-white text-center leading-tight group-hover:text-yellow-400 transition-colors line-clamp-3 drop-shadow-[0_2px_2px_rgba(0,0,0,0.8)]">
                       {prod.producto}
                     </h3>
                   </div>
 
-                  <div className="flex flex-col items-center w-full mt-auto pt-4 border-t border-white/5">
-                    <button className="font-ui font-semibold text-[0.6rem] md:text-xs uppercase w-full py-3 bg-white/5 text-white border border-white/10 rounded-xl group-hover:bg-red-700 group-hover:border-red-700 transition-colors">
+                  <div className="flex flex-col items-center w-full mt-auto pt-4 border-t border-white/20 z-10">
+                    <button className="font-ui font-semibold text-[0.6rem] md:text-xs uppercase w-full py-3 bg-black/40 backdrop-blur-sm text-white border border-white/20 rounded-xl group-hover:bg-red-700 group-hover:border-red-700 transition-colors">
                       Ver detalles
                     </button>
                   </div>
@@ -469,20 +497,39 @@ export default function CatalogoPage() {
                 <p
                   className={`font-ui text-[0.65rem] tracking-[0.2em] uppercase font-semibold mb-2 ${tipoCatalogo === "MAYORISTA" ? "text-yellow-500" : "text-red-500"}`}
                 >
-                  {tipoCatalogo} ·{" "}
-                  {normalizarCategoria(productoSeleccionado.categoria)}
+                  {tipoCatalogo} · {normalizarCategoria(productoSeleccionado)}
                 </p>
                 <h3 className="font-display text-2xl md:text-3xl font-bold text-white leading-tight mb-2">
                   {productoSeleccionado.producto}
                 </h3>
               </div>
 
+              {/* TEMA INGREDIENTES (Informativo, no se selecciona) */}
+              {productoSeleccionado.ingredientes &&
+                productoSeleccionado.ingredientes.length > 0 && (
+                  <div className="mb-2">
+                    <label className="font-ui text-[0.7rem] uppercase font-semibold tracking-widest text-white/60 mb-3 block">
+                      Contiene / Ingredientes
+                    </label>
+                    <div className="flex flex-wrap gap-2">
+                      {productoSeleccionado.ingredientes.map((ing: string) => (
+                        <span
+                          key={ing}
+                          className="font-ui text-xs px-3 py-1.5 rounded-lg bg-yellow-500/10 border border-yellow-500/20 text-yellow-500/90 capitalize"
+                        >
+                          {ing}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                )}
+
               {/* TEMA SABORES */}
               {productoSeleccionado.sabores &&
                 productoSeleccionado.sabores.length > 0 && (
                   <div>
                     <label className="font-ui text-[0.7rem] uppercase font-semibold tracking-widest text-white/60 mb-3 block">
-                      1. Elegí el Sabor
+                      Elegí el Sabor
                     </label>
                     <div className="flex flex-wrap gap-2">
                       {productoSeleccionado.sabores.map((sabor: string) => (
@@ -501,10 +548,6 @@ export default function CatalogoPage() {
               {/* TEMA PRESENTACIONES */}
               <div>
                 <label className="font-ui text-[0.7rem] uppercase font-semibold tracking-widest text-white/60 mb-3 block">
-                  {productoSeleccionado.sabores &&
-                  productoSeleccionado.sabores.length > 0
-                    ? "2. "
-                    : "1. "}
                   Tamaño y Precio
                 </label>
                 <div className="flex flex-col gap-2">

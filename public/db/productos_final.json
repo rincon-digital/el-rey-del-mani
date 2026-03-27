@@ -203,7 +203,7 @@
     },
     {
       "producto": "Anís",
-      "categoria": "condimentos",
+      "categoria": "remedios naturales",
       "sabores": [],
       "presentaciones": [
         { "detalle": "100GR", "precio": "$ 2.735,00" },
@@ -215,7 +215,10 @@
       "producto": "Azafrán",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "En Cápsula", "precio": "$ 1.130,00" }]
+      "presentaciones": [
+        { "detalle": "En Cápsula", "precio": "$ 1.130,00" },
+        { "detalle": "X 48 UND", "precio": "$ 15.900,00" }
+      ]
     },
     {
       "producto": "Chimichurri",
@@ -370,7 +373,7 @@
     {
       "producto": "Caldo de Verdura",
       "categoria": "condimentos",
-      "sabores": ["Con Sal", "Sin TACC"],
+      "sabores": ["Con Sal", "Sin Sal"],
       "presentaciones": [
         { "detalle": "x 6 UND", "precio": "$ 14.040,00" },
         { "detalle": "x Unidad", "precio": "$ 2.435,00" }
@@ -385,7 +388,13 @@
     {
       "producto": "Especias Surtidas",
       "categoria": "condimentos",
-      "sabores": ["Perejil", "Ajo en Polvo", "Ají", "Cilantro", "Pimentón"],
+      "ingredientes": [
+        "Perejil",
+        "Ajo en Polvo",
+        "Ají",
+        "Cilantro",
+        "Pimentón"
+      ],
       "presentaciones": [
         { "detalle": "150GR", "precio": "$ 1.520,00" },
         { "detalle": "Tira x 13 UND", "precio": "$ 1.480,00" },
@@ -503,7 +512,7 @@
     {
       "producto": "Mix de Semillas Desayuno",
       "categoria": "semillas",
-      "sabores": ["Amaranto", "Lino", "Chía", "Sésamo Integral"],
+      "ingredientes": ["Amaranto", "Lino", "Chía", "Sésamo Integral"],
       "presentaciones": [
         { "detalle": "150GR", "precio": "$ 2.920,00" },
         { "detalle": "X KG", "precio": "$ 12.360,00" }
@@ -620,7 +629,15 @@
     {
       "producto": "Mix Fruta Tropical",
       "categoria": "Frutas Deshidratadas",
-      "sabores": ["Maní", "Banana", "Papaya"],
+      "ingredientes": [
+        "Maní sin Sal",
+        "Banana Chip",
+        "Papaya",
+        "Castaña de Cajú",
+        "Almendra",
+        "Nueces",
+        "Pasas de Uva"
+      ],
       "presentaciones": [
         { "detalle": "150GR", "precio": "$ 4.445,00" },
         { "detalle": "X KG", "precio": "$ 22.400,00" }
@@ -629,7 +646,13 @@
     {
       "producto": "Mix Secos",
       "categoria": "Frutos Secos",
-      "sabores": ["Maní", "Avellana", "Nuez", "Almendra", "Castaña"],
+      "ingredientes": [
+        "Maní",
+        "Avellana",
+        "Nuez",
+        "Almendra",
+        "Castaña de Cajú"
+      ],
       "presentaciones": [
         { "detalle": "150GR", "precio": "$ 6.280,00" },
         { "detalle": "X KG", "precio": "$ 35.545,00" }
@@ -638,7 +661,13 @@
     {
       "producto": "Mix Pan Dulce",
       "categoria": "Frutas Deshidratadas",
-      "sabores": [],
+      "ingredientes": [
+        "Almendra",
+        "Nueces",
+        "Castaña",
+        "Pasas",
+        "Frutas Escurridas"
+      ],
       "presentaciones": [
         { "detalle": "150GR", "precio": "$ 4.335,00" },
         { "detalle": "X KG", "precio": "$ 22.590,00" }
@@ -647,7 +676,7 @@
     {
       "producto": "Mix Dulce",
       "categoria": "Frutos Secos",
-      "sabores": [
+      "ingredientes": [
         "Almendras",
         "Nueces",
         "Chip de Banana",
@@ -661,7 +690,7 @@
     },
     {
       "producto": "Papaya",
-      "categoria": "semillas",
+      "categoria": "Frutas Deshidratadas",
       "sabores": [],
       "presentaciones": [
         { "detalle": "170GR", "precio": "$ 3.895,00" },
@@ -1038,7 +1067,7 @@
     {
       "producto": "Mezcla Digestiva",
       "categoria": "remedios materos/teres",
-      "sabores": ["Burrito", "Poleo", "Manzanilla Flor"],
+      "ingredientes": ["Burrito", "Poleo", "Manzanilla Flor"],
       "presentaciones": [
         { "detalle": "50GR", "precio": "$ 2.275,00" },
         { "detalle": "Tira", "precio": "$ 3.880,00" }
@@ -1047,7 +1076,7 @@
     {
       "producto": "Mezcla Acidez",
       "categoria": "remedios materos/teres",
-      "sabores": ["Té Verde", "Congorosa", "Manzanilla Flor"],
+      "ingredientes": ["Té Verde", "Congorosa", "Manzanilla Flor"],
       "presentaciones": [
         { "detalle": "50GR", "precio": "$ 1.945,00" },
         { "detalle": "Tira", "precio": "$ 3.030,00" }
@@ -1056,7 +1085,11 @@
     {
       "producto": "Mezcla Relajante",
       "categoria": "remedios materos/teres",
-      "sabores": ["Sen", "Cedrón", "Manzanilla Flor", "Manzanilla Pre-Molida"],
+      "ingredientes": [
+        "Pasionaria",
+        "Cedrón Manzanilla Flor",
+        "Manzanilla Pre-Molida"
+      ],
       "presentaciones": [
         { "detalle": "40GR", "precio": "$ 2.140,00" },
         { "detalle": "Tira", "precio": "$ 4.240,00" },
@@ -1066,7 +1099,7 @@
     {
       "producto": "Mezcla Antioxidante",
       "categoria": "remedios materos/teres",
-      "sabores": [
+      "ingredientes": [
         "Té Verde",
         "Flor de Jamaica",
         "Manzanilla Flor",
@@ -1081,7 +1114,7 @@
     {
       "producto": "Mezcla Anti Estrés",
       "categoria": "remedios materos/teres",
-      "sabores": [
+      "ingredientes": [
         "Caléndula",
         "Lavanda Flor",
         "Pasionaria",
@@ -1145,14 +1178,19 @@
       "presentaciones": [{ "detalle": "15GR", "precio": "$ 1.890,00" }]
     },
     {
-      "producto": "Jengibre",
+      "producto": "Jengibre en Polvo",
       "categoria": "remedios materos/teres",
-      "sabores": ["Raíz"],
+      "sabores": [],
       "presentaciones": [
-        { "detalle": "50GR", "precio": "$ 1.905,00" },
         { "detalle": "100GR", "precio": "$ 3.500,00" },
         { "detalle": "Tira", "precio": "$ 5.560,00" }
       ]
+    },
+    {
+      "producto": "Jengibre en Raíz",
+      "categoria": "remedios materos/teres",
+      "sabores": [],
+      "presentaciones": [{ "detalle": "50GR", "precio": "$ 1.905,00" }]
     },
     {
       "producto": "Romero",
@@ -1363,10 +1401,11 @@
     {
       "producto": "Grissines",
       "categoria": "panificados",
-      "sabores": ["Comunes", "Con Queso"],
+      "sabores": ["Comunes", "Con Queso", "Salvado"],
       "presentaciones": [
         { "detalle": "Grissines Comunes", "precio": "$ 1.250,00" },
-        { "detalle": "Grissines Con Queso", "precio": "$ 1.625,00" }
+        { "detalle": "Grissines Con Queso", "precio": "$ 1.625,00" },
+        { "detalle": "Grissines Salvado", "precio": "$ 1.625,00" }
       ]
     },
     {
@@ -1452,9 +1491,13 @@
       "presentaciones": [{ "detalle": "x 500GR", "precio": "$ 6.270,00" }]
     },
     {
-      "producto": "Gomitas Kit Kioscos",
+      "producto": "Gomitas Kit Kiosco",
       "categoria": "golosinas",
-      "sabores": ["Estrellitas", "Conitos Frutilla", "Botones", "Bolitas"],
+      "ingredientes": [
+        "Estrellitas de 500gr",
+        "Conitos frutilla 800gr",
+        "Botones surtidos 800gr"
+      ],
       "presentaciones": [{ "detalle": "x 2100GR", "precio": "$ 17.530,00" }]
     },
     {
@@ -1482,7 +1525,7 @@
       "producto": "Vinagre de Alcohol",
       "categoria": "mercaderías varias",
       "sabores": [],
-      "presentaciones": [{ "detalle": "300ML", "precio": "$ 7.775,00" }]
+      "presentaciones": [{ "detalle": "300ML", "precio": "$ 775,00" }]
     },
     {
       "producto": "Vinagre de Manzana",
@@ -1494,7 +1537,7 @@
       "producto": "Vinagre de Vino",
       "categoria": "mercaderías varias",
       "sabores": [],
-      "presentaciones": [{ "detalle": "300ML", "precio": "$ 825s,00" }]
+      "presentaciones": [{ "detalle": "300ML", "precio": "$ 825,00" }]
     },
     {
       "producto": "Jugo de Limón",
@@ -1540,7 +1583,7 @@
       "categoria": "mercaderías varias",
       "sabores": [],
       "presentaciones": [
-        { "detalle": "Doypack 300GR", "precio": "$ 1.345,00" },
+        { "detalle": "Doypack 300GR", "precio": "$ 1.590,00" },
         { "detalle": "X KG", "precio": "$ 4.470,00" }
       ]
     },
@@ -1676,15 +1719,9 @@
       ]
     },
     {
-      "producto": "Sal Marina Fina",
+      "producto": "Sal Marina",
       "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [{ "detalle": "500GR", "precio": "$ 2.475,00" }]
-    },
-    {
-      "producto": "Sal Marina Gruesa",
-      "categoria": "mercaderías varias",
-      "sabores": [],
+      "sabores": ["Fina", "Gruesa"],
       "presentaciones": [{ "detalle": "500GR", "precio": "$ 2.475,00" }]
     },
     {
