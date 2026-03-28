@@ -3,15 +3,24 @@
     {
       "producto": "Maní",
       "categoria": "snacks",
+      "sabores": ["Salado", "Sin Sal", "Crudo"],
+      "presentaciones": [
+        { "detalle": "170GR", "precio": "$ 1.840,00" },
+        { "detalle": "250GR", "precio": "$ 2.275,00" },
+        { "detalle": "X KG", "precio": "$ 5.360,00" }
+      ]
+    },
+    {
+      "producto": "Maní Japonés",
+      "categoria": "snacks",
       "sabores": [
-        "Salado",
-        "Sin Sal",
-        "Saborizado Pizza",
-        "Saborizado Jamón",
-        "Saborizado Queso",
-        "Saborizado Salame",
-        "Japonés",
-        "Crudo"
+        "Salame",
+        "Jamon",
+        "Pizza",
+        "Cheddar",
+        "Queso",
+        "Clasico",
+        "Cebolla"
       ],
       "presentaciones": [
         { "detalle": "170GR", "precio": "$ 1.840,00" },
@@ -29,9 +38,18 @@
       ]
     },
     {
-      "producto": "Palito",
+      "producto": "Palito Salado",
       "categoria": "snacks",
-      "sabores": ["Salado", "Saborizado"],
+      "sabores": [],
+      "presentaciones": [
+        { "detalle": "170GR", "precio": "$ 1.725,00" },
+        { "detalle": "X KG", "precio": "$ 5.450,00" }
+      ]
+    },
+    {
+      "producto": "Palito Saborizado",
+      "categoria": "snacks",
+      "sabores": ["Pizza", "Jamon"],
       "presentaciones": [
         { "detalle": "170GR", "precio": "$ 1.725,00" },
         { "detalle": "X KG", "precio": "$ 5.450,00" }
@@ -503,7 +521,7 @@
     {
       "producto": "Mix de Semillas",
       "categoria": "semillas",
-      "sabores": [],
+      "ingredientes": ["Lino", "Chía", "Girasol", "Sésamo"],
       "presentaciones": [
         { "detalle": "150GR", "precio": "$ 2.120,00" },
         { "detalle": "X KG", "precio": "$ 7.865,00" }
@@ -521,7 +539,7 @@
     {
       "producto": "Mix de Semillas Integral Premium",
       "categoria": "semillas",
-      "sabores": [],
+      "ingredientes": ["Lino", "Sésamo Integral", "Amapola", "Zapallo"],
       "presentaciones": [
         { "detalle": "150GR", "precio": "$ 3.315,00" },
         { "detalle": "X KG", "precio": "$ 15.015,00" }
@@ -1213,7 +1231,7 @@
     {
       "producto": "Mix Matero",
       "categoria": "remedios materos/teres",
-      "sabores": [],
+      "ingredientes": ["Cedron", "Manzanilla Flor", "Boldo", "Anis en grano"],
       "presentaciones": [
         { "detalle": "75GR", "precio": "$ 2.560,00" },
         { "detalle": "X KG", "precio": "$ 25.260,00" }
@@ -1222,7 +1240,15 @@
     {
       "producto": "Mix Matero Económico",
       "categoria": "remedios materos/teres",
-      "sabores": [],
+      "ingredientes": [
+        "Menta",
+        "Burrito",
+        "Tomillo",
+        "Romero",
+        "Achicoria",
+        "Alcachofa",
+        "Yerba Buena"
+      ],
       "presentaciones": [
         { "detalle": "80GR", "precio": "$ 2.265,00" },
         { "detalle": "X KG", "precio": "$ 17.840,00" }
@@ -1231,7 +1257,14 @@
     {
       "producto": "Mix de Flores",
       "categoria": "remedios materos/teres",
-      "sabores": [],
+      "ingredientes": [
+        "Manzanilla Flor",
+        "Flor de Jamaica",
+        "Flor de Jazmin",
+        "Marcela",
+        "Cascara de Naranja",
+        "Te Negro"
+      ],
       "presentaciones": [{ "detalle": "Fraccionado", "precio": "$ 3.820,00" }]
     },
     {
@@ -1243,12 +1276,32 @@
     {
       "producto": "Super Mate",
       "categoria": "remedios materos/teres",
-      "sabores": [],
+      "ingredientes": [
+        "Anis en grano",
+        "Manzanilla Flor",
+        "Anis Estrellado",
+        "Coco Rallado",
+        "Cedron",
+        "Menta"
+      ],
       "presentaciones": [
         { "detalle": "Fraccionado", "precio": "$ 8.180,00" },
         { "detalle": "Pote 50GR", "precio": "$ 3.700,00" },
         { "detalle": "Tira x 13 UND", "precio": "$ 4.460,00" }
       ]
+    },
+    {
+      "producto": "Bandeja deSuper Mate",
+      "categoria": "remedios materos/teres",
+      "ingredientes": [
+        "Anis en grano",
+        "Manzanilla Flor",
+        "Anis Estrellado",
+        "Coco Rallado",
+        "Cedron",
+        "Menta"
+      ],
+      "presentaciones": [{ "detalle": "Fraccionado", "precio": "$ 8.180,00" }]
     },
     {
       "producto": "Almidón de Mandioca",
@@ -1454,12 +1507,7 @@
       "sabores": [],
       "presentaciones": [{ "detalle": "270GR", "precio": "$ 3.105,00" }]
     },
-    {
-      "producto": "Galletitas Diabest Coco y Avena",
-      "categoria": "galletitas",
-      "sabores": [],
-      "presentaciones": [{ "detalle": "200GR", "precio": "$ 2.475,00" }]
-    },
+
     {
       "producto": "Galletitas Frutigram Avena y Pasas",
       "categoria": "galletitas",
@@ -1732,6 +1780,23 @@
         { "detalle": "100GR", "precio": "$ 1.625,00" },
         { "detalle": "X KG", "precio": "$ 7.500,00" }
       ]
+    },
+    {
+      "producto": "Galletitas Integralia",
+      "categoria": "galletitas",
+      "sabores": [
+        "Cacao y Naranja",
+        "Salvado y Limón",
+        "Coco",
+        "Avena y Limón"
+      ],
+      "presentaciones": [{ "detalle": "200GR", "precio": "$ 2.475,00" }]
+    },
+    {
+      "producto": "Galletitas Diabest",
+      "categoria": "galletitas",
+      "sabores": ["Cacao y Avena", "Coco y Avena", "Limón y Avena"],
+      "presentaciones": [{ "detalle": "200GR", "precio": "$ 2.475,00" }]
     }
   ]
 }
