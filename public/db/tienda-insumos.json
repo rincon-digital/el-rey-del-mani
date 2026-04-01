@@ -1,0 +1,357 @@
+{
+  "productos": [
+    {
+      "producto": "BOLSA PPP",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Bolsa-PPP.webp",
+      "presentaciones": [
+        { "detalle": "35X45CM X100", "precio": "$9245" },
+        { "detalle": "40X50CM X100", "precio": "$9800" },
+        { "detalle": "45X60CM X100", "precio": "$17250" },
+        { "detalle": "6X10CM X200", "precio": "$2040" },
+        { "detalle": "10X20CM X100", "precio": "$1825" },
+        { "detalle": "15X20CM X100", "precio": "$2355" },
+        { "detalle": "15X25CM X100", "precio": "$2735" },
+        { "detalle": "20X25CM X100", "precio": "$3790" },
+        { "detalle": "20X30CM X100", "precio": "$3810" },
+        { "detalle": "25X35CM X100", "precio": "$5185" },
+        { "detalle": "30X40CM X100", "precio": "$7175" }
+      ]
+    },
+    {
+      "producto": "POTE BISAGRA",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Pote-Bisagra.webp",
+      "presentaciones": [
+        { "detalle": "250CC X100U", "precio": "$28645" },
+        { "detalle": "350CC X100U", "precio": "$30150" },
+        { "detalle": "500CC X100U", "precio": "$37740" }
+      ]
+    },
+    {
+      "producto": "POTE PPP SIN TAPA",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Pote-PPP.webp",
+      "presentaciones": [
+        { "detalle": "150CC X100U", "precio": "$11330" },
+        { "detalle": "250CC X100U", "precio": "$12600" },
+        { "detalle": "380CC X100U", "precio": "$20525" }
+      ]
+    },
+    {
+      "producto": "TAPA POTE",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Tapa-Pote.webp",
+      "presentaciones": [{ "detalle": "150/250/380", "precio": "$7445" }]
+    },
+    {
+      "producto": "BOLSAS DOYPACK",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Bolsa-Doypack.webp",
+      "presentaciones": [{ "detalle": "120X182MM X 250ML", "precio": "$245" }]
+    },
+    {
+      "producto": "BANDEJA C/DIVISIONES",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Bandeja-divisora.webp",
+      "presentaciones": [{ "detalle": "N°26 X 1 UND", "precio": "$1080" }]
+    },
+    {
+      "producto": "CINTA DE EMBALAR TRANSPARENTE",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Cinta-Embalar.webp",
+      "presentaciones": [
+        { "detalle": "48MM X 90", "precio": "$3625" },
+        { "detalle": "24MM X 40", "precio": "$745" },
+        { "detalle": "48MM X 40", "precio": "$1610" },
+        { "detalle": "48MM X 80", "precio": "$2370" }
+      ]
+    },
+    {
+      "producto": "CINTA DE PAPEL",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Cinta-Papel.webp",
+      "presentaciones": [
+        { "detalle": "12MM X 40M", "precio": "$1705" },
+        { "detalle": "36MM X 40M", "precio": "$4420" },
+        { "detalle": "48MM X 40M", "precio": "$5810" }
+      ]
+    },
+    {
+      "producto": "PRECINTO PLASTICO NEGRO",
+      "categoria": "destacables",
+      "colores": ["NEGRO"],
+      "img": "img/Descartables/Precinto-Platico.webp",
+      "presentaciones": [{ "detalle": "2.5MM X100U", "precio": "$890" }]
+    },
+    {
+      "producto": "FAJA CARTÓN GRIS",
+      "categoria": "destacables",
+      "colores": ["GRIS"],
+      "img": "img/Descartables/Faja-Carton.webp",
+      "presentaciones": [{ "detalle": "ENVASADA 60CM X KG", "precio": "$3660" }]
+    },
+    {
+      "producto": "LAPICES DE COLORES",
+      "categoria": "libreria",
+      "colores": [],
+      "img": "img/Libreria/Lapices-Colores.webp",
+      "presentaciones": [
+        { "detalle": "LARGOS X 12 UNID", "precio": "$1910" },
+        { "detalle": "CORTOS X 12 UNID", "precio": "$1275" },
+        { "detalle": "CORTOS X 6 UND", "precio": "$640" }
+      ]
+    },
+    {
+      "producto": "MARCADORES FIBRAS DE COLORES LARGOS CLASICOS",
+      "categoria": "libreria",
+      "colores": [],
+      "img": "img/Libreria/Marcadores-Fibras.webp",
+      "presentaciones": [
+        { "detalle": "X 6", "precio": "$1110" },
+        { "detalle": "X 10", "precio": "$1540" },
+        { "detalle": "X 12", "precio": "$2280" }
+      ]
+    },
+    {
+      "producto": "BROCHE N° 26/6",
+      "categoria": "libreria",
+      "colores": [],
+      "img": "img/Libreria/Broche.webp",
+      "presentaciones": [{ "detalle": "1000UND X CAJA", "precio": "$855" }]
+    },
+    {
+      "producto": "RESALTADOR TRANSLUCIDO",
+      "categoria": "libreria",
+      "colores": ["AMARILLO", "NARANJA"],
+      "img": "img/Libreria/Resaltador.webp",
+      "presentaciones": [{ "detalle": "X 10 UNID", "precio": "$7175" }]
+    },
+    {
+      "producto": "LAPIZERA MAGICA",
+      "categoria": "libreria",
+      "colores": ["AZUL"],
+      "img": "img/Libreria/Lapicera-Magica.webp",
+      "presentaciones": [
+        { "detalle": "TINTA BORRABLE X 10 UNID", "precio": "$15470" }
+      ]
+    },
+    {
+      "producto": "BOLIGRAFO LAPICERA",
+      "categoria": "libreria",
+      "colores": ["AZUL"],
+      "img": "img/Libreria/Boligrafo-Lapicera.webp",
+      "presentaciones": [
+        { "detalle": "TRANSPARENTE X 50 UNID", "precio": "$11080" }
+      ]
+    },
+    {
+      "producto": "MARCADOR FIBRON PERMANENTE",
+      "categoria": "libreria",
+      "colores": ["NEGRO"],
+      "img": "img/Libreria/Marcador-Permanente.webp",
+      "presentaciones": [
+        { "detalle": "PTA. REDONDA X 12 UNID", "precio": "$9305" }
+      ]
+    },
+    {
+      "producto": "REGLA RIGIDA TRANSPARENTE",
+      "categoria": "libreria",
+      "colores": [],
+      "img": "img/Libreria/Regla-Rigida.webp",
+      "presentaciones": [{ "detalle": "30CM X UNID", "precio": "$380" }]
+    },
+    {
+      "producto": "CORRECTOR LIQUIDO",
+      "categoria": "libreria",
+      "colores": [],
+      "img": "img/Libreria/Corrector-Liquido.webp",
+      "presentaciones": [{ "detalle": "7ML X 12 UNID", "precio": "$6050" }]
+    },
+    {
+      "producto": "GOMA DE BORRAR",
+      "categoria": "libreria",
+      "colores": ["BLANCO"],
+      "img": "img/Libreria/Goma-Borrar.webp",
+      "presentaciones": [{ "detalle": "BLANCA X 30UND", "precio": "$5960" }]
+    },
+    {
+      "producto": "ABROCHADORA PINZA MINI",
+      "categoria": "libreria",
+      "colores": [],
+      "img": "img/Libreria/Abrochadora.webp",
+      "presentaciones": [{ "detalle": "26/6 (14CM) X UND", "precio": "$11375" }]
+    },
+    {
+      "producto": "TRINCHETA METALICA",
+      "categoria": "libreria",
+      "colores": [],
+      "img": "img/Libreria/Trincheta.webp",
+      "presentaciones": [
+        { "detalle": "C/ GUIA METAL 18MM X UNID", "precio": "$10340" }
+      ]
+    },
+    {
+      "producto": "RESMA A4 PAMPA",
+      "categoria": "libreria",
+      "colores": ["VERDE"],
+      "img": "img/Libreria/Resma-A4.webp",
+      "presentaciones": [{ "detalle": "75GRS", "precio": "$11815" }]
+    },
+    {
+      "producto": "ROLLO PAPEL TERMICO",
+      "categoria": "libreria",
+      "colores": [],
+      "img": "img/Libreria/Rollo-Papel-Termico.webp",
+      "presentaciones": [{ "detalle": "57MM X20M X10U", "precio": "$5445" }]
+    },
+    {
+      "producto": "RECIBO DUPLICADO",
+      "categoria": "libreria",
+      "colores": [],
+      "img": "img/Libreria/Recibo-Duplicado.webp",
+      "presentaciones": [{ "detalle": "X UNID", "precio": "$4335" }]
+    },
+    {
+      "producto": "LAPICES NEGROS CON GOMA",
+      "categoria": "libreria",
+      "colores": ["NEGRO"],
+      "img": "img/Libreria/Lapices-goma.webp",
+      "presentaciones": [{ "detalle": "X 12 UND", "precio": "$1560" }]
+    },
+    {
+      "producto": "GLOBOS",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Globlo-Latex.webp",
+      "presentaciones": [
+        { "detalle": "X 25 UNID Feliz Cumpleaños", "precio": "$4675" },
+        { "detalle": "X 25 UNID Fucsia Perlado", "precio": "$3475" }
+      ]
+    },
+    {
+      "producto": "BENGALA MAGICA",
+      "categoria": "destacables",
+      "colores": ["PRINCESA"],
+      "img": "img/Descartables/Bengala_Magica.webp",
+      "presentaciones": [{ "detalle": "X UNID", "precio": "$140" }]
+    },
+    {
+      "producto": "PAPEL CREPÉ",
+      "categoria": "libreria",
+      "colores": ["ROJO", "NARANJA"],
+      "img": "img/Libreria/Papel-Crepe.webp",
+      "presentaciones": [{ "detalle": "50 X 200 CM X UNID", "precio": "$665" }]
+    },
+    {
+      "producto": "CARTULINA",
+      "categoria": "libreria",
+      "colores": ["AMARILLO", "ROJO"],
+      "img": "img/Libreria/Cartulina.webp",
+      "presentaciones": [
+        { "detalle": "64 X 44.5 CM X HOJAS", "precio": "$535" }
+      ]
+    },
+    {
+      "producto": "PAPEL AFICHE",
+      "categoria": "libreria",
+      "colores": ["VERDE CLARO", "VIOLETA"],
+      "img": "img/Libreria/Papel-Afiche.webp",
+      "presentaciones": [{ "detalle": "70 X 100 CM X HOJAS", "precio": "$980" }]
+    },
+    {
+      "producto": "SILICONA LIQUIDA",
+      "categoria": "libreria",
+      "colores": [],
+      "img": "img/Libreria/Silicona-liquida.webp",
+      "presentaciones": [{ "detalle": "250 GRS X UNID", "precio": "$10135" }]
+    },
+    {
+      "producto": "PILA ALCALINA",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Libreria/Pila-Alcalina.webp",
+      "presentaciones": [
+        { "detalle": "AA TROQUELADA X 10 UND", "precio": "$8285" },
+        { "detalle": "AAA TROQUELADA X 10 UN", "precio": "$9700" }
+      ]
+    },
+    {
+      "producto": "ESCARBADIENTE",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Escarbadiente.webp",
+      "presentaciones": [
+        { "detalle": "A GRANEL X 1000 UNIDADES", "precio": "$2540" }
+      ]
+    },
+    {
+      "producto": "ROLLO ALUMINIO FAMILIAR HOGAR ALUMAX",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Rollo-Aluminio.webp",
+      "presentaciones": [{ "detalle": "30CM X 5MT", "precio": "$1645" }]
+    },
+    {
+      "producto": "GUANTES DE POLIETILENO",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Guantes-Polietileno.webp",
+      "presentaciones": [{ "detalle": "A.D X100U", "precio": "$1200" }]
+    },
+    {
+      "producto": "ENCENDEDOR MAGICLICK FLEXIBLE",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Encendedor-Magiclick.webp",
+      "presentaciones": [
+        { "detalle": "CANDELA LÍNEA HOGAR X UNI", "precio": "$6195" }
+      ]
+    },
+    {
+      "producto": "AEROSOL AROMATIZANTE",
+      "categoria": "destacables",
+      "colores": [],
+      "img": "img/Descartables/Aerosol.webp",
+      "presentaciones": [
+        { "detalle": "270 ML TAPA TRANSP X UNID", "precio": "$4470" }
+      ]
+    },
+    {
+      "producto": "ADORNO ESFERA NAVIDEÑA",
+      "categoria": "destacables",
+      "colores": ["DORADO", "PLATEADO"],
+      "img": "img/Libreria/Esfera-Navideña.webp",
+      "presentaciones": [{ "detalle": "4CM X 6 UNID", "precio": "$1390" }]
+    },
+    {
+      "producto": "GUIRNALDA LUCES MICROLED",
+      "categoria": "destacables",
+      "colores": ["MULTICOLOR"],
+      "img": "img/Libreria/Luces-Microled.webp",
+      "presentaciones": [{ "detalle": "30 LUCES 3 MTS", "precio": "$1015" }]
+    },
+    {
+      "producto": "BOA GUIRNALDA ARBOL NAVIDAD",
+      "categoria": "destacables",
+      "colores": ["VERDE", "BLANCO"],
+      "img": "img/Libreria/Boa-Guirnalda.webp",
+      "presentaciones": [{ "detalle": "9 CM X UND", "precio": "$970" }]
+    },
+    {
+      "producto": "PUNTAL ESTRELLA",
+      "categoria": "destacables",
+      "colores": ["DORADO"],
+      "img": "img/Libreria/Puntal-Estrella.webp",
+      "presentaciones": [{ "detalle": "15 CM", "precio": "$5085" }]
+    }
+  ]
+}

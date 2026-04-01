@@ -259,7 +259,37 @@
       ]
     },
     {
-      "producto": "Condimento para Arroz, Carne, Empanada, Ravioles",
+      "producto": "Condimento para Arroz",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [
+        { "detalle": "150GR", "precio": "$ 2.495,00" },
+        { "detalle": "En Tira", "precio": "$ 2.765,00" },
+        { "detalle": "X KG", "precio": "$ 9.545,00" }
+      ]
+    },
+    {
+      "producto": "Condimento para Carne",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [
+        { "detalle": "150GR", "precio": "$ 2.495,00" },
+        { "detalle": "En Tira", "precio": "$ 2.765,00" },
+        { "detalle": "X KG", "precio": "$ 9.545,00" }
+      ]
+    },
+    {
+      "producto": "Condimento para Empanada",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [
+        { "detalle": "150GR", "precio": "$ 2.495,00" },
+        { "detalle": "En Tira", "precio": "$ 2.765,00" },
+        { "detalle": "X KG", "precio": "$ 9.545,00" }
+      ]
+    },
+    {
+      "producto": "Condimento para Ravioles",
       "categoria": "condimentos",
       "sabores": [],
       "presentaciones": [
