@@ -6,17 +6,17 @@
       "colores": [],
       "img": "img/Descartables/Bolsa-PPP.webp",
       "presentaciones": [
-        { "detalle": "35X45CM X100", "precio": "$9245" },
-        { "detalle": "40X50CM X100", "precio": "$9800" },
-        { "detalle": "45X60CM X100", "precio": "$17250" },
-        { "detalle": "6X10CM X200", "precio": "$2040" },
-        { "detalle": "10X20CM X100", "precio": "$1825" },
-        { "detalle": "15X20CM X100", "precio": "$2355" },
-        { "detalle": "15X25CM X100", "precio": "$2735" },
-        { "detalle": "20X25CM X100", "precio": "$3790" },
-        { "detalle": "20X30CM X100", "precio": "$3810" },
-        { "detalle": "25X35CM X100", "precio": "$5185" },
-        { "detalle": "30X40CM X100", "precio": "$7175" }
+        { "detalle": "35X45CM X100", "precio": "$9710" },
+        { "detalle": "40X50CM X100", "precio": "$13090" },
+        { "detalle": "45X60CM X100", "precio": "$18530" },
+        { "detalle": "6X10CM X200", "precio": "$2145" },
+        { "detalle": "10X20CM X100", "precio": "$1920" },
+        { "detalle": "15X20CM X100", "precio": "$2475" },
+        { "detalle": "15X25CM X100", "precio": "$2870" },
+        { "detalle": "20X25CM X100", "precio": "$3975" },
+        { "detalle": "20X30CM X100", "precio": "$4000" },
+        { "detalle": "25X35CM X100", "precio": "$5445" },
+        { "detalle": "30X40CM X100", "precio": "$7535" }
       ]
     },
     {
@@ -25,9 +25,9 @@
       "colores": [],
       "img": "img/Descartables/Pote-Bisagra.webp",
       "presentaciones": [
-        { "detalle": "250CC X100U", "precio": "$28645" },
-        { "detalle": "350CC X100U", "precio": "$30150" },
-        { "detalle": "500CC X100U", "precio": "$37740" }
+        { "detalle": "250CC X100U", "precio": "$34165" },
+        { "detalle": "350CC X100U", "precio": "$34165" },
+        { "detalle": "500CC X100U", "precio": "$42980" }
       ]
     },
     {
@@ -36,9 +36,9 @@
       "colores": [],
       "img": "img/Descartables/Pote-PPP.webp",
       "presentaciones": [
-        { "detalle": "150CC X100U", "precio": "$11330" },
-        { "detalle": "250CC X100U", "precio": "$12600" },
-        { "detalle": "380CC X100U", "precio": "$20525" }
+        { "detalle": "150CC X100U", "precio": "$13020" },
+        { "detalle": "250CC X100U", "precio": "$14750" },
+        { "detalle": "380CC X100U", "precio": "$22795" }
       ]
     },
     {
@@ -46,21 +46,21 @@
       "categoria": "destacables",
       "colores": [],
       "img": "img/Descartables/Tapa-Pote.webp",
-      "presentaciones": [{ "detalle": "150/250/380", "precio": "$7445" }]
+      "presentaciones": [{ "detalle": "150/250/380", "precio": "$8760" }]
     },
     {
       "producto": "BOLSAS DOYPACK",
       "categoria": "destacables",
       "colores": [],
       "img": "img/Descartables/Bolsa-Doypack.webp",
-      "presentaciones": [{ "detalle": "120X182MM X 250ML", "precio": "$245" }]
+      "presentaciones": [{ "detalle": "120X182MM X 250ML", "precio": "$265" }]
     },
     {
       "producto": "BANDEJA C/DIVISIONES",
       "categoria": "destacables",
       "colores": [],
       "img": "img/Descartables/Bandeja-divisora.webp",
-      "presentaciones": [{ "detalle": "N°26 X 1 UND", "precio": "$1080" }]
+      "presentaciones": [{ "detalle": "N°26 X 1 UND", "precio": "$1360" }]
     },
     {
       "producto": "CINTA DE EMBALAR TRANSPARENTE",
@@ -105,9 +105,9 @@
       "colores": [],
       "img": "img/Libreria/Lapices-Colores.webp",
       "presentaciones": [
-        { "detalle": "LARGOS X 12 UNID", "precio": "$1910" },
-        { "detalle": "CORTOS X 12 UNID", "precio": "$1275" },
-        { "detalle": "CORTOS X 6 UND", "precio": "$640" }
+        { "detalle": "LARGOS X 12 UNID", "precio": "$2105" },
+        { "detalle": "CORTOS X 12 UNID", "precio": "$1405" },
+        { "detalle": "CORTOS X 6 UND", "precio": "$705" }
       ]
     },
     {
@@ -116,8 +116,8 @@
       "colores": [],
       "img": "img/Libreria/Marcadores-Fibras.webp",
       "presentaciones": [
-        { "detalle": "X 6", "precio": "$1110" },
-        { "detalle": "X 10", "precio": "$1540" },
+        { "detalle": "X 6", "precio": "$1220" },
+        { "detalle": "X 10", "precio": "$1870" },
         { "detalle": "X 12", "precio": "$2280" }
       ]
     },
@@ -133,7 +133,7 @@
       "categoria": "libreria",
       "colores": ["AMARILLO", "NARANJA"],
       "img": "img/Libreria/Resaltador.webp",
-      "presentaciones": [{ "detalle": "X 10 UNID", "precio": "$7175" }]
+      "presentaciones": [{ "detalle": "X 10 UNID", "precio": "$7860" }]
     },
     {
       "producto": "LAPIZERA MAGICA",
@@ -141,7 +141,7 @@
       "colores": ["AZUL"],
       "img": "img/Libreria/Lapicera-Magica.webp",
       "presentaciones": [
-        { "detalle": "TINTA BORRABLE X 10 UNID", "precio": "$15470" }
+        { "detalle": "TINTA BORRABLE X 10 UNID", "precio": "$16670" }
       ]
     },
     {
@@ -150,7 +150,7 @@
       "colores": ["AZUL"],
       "img": "img/Libreria/Boligrafo-Lapicera.webp",
       "presentaciones": [
-        { "detalle": "TRANSPARENTE X 50 UNID", "precio": "$11080" }
+        { "detalle": "TRANSPARENTE X 50 UNID", "precio": "$11770" }
       ]
     },
     {
@@ -159,7 +159,7 @@
       "colores": ["NEGRO"],
       "img": "img/Libreria/Marcador-Permanente.webp",
       "presentaciones": [
-        { "detalle": "PTA. REDONDA X 12 UNID", "precio": "$9305" }
+        { "detalle": "PTA. REDONDA X 12 UNID", "precio": "$10135" }
       ]
     },
     {
@@ -167,7 +167,7 @@
       "categoria": "libreria",
       "colores": [],
       "img": "img/Libreria/Regla-Rigida.webp",
-      "presentaciones": [{ "detalle": "30CM X UNID", "precio": "$380" }]
+      "presentaciones": [{ "detalle": "30CM X UNID", "precio": "$420" }]
     },
     {
       "producto": "CORRECTOR LIQUIDO",
@@ -181,7 +181,7 @@
       "categoria": "libreria",
       "colores": ["BLANCO"],
       "img": "img/Libreria/Goma-Borrar.webp",
-      "presentaciones": [{ "detalle": "BLANCA X 30UND", "precio": "$5960" }]
+      "presentaciones": [{ "detalle": "BLANCA X 30UND", "precio": "$6465" }]
     },
     {
       "producto": "ABROCHADORA PINZA MINI",
@@ -211,7 +211,7 @@
       "categoria": "libreria",
       "colores": [],
       "img": "img/Libreria/Rollo-Papel-Termico.webp",
-      "presentaciones": [{ "detalle": "57MM X20M X10U", "precio": "$5445" }]
+      "presentaciones": [{ "detalle": "57MM X20M X10U", "precio": "$6525" }]
     },
     {
       "producto": "RECIBO DUPLICADO",
@@ -225,7 +225,7 @@
       "categoria": "libreria",
       "colores": ["NEGRO"],
       "img": "img/Libreria/Lapices-goma.webp",
-      "presentaciones": [{ "detalle": "X 12 UND", "precio": "$1560" }]
+      "presentaciones": [{ "detalle": "X 12 UND", "precio": "$1715" }]
     },
     {
       "producto": "GLOBOS",
@@ -298,14 +298,14 @@
       "categoria": "destacables",
       "colores": [],
       "img": "img/Descartables/Rollo-Aluminio.webp",
-      "presentaciones": [{ "detalle": "30CM X 5MT", "precio": "$1645" }]
+      "presentaciones": [{ "detalle": "30CM X 5MT", "precio": "$2130" }]
     },
     {
       "producto": "GUANTES DE POLIETILENO",
       "categoria": "destacables",
       "colores": [],
       "img": "img/Descartables/Guantes-Polietileno.webp",
-      "presentaciones": [{ "detalle": "A.D X100U", "precio": "$1200" }]
+      "presentaciones": [{ "detalle": "A.D X100U", "precio": "$1300" }]
     },
     {
       "producto": "ENCENDEDOR MAGICLICK FLEXIBLE",
