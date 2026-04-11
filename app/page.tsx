@@ -56,7 +56,7 @@ export default function Home() {
           >
             <div className="relative w-full max-w-[260px] sm:max-w-[320px] md:max-w-[420px] aspect-square">
               <Image
-                src="/hero/manni.png"
+                src="/Hero/Manni.png"
                 alt="Personaje"
                 fill
                 priority
