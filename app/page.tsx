@@ -16,17 +16,13 @@ export default function Home() {
     "/carrusel/varios.jpeg",
   ];
 
-  // TIPADO CORRECTO PARA EVITAR EL ERROR DE TS
   const containerVariants: Variants = {
     initial: { opacity: 0, scale: 0.9, y: 30 },
     whileInView: {
       opacity: 1,
       scale: 1,
       y: 0,
-      transition: {
-        duration: 0.7,
-        ease: "easeOut", // Ahora TS lo acepta porque el objeto es tipo Variants
-      },
+      transition: { duration: 0.7, ease: "easeOut" },
     },
   };
 
@@ -40,7 +36,7 @@ export default function Home() {
 
       <Navbar />
 
-      {/* ── HERO SECTION (RESPONSIVO) ── */}
+      {/* ── HERO SECTION ── */}
       <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-12">
         <div className="absolute inset-0 z-0 pointer-events-none opacity-30">
           <Aurora
@@ -64,6 +60,7 @@ export default function Home() {
                 alt="Personaje"
                 fill
                 priority
+                sizes="(max-width: 768px) 260px, 420px"
                 className="object-contain"
               />
             </div>
@@ -109,7 +106,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── BENTO GRID (RESPONSIVO AL 100%) ── */}
+      {/* ── BENTO GRID ── */}
       <section className="relative z-10 w-full max-w-7xl mx-auto px-6 py-20">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -125,9 +122,7 @@ export default function Home() {
           </p>
         </motion.div>
 
-        {/* Grid dinámico: 1 col en móvil, 2 en tablet, 4 en desktop */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 auto-rows-[200px] md:auto-rows-[250px] gap-4">
-          {/* Card 1: Grande (Azafrán) */}
           <motion.div
             variants={containerVariants}
             initial="initial"
@@ -139,6 +134,7 @@ export default function Home() {
               src={bentoPhotos[0]}
               alt="Azafrán"
               fill
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent p-6 flex flex-col justify-end">
@@ -148,7 +144,6 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Card 2: Chisito */}
           <motion.div
             variants={containerVariants}
             initial="initial"
@@ -160,11 +155,11 @@ export default function Home() {
               src={bentoPhotos[1]}
               alt="Chisito"
               fill
+              sizes="(max-width: 640px) 100vw, 25vw"
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
           </motion.div>
 
-          {/* Card 3: Frutilla (Vertical) */}
           <motion.div
             variants={containerVariants}
             initial="initial"
@@ -176,11 +171,11 @@ export default function Home() {
               src={bentoPhotos[2]}
               alt="Frutilla"
               fill
+              sizes="(max-width: 640px) 100vw, 25vw"
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
           </motion.div>
 
-          {/* Card 4: Galletitas */}
           <motion.div
             variants={containerVariants}
             initial="initial"
@@ -192,11 +187,11 @@ export default function Home() {
               src={bentoPhotos[3]}
               alt="Galletitas"
               fill
+              sizes="(max-width: 640px) 100vw, 25vw"
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
           </motion.div>
 
-          {/* Card 5: Manís */}
           <motion.div
             variants={containerVariants}
             initial="initial"
@@ -208,11 +203,11 @@ export default function Home() {
               src={bentoPhotos[4]}
               alt="Manís"
               fill
+              sizes="(max-width: 640px) 100vw, 25vw"
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
           </motion.div>
 
-          {/* Card 6: Paquetes (Horizontal) */}
           <motion.div
             variants={containerVariants}
             initial="initial"
@@ -224,6 +219,7 @@ export default function Home() {
               src={bentoPhotos[5]}
               alt="Paquetes"
               fill
+              sizes="(max-width: 640px) 100vw, 50vw"
               className="object-cover transition-transform duration-700 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-transparent p-6 flex items-center">
@@ -233,7 +229,6 @@ export default function Home() {
             </div>
           </motion.div>
 
-          {/* Card 7: Varios */}
           <motion.div
             variants={containerVariants}
             initial="initial"
@@ -245,6 +240,7 @@ export default function Home() {
               src={bentoPhotos[6]}
               alt="Surtido"
               fill
+              sizes="(max-width: 640px) 100vw, 25vw"
               className="object-cover transition-transform duration-700 group-hover:scale-110"
             />
           </motion.div>
