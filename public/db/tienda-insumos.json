@@ -352,6 +352,13 @@
       "colores": ["DORADO"],
       "img": "img/Libreria/Puntal-Estrella.webp",
       "presentaciones": [{ "detalle": "15 CM", "precio": "$5085" }]
+    },
+    {
+      "producto": "PAPEL FOTOGRAFICO A4",
+      "categoria": "libreria",
+      "colores": [],
+      "img": "img/Libreria/papel-fotografico.webp",
+      "presentaciones": [{ "detalle": "X100 UNIDADES", "precio": "$38.500" }]
     }
   ]
 }
