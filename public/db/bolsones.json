@@ -4,346 +4,642 @@
       "producto": "Aritos de Miel",
       "categoria": "cereales",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 2KG", "precio": "$ 17.000,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 2KG",
+          "precio": "$ 17.000,00"
+        }
+      ]
     },
     {
       "producto": "Aritos Frutales",
       "categoria": "cereales",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 2KG", "precio": "$ 12.445,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 2KG",
+          "precio": "$ 12.445,00"
+        }
+      ]
     },
     {
       "producto": "Almohaditas",
       "categoria": "cereales",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 2KG", "precio": "$ 14.295,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 2KG",
+          "precio": "$ 14.295,00"
+        }
+      ]
     },
     {
       "producto": "Almohadita Salvado",
       "categoria": "cereales",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 1,5KG", "precio": "$ 13.395,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 1,5KG",
+          "precio": "$ 13.395,00"
+        }
+      ]
     },
     {
       "producto": "Bolita de Chocolate",
       "categoria": "cereales",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 2KG", "precio": "$ 14.030,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 2KG",
+          "precio": "$ 14.030,00"
+        }
+      ]
     },
     {
       "producto": "Copos de Maíz Azucarado",
       "categoria": "cereales",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 2KG", "precio": "$ 11.575,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 2KG",
+          "precio": "$ 11.575,00"
+        }
+      ]
     },
     {
       "producto": "Copos de Maíz sin Azúcar",
       "categoria": "cereales",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 2KG", "precio": "$ 10.025,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 2KG",
+          "precio": "$ 10.025,00"
+        }
+      ]
     },
     {
       "producto": "Chisito",
       "categoria": "snacks",
       "sabores": [],
       "presentaciones": [
-        { "detalle": "X 7KG", "precio": "$ 38.400,00" },
-        { "detalle": "X 5KG", "precio": "$ 27.285,00" }
+        {
+          "detalle": "X 7KG",
+          "precio": "$ 38.400,00"
+        },
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 27.285,00"
+        }
       ]
     },
     {
       "producto": "Puflito",
       "categoria": "snacks",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 7KG", "precio": "$ 46.780,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 7KG",
+          "precio": "$ 46.780,00"
+        }
+      ]
     },
     {
       "producto": "Tutuca Blanca",
       "categoria": "snacks",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 57.280,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 10KG",
+          "precio": "$ 57.280,00"
+        }
+      ]
     },
     {
       "producto": "Papas Españolas y Acanalada",
       "categoria": "snacks",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 56.275,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 56.275,00"
+        }
+      ]
     },
     {
       "producto": "Papas Bastón",
       "categoria": "snacks",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 56.195,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 56.195,00"
+        }
+      ]
     },
     {
       "producto": "Chimichurri",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 191.760,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 25KG",
+          "precio": "$ 198.885,00"
+        }
+      ]
     },
     {
       "producto": "Comino",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 179.520,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 25KG",
+          "precio": "$ 179.520,00"
+        }
+      ]
     },
     {
       "producto": "Condimento para Arroz, Carne, Empanada",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 80.990,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 10KG",
+          "precio": "$ 80.990,00"
+        }
+      ]
     },
     {
       "producto": "Condimento para Pizza",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 156.975,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 25KG",
+          "precio": "$ 156.975,00"
+        }
+      ]
     },
     {
       "producto": "Cúrcuma",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 70.995,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 10KG",
+          "precio": "$ 70.995,00"
+        }
+      ]
     },
     {
       "producto": "Curry",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 60.430,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 60.430,00"
+        }
+      ]
     },
     {
       "producto": "Integral para Chorizo",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 35.575,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 35.575,00"
+        }
+      ]
     },
     {
       "producto": "Hoja de Laurel",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 135.400,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 10KG",
+          "precio": "$ 135.400,00"
+        }
+      ]
     },
     {
       "producto": "Nuez Moscada",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 94.330,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 10KG",
+          "precio": "$ 94.330,00"
+        }
+      ]
     },
     {
       "producto": "Orégano",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 124.345,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 25KG",
+          "precio": "$ 124.345,00"
+        }
+      ]
     },
     {
       "producto": "Perejil",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 57.830,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 66.770,00"
+        }
+      ]
     },
     {
       "producto": "Pimentón",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 169.695,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 25KG",
+          "precio": "$ 169.695,00"
+        }
+      ]
     },
     {
       "producto": "Pimienta Blanca",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 111.000,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 10KG",
+          "precio": "$ 111.000,00"
+        }
+      ]
     },
     {
       "producto": "Pimienta Negra",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 69.150,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 10KG",
+          "precio": "$ 69.150,00"
+        }
+      ]
     },
     {
       "producto": "Provenzal",
       "categoria": "condimentos",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 155.860,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 25KG",
+          "precio": "$ 164.605,00"
+        }
+      ]
     },
     {
       "producto": "Azúcar Impalpable",
       "categoria": "varios",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 35.295,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 10KG",
+          "precio": "$ 35.295,00"
+        }
+      ]
     },
     {
       "producto": "Avena",
       "categoria": "varios",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 81.425,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 25KG",
+          "precio": "$ 81.425,00"
+        }
+      ]
     },
     {
       "producto": "Azúcar Mascabo",
       "categoria": "varios",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 53.960,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 10KG",
+          "precio": "$ 53.960,00"
+        }
+      ]
     },
     {
       "producto": "Polvo para Hornear",
       "categoria": "varios",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 10KG", "precio": "$ 87.665,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 10KG",
+          "precio": "$ 87.665,00"
+        }
+      ]
     },
     {
       "producto": "Proteína de Soja Texturizada",
       "categoria": "varios",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 17.275,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 18.780,00"
+        }
+      ]
     },
     {
       "producto": "Cacao Amargo en Polvo",
       "categoria": "varios",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X KG", "precio": "$ 21.050,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X KG",
+          "precio": "$ 21.050,00"
+        }
+      ]
     },
     {
       "producto": "Coco Rallado",
       "categoria": "varios",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X KG", "precio": "$ 19.705,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X KG",
+          "precio": "$ 19.705,00"
+        }
+      ]
     },
     {
       "producto": "Gelatina sin Sabor",
       "categoria": "varios",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X KG", "precio": "$ 32.085,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X KG",
+          "precio": "$ 32.085,00"
+        }
+      ]
     },
     {
       "producto": "Sal del Himalaya",
       "categoria": "varios",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 17.540,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 17.540,00"
+        }
+      ]
     },
     {
       "producto": "Bicarbonato de Sodio",
       "categoria": "varios",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 18.630,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 18.630,00"
+        }
+      ]
     },
     {
       "producto": "Fécula de Maíz",
       "categoria": "varios",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 25KG", "precio": "$ 70.025,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 25KG",
+          "precio": "$ 70.025,00"
+        }
+      ]
     },
     {
       "producto": "Almendras",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 166.720,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 169.680,00"
+        }
+      ]
     },
     {
       "producto": "Harina de Almendra",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 214.155,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 214.155,00"
+        }
+      ]
     },
     {
       "producto": "Castaña de Caju",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 146.185,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 146.185,00"
+        }
+      ]
     },
     {
       "producto": "Nueces sin Cáscara",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 176.890,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 176.890,00"
+        }
+      ]
     },
     {
       "producto": "Mix Pan Dulce",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 100.725,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 100.725,00"
+        }
+      ]
     },
     {
       "producto": "Mix Tropical",
       "categoria": "semillas",
-      "sabores": ["Maní", "Banana", "Papaya"],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 100.725,00" }]
+      "sabores": [
+        "Maní",
+        "Banana",
+        "Papaya"
+      ],
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 100.725,00"
+        }
+      ]
     },
     {
       "producto": "Mix Secos",
       "categoria": "semillas",
-      "sabores": ["Maní", "Avellana", "Nuez", "Almendra", "Castaña"],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 156.290,00" }]
+      "sabores": [
+        "Maní",
+        "Avellana",
+        "Nuez",
+        "Almendra",
+        "Castaña"
+      ],
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 156.290,00"
+        }
+      ]
     },
     {
       "producto": "Banana Chips",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 121.380,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 129.350,00"
+        }
+      ]
     },
     {
       "producto": "Ciruela",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 69.775,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 69.775,00"
+        }
+      ]
     },
     {
       "producto": "Papaya",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 77.855,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 77.855,00"
+        }
+      ]
     },
     {
       "producto": "Pasas de Uva Morocho",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 38.135,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 38.135,00"
+        }
+      ]
     },
     {
       "producto": "Pasas de Uva Rubia",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 67.725,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 79.330,00"
+        }
+      ]
     },
     {
       "producto": "Semilla de Chía",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 58.505,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 58.505,00"
+        }
+      ]
     },
     {
       "producto": "Semilla de Girasol",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 29.470,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 29.470,00"
+        }
+      ]
     },
     {
       "producto": "Semilla de Lino",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 20.635,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 20.635,00"
+        }
+      ]
     },
     {
       "producto": "Semilla de Sésamo Blanco Integral",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 20.170,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 20.570,00"
+        }
+      ]
     },
     {
       "producto": "Mix de Semillas",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X 5KG", "precio": "$ 33.125,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X 5KG",
+          "precio": "$ 33.580,00"
+        }
+      ]
     },
     {
       "producto": "Mix de Semillas Desayuno",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X KG", "precio": "$ 12.360,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X KG",
+          "precio": "$ 12.360,00"
+        }
+      ]
     },
     {
       "producto": "Mix de Semillas Integral Premium",
       "categoria": "semillas",
       "sabores": [],
-      "presentaciones": [{ "detalle": "X KG", "precio": "$ 15.015,00" }]
+      "presentaciones": [
+        {
+          "detalle": "X KG",
+          "precio": "$ 15.015,00"
+        }
+      ]
     }
   ]
 }

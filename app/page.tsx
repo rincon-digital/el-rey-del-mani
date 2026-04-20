@@ -99,7 +99,7 @@ export default function Home() {
                 href="/tienda-insumos"
                 className="font-ui w-full sm:w-auto text-center px-8 py-3.5 border border-white/10 bg-white/5 backdrop-blur-md text-white text-[0.65rem] tracking-[0.15em] uppercase hover:bg-white/10 transition-all rounded-full"
               >
-                Ver Librería
+                Descartables y Librería
               </Link>
             </div>
           </motion.div>
