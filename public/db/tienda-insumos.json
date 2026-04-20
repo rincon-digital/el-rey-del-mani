@@ -6,17 +6,17 @@
       "colores": [],
       "img": "img/Descartables/Bolsa-PPP.webp",
       "presentaciones": [
-        { "detalle": "35X45CM X100", "precio": "$9710" },
-        { "detalle": "40X50CM X100", "precio": "$13090" },
-        { "detalle": "45X60CM X100", "precio": "$18530" },
-        { "detalle": "6X10CM X200", "precio": "$2145" },
-        { "detalle": "10X20CM X100", "precio": "$1920" },
-        { "detalle": "15X20CM X100", "precio": "$2475" },
-        { "detalle": "15X25CM X100", "precio": "$2870" },
-        { "detalle": "20X25CM X100", "precio": "$3975" },
-        { "detalle": "20X30CM X100", "precio": "$4000" },
-        { "detalle": "25X35CM X100", "precio": "$5445" },
-        { "detalle": "30X40CM X100", "precio": "$7535" }
+        { "detalle": "35X45CM X100", "precio": "$12350" },
+        { "detalle": "40X50CM X100", "precio": "$16650" },
+        { "detalle": "45X60CM X100", "precio": "$23570" },
+        { "detalle": "6X10CM X200", "precio": "$2125" },
+        { "detalle": "10X20CM X100", "precio": "$2440" },
+        { "detalle": "15X20CM X100", "precio": "$3145" },
+        { "detalle": "15X25CM X100", "precio": "$3650" },
+        { "detalle": "20X25CM X100", "precio": "$5060" },
+        { "detalle": "20X30CM X100", "precio": "$5085" },
+        { "detalle": "25X35CM X100", "precio": "$6925" },
+        { "detalle": "30X40CM X100", "precio": "$9580" }
       ]
     },
     {
@@ -36,9 +36,9 @@
       "colores": [],
       "img": "img/Descartables/Pote-PPP.webp",
       "presentaciones": [
-        { "detalle": "150CC X100U", "precio": "$13020" },
-        { "detalle": "250CC X100U", "precio": "$14750" },
-        { "detalle": "380CC X100U", "precio": "$22795" }
+        { "detalle": "150CC X100U", "precio": "$15355" },
+        { "detalle": "250CC X100U", "precio": "$17300" },
+        { "detalle": "380CC X100U", "precio": "$26820" }
       ]
     },
     {
@@ -46,7 +46,7 @@
       "categoria": "destacables",
       "colores": [],
       "img": "img/Descartables/Tapa-Pote.webp",
-      "presentaciones": [{ "detalle": "150/250/380", "precio": "$8760" }]
+      "presentaciones": [{ "detalle": "150/250/380", "precio": "$10350" }]
     },
     {
       "producto": "BOLSAS DOYPACK",
@@ -60,7 +60,7 @@
       "categoria": "destacables",
       "colores": [],
       "img": "img/Descartables/Bandeja-divisora.webp",
-      "presentaciones": [{ "detalle": "N°26 X 1 UND", "precio": "$1360" }]
+      "presentaciones": [{ "detalle": "N°26 X 1 UND", "precio": "$1550" }]
     },
     {
       "producto": "CINTA DE EMBALAR TRANSPARENTE",
