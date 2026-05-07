@@ -71,7 +71,7 @@
         { "detalle": "48MM X 90", "precio": "$3625" },
         { "detalle": "24MM X 40", "precio": "$745" },
         { "detalle": "48MM X 40", "precio": "$1610" },
-        { "detalle": "48MM X 80", "precio": "$2370" }
+        { "detalle": "48MM X 80", "precio": "$2450" }
       ]
     },
     {
@@ -136,7 +136,7 @@
       "presentaciones": [{ "detalle": "X 10 UNID", "precio": "$7860" }]
     },
     {
-      "producto": "LAPIZERA MAGICA",
+      "producto": "LAPICERA MAGICA",
       "categoria": "libreria",
       "colores": ["AZUL"],
       "img": "img/Libreria/Lapicera-Magica.webp",
@@ -218,7 +218,7 @@
       "categoria": "libreria",
       "colores": [],
       "img": "img/Libreria/Recibo-Duplicado.webp",
-      "presentaciones": [{ "detalle": "X UNID", "precio": "$4335" }]
+      "presentaciones": [{ "detalle": "X UNID", "precio": "$4725" }]
     },
     {
       "producto": "LAPICES NEGROS CON GOMA",
@@ -322,7 +322,7 @@
       "colores": [],
       "img": "img/Descartables/Aerosol.webp",
       "presentaciones": [
-        { "detalle": "270 ML TAPA TRANSP X UNID", "precio": "$4470" }
+        { "detalle": "270 ML TAPA TRANSP X UNID", "precio": "$4800" }
       ]
     },
     {
@@ -358,7 +358,7 @@
       "categoria": "libreria",
       "colores": [],
       "img": "img/Libreria/papel-fotografico.webp",
-      "presentaciones": [{ "detalle": "X100 UNIDADES", "precio": "$38.500" }]
+      "presentaciones": [{ "detalle": "X100 UNIDADES", "precio": "$38.670" }]
     }
   ]
 }
