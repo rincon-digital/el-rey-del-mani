@@ -60,7 +60,7 @@
       "categoria": "destacables",
       "colores": [],
       "img": "img/Descartables/Bandeja-divisora.webp",
-      "presentaciones": [{ "detalle": "N°26 X 1 UND", "precio": "$1550" }]
+      "presentaciones": [{ "detalle": "N°26 X 1 UND", "precio": "$1650" }]
     },
     {
       "producto": "CINTA DE EMBALAR TRANSPARENTE",
@@ -70,7 +70,7 @@
       "presentaciones": [
         { "detalle": "48MM X 90", "precio": "$3625" },
         { "detalle": "24MM X 40", "precio": "$745" },
-        { "detalle": "48MM X 40", "precio": "$1610" },
+        { "detalle": "48MM X 40", "precio": "$1655" },
         { "detalle": "48MM X 80", "precio": "$2450" }
       ]
     },
@@ -90,7 +90,7 @@
       "categoria": "destacables",
       "colores": ["NEGRO"],
       "img": "img/Descartables/Precinto-Platico.webp",
-      "presentaciones": [{ "detalle": "2.5MM X100U", "precio": "$890" }]
+      "presentaciones": [{ "detalle": "2.5MM X100U", "precio": "$1030" }]
     },
     {
       "producto": "FAJA CARTÓN GRIS",
@@ -322,7 +322,7 @@
       "colores": [],
       "img": "img/Descartables/Aerosol.webp",
       "presentaciones": [
-        { "detalle": "270 ML TAPA TRANSP X UNID", "precio": "$4800" }
+        { "detalle": "270 ML TAPA TRANSP X UNID", "precio": "$5000" }
       ]
     },
     {
@@ -354,7 +354,7 @@
       "presentaciones": [{ "detalle": "15 CM", "precio": "$5085" }]
     },
     {
-      "producto": "PAPEL FOTOGRAFICO A4",
+      "producto": "PAPEL FOTOGRAFICO A4 ADHESIVO",
       "categoria": "libreria",
       "colores": [],
       "img": "img/Libreria/papel-fotografico.webp",

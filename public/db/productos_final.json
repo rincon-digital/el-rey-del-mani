@@ -62,6 +62,36 @@
       ]
     },
     {
+      "producto": "Maní Cubeteado Caramelizado",
+      "categoria": "snacks",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "150GR",
+          "precio": "$ 2.190,00"
+        },
+        {
+          "detalle": "X KG",
+          "precio": "$ 6.980,00"
+        }
+      ]
+    },
+    {
+      "producto": "Grana de Maní Tostado",
+      "categoria": "snacks",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "150GR",
+          "precio": "$ 2.040,00"
+        },
+        {
+          "detalle": "X KG",
+          "precio": "$ 6.010,00"
+        }
+      ]
+    },
+    {
       "producto": "Palito Salado",
       "categoria": "snacks",
       "sabores": [],
@@ -133,10 +163,6 @@
         {
           "detalle": "100GR",
           "precio": "$ 620,00"
-        },
-        {
-          "detalle": "40GR",
-          "precio": "$ 250,00"
         }
       ]
     },
@@ -147,11 +173,11 @@
       "presentaciones": [
         {
           "detalle": "150GR",
-          "precio": "$ 6.735,00"
+          "precio": "$ 6.860,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 37.330,00"
+          "precio": "$ 38.165,00"
         }
       ]
     },
@@ -999,6 +1025,58 @@
       ]
     },
     {
+      "producto": "Mix Desayuno",
+      "categoria": "snacks",
+      "ingredientes": [
+        "Almendra",
+        "Banana chips",
+        "Castaña de caju",
+        "Maní sin sal",
+        "Arándano",
+        "Copo sin azúcar"
+      ],
+      "presentaciones": [
+        {
+          "detalle": "120GR",
+          "precio": "$ 2.870,00"
+        }
+      ]
+    },
+    {
+      "producto": "Mix Snack Energético",
+      "categoria": "snacks",
+      "ingredientes": [
+        "Almendra",
+        "Nuez mariposa",
+        "Semilla de girasol",
+        "Ciruela"
+      ],
+      "presentaciones": [
+        {
+          "detalle": "200GR",
+          "precio": "$ 4.140,00"
+        }
+      ]
+    },
+    {
+      "producto": "Frutos Secos con Semillas",
+      "categoria": "snacks",
+      "ingredientes": [
+        "Almendra",
+        "Nuez mariposa",
+        "Castaña de caju",
+        "Papaya",
+        "Chía",
+        "Semilla de girasol"
+      ],
+      "presentaciones": [
+        {
+          "detalle": "200GR",
+          "precio": "$ 4.790,00"
+        }
+      ]
+    },
+    {
       "producto": "Mix de Semillas",
       "categoria": "semillas",
       "ingredientes": ["Lino", "Chía", "Girasol", "Sésamo"],
@@ -1263,13 +1341,7 @@
     {
       "producto": "Mix Pan Dulce",
       "categoria": "Frutas Deshidratadas",
-      "ingredientes": [
-        "Almendra",
-        "Nueces",
-        "Castaña",
-        "Pasas",
-        "Frutas Escurridas"
-      ],
+      "ingredientes": [],
       "presentaciones": [
         {
           "detalle": "150GR",
@@ -1339,7 +1411,7 @@
       "presentaciones": [
         {
           "detalle": "150GR",
-          "precio": "$ 2.280,00"
+          "precio": "$ 2.470,00"
         },
         {
           "detalle": "X KG",
@@ -1609,11 +1681,11 @@
       "presentaciones": [
         {
           "detalle": "35GR",
-          "precio": "$ 1.720,00"
+          "precio": "$ 2.200,00"
         },
         {
           "detalle": "Tira",
-          "precio": "$ 2.695,00"
+          "precio": "$ 2.830,00"
         },
         {
           "detalle": "X KG",
@@ -2487,11 +2559,11 @@
       "presentaciones": [
         {
           "detalle": "140GR Doypack",
-          "precio": "$ 1.745,00"
+          "precio": "$ 1.850,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 5.865,00"
+          "precio": "$ 6.240,00"
         }
       ]
     },
