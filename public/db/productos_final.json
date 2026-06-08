@@ -995,7 +995,21 @@
       ]
     },
     {
-      "producto": "Granola Energética y Tropical",
+      "producto": "Granola Energética",
+      "categoria": "cereales",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "170GR",
+          "precio": "$ 3.380,00"
+        },
+        {
+          "detalle": "X KG",
+          "precio": "$ 13.955,00"
+        }
+      ]
+    },   {
+      "producto": "Granola Tropical",
       "categoria": "cereales",
       "sabores": [],
       "presentaciones": [
