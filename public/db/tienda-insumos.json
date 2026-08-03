@@ -204,14 +204,14 @@
       "categoria": "libreria",
       "colores": ["VERDE"],
       "img": "img/Libreria/Resma-A4.webp",
-      "presentaciones": [{ "detalle": "75GRS", "precio": "$11815" }]
+      "presentaciones": [{ "detalle": "75GRS", "precio": "$12000" }]
     },
     {
       "producto": "ROLLO PAPEL TERMICO",
       "categoria": "libreria",
       "colores": [],
       "img": "img/Libreria/Rollo-Papel-Termico.webp",
-      "presentaciones": [{ "detalle": "57MM X20M X10U", "precio": "$6525" }]
+      "presentaciones": [{ "detalle": "57MM X20M X10U", "precio": "$6920" }]
     },
     {
       "producto": "RECIBO DUPLICADO",
@@ -249,7 +249,7 @@
       "categoria": "libreria",
       "colores": ["ROJO", "NARANJA"],
       "img": "img/Libreria/Papel-Crepe.webp",
-      "presentaciones": [{ "detalle": "50 X 200 CM X UNID", "precio": "$665" }]
+      "presentaciones": [{ "detalle": "50 X 200 CM X UNID", "precio": "$670" }]
     },
     {
       "producto": "CARTULINA",
@@ -257,7 +257,7 @@
       "colores": ["AMARILLO", "ROJO"],
       "img": "img/Libreria/Cartulina.webp",
       "presentaciones": [
-        { "detalle": "64 X 44.5 CM X HOJAS", "precio": "$535" }
+        { "detalle": "64 X 44.5 CM X HOJAS", "precio": "$540" }
       ]
     },
     {
@@ -265,7 +265,9 @@
       "categoria": "libreria",
       "colores": ["VERDE CLARO", "VIOLETA"],
       "img": "img/Libreria/Papel-Afiche.webp",
-      "presentaciones": [{ "detalle": "70 X 100 CM X HOJAS", "precio": "$980" }]
+      "presentaciones": [
+        { "detalle": "70 X 100 CM X HOJAS", "precio": "$1000" }
+      ]
     },
     {
       "producto": "SILICONA LIQUIDA",
@@ -305,7 +307,7 @@
       "categoria": "destacables",
       "colores": [],
       "img": "img/Descartables/Guantes-Polietileno.webp",
-      "presentaciones": [{ "detalle": "A.D X100U", "precio": "$1300" }]
+      "presentaciones": [{ "detalle": "A.D X100U", "precio": "$1400" }]
     },
     {
       "producto": "ENCENDEDOR MAGICLICK FLEXIBLE",
@@ -359,6 +361,18 @@
       "colores": [],
       "img": "img/Libreria/papel-fotografico.webp",
       "presentaciones": [{ "detalle": "X100 UNIDADES", "precio": "$38.670" }]
+    },
+    {
+      "producto": "ROLLO ETIQUETAS MOTEX BLANCAS",
+      "categoria": "libreria",
+      "colores": ["BLANCA"],
+      "img": "img/Libreria/Rollo-Etiquetas-Motex.webp",
+      "presentaciones": [
+        {
+          "detalle": "X 10 UN.",
+          "precio": "$5050"
+        }
+      ]
     }
   ]
 }
