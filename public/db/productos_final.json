@@ -2009,7 +2009,25 @@
           "precio": "$ 27.000,00"
         }
       ]
+    },{
+  "producto": "Ruda",
+  "categoria": "remedios materos/teres",
+  "sabores": [],
+  "presentaciones": [
+    {
+      "detalle": "Pote 80GR",
+      "precio": "$ 2.630,00"
     },
+    {
+      "detalle": "Tira x 13 UND",
+      "precio": "$ 3.270,00"
+    },
+    {
+      "detalle": "X KG",
+      "precio": "$ 17.630,00"
+    }
+  ]
+},
     {
       "producto": "Sen",
       "categoria": "remedios materos/teres",
