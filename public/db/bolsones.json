@@ -117,7 +117,7 @@
       "presentaciones": [
         {
           "detalle": "X 5KG",
-          "precio": "$ 69.050,00"
+          "precio": "$ 91.980,00"
         }
       ]
     },
@@ -128,7 +128,7 @@
       "presentaciones": [
         {
           "detalle": "X 5KG",
-          "precio": "$ 68.950,00"
+          "precio": "$ 83.810,00"
         }
       ]
     },
@@ -476,7 +476,11 @@
     {
       "producto": "Mix Tropical",
       "categoria": "semillas",
-      "sabores": ["Maní", "Banana", "Papaya"],
+      "sabores": [
+        "Maní",
+        "Banana",
+        "Papaya"
+      ],
       "presentaciones": [
         {
           "detalle": "X 5KG",
@@ -487,7 +491,13 @@
     {
       "producto": "Mix Secos",
       "categoria": "semillas",
-      "sabores": ["Maní", "Avellana", "Nuez", "Almendra", "Castaña"],
+      "sabores": [
+        "Maní",
+        "Avellana",
+        "Nuez",
+        "Almendra",
+        "Castaña"
+      ],
       "presentaciones": [
         {
           "detalle": "X 5KG",

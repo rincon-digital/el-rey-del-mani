@@ -3,19 +3,23 @@
     {
       "producto": "Maní",
       "categoria": "snacks",
-      "sabores": ["Salado", "Sin Sal", "Crudo"],
+      "sabores": [
+        "Salado",
+        "Sin Sal",
+        "Crudo"
+      ],
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 2.070,00"
+          "precio": "$ 2.160,00"
         },
         {
           "detalle": "250GR",
-          "precio": "$ 2.520,00"
+          "precio": "$ 2.660,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 5.640,00"
+          "precio": "$ 6.230,00"
         }
       ]
     },
@@ -34,15 +38,15 @@
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 2.130,00"
+          "precio": "$ 2.160,00"
         },
         {
           "detalle": "250GR",
-          "precio": "$ 2.610,00"
+          "precio": "$ 2.660,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 6.020,00"
+          "precio": "$ 6.230,00"
         }
       ]
     },
@@ -53,11 +57,11 @@
       "presentaciones": [
         {
           "detalle": "150GR",
-          "precio": "$ 2.120,00"
+          "precio": "$ 2.140,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 6.620,00"
+          "precio": "$ 6.800,00"
         }
       ]
     },
@@ -68,11 +72,11 @@
       "presentaciones": [
         {
           "detalle": "150GR",
-          "precio": "$ 2.270,00"
+          "precio": "$ 2.300,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 7.510,00"
+          "precio": "$ 7.680,00"
         }
       ]
     },
@@ -83,11 +87,11 @@
       "presentaciones": [
         {
           "detalle": "150GR",
-          "precio": "$ 2.100,00"
+          "precio": "$ 2.160,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 6.450,00"
+          "precio": "$ 6.860,00"
         }
       ]
     },
@@ -98,22 +102,25 @@
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 1.930,00"
+          "precio": "$ 1.940,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 5.670,00"
+          "precio": "$ 5.750,00"
         }
       ]
     },
     {
       "producto": "Palito Saborizado",
       "categoria": "snacks",
-      "sabores": ["Pizza", "Jamon"],
+      "sabores": [
+        "Pizza",
+        "Jamon"
+      ],
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 1.930,00"
+          "precio": "$ 1.940,00"
         },
         {
           "detalle": "X KG",
@@ -128,15 +135,15 @@
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 2.000,00"
+          "precio": "$ 2.200,00"
         },
         {
           "detalle": "250GR",
-          "precio": "$ 2.570,00"
+          "precio": "$ 2.650,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 5.640,00"
+          "precio": "$ 6.410,00"
         }
       ]
     },
@@ -256,15 +263,15 @@
       "presentaciones": [
         {
           "detalle": "120GR",
-          "precio": "$ 2.770,00"
+          "precio": "$ 3.440,00"
         },
         {
           "detalle": "60GR",
-          "precio": "$ 1.180,00"
+          "precio": "$ 2.320,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 17.460,00"
+          "precio": "$ 23.090,00"
         }
       ]
     },
@@ -275,11 +282,11 @@
       "presentaciones": [
         {
           "detalle": "150GR",
-          "precio": "$ 3.260,00"
+          "precio": "$ 4.030,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 15.980,00"
+          "precio": "$ 21.090,00"
         }
       ]
     },
@@ -508,7 +515,7 @@
       "categoria": "condimentos",
       "sabores": [],
       "presentaciones": [
-          {
+        {
           "detalle": "150GR",
           "precio": "$ 2.730,00"
         },
@@ -527,7 +534,7 @@
       "categoria": "condimentos",
       "sabores": [],
       "presentaciones": [
-         {
+        {
           "detalle": "150GR",
           "precio": "$ 2.730,00"
         },
@@ -546,7 +553,7 @@
       "categoria": "condimentos",
       "sabores": [],
       "presentaciones": [
-          {
+        {
           "detalle": "150GR",
           "precio": "$ 2.730,00"
         },
@@ -791,7 +798,10 @@
     {
       "producto": "Caldo de Verdura",
       "categoria": "condimentos",
-      "sabores": ["Con Sal", "Sin Sal"],
+      "sabores": [
+        "Con Sal",
+        "Sin Sal"
+      ],
       "presentaciones": [
         {
           "detalle": "x 6 UND",
@@ -921,7 +931,12 @@
     {
       "producto": "Almohadita",
       "categoria": "cereales",
-      "sabores": ["Maní", "Limón", "Frutilla", "Chocolate"],
+      "sabores": [
+        "Maní",
+        "Limón",
+        "Frutilla",
+        "Chocolate"
+      ],
       "presentaciones": [
         {
           "detalle": "250GR",
@@ -1090,7 +1105,12 @@
     {
       "producto": "Mix de Semillas",
       "categoria": "semillas",
-      "ingredientes": ["Lino", "Chía", "Girasol", "Sésamo"],
+      "ingredientes": [
+        "Lino",
+        "Chía",
+        "Girasol",
+        "Sésamo"
+      ],
       "presentaciones": [
         {
           "detalle": "150GR",
@@ -1105,7 +1125,12 @@
     {
       "producto": "Mix de Semillas Desayuno",
       "categoria": "semillas",
-      "ingredientes": ["Amaranto", "Lino", "Chía", "Sésamo Integral"],
+      "ingredientes": [
+        "Amaranto",
+        "Lino",
+        "Chía",
+        "Sésamo Integral"
+      ],
       "presentaciones": [
         {
           "detalle": "150GR",
@@ -1120,7 +1145,12 @@
     {
       "producto": "Mix de Semillas Integral Premium",
       "categoria": "semillas",
-      "ingredientes": ["Lino", "Sésamo Integral", "Amapola", "Zapallo"],
+      "ingredientes": [
+        "Lino",
+        "Sésamo Integral",
+        "Amapola",
+        "Zapallo"
+      ],
       "presentaciones": [
         {
           "detalle": "150GR",
@@ -1188,7 +1218,9 @@
     {
       "producto": "Psyllium Semilla",
       "categoria": "semillas",
-      "sabores": ["Zaragatona"],
+      "sabores": [
+        "Zaragatona"
+      ],
       "presentaciones": [
         {
           "detalle": "150GR",
@@ -1228,11 +1260,11 @@
     },
     {
       "producto": "Cardo Mariano",
-      "categoria": "semillas",
+      "categoria": "remedios materos/teres",
       "sabores": [],
       "presentaciones": [
         {
-          "detalle": "150GR",
+          "detalle": "Pote 50GR",
           "precio": "$ 10.530,00"
         },
         {
@@ -1456,10 +1488,10 @@
       "presentaciones": [
         {
           "detalle": "50GR",
-          "precio": "$ 1.705,00"
+          "precio": "$ 1.860,00"
         },
         {
-          "detalle":"X KG",
+          "detalle": "X KG",
           "precio": "$ 12.180,00"
         }
       ]
@@ -1570,7 +1602,7 @@
         },
         {
           "detalle": "Tira x 13 UND",
-          "precio": "$ 2.810,00"
+          "precio": "$ 3.815,00"
         },
         {
           "detalle": "X KG",
@@ -1586,6 +1618,10 @@
         {
           "detalle": "Pote 50GR",
           "precio": "$ 1.720,00"
+        },
+        {
+          "detalle": "X KG",
+          "precio": "$ 11.085,00"
         },
         {
           "detalle": "Tira x 13 UND",
@@ -1969,6 +2005,10 @@
         {
           "detalle": "Pote 100GR",
           "precio": "$ 3.150,00"
+        },
+        {
+          "detalle": "X KG",
+          "precio": "$ 19.620,00"
         }
       ]
     },
@@ -2009,25 +2049,26 @@
           "precio": "$ 27.000,00"
         }
       ]
-    },{
-  "producto": "Ruda",
-  "categoria": "remedios materos/teres",
-  "sabores": [],
-  "presentaciones": [
-    {
-      "detalle": "Pote 80GR",
-      "precio": "$ 2.630,00"
     },
     {
-      "detalle": "Tira x 13 UND",
-      "precio": "$ 3.270,00"
+      "producto": "Ruda",
+      "categoria": "remedios materos/teres",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "Pote 80GR",
+          "precio": "$ 2.630,00"
+        },
+        {
+          "detalle": "Tira x 13 UND",
+          "precio": "$ 3.270,00"
+        },
+        {
+          "detalle": "X KG",
+          "precio": "$ 17.630,00"
+        }
+      ]
     },
-    {
-      "detalle": "X KG",
-      "precio": "$ 17.630,00"
-    }
-  ]
-},
     {
       "producto": "Sen",
       "categoria": "remedios materos/teres",
@@ -2135,6 +2176,10 @@
         {
           "detalle": "Tira x 13 UND",
           "precio": "$ 9.180,00"
+        },
+        {
+          "detalle": "X KG",
+          "precio": "$ 62.620,00"
         }
       ]
     },
@@ -2194,7 +2239,11 @@
     {
       "producto": "Mezcla Digestiva",
       "categoria": "remedios materos/teres",
-      "ingredientes": ["Burrito", "Poleo", "Manzanilla Flor"],
+      "ingredientes": [
+        "Burrito",
+        "Poleo",
+        "Manzanilla Flor"
+      ],
       "presentaciones": [
         {
           "detalle": "50GR",
@@ -2213,7 +2262,11 @@
     {
       "producto": "Mezcla Acidez",
       "categoria": "remedios materos/teres",
-      "ingredientes": ["Té Verde", "Congorosa", "Manzanilla Flor"],
+      "ingredientes": [
+        "Té Verde",
+        "Congorosa",
+        "Manzanilla Flor"
+      ],
       "presentaciones": [
         {
           "detalle": "50GR",
@@ -2248,7 +2301,7 @@
         },
         {
           "detalle": "X KG",
-          "precio": "$ 38.050,00"
+          "precio": "$ 43.320,00"
         }
       ]
     },
@@ -2474,7 +2527,12 @@
     {
       "producto": "Mix Matero",
       "categoria": "remedios materos/teres",
-      "ingredientes": ["Cedron", "Manzanilla Flor", "Boldo", "Anis en grano"],
+      "ingredientes": [
+        "Cedron",
+        "Manzanilla Flor",
+        "Boldo",
+        "Anis en grano"
+      ],
       "presentaciones": [
         {
           "detalle": "75GR",
@@ -2743,7 +2801,9 @@
     {
       "producto": "Harina de Almendra sin Piel",
       "categoria": "varios",
-      "sabores": ["100% Pura"],
+      "sabores": [
+        "100% Pura"
+      ],
       "presentaciones": [
         {
           "detalle": "17GR Doypack",
@@ -2786,39 +2846,13 @@
       ]
     },
     {
-      "producto": "Factura",
-      "categoria": "panificados",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "x Docena",
-          "precio": "$ 7.000,00"
-        },
-        {
-          "detalle": "x Unidad",
-          "precio": "$ 655,00"
-        }
-      ]
-    },
-    {
-      "producto": "Pan de Leche",
-      "categoria": "panificados",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "x Docena",
-          "precio": "$ 4.375,00"
-        },
-        {
-          "detalle": "x Unidad",
-          "precio": "$ 410,00"
-        }
-      ]
-    },
-    {
       "producto": "Bocaditos",
       "categoria": "panificados",
-      "sabores": ["Comunes", "Hojaldre", "Con Queso"],
+      "sabores": [
+        "Comunes",
+        "Hojaldre",
+        "Con Queso"
+      ],
       "presentaciones": [
         {
           "detalle": "Bocadito Coquito",
@@ -2837,7 +2871,11 @@
     {
       "producto": "Grissines",
       "categoria": "panificados",
-      "sabores": ["Comunes", "Con Queso", "Salvado"],
+      "sabores": [
+        "Comunes",
+        "Con Queso",
+        "Salvado"
+      ],
       "presentaciones": [
         {
           "detalle": "Grissines Comunes",
@@ -2854,65 +2892,13 @@
       ]
     },
     {
-      "producto": "Pan de Hamburguesa",
-      "categoria": "panificados",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "x 4 UND",
-          "precio": "$ 1.375,00"
-        },
-        {
-          "detalle": "x 20 UND Gigantes",
-          "precio": "$ 7.625,00"
-        },
-        {
-          "detalle": "x 30 UND",
-          "precio": "$ 7.625,00"
-        }
-      ]
-    },
-    {
-      "producto": "Pan de Hamburguesa y Pancho",
-      "categoria": "panificados",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "x 6 UND",
-          "precio": "$ 1.625,00"
-        }
-      ]
-    },
-    {
-      "producto": "Pan para Lomito",
-      "categoria": "panificados",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "x 15 UND",
-          "precio": "$ 7.625,00"
-        }
-      ]
-    },
-    {
-      "producto": "Prepizza",
-      "categoria": "panificados",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "x Paquete",
-          "precio": "$ 1.125,00"
-        }
-      ]
-    },
-    {
       "producto": "Pan Rallado",
       "categoria": "panificados",
       "sabores": [],
       "presentaciones": [
         {
           "detalle": "X KG",
-          "precio": "$ 1.750,00"
+          "precio": "$ 1.900,00"
         }
       ]
     },
@@ -3026,54 +3012,6 @@
       ]
     },
     {
-      "producto": "Champiñones al Natural",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "Doypack 300GR",
-          "precio": "$ 3.550,00"
-        },
-        {
-          "detalle": "X KG",
-          "precio": "$ 10.425,00"
-        }
-      ]
-    },
-    {
-      "producto": "Vinagre de Alcohol",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "300ML",
-          "precio": "$ 775,00"
-        }
-      ]
-    },
-    {
-      "producto": "Vinagre de Manzana",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "300ML",
-          "precio": "$ 890,00"
-        }
-      ]
-    },
-    {
-      "producto": "Vinagre de Vino",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "300ML",
-          "precio": "$ 825,00"
-        }
-      ]
-    },
-    {
       "producto": "Jugo de Limón",
       "categoria": "mercaderías varias",
       "sabores": [],
@@ -3111,197 +3049,6 @@
       ]
     },
     {
-      "producto": "Pepinos en Vinagre",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "X KG",
-          "precio": "$ 12.695,00"
-        },
-        {
-          "detalle": "Doypack 300GR",
-          "precio": "$ 4.340,00"
-        }
-      ]
-    },
-    {
-      "producto": "Cebollitas en Vinagre",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "Doypack 300GR",
-          "precio": "$ 3.625,00"
-        },
-        {
-          "detalle": "X KG",
-          "precio": "$ 10.305,00"
-        }
-      ]
-    },
-    {
-      "producto": "Pimentón Rojo al Natural en Salmuera",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "Doypack 300GR",
-          "precio": "$ 1.590,00"
-        },
-        {
-          "detalle": "X KG",
-          "precio": "$ 4.470,00"
-        }
-      ]
-    },
-    {
-      "producto": "Tomate Triturado al Natural",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "Doypack 300GR",
-          "precio": "$ 1.345,00"
-        },
-        {
-          "detalle": "X KG",
-          "precio": "$ 2.710,00"
-        }
-      ]
-    },
-    {
-      "producto": "Aceituna Negra con Carozo",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "X KG",
-          "precio": "$ 6.700,00"
-        },
-        {
-          "detalle": "Doypack 300GR",
-          "precio": "$ 2.485,00"
-        }
-      ]
-    },
-    {
-      "producto": "Aceituna Negra sin Carozo",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "Doypack 300GR",
-          "precio": "$ 2.615,00"
-        },
-        {
-          "detalle": "X KG",
-          "precio": "$ 7.070,00"
-        }
-      ]
-    },
-    {
-      "producto": "Aceituna Negra en Rodaja",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "X KG",
-          "precio": "$ 6.045,00"
-        },
-        {
-          "detalle": "Doypack 300GR",
-          "precio": "$ 2.300,00"
-        }
-      ]
-    },
-    {
-      "producto": "Pickle Mixto con Aceituna Negra",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "X KG",
-          "precio": "$ 4.590,00"
-        },
-        {
-          "detalle": "Doypack 300GR",
-          "precio": "$ 1.865,00"
-        }
-      ]
-    },
-    {
-      "producto": "Aceituna Verde con Carozo",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "Doypack 300GR",
-          "precio": "$ 2.180,00"
-        },
-        {
-          "detalle": "X KG",
-          "precio": "$ 5.630,00"
-        }
-      ]
-    },
-    {
-      "producto": "Aceituna Verde sin Carozo",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "Doypack 300GR",
-          "precio": "$ 2.230,00"
-        },
-        {
-          "detalle": "X KG",
-          "precio": "$ 5.790,00"
-        }
-      ]
-    },
-    {
-      "producto": "Aceituna Verde en Rodaja",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "Doypack 300GR",
-          "precio": "$ 2.180,00"
-        },
-        {
-          "detalle": "X KG",
-          "precio": "$ 5.630,00"
-        }
-      ]
-    },
-    {
-      "producto": "Aceituna Verde Rellena de Morrón",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "Doypack 300GR",
-          "precio": "$ 2.735,00"
-        },
-        {
-          "detalle": "X KG",
-          "precio": "$ 7.480,00"
-        }
-      ]
-    },
-    {
-      "producto": "Aceituna Verde Balde",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "5KG",
-          "precio": "$ 2.410,00"
-        }
-      ]
-    },
-    {
       "producto": "Caramelo de Miel",
       "categoria": "mercaderías varias",
       "sabores": [],
@@ -3309,17 +3056,6 @@
         {
           "detalle": "X KG",
           "precio": "$ 13.680,00"
-        }
-      ]
-    },
-    {
-      "producto": "Aceite de Girasol",
-      "categoria": "mercaderías varias",
-      "sabores": [],
-      "presentaciones": [
-        {
-          "detalle": "900ML",
-          "precio": "$ 2.410,00"
         }
       ]
     },
@@ -3378,7 +3114,10 @@
     {
       "producto": "Sal Marina",
       "categoria": "mercaderías varias",
-      "sabores": ["Fina", "Gruesa"],
+      "sabores": [
+        "Fina",
+        "Gruesa"
+      ],
       "presentaciones": [
         {
           "detalle": "500GR",
@@ -3420,7 +3159,11 @@
     {
       "producto": "Galletitas Diabest",
       "categoria": "galletitas",
-      "sabores": ["Cacao y Avena", "Coco y Avena", "Limón y Avena"],
+      "sabores": [
+        "Cacao y Avena",
+        "Coco y Avena",
+        "Limón y Avena"
+      ],
       "presentaciones": [
         {
           "detalle": "200GR",
