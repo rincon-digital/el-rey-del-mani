@@ -2,10 +2,11 @@
 import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Aurora from "@/components/Aurora";
-import Navbar from "@/components/Navbar";
-import { Search } from "lucide-react";
+import { ChevronDown, Search } from "lucide-react";
 import productosMinoristaRaw from "@/public/db/productos_final.json";
 import productosMayoristaRaw from "@/public/db/bolsones.json";
+import { usePedidoPersistente } from "@/lib/usePedidoPersistente";
+import BotonPedido from "@/components/BotonPedido";
 
 // --- Tipos de Datos ---
 interface Presentacion {
@@ -19,17 +20,6 @@ interface Producto {
   sabores?: string[];
   ingredientes?: string[]; // Agregamos "ingredientes" para los Mix y Especias
   presentaciones: Presentacion[];
-}
-
-interface ProductoEnCarrito {
-  id_carrito: string;
-  producto: string;
-  categoria: string;
-  saborSeleccionado: string;
-  presentacionSeleccionada: string;
-  precioUnitario: number;
-  cantidad: number;
-  tipoVenta: "MINORISTA" | "MAYORISTA";
 }
 
 // --- Parseo seguro del JSON ---
@@ -148,17 +138,39 @@ export default function CatalogoPage() {
   const [busqueda, setBusqueda] = useState("");
   const [scrolled, setScrolled] = useState(false);
   const [modalCategoriasAbierto, setModalCategoriasAbierto] = useState(false);
+  const [filtrosAbiertos, setFiltrosAbiertos] = useState(false);
 
   const [productoSeleccionado, setProductoSeleccionado] =
     useState<Producto | null>(null);
 
-  const [carrito, setCarrito] = useState<ProductoEnCarrito[]>([]);
+  const {
+    carrito,
+    setCarrito,
+    nombreCliente,
+    setNombreCliente,
+    limpiarPedido,
+  } = usePedidoPersistente();
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
-  const [nombreCliente, setNombreCliente] = useState("");
 
   const [saborElegido, setSaborElegido] = useState<string>("");
   const [presentacionElegida, setPresentacionElegida] = useState<number>(0);
   const [cantidadElegida, setCantidadElegida] = useState<number>(1);
+
+  useEffect(() => {
+    const hayModalAbierto =
+      productoSeleccionado !== null ||
+      mostrarCarrito ||
+      modalCategoriasAbierto;
+
+    if (!hayModalAbierto) return;
+
+    const overflowAnterior = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = overflowAnterior;
+    };
+  }, [productoSeleccionado, mostrarCarrito, modalCategoriasAbierto]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -234,6 +246,7 @@ export default function CatalogoPage() {
           presentacionSeleccionada: detallePres,
           precioUnitario: precioNumerico,
           cantidad: cantidadElegida,
+          origen: "ALIMENTOS",
           tipoVenta: tipoCatalogo,
         },
       ];
@@ -254,34 +267,55 @@ export default function CatalogoPage() {
     if (!nombreCliente.trim())
       return alert("Por favor, ingresá tu Nombre o el de tu Empresa.");
 
-    let texto = `¡Hola El Rey Del Maní! 🥜 Soy ${nombreCliente.trim()}.\nQuiero hacer el siguiente pedido:\n\n`;
+    let texto = `Hola El Rey del Maní. Soy ${nombreCliente.trim()}.\nQuiero hacer el siguiente pedido:\n\n`;
 
     carrito.forEach((item) => {
       const tipoTag =
-        item.tipoVenta === "MAYORISTA" ? "[MAYORISTA]" : "[MINORISTA]";
-      texto += `▪️ ${tipoTag} ${item.cantidad}x ${item.producto}\n`;
-      if (item.saborSeleccionado !== "Original") {
+        item.origen === "INSUMOS"
+          ? "[INSUMOS]"
+          : item.tipoVenta === "MAYORISTA"
+            ? "[MAYORISTA]"
+            : "[MINORISTA]";
+      texto += `- ${tipoTag} ${item.cantidad}x ${item.producto}\n`;
+      if (
+        item.saborSeleccionado &&
+        item.saborSeleccionado !== "Original"
+      ) {
         texto += `   Sabor: ${item.saborSeleccionado}\n`;
+      }
+      if (item.colorSeleccionado) {
+        texto += `   Color: ${item.colorSeleccionado}\n`;
       }
       texto += `   Detalle: ${item.presentacionSeleccionada}\n`;
       texto += `   Subtotal: ${formatPrecio(item.precioUnitario * item.cantidad)}\n\n`;
     });
 
-    texto += `*Total a pagar:* ${formatPrecio(totalCarrito)}\n`;
-    texto += `*Método de pago:* Efectivo 💵\n\n¡Muchas gracias!`;
+    texto += `Total a pagar: ${formatPrecio(totalCarrito)}\n`;
+    texto += `Método de pago: Efectivo\n\nMuchas gracias.`;
 
     window.open(
       `https://wa.me/5493704569418?text=${encodeURIComponent(texto)}`,
       "_blank",
     );
+    limpiarPedido();
+    setMostrarCarrito(false);
   };
 
   return (
-    <main className="relative min-h-screen bg-[#050505] text-white selection:bg-red-700 selection:text-white pb-32">
+    <main className="font-ui relative min-h-screen bg-[#050505] text-white selection:bg-red-700 selection:text-white pb-32">
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
         .font-display { font-family: 'Montserrat', sans-serif; }
         .font-ui      { font-family: 'Inter', sans-serif; }
+        .text-shine {
+          background: linear-gradient(120deg, #fff 30%, #eab308 50%, #fff 70%);
+          background-size: 200% auto;
+          -webkit-background-clip: text;
+          background-clip: text;
+          color: transparent;
+          animation: shine 5s linear infinite;
+        }
+        @keyframes shine { to { background-position: 200% center; } }
         
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
@@ -291,8 +325,6 @@ export default function CatalogoPage() {
           scrollbar-width: none;
         }
       `}</style>
-
-      <Navbar />
 
       <div className="fixed inset-0 z-0 pointer-events-none">
         <Aurora
@@ -312,8 +344,8 @@ export default function CatalogoPage() {
               exit={{ opacity: 0, height: 0 }}
               className="text-center mb-10"
             >
-              <h1 className="font-display text-5xl md:text-7xl font-extrabold mb-6 drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
-                Catálogo
+              <h1 className="font-display text-shine text-3xl sm:text-4xl md:text-6xl font-extrabold mb-7 text-balance drop-shadow-[0_0_15px_rgba(255,255,255,0.1)]">
+                SABORES Y PRODUCTOS
               </h1>
 
               <div className="flex justify-center">
@@ -342,33 +374,45 @@ export default function CatalogoPage() {
           )}
         </AnimatePresence>
 
-        <div className="flex flex-col items-center gap-3 mb-8">
-          {PIRAMIDE_CATEGORIAS.map((fila, indexFila) => (
-            <div
-              key={indexFila}
-              className="flex flex-wrap justify-center gap-2 md:gap-3"
-            >
-              {fila.map((cat) => {
-                const isSelected = categoriaSeleccionada === cat;
-                return (
-                  <button
-                    key={cat}
-                    onClick={() => {
-                      setCategoriaSeleccionada(cat);
-                      setBusqueda("");
-                    }}
-                    className={`font-ui text-[0.65rem] sm:text-xs tracking-[0.1em] uppercase px-5 py-3 rounded-full transition-all duration-300 border backdrop-blur-md font-semibold ${
-                      isSelected
-                        ? "bg-yellow-500/20 border-yellow-500 text-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.2)]"
-                        : "bg-black/40 border-white/10 text-white/70 hover:bg-white/10 hover:text-white"
-                    }`}
-                  >
-                    {cat}
-                  </button>
-                );
-              })}
-            </div>
-          ))}
+        <div className="mb-8">
+          <div
+            id="filtros-catalogo"
+            className="flex flex-wrap justify-center gap-2 md:gap-3"
+          >
+            {PIRAMIDE_CATEGORIAS.flat().map((cat, index) => {
+              const isSelected = categoriaSeleccionada === cat;
+              return (
+                <button
+                  key={cat}
+                  onClick={() => {
+                    setCategoriaSeleccionada(cat);
+                    setBusqueda("");
+                    setFiltrosAbiertos(false);
+                  }}
+                  className={`${index >= 3 && !filtrosAbiertos ? "hidden md:inline-flex" : "inline-flex"} items-center justify-center font-ui max-w-full text-[0.6rem] sm:text-xs tracking-[0.08em] sm:tracking-[0.1em] uppercase px-3.5 sm:px-5 py-2.5 sm:py-3 rounded-full transition-all duration-300 border backdrop-blur-md font-semibold text-center ${
+                    isSelected
+                      ? "bg-yellow-500/20 border-yellow-500 text-yellow-500 shadow-[0_0_15px_rgba(234,179,8,0.2)]"
+                      : "bg-black/40 border-white/10 text-white/70 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  {cat}
+                </button>
+              );
+            })}
+          </div>
+
+          <button
+            type="button"
+            onClick={() => setFiltrosAbiertos((abiertos) => !abiertos)}
+            aria-expanded={filtrosAbiertos}
+            aria-controls="filtros-catalogo"
+            className="md:hidden mx-auto mt-4 flex items-center gap-2 rounded-full border border-yellow-500/40 bg-black/50 px-5 py-3 font-ui text-[0.65rem] font-bold tracking-[0.14em] uppercase text-yellow-500 backdrop-blur-md transition-colors hover:bg-yellow-500/10"
+          >
+            {filtrosAbiertos ? "Ver menos" : "Ver más filtros"}
+            <ChevronDown
+              className={`h-4 w-4 transition-transform ${filtrosAbiertos ? "rotate-180" : ""}`}
+            />
+          </button>
         </div>
 
         <div className="flex justify-center mb-12 px-2">
@@ -701,31 +745,10 @@ export default function CatalogoPage() {
       </AnimatePresence>
 
       {/* --- CARRITO (Botón y Modal) --- */}
-      {carrito.length > 0 && (
-        <motion.button
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          onClick={() => setMostrarCarrito(true)}
-          className="fixed bottom-6 right-6 sm:bottom-8 sm:right-8 z-50 bg-white text-black p-4 rounded-full shadow-[0_0_30px_rgba(255,255,255,0.4)] hover:scale-105 transition-transform flex items-center justify-center"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
-            />
-          </svg>
-          <span className="absolute -top-1 -right-1 bg-red-600 text-white font-black text-[10px] w-6 h-6 flex items-center justify-center rounded-full border-2 border-[#050505]">
-            {carrito.reduce((acc, item) => acc + item.cantidad, 0)}
-          </span>
-        </motion.button>
-      )}
+      <BotonPedido
+        cantidad={carrito.reduce((acc, item) => acc + item.cantidad, 0)}
+        onClick={() => setMostrarCarrito(true)}
+      />
 
       <AnimatePresence>
         {mostrarCarrito && (
@@ -767,12 +790,14 @@ export default function CatalogoPage() {
                       className="flex flex-col bg-white/5 p-4 rounded-xl border border-white/5 relative overflow-hidden"
                     >
                       <div
-                        className={`absolute top-0 left-0 w-1 h-full ${item.tipoVenta === "MAYORISTA" ? "bg-yellow-500" : "bg-red-500"}`}
+                        className={`absolute top-0 left-0 w-1 h-full ${item.origen === "INSUMOS" ? "bg-blue-500" : item.tipoVenta === "MAYORISTA" ? "bg-yellow-500" : "bg-red-500"}`}
                       ></div>
                       <div className="flex justify-between items-start mb-2 pl-2">
                         <div className="pr-4">
                           <p className="font-ui text-[0.6rem] tracking-[0.2em] uppercase text-white/40 mb-1">
-                            {item.tipoVenta}
+                            {item.origen === "INSUMOS"
+                              ? "INSUMOS"
+                              : item.tipoVenta}
                           </p>
                           <p className="font-display font-bold text-sm text-white">
                             {item.producto}
@@ -780,9 +805,15 @@ export default function CatalogoPage() {
                           <p className="font-ui text-xs text-white/50 mt-1">
                             {item.presentacionSeleccionada}
                           </p>
-                          {item.saborSeleccionado !== "Original" && (
+                          {item.saborSeleccionado &&
+                            item.saborSeleccionado !== "Original" && (
                             <p className="font-ui text-xs text-yellow-500/80 mt-1 capitalize">
                               Sabor: {item.saborSeleccionado}
+                            </p>
+                          )}
+                          {item.colorSeleccionado && (
+                            <p className="font-ui text-xs text-blue-400/80 mt-1 capitalize">
+                              Color: {item.colorSeleccionado}
                             </p>
                           )}
                         </div>

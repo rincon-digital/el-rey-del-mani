@@ -1,6 +1,5 @@
 "use client";
 import Aurora from "@/components/Aurora";
-import Navbar from "@/components/Navbar";
 import Link from "next/link";
 import Image from "next/image";
 import { motion, Variants } from "framer-motion";
@@ -27,14 +26,12 @@ export default function Home() {
   };
 
   return (
-    <main className="relative w-full min-h-screen bg-[#050505] overflow-x-hidden selection:bg-red-700 selection:text-white flex flex-col items-center">
+    <main className="font-ui relative w-full min-h-screen bg-[#050505] overflow-x-hidden selection:bg-red-700 selection:text-white flex flex-col items-center">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;0,800;1,400;1,600;1,700&family=Syne:wght@400;600;700;800&display=swap');
-        .font-display { font-family: 'Cormorant Garamond', Georgia, serif; }
-        .font-ui      { font-family: 'Syne', sans-serif; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
+        .font-display { font-family: 'Montserrat', sans-serif; }
+        .font-ui      { font-family: 'Inter', sans-serif; }
       `}</style>
-
-      <Navbar />
 
       {/* ── HERO SECTION ── */}
       <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-12">
@@ -93,7 +90,7 @@ export default function Home() {
                 href="/catalogo"
                 className="font-ui w-full sm:w-auto text-center px-8 py-3.5 bg-white text-black text-[0.65rem] tracking-[0.15em] uppercase hover:bg-yellow-500 transition-all font-black rounded-full shadow-lg"
               >
-                Ver Catálogo
+                Ver alimentos
               </Link>
               <Link
                 href="/tienda-insumos"
@@ -247,11 +244,6 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="w-full py-10 flex justify-center border-t border-white/5 opacity-30">
-        <p className="font-ui text-[0.6rem] tracking-[0.4em] uppercase text-white">
-          El Rey del Maní © 2026
-        </p>
-      </footer>
     </main>
   );
 }

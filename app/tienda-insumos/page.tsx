@@ -12,6 +12,8 @@ import {
   MessageCircle,
 } from "lucide-react";
 import tiendaInsumosRaw from "@/public/db/tienda-insumos.json";
+import { usePedidoPersistente } from "@/lib/usePedidoPersistente";
+import BotonPedido from "@/components/BotonPedido";
 
 // --- Interfaces de Datos ---
 interface Presentacion {
@@ -25,16 +27,6 @@ interface Producto {
   img?: string;
   colores: string[];
   presentaciones: Presentacion[];
-}
-
-interface ProductoEnCarrito {
-  id_carrito: string;
-  producto: string;
-  categoria: string;
-  colorSeleccionado: string;
-  presentacionSeleccionada: string;
-  precioUnitario: number;
-  cantidad: number;
 }
 
 // --- Funciones Auxiliares ---
@@ -68,14 +60,32 @@ export default function TiendaInsumosPage() {
   // --- Estados del Carrito y Modal ---
   const [productoSeleccionado, setProductoSeleccionado] =
     useState<Producto | null>(null);
-  const [carrito, setCarrito] = useState<ProductoEnCarrito[]>([]);
+  const {
+    carrito,
+    setCarrito,
+    nombreCliente,
+    setNombreCliente,
+    limpiarPedido,
+  } = usePedidoPersistente();
   const [mostrarCarrito, setMostrarCarrito] = useState(false);
-  const [nombreCliente, setNombreCliente] = useState("");
 
   // Estados de selección dentro del modal
   const [colorElegido, setColorElegido] = useState<string>("");
   const [presentacionElegida, setPresentacionElegida] = useState<number>(0);
   const [cantidadElegida, setCantidadElegida] = useState<number>(1);
+
+  useEffect(() => {
+    const hayModalAbierto = productoSeleccionado !== null || mostrarCarrito;
+
+    if (!hayModalAbierto) return;
+
+    const overflowAnterior = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+
+    return () => {
+      document.body.style.overflow = overflowAnterior;
+    };
+  }, [productoSeleccionado, mostrarCarrito]);
 
   // --- Lógica de Filtrado y Ordenamiento ---
   const productosFiltrados = useMemo(() => {
@@ -149,6 +159,7 @@ export default function TiendaInsumosPage() {
           presentacionSeleccionada: pres.detalle,
           precioUnitario: precioNum,
           cantidad: cantidadElegida,
+          origen: "INSUMOS",
         },
       ];
     });
@@ -159,30 +170,38 @@ export default function TiendaInsumosPage() {
     if (!nombreCliente.trim())
       return alert("Por favor, ingresá tu nombre para confirmar el pedido.");
 
-    let texto = `¡Hola! Soy ${nombreCliente}.\nQuiero hacer un pedido desde el Catálogo Web (Descartables y Librería):\n\n`;
+    let texto = `Hola. Soy ${nombreCliente}.\nQuiero hacer un pedido desde la página web (Alimentos, Insumos y Librería):\n\n`;
 
     carrito.forEach((i) => {
       const detalleColor = i.colorSeleccionado
         ? ` (Color: ${i.colorSeleccionado})`
         : "";
-      texto += `▪️ ${i.cantidad}x ${i.producto}\n   ${i.presentacionSeleccionada}${detalleColor}\n\n`;
+      const detalleSabor =
+        i.saborSeleccionado && i.saborSeleccionado !== "Original"
+          ? ` (Sabor: ${i.saborSeleccionado})`
+          : "";
+      const tipoTag =
+        i.origen === "ALIMENTOS" ? ` [${i.tipoVenta ?? "ALIMENTOS"}]` : "";
+      texto += `-${tipoTag} ${i.cantidad}x ${i.producto}\n   ${i.presentacionSeleccionada}${detalleColor}${detalleSabor}\n\n`;
     });
 
     const total = carrito.reduce(
       (acc, i) => acc + i.precioUnitario * i.cantidad,
       0,
     );
-    texto += `*Total estimado:* ${formatPrecioNum(total)}\n\n¡Muchas gracias!`;
+    texto += `Total estimado: ${formatPrecioNum(total)}\n\nMuchas gracias.`;
 
     window.open(
       `https://wa.me/5493704569418?text=${encodeURIComponent(texto)}`,
       "_blank",
     );
+    limpiarPedido();
+    setMostrarCarrito(false);
   };
 
   const consultarDueño = () => {
     if (!productoSeleccionado) return;
-    const texto = `¡Hola! Tengo una consulta sobre el producto: *${productoSeleccionado.producto}* del catálogo web.`;
+    const texto = `Hola. Tengo una consulta sobre el producto ${productoSeleccionado.producto} de la página web.`;
     window.open(
       `https://wa.me/5493704569418?text=${encodeURIComponent(texto)}`,
       "_blank",
@@ -190,9 +209,9 @@ export default function TiendaInsumosPage() {
   };
 
   return (
-    <main className="relative min-h-screen bg-[#050505] text-white selection:bg-red-700 pb-32 overflow-hidden flex flex-col items-center">
+    <main className="font-ui relative min-h-screen bg-[#050505] text-white selection:bg-red-700 pb-32 overflow-hidden flex flex-col items-center">
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Montserrat:wght@700;800&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Montserrat:wght@600;700;800&display=swap');
         .font-display { font-family: 'Montserrat', sans-serif; }
         .font-ui      { font-family: 'Inter', sans-serif; }
         .text-shine {
@@ -222,7 +241,7 @@ export default function TiendaInsumosPage() {
       <div className="relative z-10 w-full max-w-7xl mx-auto pt-24 px-4 md:px-6">
         {/* HEADER */}
         <header className="text-center mb-16">
-          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold italic uppercase text-shine tracking-tighter mb-8">
+          <h1 className="font-display text-4xl md:text-6xl lg:text-7xl font-extrabold uppercase text-shine tracking-tighter mb-8">
             Descartables y Librería
           </h1>
 
@@ -310,23 +329,11 @@ export default function TiendaInsumosPage() {
         </div>
       </div>
 
-      {/* --- BOTÓN FLOTANTE CARRITO --- */}
-      <AnimatePresence>
-        {carrito.length > 0 && (
-          <motion.button
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            exit={{ scale: 0 }}
-            onClick={() => setMostrarCarrito(true)}
-            className="fixed bottom-8 right-8 z-40 bg-yellow-500 text-black p-4 rounded-full shadow-[0_0_30px_rgba(234,179,8,0.4)] hover:scale-110 transition-transform flex items-center justify-center"
-          >
-            <ShoppingBag size={24} />
-            <span className="absolute -top-2 -right-2 bg-red-600 text-white text-[10px] w-6 h-6 flex items-center justify-center rounded-full border-2 border-[#050505] font-bold">
-              {carrito.reduce((a, b) => a + b.cantidad, 0)}
-            </span>
-          </motion.button>
-        )}
-      </AnimatePresence>
+      {/* --- BOTÓN FLOTANTE DEL PEDIDO GENERAL --- */}
+      <BotonPedido
+        cantidad={carrito.reduce((acc, item) => acc + item.cantidad, 0)}
+        onClick={() => setMostrarCarrito(true)}
+      />
 
       {/* --- MODAL DEL CARRITO --- */}
       <AnimatePresence>
@@ -361,7 +368,7 @@ export default function TiendaInsumosPage() {
                 {carrito.map((item) => (
                   <div
                     key={item.id_carrito}
-                    className="p-4 bg-white/[0.03] rounded-2xl border-l-2 border-yellow-500"
+                    className={`p-4 bg-white/[0.03] rounded-2xl border-l-2 ${item.origen === "ALIMENTOS" ? "border-red-500" : "border-yellow-500"}`}
                   >
                     <div className="flex justify-between items-start mb-2">
                       <p className="font-bold text-sm text-white/90 leading-tight pr-4">
@@ -381,8 +388,14 @@ export default function TiendaInsumosPage() {
                       </button>
                     </div>
                     <p className="text-[0.65rem] text-white/40 uppercase tracking-wider mb-3">
+                      {item.origen === "ALIMENTOS"
+                        ? `${item.tipoVenta ?? "ALIMENTOS"} | `
+                        : "INSUMOS | "}
                       {item.presentacionSeleccionada}{" "}
                       {item.colorSeleccionado && `| ${item.colorSeleccionado}`}
+                      {item.saborSeleccionado &&
+                        item.saborSeleccionado !== "Original" &&
+                        `| ${item.saborSeleccionado}`}
                     </p>
                     <div className="flex justify-between items-center">
                       <span className="text-xs font-medium text-white/60">

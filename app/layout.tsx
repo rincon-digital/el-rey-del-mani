@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Geist } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
 
@@ -31,7 +33,9 @@ export default function RootLayout({
     // Aplicamos la variable de la nueva fuente
     <html lang="es" className={cn("antialiased", inter.variable, "font-sans", geist.variable)}>
       <body className="font-sans bg-[#0a0a0a] text-neutral-200">
+        <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
