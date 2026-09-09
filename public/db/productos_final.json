@@ -3018,7 +3018,7 @@
       "presentaciones": [
         {
           "detalle": "500ML",
-          "precio": "$ 1.950,00"
+          "precio": "$ 2.640,00"
         }
       ]
     },
@@ -3029,7 +3029,7 @@
       "presentaciones": [
         {
           "detalle": "500ML",
-          "precio": "$ 3.725,00"
+          "precio": "$ 4.170,00"
         }
       ]
     },
@@ -3071,13 +3071,13 @@
       ]
     },
     {
-      "producto": "Aceite de Oliva",
+      "producto": "Aceite de Oliva Blend",
       "categoria": "mercaderías varias",
       "sabores": [],
       "presentaciones": [
         {
           "detalle": "250ML",
-          "precio": "$ 2.785,00"
+          "precio": "$ 3.420,00"
         }
       ]
     },
@@ -3168,6 +3168,179 @@
         {
           "detalle": "200GR",
           "precio": "$ 2.580,00"
+        }
+      ]
+    },
+    {
+      "producto": "Agua",
+      "categoria": "mercaderías varias",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "10L",
+          "precio": "$ 4.840,00"
+        }
+      ]
+    },
+    {
+      "producto": "Aceituna Verde",
+      "categoria": "mercaderías varias",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "150GR",
+          "precio": "$ 2.530,00"
+        }
+      ]
+    },
+    {
+      "producto": "Aceituna Verde Descarozadas",
+      "categoria": "mercaderías varias",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "120GR",
+          "precio": "$ 2.550,00"
+        }
+      ]
+    },
+    {
+      "producto": "Aceituna Verde en Rodaja",
+      "categoria": "mercaderías varias",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "120GR",
+          "precio": "$ 2.560,00"
+        }
+      ]
+    },
+    {
+      "producto": "Aceitunas Verdes Rellenas",
+      "categoria": "mercaderías varias",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "150GR",
+          "precio": "$ 3.040,00"
+        }
+      ]
+    },
+    {
+      "producto": "Pickle Mixtos",
+      "categoria": "mercaderías varias",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "150GR",
+          "precio": "$ 2.230,00"
+        }
+      ]
+    },
+    {
+      "producto": "Pepino en Vinagre",
+      "categoria": "mercaderías varias",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "150GR",
+          "precio": "$ 2.860,00"
+        }
+      ]
+    },
+    {
+      "producto": "Cebollita en Vinagre",
+      "categoria": "mercaderías varias",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "150GR",
+          "precio": "$ 2.960,00"
+        }
+      ]
+    },
+    {
+      "producto": "Tomate Triturado Natural en Botella",
+      "categoria": "mercaderías varias",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "500GR",
+          "precio": "$ 2.200,00"
+        },
+        {
+          "detalle": "950GR",
+          "precio": "$ 2.450,00"
+        }
+      ]
+    },
+    {
+      "producto": "Salsa de Soja",
+      "categoria": "mercaderías varias",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "500ML",
+          "precio": "$ 4.580,00"
+        }
+      ]
+    },
+    {
+      "producto": "Vinagre de Manzana",
+      "categoria": "mercaderías varias",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "1L",
+          "precio": "$ 6.000,00"
+        }
+      ]
+    },
+    {
+      "producto": "Jugo de Arándanos con Stevia",
+      "categoria": "mercaderías varias",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "1.5L",
+          "precio": "$ 2.930,00"
+        }
+      ]
+    },
+    {
+      "producto": "Salmuera Parrillera Condimentada",
+      "categoria": "condimentos",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "500ML",
+          "precio": "$ 1.870,00"
+        }
+      ]
+    },
+    {
+      "producto": "Aceite de Girasol Premium",
+      "categoria": "mercaderías varias",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "900ML",
+          "precio": "$ 5.000,00"
+        }
+      ]
+    },
+    {
+      "producto": "Maní Picanchy",
+      "categoria": "snacks",
+      "sabores": [],
+      "presentaciones": [
+        {
+          "detalle": "170GR",
+          "precio": "$ 2.250,00"
+        },
+        {
+          "detalle": "X KG",
+          "precio": "$ 6.800,00"
         }
       ]
     }
