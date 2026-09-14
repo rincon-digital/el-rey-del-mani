@@ -3,23 +3,19 @@
     {
       "producto": "Maní",
       "categoria": "snacks",
-      "sabores": [
-        "Salado",
-        "Sin Sal",
-        "Crudo"
-      ],
+      "sabores": ["Salado", "Sin Sal", "Crudo"],
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 2.160,00"
+          "precio": "$ 2.200,00"
         },
         {
           "detalle": "250GR",
-          "precio": "$ 2.660,00"
+          "precio": "$ 2.700,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 6.230,00"
+          "precio": "$ 6.430,00"
         }
       ]
     },
@@ -38,15 +34,15 @@
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 2.160,00"
+          "precio": "$ 2.200,00"
         },
         {
           "detalle": "250GR",
-          "precio": "$ 2.660,00"
+          "precio": "$ 2.700,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 6.230,00"
+          "precio": "$ 6.430,00"
         }
       ]
     },
@@ -57,11 +53,11 @@
       "presentaciones": [
         {
           "detalle": "150GR",
-          "precio": "$ 2.140,00"
+          "precio": "$ 2.210,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 6.800,00"
+          "precio": "$ 7.270,00"
         }
       ]
     },
@@ -72,11 +68,11 @@
       "presentaciones": [
         {
           "detalle": "150GR",
-          "precio": "$ 2.300,00"
+          "precio": "$ 2.430,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 7.680,00"
+          "precio": "$ 8.600,00"
         }
       ]
     },
@@ -87,11 +83,11 @@
       "presentaciones": [
         {
           "detalle": "150GR",
-          "precio": "$ 2.160,00"
+          "precio": "$ 2.200,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 6.860,00"
+          "precio": "$ 7.070,00"
         }
       ]
     },
@@ -102,25 +98,22 @@
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 1.940,00"
+          "precio": "$ 1.960,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 5.750,00"
+          "precio": "$ 5.850,00"
         }
       ]
     },
     {
       "producto": "Palito Saborizado",
       "categoria": "snacks",
-      "sabores": [
-        "Pizza",
-        "Jamon"
-      ],
+      "sabores": ["Pizza", "Jamon"],
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 1.940,00"
+          "precio": "$ 1.960,00"
         },
         {
           "detalle": "X KG",
@@ -135,15 +128,15 @@
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 2.200,00"
+          "precio": "$ 2.240,00"
         },
         {
           "detalle": "250GR",
-          "precio": "$ 2.650,00"
+          "precio": "$ 2.700,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 6.410,00"
+          "precio": "$ 6.670,00"
         }
       ]
     },
@@ -180,11 +173,11 @@
       "presentaciones": [
         {
           "detalle": "150GR",
-          "precio": "$ 6.860,00"
+          "precio": "$ 7.030,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 38.165,00"
+          "precio": "$ 39.280,00"
         }
       ]
     },
@@ -225,15 +218,15 @@
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 6.440,00"
+          "precio": "$ 7.000,00"
         },
         {
           "detalle": "250GR",
-          "precio": "$ 8.820,00"
+          "precio": "$ 9.700,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 31.775,00"
+          "precio": "$ 34.520,00"
         }
       ]
     },
@@ -244,15 +237,15 @@
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 7.300,00"
+          "precio": "$ 8.050,00"
         },
         {
           "detalle": "250GR",
-          "precio": "$ 10.230,00"
+          "precio": "$ 11.240,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 37.390,00"
+          "precio": "$ 40.620,00"
         }
       ]
     },
@@ -301,11 +294,11 @@
         },
         {
           "detalle": "100GR",
-          "precio": "$ 1.520,00"
+          "precio": "$ 1.550,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 8.090,00"
+          "precio": "$ 8.320,00"
         }
       ]
     },
@@ -316,15 +309,15 @@
       "presentaciones": [
         {
           "detalle": "50GR",
-          "precio": "$ 1.330,00"
+          "precio": "$ 1.340,00"
         },
         {
           "detalle": "120GR",
-          "precio": "$ 1.630,00"
+          "precio": "$ 1.650,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 8.090,00"
+          "precio": "$ 8.320,00"
         }
       ]
     },
@@ -335,15 +328,15 @@
       "presentaciones": [
         {
           "detalle": "40GR",
-          "precio": "$ 1.330,00"
+          "precio": "$ 1.340,00"
         },
         {
           "detalle": "100GR",
-          "precio": "$ 1.880,00"
+          "precio": "$ 1.900,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 9.360,00"
+          "precio": "$ 9.630,00"
         }
       ]
     },
@@ -798,10 +791,7 @@
     {
       "producto": "Caldo de Verdura",
       "categoria": "condimentos",
-      "sabores": [
-        "Con Sal",
-        "Sin Sal"
-      ],
+      "sabores": ["Con Sal", "Sin Sal"],
       "presentaciones": [
         {
           "detalle": "x 6 UND",
@@ -878,15 +868,15 @@
       "presentaciones": [
         {
           "detalle": "250GR",
-          "precio": "$ 2.760,00"
+          "precio": "$ 2.820,00"
         },
         {
           "detalle": "125GR",
-          "precio": "$ 1.850,00"
+          "precio": "$ 1.890,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 8.120,00"
+          "precio": "$ 8.360,00"
         }
       ]
     },
@@ -897,15 +887,15 @@
       "presentaciones": [
         {
           "detalle": "250GR",
-          "precio": "$ 2.500,00"
+          "precio": "$ 2.550,00"
         },
         {
           "detalle": "125GR",
-          "precio": "$ 1.730,00"
+          "precio": "$ 1.750,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 7.100,00"
+          "precio": "$ 7.300,00"
         }
       ]
     },
@@ -916,39 +906,34 @@
       "presentaciones": [
         {
           "detalle": "250GR",
-          "precio": "$ 2.920,00"
+          "precio": "$ 2.980,00"
         },
         {
           "detalle": "125GR",
-          "precio": "$ 1.930,00"
+          "precio": "$ 1.960,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 8.700,00"
+          "precio": "$ 8.950,00"
         }
       ]
     },
     {
       "producto": "Almohadita",
       "categoria": "cereales",
-      "sabores": [
-        "Maní",
-        "Limón",
-        "Frutilla",
-        "Chocolate"
-      ],
+      "sabores": ["Maní", "Limón", "Frutilla", "Chocolate"],
       "presentaciones": [
         {
           "detalle": "250GR",
-          "precio": "$ 3.210,00"
+          "precio": "$ 3.280,00"
         },
         {
           "detalle": "125GR",
-          "precio": "$ 2.080,00"
+          "precio": "$ 2.120,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 9.930,00"
+          "precio": "$ 10.230,00"
         }
       ]
     },
@@ -959,15 +944,15 @@
       "presentaciones": [
         {
           "detalle": "250GR",
-          "precio": "$ 3.365,00"
+          "precio": "$ 3.730,00"
         },
         {
           "detalle": "125GR",
-          "precio": "$ 2.125,00"
+          "precio": "$ 2.330,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 10.425,00"
+          "precio": "$ 11.920,00"
         }
       ]
     },
@@ -997,11 +982,11 @@
       "presentaciones": [
         {
           "detalle": "300GR",
-          "precio": "$ 1.870,00"
+          "precio": "$ 2.000,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 4.425,00"
+          "precio": "$ 4.730,00"
         }
       ]
     },
@@ -1012,11 +997,11 @@
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 3.380,00"
+          "precio": "$ 3.600,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 13.955,00"
+          "precio": "$ 15.270,00"
         }
       ]
     },
@@ -1027,11 +1012,11 @@
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 3.380,00"
+          "precio": "$ 3.600,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 13.955,00"
+          "precio": "$ 15.270,00"
         }
       ]
     },
@@ -1042,11 +1027,11 @@
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 3.470,00"
+          "precio": "$ 3.850,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 14.530,00"
+          "precio": "$ 16.700,00"
         }
       ]
     },
@@ -1064,7 +1049,7 @@
       "presentaciones": [
         {
           "detalle": "120GR",
-          "precio": "$ 2.920,00"
+          "precio": "$ 3.100,00"
         }
       ]
     },
@@ -1105,12 +1090,7 @@
     {
       "producto": "Mix de Semillas",
       "categoria": "semillas",
-      "ingredientes": [
-        "Lino",
-        "Chía",
-        "Girasol",
-        "Sésamo"
-      ],
+      "ingredientes": ["Lino", "Chía", "Girasol", "Sésamo"],
       "presentaciones": [
         {
           "detalle": "150GR",
@@ -1125,12 +1105,7 @@
     {
       "producto": "Mix de Semillas Desayuno",
       "categoria": "semillas",
-      "ingredientes": [
-        "Amaranto",
-        "Lino",
-        "Chía",
-        "Sésamo Integral"
-      ],
+      "ingredientes": ["Amaranto", "Lino", "Chía", "Sésamo Integral"],
       "presentaciones": [
         {
           "detalle": "150GR",
@@ -1145,12 +1120,7 @@
     {
       "producto": "Mix de Semillas Integral Premium",
       "categoria": "semillas",
-      "ingredientes": [
-        "Lino",
-        "Sésamo Integral",
-        "Amapola",
-        "Zapallo"
-      ],
+      "ingredientes": ["Lino", "Sésamo Integral", "Amapola", "Zapallo"],
       "presentaciones": [
         {
           "detalle": "150GR",
@@ -1169,15 +1139,15 @@
       "presentaciones": [
         {
           "detalle": "150GR",
-          "precio": "$ 2.050,00"
+          "precio": "$ 2.190,00"
         },
         {
           "detalle": "Tira x 13 UND",
-          "precio": "$ 2.350,00"
+          "precio": "$ 2.600,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 6.090,00"
+          "precio": "$ 7.050,00"
         }
       ]
     },
@@ -1218,13 +1188,11 @@
     {
       "producto": "Psyllium Semilla",
       "categoria": "semillas",
-      "sabores": [
-        "Zaragatona"
-      ],
+      "sabores": ["Zaragatona"],
       "presentaciones": [
         {
           "detalle": "150GR",
-          "precio": "$ 4.720,00"
+          "precio": "$ 4.780,00"
         }
       ]
     },
@@ -1299,7 +1267,7 @@
       "presentaciones": [
         {
           "detalle": "100GR",
-          "precio": "$ 3.480,00"
+          "precio": "$ 3.520,00"
         },
         {
           "detalle": "X KG",
@@ -1314,11 +1282,11 @@
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 3.950,00"
+          "precio": "$ 4.200,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 16.670,00"
+          "precio": "$ 18.170,00"
         }
       ]
     },
@@ -1409,11 +1377,11 @@
       "presentaciones": [
         {
           "detalle": "125GR",
-          "precio": "$ 3.840,00"
+          "precio": "$ 3.880,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 21.350,00"
+          "precio": "$ 21.740,00"
         }
       ]
     },
@@ -1469,11 +1437,11 @@
       "presentaciones": [
         {
           "detalle": "Pote 50GR",
-          "precio": "$ 1.970,00"
+          "precio": "$ 1.980,00"
         },
         {
           "detalle": "Tira x 13 UND",
-          "precio": "$ 2.890,00"
+          "precio": "$ 2.920,00"
         },
         {
           "detalle": "X KG",
@@ -1522,11 +1490,11 @@
       "presentaciones": [
         {
           "detalle": "60GR",
-          "precio": "$ 2.030,00"
+          "precio": "$ 2.050,00"
         },
         {
           "detalle": "Tira x 13 UND",
-          "precio": "$ 2.690,00"
+          "precio": "$ 2.720,00"
         },
         {
           "detalle": "X KG",
@@ -1560,11 +1528,11 @@
       "presentaciones": [
         {
           "detalle": "Pote 50GR",
-          "precio": "$ 1.880,00"
+          "precio": "$ 2.100,00"
         },
         {
           "detalle": "Tira x 13 UND",
-          "precio": "$  2.630,00"
+          "precio": "$  3.200,00"
         },
         {
           "detalle": "X KG",
@@ -1598,7 +1566,7 @@
       "presentaciones": [
         {
           "detalle": "Pote 50GR",
-          "precio": "$ 2.100,00"
+          "precio": "$ 2.130,00"
         },
         {
           "detalle": "Tira x 13 UND",
@@ -1704,11 +1672,11 @@
       "presentaciones": [
         {
           "detalle": "40GR",
-          "precio": "$ 1.780,00"
+          "precio": "$ 1.800,00"
         },
         {
           "detalle": "Tira x 13 UND",
-          "precio": "$ 2.690,00"
+          "precio": "$ 2.720,00"
         },
         {
           "detalle": "X KG",
@@ -1795,15 +1763,15 @@
       "presentaciones": [
         {
           "detalle": "35GR",
-          "precio": "$ 2.200,00"
+          "precio": "$ 4.390,00"
         },
         {
           "detalle": "Tira",
-          "precio": "$ 2.830,00"
+          "precio": "$ 6.900,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 28.985,00"
+          "precio": "$ 89.000,00"
         }
       ]
     },
@@ -1814,15 +1782,15 @@
       "presentaciones": [
         {
           "detalle": "30GR",
-          "precio": "$ 1.640,00"
+          "precio": "$ 1.650,00"
         },
         {
           "detalle": "Tira x 13 UND",
-          "precio": "$ 2.600,00"
+          "precio": "$ 2.630,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 12.460,00"
+          "precio": "$ 12.730,00"
         }
       ]
     },
@@ -1898,7 +1866,7 @@
         },
         {
           "detalle": "X KG",
-          "precio": "$ 17.950,00"
+          "precio": "$ 18.160,00"
         }
       ]
     },
@@ -1947,15 +1915,15 @@
       "presentaciones": [
         {
           "detalle": "Pote 40GR",
-          "precio": "$ 1.730,00"
+          "precio": "$ 1.750,00"
         },
         {
           "detalle": "Tira x 13 UND",
-          "precio": "$ 2.520,00"
+          "precio": "$ 2.590,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 11.900,00"
+          "precio": "$ 12.420,00"
         }
       ]
     },
@@ -1966,15 +1934,15 @@
       "presentaciones": [
         {
           "detalle": "Pote 100GR",
-          "precio": "$ 2.420,00"
+          "precio": "$ 2.440,00"
         },
         {
           "detalle": "Tira x 13 UND",
-          "precio": "$ 2.560,00"
+          "precio": "$ 2.590,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 12.160,00"
+          "precio": "$ 12.420,00"
         }
       ]
     },
@@ -1989,11 +1957,11 @@
         },
         {
           "detalle": "Tira x 13 UND",
-          "precio": "$ 2.430,00"
+          "precio": "$ 2.460,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 11.170,00"
+          "precio": "$ 11.480,00"
         }
       ]
     },
@@ -2057,15 +2025,15 @@
       "presentaciones": [
         {
           "detalle": "Pote 80GR",
-          "precio": "$ 2.630,00"
+          "precio": "$ 2.700,00"
         },
         {
           "detalle": "Tira x 13 UND",
-          "precio": "$ 3.270,00"
+          "precio": "$ 3.400,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 17.630,00"
+          "precio": "$ 18.600,00"
         }
       ]
     },
@@ -2076,7 +2044,7 @@
       "presentaciones": [
         {
           "detalle": "50GR",
-          "precio": "$ 1.770,00"
+          "precio": "$ 1.820,00"
         },
         {
           "detalle": "Tira",
@@ -2205,11 +2173,11 @@
       "presentaciones": [
         {
           "detalle": "40GR",
-          "precio": "$ 2.120,00"
+          "precio": "$ 2.130,00"
         },
         {
           "detalle": "Tira",
-          "precio": "$ 3.780,00"
+          "precio": "$ 3.800,00"
         },
         {
           "detalle": "X KG",
@@ -2239,11 +2207,7 @@
     {
       "producto": "Mezcla Digestiva",
       "categoria": "remedios materos/teres",
-      "ingredientes": [
-        "Burrito",
-        "Poleo",
-        "Manzanilla Flor"
-      ],
+      "ingredientes": ["Burrito", "Poleo", "Manzanilla Flor"],
       "presentaciones": [
         {
           "detalle": "50GR",
@@ -2262,11 +2226,7 @@
     {
       "producto": "Mezcla Acidez",
       "categoria": "remedios materos/teres",
-      "ingredientes": [
-        "Té Verde",
-        "Congorosa",
-        "Manzanilla Flor"
-      ],
+      "ingredientes": ["Té Verde", "Congorosa", "Manzanilla Flor"],
       "presentaciones": [
         {
           "detalle": "50GR",
@@ -2361,15 +2321,15 @@
       "presentaciones": [
         {
           "detalle": "50GR",
-          "precio": "$ 4.730,00"
+          "precio": "$ 4.000,00"
         },
         {
           "detalle": "Tira x 13 UND",
-          "precio": "$ 8.330,00"
+          "precio": "$ 8.000,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 57.000,00"
+          "precio": "$ 43.000,00"
         }
       ]
     },
@@ -2380,7 +2340,7 @@
       "presentaciones": [
         {
           "detalle": "100GR",
-          "precio": "$ 3.455,00"
+          "precio": "$ 3.500,00"
         },
         {
           "detalle": "Tira x 13 UND",
@@ -2482,7 +2442,7 @@
       "presentaciones": [
         {
           "detalle": "50GR",
-          "precio": "$ 1.980,00"
+          "precio": "$ 2.100,00"
         }
       ]
     },
@@ -2493,15 +2453,15 @@
       "presentaciones": [
         {
           "detalle": "50GR",
-          "precio": "$ 2.300,00"
+          "precio": "$ 2.500,00"
         },
         {
           "detalle": "Tira x 13 UND",
-          "precio": "$ 3.710,00"
+          "precio": "$ 4.240,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 21.150,00"
+          "precio": "$ 25.200,00"
         }
       ]
     },
@@ -2527,12 +2487,7 @@
     {
       "producto": "Mix Matero",
       "categoria": "remedios materos/teres",
-      "ingredientes": [
-        "Cedron",
-        "Manzanilla Flor",
-        "Boldo",
-        "Anis en grano"
-      ],
+      "ingredientes": ["Cedron", "Manzanilla Flor", "Boldo", "Anis en grano"],
       "presentaciones": [
         {
           "detalle": "75GR",
@@ -2559,11 +2514,11 @@
       "presentaciones": [
         {
           "detalle": "80GR",
-          "precio": "$ 2.420,00"
+          "precio": "$ 2.460,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 18.430,00"
+          "precio": "$ 19.100,00"
         }
       ]
     },
@@ -2581,7 +2536,7 @@
       "presentaciones": [
         {
           "detalle": "Fraccionado",
-          "precio": "$ 5.150,00"
+          "precio": "$ 5.770,00"
         }
       ]
     },
@@ -2801,17 +2756,15 @@
     {
       "producto": "Harina de Almendra sin Piel",
       "categoria": "varios",
-      "sabores": [
-        "100% Pura"
-      ],
+      "sabores": ["100% Pura"],
       "presentaciones": [
         {
           "detalle": "17GR Doypack",
-          "precio": "$ 8.865,00"
+          "precio": "$ 10.000,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 46.860,00"
+          "precio": "$ 53.250,00"
         }
       ]
     },
@@ -2848,11 +2801,7 @@
     {
       "producto": "Bocaditos",
       "categoria": "panificados",
-      "sabores": [
-        "Comunes",
-        "Hojaldre",
-        "Con Queso"
-      ],
+      "sabores": ["Comunes", "Hojaldre", "Con Queso"],
       "presentaciones": [
         {
           "detalle": "Bocadito Coquito",
@@ -2871,11 +2820,7 @@
     {
       "producto": "Grissines",
       "categoria": "panificados",
-      "sabores": [
-        "Comunes",
-        "Con Queso",
-        "Salvado"
-      ],
+      "sabores": ["Comunes", "Con Queso", "Salvado"],
       "presentaciones": [
         {
           "detalle": "Grissines Comunes",
@@ -2909,7 +2854,7 @@
       "presentaciones": [
         {
           "detalle": "200GR",
-          "precio": "$ 2.580,00"
+          "precio": "$ 2.700,00"
         }
       ]
     },
@@ -2920,7 +2865,7 @@
       "presentaciones": [
         {
           "detalle": "270GR",
-          "precio": "$ 3.105,00"
+          "precio": "$ 3.150,00"
         }
       ]
     },
@@ -3040,7 +2985,7 @@
       "presentaciones": [
         {
           "detalle": "10L",
-          "precio": "$ 3.375,00"
+          "precio": "$ 4.840,00"
         },
         {
           "detalle": "8L",
@@ -3114,14 +3059,11 @@
     {
       "producto": "Sal Marina",
       "categoria": "mercaderías varias",
-      "sabores": [
-        "Fina",
-        "Gruesa"
-      ],
+      "sabores": ["Fina", "Gruesa"],
       "presentaciones": [
         {
           "detalle": "500GR",
-          "precio": "$ 2.690,00"
+          "precio": "$ 2.830,00"
         }
       ]
     },
@@ -3159,15 +3101,11 @@
     {
       "producto": "Galletitas Diabest",
       "categoria": "galletitas",
-      "sabores": [
-        "Cacao y Avena",
-        "Coco y Avena",
-        "Limón y Avena"
-      ],
+      "sabores": ["Cacao y Avena", "Coco y Avena", "Limón y Avena"],
       "presentaciones": [
         {
           "detalle": "200GR",
-          "precio": "$ 2.580,00"
+          "precio": "$ 2.700,00"
         }
       ]
     },
@@ -3336,11 +3274,11 @@
       "presentaciones": [
         {
           "detalle": "170GR",
-          "precio": "$ 2.250,00"
+          "precio": "$ 2.300,00"
         },
         {
           "detalle": "X KG",
-          "precio": "$ 6.800,00"
+          "precio": "$ 7.150,00"
         }
       ]
     }
