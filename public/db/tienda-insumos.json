@@ -249,7 +249,7 @@
       "categoria": "libreria",
       "colores": ["ROJO", "NARANJA"],
       "img": "img/Libreria/Papel-Crepe.webp",
-      "presentaciones": [{ "detalle": "50 X 200 CM X UNID", "precio": "$670" }]
+      "presentaciones": [{ "detalle": "50 X 200 CM X UNID", "precio": "$730" }]
     },
     {
       "producto": "CARTULINA",
@@ -266,7 +266,7 @@
       "colores": ["VERDE CLARO", "VIOLETA"],
       "img": "img/Libreria/Papel-Afiche.webp",
       "presentaciones": [
-        { "detalle": "70 X 100 CM X HOJAS", "precio": "$1000" }
+        { "detalle": "70 X 100 CM X HOJAS", "precio": "$1030" }
       ]
     },
     {
@@ -282,7 +282,7 @@
       "colores": [],
       "img": "img/Libreria/Pila-Alcalina.webp",
       "presentaciones": [
-        { "detalle": "AA TROQUELADA X 10 UND", "precio": "$8285" },
+        { "detalle": "AA TROQUELADA X 10 UND", "precio": "$9400" },
         { "detalle": "AAA TROQUELADA X 10 UN", "precio": "$9700" }
       ]
     },
@@ -308,15 +308,6 @@
       "colores": [],
       "img": "img/Descartables/Guantes-Polietileno.webp",
       "presentaciones": [{ "detalle": "A.D X100U", "precio": "$1400" }]
-    },
-    {
-      "producto": "ENCENDEDOR MAGICLICK FLEXIBLE",
-      "categoria": "destacables",
-      "colores": [],
-      "img": "img/Descartables/Encendedor-Magiclick.webp",
-      "presentaciones": [
-        { "detalle": "CANDELA LÍNEA HOGAR X UNI", "precio": "$6195" }
-      ]
     },
     {
       "producto": "AEROSOL AROMATIZANTE",
@@ -371,6 +362,18 @@
         {
           "detalle": "X 10 UN.",
           "precio": "$5050"
+        }
+      ]
+    },
+    {
+      "producto": "ETIQUETADORA",
+      "categoria": "libreria",
+      "colores": [],
+      "img": "img/Libreria/Etiquetadora.webp",
+      "presentaciones": [
+        {
+          "detalle": "X UNID",
+          "precio": "$16200"
         }
       ]
     }
